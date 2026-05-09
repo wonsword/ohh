@@ -1,0 +1,2570 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>법무법인 오현 멀티사이트 — 종합 설계 문서 v3.0</title>
+<style>
+  :root{
+    --navy:#1F4E79; --navy-dark:#163b5c; --navy-light:#3B6EA8;
+    --bg:#F8FAFB; --panel:#FFFFFF; --border:#E4E7EB;
+    --text:#1F2933; --muted:#7B8794; --accent:#C0392B;
+    --get:#10B981; --post:#3B82F6; --patch:#F59E0B; --put:#8B5CF6; --delete:#EF4444;
+    --hub:#3B82F6; --major:#F59E0B; --etc:#10B981;
+    --code-bg:#F3F4F6; --code-text:#1F2933;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:140px}
+  body{
+    font-family:'Pretendard','Malgun Gothic','맑은 고딕',-apple-system,sans-serif;
+    background:var(--bg);color:var(--text);font-size:14.5px;line-height:1.6;
+  }
+  .header{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 100%);
+    color:#fff;padding:18px 36px;
+    position:sticky;top:0;z-index:200;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+  }
+  .header h1{font-size:18px;font-weight:700;letter-spacing:-.3px}
+  .header .sub{font-size:11.5px;opacity:.85;margin-top:3px}
+
+  .tabs{
+    background:var(--panel);
+    border-bottom:1px solid var(--border);
+    position:sticky;top:62px;z-index:150;
+    display:flex;overflow-x:auto;padding:0 16px;
+    box-shadow:0 1px 4px rgba(0,0,0,.04);
+  }
+  .tab{
+    padding:14px 18px;cursor:pointer;
+    font-size:13.5px;font-weight:600;color:var(--muted);
+    border-bottom:3px solid transparent;
+    white-space:nowrap;transition:all .15s;user-select:none;
+  }
+  .tab:hover{color:var(--navy);background:#F8FAFC}
+  .tab.active{color:var(--navy);border-bottom-color:var(--navy);background:#F8FAFC}
+
+  .layout{display:grid;grid-template-columns:260px 1fr;max-width:1500px;margin:0 auto}
+  @media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{display:none}}
+
+  .sidebar{
+    position:sticky;top:117px;align-self:start;
+    height:calc(100vh - 117px);overflow-y:auto;
+    padding:20px 12px 20px 20px;
+    border-right:1px solid var(--border);background:var(--panel);
+  }
+  .sidebar h3{
+    font-size:10.5px;font-weight:700;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.5px;
+    margin:14px 0 6px 8px;
+  }
+  .sidebar h3:first-child{margin-top:0}
+  .sidebar a{
+    display:block;padding:5px 10px;
+    color:var(--text);text-decoration:none;
+    font-size:12.5px;border-radius:5px;transition:background .12s;
+  }
+  .sidebar a:hover{background:#F1F5F9;color:var(--navy)}
+
+  main{padding:28px 36px 80px}
+  .tab-content{display:none;animation:fade .2s ease}
+  .tab-content.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+  h2{
+    font-size:22px;font-weight:700;color:var(--navy);
+    margin:36px 0 12px;padding-bottom:8px;
+    border-bottom:2px solid var(--navy);
+  }
+  h2:first-child{margin-top:0}
+  h3{font-size:16.5px;font-weight:700;margin:24px 0 10px;color:var(--text)}
+  h4{font-size:14px;font-weight:700;margin:16px 0 6px;color:var(--navy-dark)}
+  p{margin:5px 0}
+  ul,ol{padding-left:20px;margin:5px 0}
+  li{margin:3px 0}
+
+  .badge{
+    display:inline-block;padding:2px 8px;
+    background:var(--accent);color:#fff;
+    font-size:10.5px;font-weight:600;border-radius:4px;
+    margin-left:6px;vertical-align:middle;
+  }
+  .badge.spec{background:#0EA5E9}
+  .badge.new{background:#10B981}
+  .badge.opt{background:#94A3B8}
+  .badge.hub{background:var(--hub)}
+  .badge.major{background:var(--major)}
+  .badge.etc{background:var(--etc)}
+
+  table{
+    width:100%;border-collapse:collapse;margin:10px 0 18px;
+    background:var(--panel);font-size:12.8px;
+    box-shadow:0 1px 2px rgba(0,0,0,.04);
+  }
+  th{background:var(--navy);color:#fff;padding:9px 11px;text-align:left;font-weight:600;font-size:12px}
+  td{padding:9px 11px;border-bottom:1px solid var(--border);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:#FAFBFC}
+
+  code{font-family:'JetBrains Mono','Consolas',monospace;background:var(--code-bg);padding:2px 6px;border-radius:4px;font-size:12px;color:var(--code-text)}
+  pre{background:#1E293B;color:#E2E8F0;padding:14px 16px;border-radius:8px;overflow-x:auto;font-family:'JetBrains Mono','Consolas',monospace;font-size:12px;line-height:1.55;margin:8px 0 14px}
+  pre code{background:transparent;color:inherit;padding:0}
+
+  .endpoint{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin:8px 0}
+  .endpoint .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .method{display:inline-block;font-family:'JetBrains Mono','Consolas',monospace;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;color:#fff;min-width:60px;text-align:center}
+  .method.GET{background:var(--get)}
+  .method.POST{background:var(--post)}
+  .method.PATCH{background:var(--patch)}
+  .method.PUT{background:var(--put)}
+  .method.DELETE{background:var(--delete)}
+  .endpoint .path{font-family:'JetBrains Mono','Consolas',monospace;font-size:13px;color:var(--text);font-weight:500}
+  .endpoint .desc{font-size:12.5px;color:var(--muted);margin-top:5px;margin-left:70px}
+  .endpoint .perm{font-size:10.5px;background:#FEF3C7;color:#92400E;padding:2px 7px;border-radius:4px;font-weight:600}
+
+  .callout{background:#FFFBEB;border-left:4px solid #F59E0B;padding:11px 14px;border-radius:0 6px 6px 0;margin:12px 0;font-size:13.2px}
+  .callout.info{background:#EFF6FF;border-color:#3B82F6}
+  .callout.success{background:#F0FDF4;border-color:#10B981}
+  .callout.danger{background:#FEF2F2;border-color:#EF4444}
+  .callout strong{color:var(--navy)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:14px 0}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:780px){.grid-2,.grid-3{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:14px 16px}
+  .card h4{margin-top:0;color:var(--navy)}
+  .card.accent{border-left:4px solid var(--navy)}
+  .card.hub{border-left:4px solid var(--hub)}
+  .card.major{border-left:4px solid var(--major)}
+  .card.etc{border-left:4px solid var(--etc)}
+
+  /* === 가독성 좋은 메뉴 트리 (카드형) === */
+  .menu-tree{
+    background:var(--panel);border:1px solid var(--border);
+    border-radius:10px;padding:0;margin:16px 0;overflow:hidden;
+  }
+  .menu-tree-head{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 100%);
+    color:#fff;padding:12px 18px;font-weight:700;font-size:14.5px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .menu-tree-body{padding:0}
+  .menu-item{
+    border-bottom:1px solid var(--border);padding:0;
+  }
+  .menu-item:last-child{border-bottom:none}
+  .menu-l1{
+    display:flex;align-items:center;gap:10px;
+    padding:11px 18px;background:#F8FAFC;
+    font-weight:700;color:var(--navy);font-size:13.5px;
+    border-left:4px solid var(--navy);
+  }
+  .menu-l1 .pill{
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    background:#fff;color:var(--muted);
+    padding:2px 8px;border-radius:4px;font-weight:500;
+    margin-left:auto;
+  }
+  .menu-l2{padding:6px 0 8px}
+  .menu-l2 .item{
+    display:grid;grid-template-columns:24px 1fr auto;
+    gap:8px;padding:5px 22px 5px 30px;
+    font-size:12.8px;align-items:center;
+  }
+  .menu-l2 .item:hover{background:#FAFBFC}
+  .menu-l2 .item .arrow{color:#CBD5E1;font-size:11px}
+  .menu-l2 .item .label{color:var(--text)}
+  .menu-l2 .item .meta{
+    font-family:'JetBrains Mono',monospace;font-size:11.5px;
+    color:var(--muted);background:#F1F5F9;padding:1px 8px;border-radius:4px;
+  }
+
+  /* === 메인 섹션 슬롯 카드 === */
+  .section-slot{
+    background:var(--panel);border:1px solid var(--border);
+    border-radius:10px;margin:12px 0;overflow:hidden;
+  }
+  .section-slot-head{
+    background:#F1F5F9;padding:10px 16px;
+    display:flex;align-items:center;gap:10px;
+    border-bottom:1px solid var(--border);
+  }
+  .section-slot-head .num{
+    background:var(--navy);color:#fff;width:28px;height:28px;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:700;
+  }
+  .section-slot-head .title{font-weight:700;font-size:14px;color:var(--navy)}
+  .section-slot-head .tags{margin-left:auto;display:flex;gap:4px}
+  .section-slot-body{padding:12px 16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  @media(max-width:780px){.section-slot-body{grid-template-columns:1fr}}
+  .section-slot-body .col{font-size:12.5px}
+  .section-slot-body .col-title{font-weight:700;color:var(--navy-dark);font-size:11.5px;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
+  .section-slot-body ul{padding-left:16px;margin:0}
+  .section-slot-body ul li{margin:2px 0}
+
+  /* === 사이트 유형 비교 표 === */
+  .site-type-row{
+    display:grid;grid-template-columns:140px 1fr 1fr 1fr;
+    border-bottom:1px solid var(--border);
+  }
+  .site-type-row.head{
+    background:var(--navy);color:#fff;font-weight:700;font-size:12px;
+  }
+  .site-type-row.head > div{padding:10px 12px;border-right:1px solid rgba(255,255,255,.15)}
+  .site-type-row > div{padding:10px 12px;border-right:1px solid var(--border);font-size:12.5px}
+  .site-type-row > div:last-child{border-right:none}
+  .site-type-row .label{font-weight:700;color:var(--navy);background:#F8FAFC}
+  .site-type-row .yes{color:#10B981;font-weight:700}
+  .site-type-row .no{color:#EF4444}
+  .site-type-row .partial{color:#F59E0B;font-weight:700}
+
+  /* === 데이터 모델 카드 === */
+  .entity-card{
+    background:var(--panel);border:1px solid var(--border);
+    border-radius:8px;padding:0;margin:8px 0;overflow:hidden;
+  }
+  .entity-card .ec-head{
+    background:#F1F5F9;padding:8px 14px;border-bottom:1px solid var(--border);
+    display:flex;align-items:center;gap:10px;
+  }
+  .entity-card .ec-name{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--navy);font-size:13px}
+  .entity-card .ec-role{color:var(--muted);font-size:11.5px}
+  .entity-card .ec-body{padding:10px 14px;font-size:12.5px}
+  .entity-card .ec-body code{font-size:11.5px}
+
+  /* === ERD 다이어그램 === */
+  .erd-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;
+    margin:14px 0;
+  }
+  .erd-node{
+    background:var(--panel);border:2px solid var(--navy);
+    border-radius:8px;padding:8px 12px;
+  }
+  .erd-node .name{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--navy);font-size:12.5px;margin-bottom:4px}
+  .erd-node .rels{font-size:11.5px;color:var(--muted)}
+  .erd-node .rels .rel{display:block;padding:1px 0}
+  .erd-node.lawyer{border-color:#3B82F6}
+  .erd-node.lawyer .name{color:#3B82F6}
+  .erd-node.case{border-color:#F59E0B}
+  .erd-node.case .name{color:#F59E0B}
+  .erd-node.site{border-color:var(--navy)}
+  .erd-node.aux{border-color:#10B981}
+  .erd-node.aux .name{color:#059669}
+
+  hr{border:0;border-top:1px solid var(--border);margin:28px 0}
+
+  .toc-jump{
+    display:inline-block;background:#EFF6FF;color:#1E40AF;
+    padding:1px 7px;border-radius:4px;text-decoration:none;
+    font-size:11px;font-weight:600;margin-right:4px;
+  }
+  .toc-jump:hover{background:#DBEAFE}
+
+  .phase{display:inline-block;padding:2px 9px;border-radius:12px;font-size:11px;font-weight:600}
+  .phase.m1{background:#DBEAFE;color:#1E40AF}
+  .phase.m2{background:#DCFCE7;color:#166534}
+  .phase.m3{background:#FEF3C7;color:#92400E}
+  .phase.m4{background:#FCE7F3;color:#9D174D}
+  .phase.m5{background:#E0E7FF;color:#3730A3}
+
+  .pdf-callout{
+    background:linear-gradient(135deg,#FEF3C7 0%,#FDE68A 100%);
+    border-left:4px solid #F59E0B;
+    padding:10px 14px;border-radius:0 6px 6px 0;
+    margin:10px 0;font-size:12.5px;
+  }
+  .pdf-callout::before{content:"📄 ";font-weight:700}
+  .pdf-callout strong{color:#92400E}
+
+  @media print{
+    .sidebar,.header,.tabs{display:none}
+    main{padding:0}
+    .tab-content{display:block!important}
+    .endpoint,table{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1>법무법인 오현 멀티사이트 — 종합 설계 문서</h1>
+  <div class="sub">28개 사이트 통합 관리 CMS · 시크릿에이 김석원 · 2026-05-06 · v3.0 (홈페이지 개발 PDF 반영)</div>
+</header>
+
+<nav class="tabs" id="tabnav">
+  <div class="tab active" data-tab="overview">📊 개요</div>
+  <div class="tab" data-tab="sites">🌐 사이트 구조</div>
+  <div class="tab" data-tab="site-types">🎯 사이트 유형 3종</div>
+  <div class="tab" data-tab="main-sections">🏠 메인 섹션 11개</div>
+  <div class="tab" data-tab="public-menu">🧭 사용자 메뉴</div>
+  <div class="tab" data-tab="admin-menu">⚙️ 어드민 메뉴</div>
+  <div class="tab" data-tab="features">🛠 기능 명세</div>
+  <div class="tab" data-tab="api">🔌 API</div>
+  <div class="tab" data-tab="data">🗄 데이터 모델</div>
+  <div class="tab" data-tab="permissions">🔐 권한</div>
+  <div class="tab" data-tab="schedule">📅 개발 일정</div>
+</nav>
+
+<div class="layout">
+<aside class="sidebar" id="sidebar"></aside>
+<main>
+
+<!-- ============================================================ -->
+<!-- TAB 1: 개요                                                  -->
+<!-- ============================================================ -->
+<div id="tab-overview" class="tab-content active">
+  <h2 id="ov-summary">프로젝트 요약</h2>
+  <p>법무법인 오현의 멀티사이트 CMS 구축. 한 번 데이터를 입력하면 28개 사이트 전체에 동기화되는 OSMU(One Source Multi-Use) 구조.</p>
+
+  <div class="pdf-callout"><strong>v3.0 변경:</strong> 「홈페이지 개발」 PDF의 모든 admin 요구사항 반영. 사이트 유형 3종(허브/민형경/기타)으로 분리, 메인 섹션 11개 슬롯 상세화, 상담 이메일 시스템·구성원 마크·팝업·우측 CTA 등 신규 기능 추가.</div>
+
+  <div class="grid grid-2">
+    <div class="card accent">
+      <h4>🏗 사이트 구성</h4>
+      <ul>
+        <li>허브 사이트 1개 (통합 진입점·어그리게이터)</li>
+        <li>그룹 사이트 26개 (분야별, 유형 2종으로 분리)</li>
+        <li>관리자 사이트 1개 (어드민 CMS)</li>
+        <li><strong>= 총 28개 사이트</strong></li>
+      </ul>
+    </div>
+    <div class="card accent">
+      <h4>⚡ 기술 스택</h4>
+      <ul>
+        <li><strong>Web</strong>: Next.js 14+ (App Router, SSG/ISR)</li>
+        <li><strong>Admin API</strong>: NestJS + Prisma</li>
+        <li><strong>DB</strong>: PostgreSQL (AWS RDS Seoul)</li>
+        <li><strong>방어</strong>: Cloudflare (DDoS·WAF·캐시)</li>
+        <li><strong>저장소</strong>: AWS S3 / Cloudflare R2</li>
+        <li><strong>Monorepo</strong>: Turborepo</li>
+      </ul>
+    </div>
+    <div class="card accent">
+      <h4>🛡 보안 아키텍처</h4>
+      <ul>
+        <li>Cloudflare 방어층 + 한국 데이터 주권</li>
+        <li>스팸봇 자동 차단 (Google·Naver·AI 크롤러는 허용)</li>
+        <li>어드민 보호 → Cloudflare Access (이메일+OTP)</li>
+        <li>오리진 보호 → Cloudflare Tunnel (인바운드 0)</li>
+      </ul>
+    </div>
+    <div class="card accent">
+      <h4>📐 핵심 설계 원칙</h4>
+      <ul>
+        <li>사이트 유형 3종 템플릿 (허브 / 민형경 / 기타)</li>
+        <li>변호사 = 글로벌 마스터 (N:M, 사이트별 우선순위)</li>
+        <li>업무사례 = 다중 사이트 동시 송출 (OSMU)</li>
+        <li>한 번 입력 → 모든 사이트 자동 동기화</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 id="ov-milestone">📅 마일스톤 (계약서 제3조)</h2>
+  <table>
+    <thead><tr><th>단계</th><th>달성 조건</th><th>비율</th><th>금액(VAT 포함)</th></tr></thead>
+    <tbody>
+      <tr><td><span class="phase m1">M1</span></td><td>계약 체결</td><td>10%</td><td>₩6,050,000</td></tr>
+      <tr><td><span class="phase m2">M2</span></td><td>허브 1개 + 그룹 3개 + CMS 기본 구조</td><td>20%</td><td>₩12,100,000</td></tr>
+      <tr><td><span class="phase m3">M3</span></td><td>그룹 누적 13개 + OSMU 동작 확인</td><td>20%</td><td>₩12,100,000</td></tr>
+      <tr><td><span class="phase m4">M4</span></td><td>그룹 누적 23개 + 별첨1 전 기능 구현</td><td>20%</td><td>₩12,100,000</td></tr>
+      <tr><td><span class="phase m5">M5</span></td><td>27개 사이트 + 최종 테스트 + 갑 승인</td><td>30%</td><td>₩18,150,000</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="ov-pdf-summary">📄 「홈페이지 개발」 PDF 핵심 요구사항</h2>
+  <div class="grid grid-2">
+    <div class="card hub">
+      <h4>🔵 허브 (1개)</h4>
+      <ul>
+        <li>메인 11개 섹션 (오현 성과데이터 포함)</li>
+        <li>13개 페이지 (인재채용 포함)</li>
+        <li>유튜브 링크 영역 추가</li>
+      </ul>
+    </div>
+    <div class="card major">
+      <h4>🟠 민사·형사·경제범죄 (3개)</h4>
+      <ul>
+        <li>메인 11개 섹션 (오현강점·구성원 4분할·업무분야 세부)</li>
+        <li>11개 페이지 (경제범죄만 12개 = 최신사기유형 추가)</li>
+      </ul>
+    </div>
+    <div class="card etc">
+      <h4>🟢 기타 (23개)</h4>
+      <ul>
+        <li>메인 10개 섹션 (오현강점 없음)</li>
+        <li>11개 페이지 (인재채용 없음)</li>
+      </ul>
+    </div>
+    <div class="card accent">
+      <h4>🔧 핵심 admin 기능 (PDF 발췌)</h4>
+      <ul>
+        <li>메인스킨: 이미지+문구 인터랙티브, 실시간 수정</li>
+        <li>오현 성과데이터: 4개 카운터 admin 직접 수정</li>
+        <li>의뢰인후기: admin 선별 노출 (제목만)</li>
+        <li>구성원: 직책별 마크 admin 등록·관리</li>
+        <li>업무분야 센터: 동적 추가 (40+ 대비 정렬·검색)</li>
+        <li>업무사례: 카테고리·고정·검색 admin</li>
+        <li>전국지도: admin 추가, 사진+ALT</li>
+        <li>법률지식인: 사이트별 카테고리 상단 고정</li>
+        <li>상담 이메일: 수신인 admin 일괄 관리</li>
+        <li>팝업: 슬라이드 전환 + 클릭 링크</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 2: 사이트 구조                                            -->
+<!-- ============================================================ -->
+<div id="tab-sites" class="tab-content">
+  <h2 id="st-overview">사이트 구조 개요</h2>
+  <p>총 28개 사이트. 분야별 별도 루트 도메인 패턴(대륜 표준).</p>
+
+  <div class="grid grid-3">
+    <div class="card hub"><h4>🏠 허브 1개</h4><p>전체 통합 진입점. 모든 그룹 사이트 사례·변호사 어그리게이션. 11개 섹션 + 13개 페이지.</p></div>
+    <div class="card major"><h4>📂 민형경 3개</h4><p>민사 / 형사 / 경제범죄. 11개 섹션 + 4분할 구성원 슬라이더. 경제범죄는 「최신사기유형」 페이지 추가.</p></div>
+    <div class="card etc"><h4>📂 기타 23개</h4><p>23개 분야. 10개 섹션 (오현강점 없음). 11개 페이지.</p></div>
+  </div>
+
+  <h2 id="st-domain">🌐 도메인 매핑표 (전체 28개)</h2>
+  <p>오현 26개 분야 + 허브 + 어드민. 권장 명명 규칙: <code>ohyunlaw-{영문분야}.com</code></p>
+
+  <table>
+    <thead><tr><th width="40">No.</th><th width="200">사이트명</th><th width="80">유형</th><th width="280">권장 도메인</th><th>대륜 매칭</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>허브 홈페이지</td><td><span class="badge hub">허브</span></td><td><code>www.ohyunlaw.com</code></td><td><code>daeryunlaw.com</code></td></tr>
+      <tr><td>1</td><td>형사그룹</td><td><span class="badge major">민형경</span></td><td><code>ohyunlaw-criminal.com</code></td><td><code>daeryunlaw-detective.com</code></td></tr>
+      <tr><td>2</td><td>경제범죄그룹</td><td><span class="badge major">민형경</span></td><td><code>ohyunlaw-economic.com</code></td><td>★ 신규</td></tr>
+      <tr><td>3</td><td>명예훼손그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-defamation.com</code></td><td>★ 신규</td></tr>
+      <tr><td>4</td><td>성범죄그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-assault.com</code></td><td><code>daeryunlaw-assault.com</code></td></tr>
+      <tr><td>5</td><td>마약그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-drug.com</code></td><td><code>daeryunlaw-drug.com</code></td></tr>
+      <tr><td>6</td><td>음주·교통사고그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-traffic.com</code></td><td><code>daeryunlaw-traffic.com</code></td></tr>
+      <tr><td>7</td><td>학교폭력그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-school.com</code></td><td><code>daeryunlaw-school.com</code></td></tr>
+      <tr><td>8</td><td>군인·국방그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-military.com</code></td><td><code>daeryunlaw-military.com</code></td></tr>
+      <tr><td>9</td><td>민사소송·조정그룹</td><td><span class="badge major">민형경</span></td><td><code>ohyunlaw-civil.com</code></td><td><code>daeryunlaw-compensation.com</code></td></tr>
+      <tr><td>10</td><td>채권추심그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-debt.com</code></td><td>★ 신규</td></tr>
+      <tr><td>11</td><td>이혼·가사그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-divorce.com</code></td><td><code>daeryunlaw-divorce.com</code></td></tr>
+      <tr><td>12</td><td>상속·신탁그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-inherit.com</code></td><td><code>daeryunlaw-inherit.com</code></td></tr>
+      <tr><td>13</td><td>기업법무·M&A그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-corp.com</code></td><td><code>daeryunlaw-comp.com</code></td></tr>
+      <tr><td>14</td><td>금융·조세그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-finance.com</code></td><td><code>daeryunlaw-finance/-tax</code></td></tr>
+      <tr><td>15</td><td>공정거래·프랜차이즈그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-franchise.com</code></td><td><code>daeryunlaw-trade.com</code></td></tr>
+      <tr><td>16</td><td>법인회생·파산그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-rehab.com</code></td><td><code>daeryunlaw-regener.com</code></td></tr>
+      <tr><td>17</td><td>국제거래·관세그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-intl.com</code></td><td><code>daeryunlaw-international.com</code></td></tr>
+      <tr><td>18</td><td>디지털자산·핀테크그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-fintech.com</code></td><td><code>daeryunlaw-digital.com</code></td></tr>
+      <tr><td>19</td><td>부동산·건설그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-estate.com</code></td><td><code>daeryunlaw-estate.com</code></td></tr>
+      <tr><td>20</td><td>노동·산재그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-labor.com</code></td><td><code>daeryunlaw-labor.com</code></td></tr>
+      <tr><td>21</td><td>중대재해·산업안전그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-safety.com</code></td><td><code>daeryunlaw-sapa.com</code></td></tr>
+      <tr><td>22</td><td>의료·헬스케어그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-medical.com</code></td><td><code>daeryunlaw-medical.com</code></td></tr>
+      <tr><td>23</td><td>지식재산권그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-ip.com</code></td><td><code>daeryunlaw-iprs.com</code></td></tr>
+      <tr><td>24</td><td>행정·헌법그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-administration.com</code></td><td><code>daeryunlaw-administration.com</code></td></tr>
+      <tr><td>25</td><td>이민·해외투자그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-immigration.com</code></td><td><code>daeryunlaw-immigrant.com</code></td></tr>
+      <tr><td>26</td><td>채권추심센터</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-debt-center.com</code></td><td>★ 신규</td></tr>
+      <tr><td>A</td><td>어드민</td><td>내부</td><td><code>admin.ohyunlaw.com</code></td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="st-phone-mapping">📞 분야별 대표 전화번호 매핑</h2>
+  <p>PDF 「★온라인 상담 접수」 항목 기준.</p>
+  <table>
+    <thead><tr><th width="200">분야</th><th width="200">대표번호</th><th>비고</th></tr></thead>
+    <tbody>
+      <tr><td>이혼·가사</td><td><code>1661-5435</code></td><td>이혼 단독 전용 회선</td></tr>
+      <tr><td>부동산·건설</td><td><code>1833-7186</code></td><td>부동산 단독 전용 회선</td></tr>
+      <tr><td>나머지 24개 + 허브</td><td><code>1661-2661</code></td><td>공용 대표번호 (이혼·부동산 제외)</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="st-page-tree">📄 사이트별 페이지 구조</h2>
+
+  <h3>허브 사이트 (13개 페이지)</h3>
+  <div class="menu-tree">
+    <div class="menu-tree-head">🏠 www.ohyunlaw.com</div>
+    <div class="menu-tree-body">
+      <div class="menu-item">
+        <div class="menu-l1">📍 오현소개 <span class="pill">/about</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">소개</span><span class="meta">/about/intro</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">오현 강점</span><span class="meta">/about/strength</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">오시는 길</span><span class="meta">/about/location</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">구성원 소개</span><span class="meta">/lawyers</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📋 업무사례 <span class="pill">/cases</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">사례분석/최신동향 (칼럼)</span><span class="meta">/insights</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">업무사례</span><span class="meta">/cases</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📚 법률정보 <span class="pill">/legal-info</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">💡 법률지식인 <span class="pill">/faq</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">🏷 업무분야 <span class="pill">/fields</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📰 소식 <span class="pill">/news</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">의뢰인 후기</span><span class="meta">/reviews</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">언론보도</span><span class="meta">/news?type=press</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">인재채용 (허브 전용)</span><span class="meta">/news?type=careers</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📞 고객상담 <span class="pill">/contact</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3>민사·형사·경제범죄 그룹 (11~12개 페이지)</h3>
+  <div class="menu-tree">
+    <div class="menu-tree-head">📂 ohyunlaw-civil/criminal/economic.com</div>
+    <div class="menu-tree-body">
+      <div class="menu-item">
+        <div class="menu-l1">📍 오현소개 <span class="pill">허브와 동일</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">소개</span><span class="meta">/about/intro</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">오시는 길</span><span class="meta">/about/location</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">구성원 소개</span><span class="meta">/lawyers</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📋 업무사례 <span class="pill">허브와 동일</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">사례분석/최신동향</span><span class="meta">/insights</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">업무사례</span><span class="meta">/cases</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📚 법률정보 <span class="pill">허브와 동일</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">💡 법률지식인 <span class="pill">허브와 동일</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">🏷 업무분야 <span class="pill">/fields</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">업무분야</span><span class="meta">/fields</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label" style="color:#C0392B;font-weight:700">최신사기유형 (경제범죄 전용)</span><span class="meta">/fields/fraud-types</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📰 소식</div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">의뢰인 후기</span><span class="meta">/reviews</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">언론보도</span><span class="meta">/news?type=press</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📞 고객상담 <span class="pill">/contact</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3>기타 23개 그룹 (11개 페이지)</h3>
+  <div class="menu-tree">
+    <div class="menu-tree-head">📂 ohyunlaw-{기타분야}.com</div>
+    <div class="menu-tree-body">
+      <div class="menu-item">
+        <div class="menu-l1">민형경과 동일하되 「최신사기유형」 없음 / 「오현강점」 메인 노출 없음</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 3: 사이트 유형 3종                                        -->
+<!-- ============================================================ -->
+<div id="tab-site-types" class="tab-content">
+  <h2 id="tp-overview">사이트 유형 3종 차이점</h2>
+  <p>PDF 「홈페이지 개발」에 명시된 3개 템플릿. CMS는 <code>Site.template</code> 필드로 분기.</p>
+
+  <div class="pdf-callout"><strong>핵심 차이:</strong> 메인 섹션 구성이 다름. 어드민에서 사이트 등록 시 <code>template</code>을 <code>HUB | MAJOR | ETC</code> 중 선택 → 적용 가능 섹션 자동 결정.</div>
+
+  <h2 id="tp-comparison">메인 섹션 비교 (가로 정렬)</h2>
+  <div class="menu-tree">
+    <div class="site-type-row head">
+      <div>섹션</div>
+      <div>🔵 허브 (1개)</div>
+      <div>🟠 민형경 (3개)</div>
+      <div>🟢 기타 (23개)</div>
+    </div>
+    <div class="site-type-row"><div class="label">1. 메인스킨</div><div class="yes">✓ (인터랙티브)</div><div class="yes">✓ (허브와 동일)</div><div class="yes">✓ (허브와 동일)</div></div>
+    <div class="site-type-row"><div class="label">2. 오현 성과데이터</div><div class="yes">✓ (4개 카운터)</div><div class="no">— (오현강점으로 대체)</div><div class="no">— (오현강점도 없음)</div></div>
+    <div class="site-type-row"><div class="label">2'. 오현 강점</div><div class="no">—</div><div class="yes">✓</div><div class="no">—</div></div>
+    <div class="site-type-row"><div class="label">3. 의뢰인 후기</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">4. 구성원</div><div class="yes">✓ (일반 그리드)</div><div class="partial">◐ (4분할 슬라이더, 4명 단위 이동)</div><div class="partial">◐ (4분할, 허브 동일)</div></div>
+    <div class="site-type-row"><div class="label">5. 업무분야 (분야별 센터)</div><div class="yes">✓</div><div class="yes">✓</div><div class="no">—</div></div>
+    <div class="site-type-row"><div class="label">6. 업무분야 세부</div><div class="no">—</div><div class="yes">✓ (아코디언)</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">7. 업무사례</div><div class="yes">✓ (전체 분야)</div><div class="yes">✓ (해당 분야)</div><div class="yes">✓ (해당 분야)</div></div>
+    <div class="site-type-row"><div class="label">8. 전국지도</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">9. 상담예약</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">10. 법률지식인</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">11. 법률정보</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">12. 유튜브 링크</div><div class="yes">✓ (허브 전용)</div><div class="no">—</div><div class="no">—</div></div>
+  </div>
+
+  <h2 id="tp-page-comparison">페이지 비교</h2>
+  <div class="menu-tree">
+    <div class="site-type-row head">
+      <div>페이지</div>
+      <div>🔵 허브</div>
+      <div>🟠 민형경</div>
+      <div>🟢 기타</div>
+    </div>
+    <div class="site-type-row"><div class="label">오현소개 - 소개</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">오현소개 - 오현 강점</div><div class="yes">✓</div><div class="no">—</div><div class="no">—</div></div>
+    <div class="site-type-row"><div class="label">오현소개 - 오시는 길</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">오현소개 - 구성원 소개</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">업무사례 - 사례분석/최신동향</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">업무사례 - 업무사례</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">법률정보</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">법률지식인</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">업무분야 - 업무분야</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">업무분야 - 최신사기유형</div><div class="no">—</div><div class="partial">◐ (경제범죄만)</div><div class="no">—</div></div>
+    <div class="site-type-row"><div class="label">소식 - 의뢰인 후기</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">소식 - 언론보도</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label">소식 - 인재채용</div><div class="yes">✓ (허브 전용)</div><div class="no">—</div><div class="no">—</div></div>
+    <div class="site-type-row"><div class="label">고객상담</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+    <div class="site-type-row"><div class="label" style="font-weight:700;background:#FEF3C7">총 페이지 수</div><div style="font-weight:700">13개</div><div style="font-weight:700">11~12개 (경제범죄 12)</div><div style="font-weight:700">11개</div></div>
+  </div>
+
+  <div class="pdf-callout"><strong>경제범죄 - 최신사기유형:</strong> PDF 78p에서 「별도 홈페이지로 운영 vs 경제범죄 내 별도 페이지」 검토 의견 요청 중. <strong>권장: 경제범죄 사이트 내 페이지(/fields/fraud-types)</strong> — 도메인 분리 시 SEO 분산·운영 부담↑. 신규 사기유형 빈번 추가가 예상되면 별도 도메인 검토 가능.</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 4: 메인 섹션 11개                                        -->
+<!-- ============================================================ -->
+<div id="tab-main-sections" class="tab-content">
+  <h2 id="ms-overview">메인 페이지 섹션 11개 슬롯</h2>
+  <p>PDF 「홈페이지 대공사」 9~31p 기준. 각 섹션은 type 단위로 정의되며, 사이트 유형별로 ON/OFF 결정.</p>
+
+  <div class="section-slot">
+    <div class="section-slot-head">
+      <div class="num">1</div>
+      <div class="title">메인스킨 (Hero · 인터랙티브)</div>
+      <div class="tags"><span class="badge hub">허브</span><span class="badge major">민형경</span><span class="badge etc">기타</span></div>
+    </div>
+    <div class="section-slot-body">
+      <div class="col">
+        <div class="col-title">기능</div>
+        <ul>
+          <li>스킨 이미지 + 홍보 문구가 <strong>세트로 함께 변경</strong></li>
+          <li>인터랙티브 슬라이드 형태</li>
+          <li>참고: lawl.co.kr / bkl.co.kr</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">Admin 제어</div>
+        <ul>
+          <li>실시간 이미지 교체</li>
+          <li>실시간 텍스트 수정</li>
+          <li>슬라이드 순서·전환 시간</li>
+          <li>사이트별 개별 설정</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">데이터</div>
+        <ul>
+          <li><code>type=hero</code></li>
+          <li>payload: <code>slides[{img, headline, subline, link}]</code></li>
+          <li>autoPlay, interval(ms)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-slot">
+    <div class="section-slot-head">
+      <div class="num">2</div>
+      <div class="title">오현 성과데이터 (4개 카운터) <span style="font-weight:400;color:var(--muted);font-size:12px">— 허브 전용</span></div>
+      <div class="tags"><span class="badge hub">허브 전용</span></div>
+    </div>
+    <div class="section-slot-body">
+      <div class="col">
+        <div class="col-title">기능</div>
+        <ul>
+          <li>4개 카운터 카드 가로 정렬</li>
+          <li>각 카드 클릭 시 해당 페이지로 이동</li>
+          <li>예: 누적 사례 8253+ → /cases</li>
+          <li>오현 변호사수 74+ → /lawyers</li>
+          <li>퇴직공직자 4년 연속 → /about/strength</li>
+          <li>분사무소 16+ → /branches</li>
+          <li>분야별 센터 15+ → /fields</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">Admin 제어</div>
+        <ul>
+          <li>숫자 직접 수정 가능</li>
+          <li>레이블·접미사(+/명/개) 수정</li>
+          <li>링크 URL 변경</li>
+          <li>카드 ON/OFF 토글</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">데이터</div>
+        <ul>
+          <li><code>type=stats</code></li>
+          <li>payload: <code>items[{label, value, suffix, link}]</code></li>
+          <li>레이아웃: 가로 1행 4열 (공간 절약)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-slot">
+    <div class="section-slot-head">
+      <div class="num">2'</div>
+      <div class="title">오현 강점 (4분할) <span style="font-weight:400;color:var(--muted);font-size:12px">— 민형경 전용</span></div>
+      <div class="tags"><span class="badge major">민형경 전용</span></div>
+    </div>
+    <div class="section-slot-body">
+      <div class="col">
+        <div class="col-title">기능</div>
+        <ul>
+          <li>4분할 영역 (강점 4가지)</li>
+          <li>고정 콘텐츠 (admin 수정 X)</li>
+          <li>콘텐츠는 추후 별도 전달 예정</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">Admin 제어</div>
+        <ul>
+          <li><strong>없음</strong> — 고정 콘텐츠</li>
+          <li>변호사협회 광고 규정 변경 시만 수정</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">데이터</div>
+        <ul>
+          <li><code>type=strength_4grid</code></li>
+          <li>payload: 정적 (배포 시 박힘)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-slot">
+    <div class="section-slot-head">
+      <div class="num">3</div>
+      <div class="title">의뢰인 후기 (선별 노출)</div>
+      <div class="tags"><span class="badge hub">허브</span><span class="badge major">민형경</span><span class="badge etc">기타</span></div>
+    </div>
+    <div class="section-slot-body">
+      <div class="col">
+        <div class="col-title">기능</div>
+        <ul>
+          <li>전체 후기 중 <strong>admin 선별</strong>한 것만 노출</li>
+          <li>메인 노출 시 <strong>제목만</strong> 표시</li>
+          <li>클릭 시 → /reviews/{id} 상세 페이지</li>
+          <li>참고: lawl-crime.co.kr</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">Admin 제어</div>
+        <ul>
+          <li>후기 등록 + 메인 노출 체크</li>
+          <li>HTML 본문 입력 가능</li>
+          <li>로톡 후기 이미지 alt 별도 지정</li>
+          <li>허브 등록 → 분야별 자동 반영</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">데이터</div>
+        <ul>
+          <li><code>Review</code> 엔티티</li>
+          <li>field: featuredOnMain (사이트별)</li>
+          <li>type=review_list, payload: limit, sort</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-slot">
+    <div class="section-slot-head">
+      <div class="num">4</div>
+      <div class="title">구성원 (변호사 카드)</div>
+      <div class="tags"><span class="badge hub">허브: 일반</span><span class="badge major">민형경: 4분할</span><span class="badge etc">기타: 4분할</span></div>
+    </div>
+    <div class="section-slot-body">
+      <div class="col">
+        <div class="col-title">기능</div>
+        <ul>
+          <li><strong>허브:</strong> 일반 그리드 (대륜 패턴)</li>
+          <li><strong>민형경/기타:</strong> 4분할 슬라이드</li>
+          <li>슬라이드 이동 시 <strong>4명 단위로 한 번에</strong> (1명씩 X)</li>
+          <li>직책별 마크 표시 (변호사/검찰/검사장 등)</li>
+          <li>클릭 → /lawyers/{slug}</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">Admin 제어</div>
+        <ul>
+          <li>사이트별 노출 변호사 선택</li>
+          <li>사이트별 우선순위 설정 (드래그)</li>
+          <li>예: 형사 → 검찰 경력 우선 / 민사 → 판사 우선</li>
+          <li>직책 마크 등록·관리 (마크 마스터 테이블)</li>
+          <li>변호사별 마크 다중 매핑</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">데이터</div>
+        <ul>
+          <li><code>LawyerSiteMapping.displayOrder</code></li>
+          <li><code>LawyerBadge</code> 마스터</li>
+          <li><code>LawyerBadgeMapping</code> N:M</li>
+          <li>type=lawyer_carousel, payload: layout(grid|slider4)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-slot">
+    <div class="section-slot-head">
+      <div class="num">5</div>
+      <div class="title">업무분야 (분야별 센터)</div>
+      <div class="tags"><span class="badge hub">허브</span><span class="badge major">민형경</span></div>
+    </div>
+    <div class="section-slot-body">
+      <div class="col">
+        <div class="col-title">기능</div>
+        <ul>
+          <li>26개 분야 그리드</li>
+          <li>클릭 → 해당 분야 도메인으로 외부 점프</li>
+          <li>「그룹 바로가기」 버튼/배너 형태</li>
+          <li>40+ 증가 시 정렬·그룹화·검색 추가 (추후)</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">Admin 제어</div>
+        <ul>
+          <li>센터 동적 추가·수정·삭제</li>
+          <li>노출 순서 드래그</li>
+          <li>아이콘·이미지 업로드</li>
+          <li>그룹화 (대분류) 설정</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">데이터</div>
+        <ul>
+          <li><code>Site</code> 엔티티 자체 활용</li>
+          <li>type=field_grid, payload: layout, sortBy</li>
+          <li>FieldGroup 마스터 (대분류)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-slot">
+    <div class="section-slot-head">
+      <div class="num">6</div>
+      <div class="title">업무분야 세부 (아코디언)</div>
+      <div class="tags"><span class="badge major">민형경</span><span class="badge etc">기타</span></div>
+    </div>
+    <div class="section-slot-body">
+      <div class="col">
+        <div class="col-title">기능</div>
+        <ul>
+          <li>1·2·3차 태그 트리</li>
+          <li>펼치기/접기 (아코디언)</li>
+          <li>키워드 클릭 → 분야 상세 페이지</li>
+          <li>증가 대비 수납 방식 (추후 논의)</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">Admin 제어</div>
+        <ul>
+          <li>태그 트리 CRUD (1·2·3차)</li>
+          <li>각 태그 → 상세 페이지 매핑</li>
+          <li>노출 순서 드래그</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">데이터</div>
+        <ul>
+          <li><code>Field</code> 엔티티 (self-ref tree)</li>
+          <li>type=field_accordion</li>
+          <li>payload: rootFieldId, depth</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-slot">
+    <div class="section-slot-head">
+      <div class="num">7</div>
+      <div class="title">업무사례 (검색·필터·고정)</div>
+      <div class="tags"><span class="badge hub">허브</span><span class="badge major">민형경</span><span class="badge etc">기타</span></div>
+    </div>
+    <div class="section-slot-body">
+      <div class="col">
+        <div class="col-title">기능</div>
+        <ul>
+          <li>허브: 모든 분야 통합 (클릭 → 분야 도메인)</li>
+          <li>그룹: 해당 분야 사례</li>
+          <li>키워드 검색</li>
+          <li>대분류 카테고리 탭</li>
+          <li>특정 사례 상단 고정 (사이트별)</li>
+          <li>참고: ohcrime.com</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">Admin 제어</div>
+        <ul>
+          <li>사례 작성 (4섹션 슬롯형)</li>
+          <li>대분류 카테고리 추가·수정</li>
+          <li>특정 사례 상단 고정 (사이트별 토글)</li>
+          <li>다중 사이트 송출 (체크박스)</li>
+          <li>본문 중간 링크 삽입 (관련기사/칼럼/유튜브)</li>
+          <li>본문 마지막 자동 삽입 (강점+예약)</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">데이터</div>
+        <ul>
+          <li><code>Case</code>, <code>CaseSiteMapping</code></li>
+          <li>field: featuredOnMain, featuredOrder</li>
+          <li>type=case_carousel, payload: caseIds[], showFilter</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-slot">
+    <div class="section-slot-head">
+      <div class="num">8</div>
+      <div class="title">전국지도 (분사무소)</div>
+      <div class="tags"><span class="badge hub">허브</span><span class="badge major">민형경</span><span class="badge etc">기타</span></div>
+    </div>
+    <div class="section-slot-body">
+      <div class="col">
+        <div class="col-title">기능</div>
+        <ul>
+          <li>전국 지점 지도 임베드 (네이버맵)</li>
+          <li>지점별 사진 + ALT</li>
+          <li>지점 클릭 → 상세 페이지</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">Admin 제어</div>
+        <ul>
+          <li>지사 추가·수정·삭제</li>
+          <li>사진 업로드 + alt 별도 입력</li>
+          <li>주소·전화·업무시간 편집</li>
+          <li>네이버맵 placeId 설정</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">데이터</div>
+        <ul>
+          <li><code>Branch</code> (글로벌 마스터)</li>
+          <li>type=map_section, payload: highlightBranchIds[]</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-slot">
+    <div class="section-slot-head">
+      <div class="num">9</div>
+      <div class="title">상담예약 (3필드 폼)</div>
+      <div class="tags"><span class="badge hub">허브</span><span class="badge major">민형경</span><span class="badge etc">기타</span></div>
+    </div>
+    <div class="section-slot-body">
+      <div class="col">
+        <div class="col-title">기능</div>
+        <ul>
+          <li>레이아웃: 로엘(lawl.co.kr) 참고</li>
+          <li>필드 3개만: <strong>(1) 성함 (2) 연락처 (3) 상담내용</strong></li>
+          <li>지사 정보 X (불편 가중)</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">Admin 제어</div>
+        <ul>
+          <li>이메일 수신인 admin 일괄 관리</li>
+          <li>허브 설정 → 모든 사이트 일괄 적용</li>
+          <li>이메일 제목 형식 자동: <code>[홈페이지명] 성함 / 전화번호</code></li>
+          <li>본문: 성함/전화/IP/문의내용</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">데이터</div>
+        <ul>
+          <li><code>Inquiry</code> 엔티티 + IP 자동 캡처</li>
+          <li><code>InquiryRecipient</code> (글로벌 + 사이트별 오버라이드)</li>
+          <li>type=contact_form, payload: fields[3]</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-slot">
+    <div class="section-slot-head">
+      <div class="num">10</div>
+      <div class="title">법률지식인</div>
+      <div class="tags"><span class="badge hub">허브</span><span class="badge major">민형경</span><span class="badge etc">기타</span></div>
+    </div>
+    <div class="section-slot-body">
+      <div class="col">
+        <div class="col-title">기능</div>
+        <ul>
+          <li>검색 기능</li>
+          <li>사이트별 주요 카테고리 <strong>상단 고정</strong></li>
+          <li>예: 형사 사이트 → 형사 카테고리 최상단</li>
+          <li>이미지 alt + HTML 본문</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">Admin 제어</div>
+        <ul>
+          <li>사건분류(카테고리) 추가·수정</li>
+          <li>메인 노출 글 직접 선정</li>
+          <li>사이트별 카테고리 상단 고정 설정</li>
+          <li>허브 등록 → 모든 사이트 일괄 반영</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">데이터</div>
+        <ul>
+          <li><code>FAQ</code> 엔티티</li>
+          <li><code>FAQCategory</code> + <code>SiteFAQPin</code></li>
+          <li>type=faq_list, payload: pinnedCategoryId</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-slot">
+    <div class="section-slot-head">
+      <div class="num">11</div>
+      <div class="title">법률정보</div>
+      <div class="tags"><span class="badge hub">허브</span><span class="badge major">민형경</span><span class="badge etc">기타</span></div>
+    </div>
+    <div class="section-slot-body">
+      <div class="col">
+        <div class="col-title">기능</div>
+        <ul>
+          <li>최신순 자동 정렬</li>
+          <li>특정 글 <strong>최대 3개까지</strong> 상단 고정</li>
+          <li>이미지 alt + HTML 본문 입력</li>
+          <li>참고: ohlabor.com</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">Admin 제어</div>
+        <ul>
+          <li>글 작성·수정·삭제</li>
+          <li>상단 고정 토글 (최대 3개 제한)</li>
+          <li>허브 등록 → 노출 사이트 다중 선택</li>
+          <li>전체 노출 여부·구성 admin 관리</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">데이터</div>
+        <ul>
+          <li><code>LegalInfo</code> 엔티티</li>
+          <li>field: pinnedOrder (1~3)</li>
+          <li>type=legal_info_list, payload: limit, sort=latest</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-slot">
+    <div class="section-slot-head">
+      <div class="num">12</div>
+      <div class="title">유튜브 링크 <span style="font-weight:400;color:var(--muted);font-size:12px">— 허브 전용</span></div>
+      <div class="tags"><span class="badge hub">허브 전용</span></div>
+    </div>
+    <div class="section-slot-body">
+      <div class="col">
+        <div class="col-title">기능</div>
+        <ul>
+          <li>유튜브 채널 임베드 또는 영상 카드 그리드</li>
+          <li>클릭 시 유튜브로 이동</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">Admin 제어</div>
+        <ul>
+          <li>영상 URL 추가·삭제</li>
+          <li>썸네일 자동 캐싱</li>
+          <li>노출 순서 드래그</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-title">데이터</div>
+        <ul>
+          <li>type=youtube_grid</li>
+          <li>payload: videos[{youtubeId, title}]</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="ms-extra">기타 공통 UI 요소 (전 사이트)</h2>
+  <div class="grid grid-2">
+    <div class="card">
+      <h4>🪟 팝업창</h4>
+      <ul>
+        <li>admin 이미지 교체</li>
+        <li>여러 개일 시 슬라이드 자동 전환 (3초 간격)</li>
+        <li>클릭 시 특정 링크 이동</li>
+        <li>PC: 최상단 / 모바일: 상담CTA 바로 위</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>📱 모바일 햄버거 + 우측상단 상담신청</h4>
+      <ul>
+        <li>참고: lawwin.co.kr/seoul</li>
+        <li>우측상단 메뉴창에 「상담신청」 노출</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>📞 우측 바 (PC) / 하단 CTA (모바일)</h4>
+      <ul>
+        <li>① 카톡 상담링크</li>
+        <li>② 온라인 상담 신청</li>
+        <li>③ 네이버 톡톡 상담 링크</li>
+        <li>④ 변호사 추천 (구성원 페이지로)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>🛡 스팸봇 차단</h4>
+      <ul>
+        <li>구글·네이버 크롤러 + AI 학습 봇은 허용</li>
+        <li>해외발 스팸 메시지·과도한 트래픽 봇 자동 차단</li>
+        <li>Cloudflare Bot Management + 화이트리스트</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 5: 사용자 메뉴                                            -->
+<!-- ============================================================ -->
+<div id="tab-public-menu" class="tab-content">
+  <h2 id="pm-overview">사용자 사이트 메뉴 구조</h2>
+  <p>퍼블릭 사이트의 GNB·Footer·모바일·우측 CTA 정의. 사이트 유형(허브/민형경/기타)별로 메뉴 자동 분기.</p>
+
+  <h2 id="pm-hub-gnb">🏠 허브 사이트 GNB (13개 페이지)</h2>
+  <div class="menu-tree">
+    <div class="menu-tree-head">www.ohyunlaw.com — 상단 메뉴</div>
+    <div class="menu-tree-body">
+      <div class="menu-item">
+        <div class="menu-l1">📍 오현소개</div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">소개</span><span class="meta">/about/intro</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">오현 강점</span><span class="meta">/about/strength</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">오시는 길</span><span class="meta">/about/location</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">구성원 소개</span><span class="meta">/lawyers</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📋 업무사례</div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">사례분석/최신동향 (변호사 칼럼)</span><span class="meta">/insights</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">업무사례</span><span class="meta">/cases</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📚 법률정보 <span class="pill">/legal-info</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">💡 법률지식인 <span class="pill">/faq</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">🏷 업무분야 <span class="pill">/fields</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📰 소식</div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">의뢰인 후기</span><span class="meta">/reviews</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">언론보도</span><span class="meta">/news?type=press</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">인재채용 (허브 전용)</span><span class="meta">/news?type=careers</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📞 고객상담 <span class="pill">/contact</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="pm-major-gnb">🟠 민사·형사·경제범죄 GNB (11~12개)</h2>
+  <div class="menu-tree">
+    <div class="menu-tree-head">ohyunlaw-civil/criminal/economic.com</div>
+    <div class="menu-tree-body">
+      <div class="menu-item">
+        <div class="menu-l1">📍 오현소개 <span class="pill">오현강점 메뉴 없음 (메인에는 노출)</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">소개</span><span class="meta">/about/intro</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">오시는 길</span><span class="meta">/about/location</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">구성원 소개</span><span class="meta">/lawyers</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📋 업무사례 <span class="pill">허브와 동일</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📚 법률정보 <span class="pill">허브와 동일</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">💡 법률지식인 <span class="pill">허브와 동일</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">🏷 업무분야</div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">업무분야</span><span class="meta">/fields</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label" style="color:#C0392B;font-weight:700">최신사기유형 (경제범죄 전용)</span><span class="meta">/fields/fraud-types</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📰 소식 <span class="pill">인재채용 없음</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">의뢰인 후기</span><span class="meta">/reviews</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">언론보도</span><span class="meta">/news?type=press</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📞 고객상담 <span class="pill">/contact</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="pm-etc-gnb">🟢 기타 23개 GNB (11개)</h2>
+  <p>민형경과 동일하되 「최신사기유형」이 없음. 메인 페이지에 「오현강점」 섹션도 없음.</p>
+
+  <h2 id="pm-quickmenu">📞 우측 Quick CTA (전 페이지 고정)</h2>
+  <div class="menu-tree">
+    <div class="menu-tree-head">PC: 우측 바 / 모바일: 하단 + 우측상단 햄버거</div>
+    <div class="menu-tree-body">
+      <div class="menu-item">
+        <div class="menu-l1">필수 4개 항목 (PDF 33p)</div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">①</span><span class="label">카톡 상담링크</span><span class="meta">분야별 카카오 채널</span></div>
+          <div class="item"><span class="arrow">②</span><span class="label">온라인 상담 신청</span><span class="meta">/contact</span></div>
+          <div class="item"><span class="arrow">③</span><span class="label">네이버 톡톡 상담 링크</span><span class="meta">분야별 톡톡 채널</span></div>
+          <div class="item"><span class="arrow">④</span><span class="label">변호사 추천</span><span class="meta">/lawyers</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📞 전화번호 분기 (자동)</div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">이혼 사이트</span><span class="meta">1661-5435</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">부동산 사이트</span><span class="meta">1833-7186</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">나머지 (허브 포함)</span><span class="meta">1661-2661</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="pm-popup">🪟 팝업창</h2>
+  <div class="card">
+    <ul>
+      <li>이미지 admin 교체</li>
+      <li>여러 개일 시 <strong>슬라이드 자동 전환 (3초 간격)</strong></li>
+      <li>클릭 시 <strong>특정 링크로 이동</strong></li>
+      <li>PC: 최상단 / 모바일: 상담CTA 바로 위 (하단)</li>
+    </ul>
+  </div>
+
+  <h2 id="pm-footer">🦶 Footer 구조 (전 사이트 공통)</h2>
+  <div class="menu-tree">
+    <div class="menu-tree-head">Footer (전 사이트 동일 템플릿)</div>
+    <div class="menu-tree-body">
+      <div class="menu-item">
+        <div class="menu-l1">📍 회사 정보</div>
+        <div class="menu-l2"><div class="item"><span class="arrow">└</span><span class="label">법인명, 대표 변호사, 사업자등록번호, 본사 주소, 대표 전화·팩스</span></div></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">🔗 빠른 링크</div>
+        <div class="menu-l2"><div class="item"><span class="arrow">└</span><span class="label">소개 / 변호사 / 업무사례 / 분사무소 / 상담 / 법률서식</span></div></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">🌐 관련 그룹 사이트</div>
+        <div class="menu-l2"><div class="item"><span class="arrow">└</span><span class="label">사이트별 큐레이션 5~6개 (RelatedSiteLink)</span></div></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📞 채널</div>
+        <div class="menu-l2"><div class="item"><span class="arrow">└</span><span class="label">유튜브, 인스타그램, 블로그, 카카오톡 채널, 네이버 톡톡</span></div></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">🛡 정책</div>
+        <div class="menu-l2"><div class="item"><span class="arrow">└</span><span class="label">개인정보처리방침 / 이용약관 / 이메일 무단수집 거부 / 쿠키 정책</span></div></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">©️ 카피라이트</div>
+        <div class="menu-l2"><div class="item"><span class="arrow">└</span><span class="label">Copyright © 2026 Ohyun Law Firm. All rights reserved.</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 6: 어드민 메뉴                                            -->
+<!-- ============================================================ -->
+<div id="tab-admin-menu" class="tab-content">
+  <h2 id="am-overview">어드민 메뉴 구조</h2>
+  <p>좌측 사이드바 트리. 권한에 따라 노출 메뉴 자동 필터링. PDF 모든 admin 요구사항 반영.</p>
+
+  <h2 id="am-tree">🗂 어드민 좌측 사이드바 트리</h2>
+  <div class="menu-tree">
+    <div class="menu-tree-head">⚙️ admin.ohyunlaw.com</div>
+    <div class="menu-tree-body">
+      <div class="menu-item">
+        <div class="menu-l1">📊 대시보드 <span class="pill">/admin</span></div>
+        <div class="menu-l2"><div class="item"><span class="arrow">└</span><span class="label">사이트별 트래픽·상담문의·신규 콘텐츠 위젯</span></div></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">🌐 사이트 관리 <span class="pill">/admin/sites</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">사이트 목록 (28개)</span><span class="meta">/admin/sites</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">사이트 상세·메타 편집</span><span class="meta">/admin/sites/:id</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">메인 페이지 빌더 (11개 섹션)</span><span class="meta">/admin/sites/:id/main</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">메뉴 관리 (GNB·Footer)</span><span class="meta">/admin/sites/:id/menus</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">SEO 설정</span><span class="meta">/admin/sites/:id/seo</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">관련 사이트 링크</span><span class="meta">/admin/sites/:id/related</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">스팸봇 차단 정책</span><span class="meta">/admin/sites/:id/security</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">👨‍💼 변호사 관리 <span class="pill">/admin/lawyers</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">변호사 목록 + 검색</span><span class="meta">/admin/lawyers</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">신규 등록 (누끼 1장 자동 썸네일)</span><span class="meta">/admin/lawyers/new</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">변호사 상세·편집</span><span class="meta">/admin/lawyers/:id</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">사이트별 노출·우선순위</span><span class="meta">/admin/lawyers/:id/sites</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">분야 태그 매핑</span><span class="meta">/admin/lawyers/:id/fields</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">직책 마크 등록·관리 (NEW)</span><span class="meta">/admin/lawyers/badges</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📋 업무사례 <span class="pill">/admin/cases</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">사례 목록 (필터·검색)</span><span class="meta">/admin/cases</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">신규 작성 (4섹션)</span><span class="meta">/admin/cases/new</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">사례 상세·편집</span><span class="meta">/admin/cases/:id</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">상단 고정 관리 (사이트별)</span><span class="meta">/admin/cases/featured</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">대분류 카테고리 관리</span><span class="meta">/admin/cases/categories</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">다중 사이트 송출</span><span class="meta">/admin/cases/:id/distribute</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📝 칼럼·인사이트 (변호사 작성) <span class="pill">/admin/insights</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">칼럼 목록</span><span class="meta">/admin/insights</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">신규 작성 (작성 변호사·해시태그·alt)</span><span class="meta">/admin/insights/new</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">상단 3개 고정</span><span class="meta">/admin/insights/featured</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">🏷 분야·태그 <span class="pill">/admin/fields</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">분야 트리 (1·2·3차)</span><span class="meta">/admin/fields</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">분야-사이트 매핑</span><span class="meta">/admin/fields/site-mapping</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">최신사기유형 (경제범죄 전용)</span><span class="meta">/admin/fields/fraud-types</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">📚 법률정보 <span class="pill">/admin/legal-info</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">법률정보 목록</span><span class="meta">/admin/legal-info</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">상단 고정 (최대 3개)</span><span class="meta">/admin/legal-info/pinned</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">💡 법률지식인 (FAQ) <span class="pill">/admin/faq</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">FAQ 목록</span><span class="meta">/admin/faq</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">사건분류 카테고리 관리</span><span class="meta">/admin/faq/categories</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">메인 노출 선정</span><span class="meta">/admin/faq/featured</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">사이트별 카테고리 상단 고정</span><span class="meta">/admin/faq/site-pinning</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">⭐ 후기·뉴스·세미나·서식</div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">의뢰인 후기 (선별 노출)</span><span class="meta">/admin/reviews</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">언론보도 (허브 → 모든 사이트)</span><span class="meta">/admin/news</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">인재채용 (허브 전용)</span><span class="meta">/admin/careers</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">세미나·법률서식</span><span class="meta">/admin/seminars · /admin/forms</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">🎯 마케팅 <span class="pill">/admin/marketing</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">팝업 (슬라이드 + 클릭 링크)</span><span class="meta">/admin/marketing/popups</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">띠배너</span><span class="meta">/admin/marketing/banners</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">CTA 블록 (카톡·톡톡 채널)</span><span class="meta">/admin/marketing/cta</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">🏢 분사무소 <span class="pill">/admin/branches</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">분사무소 목록</span><span class="meta">/admin/branches</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">신규 등록 (사진 + ALT)</span><span class="meta">/admin/branches/new</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">갤러리·지도</span><span class="meta">/admin/branches/:id/gallery</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">🖼 미디어 라이브러리 <span class="pill">/admin/media</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">전체 미디어 (alt 강제 입력)</span><span class="meta">/admin/media</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">신규 업로드</span><span class="meta">/admin/media/upload</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">💬 상담·문의 <span class="pill">/admin/inquiries</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">접수 목록</span><span class="meta">/admin/inquiries</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">이메일 수신인 일괄 관리 (NEW)</span><span class="meta">/admin/inquiries/recipients</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">CSV 내보내기</span><span class="meta">/admin/inquiries/export</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">👥 사용자·권한 <span class="pill">/admin/users</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">사용자 목록</span><span class="meta">/admin/users</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">변호사 작성 권한 계정 (NEW)</span><span class="meta">/admin/users?role=LAWYER</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">사이트별 권한 매트릭스</span><span class="meta">/admin/users/access-matrix</span></div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-l1">⚙️ 시스템 <span class="pill">/admin/system</span></div>
+        <div class="menu-l2">
+          <div class="item"><span class="arrow">└</span><span class="label">캐시 관리·revalidate</span><span class="meta">/admin/system/cache</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">스팸봇 차단 정책 (전역)</span><span class="meta">/admin/system/bot-policy</span></div>
+          <div class="item"><span class="arrow">└</span><span class="label">리다이렉트 / 감사로그 / 백업</span><span class="meta">redirects · audit · backup</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 7: 기능 명세                                              -->
+<!-- ============================================================ -->
+<div id="tab-features" class="tab-content">
+  <h2 id="ft-overview">기능 명세 (PDF 요구사항 매핑)</h2>
+  <p>「홈페이지 개발」 PDF의 모든 기능 요구사항을 카드 단위로 정리.</p>
+
+  <h2 id="ft-spec-mapping">📜 별첨1 기능명세서 14개 ↔ PDF 요구사항</h2>
+  <table>
+    <thead><tr><th width="50">No.</th><th width="180">별첨1 기능</th><th>PDF 매칭 + 구현 위치</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>통합 콘텐츠 배포 (체크박스 다중)</td><td>업무사례·후기·언론보도·법률지식인 모두 적용 / <a href="#" class="toc-jump" data-go="api">API 탭</a></td></tr>
+      <tr><td>2</td><td>권한별 접근 제어</td><td>변호사 칼럼 작성 권한 추가 / <a href="#" class="toc-jump" data-go="permissions">권한 탭</a></td></tr>
+      <tr><td>3</td><td>독립적 사이트 SEO</td><td>사이트별 OG·Title·Description·favicon</td></tr>
+      <tr><td>4</td><td>변호사 마스터 데이터 연동</td><td>허브 등록 → 사이트 명칭 자동 입력 (PDF 14p)</td></tr>
+      <tr><td>5</td><td>사이트별 노출 순서 (D&D)</td><td>사이트별 우선순위 admin (PDF 73p)</td></tr>
+      <tr><td>6</td><td>다중 뎁스 태그 필터링</td><td>1·2·3차 트리 + 사례 자동 매핑 (PDF 48p)</td></tr>
+      <tr><td>7</td><td>사이트별 BEST 사례 고정</td><td>사이트별 토글 (PDF 18, 51p)</td></tr>
+      <tr><td>8</td><td>WYSIWYG 에디터</td><td>HTML 본문 + 이미지 alt + 링크 삽입 (PDF 46p)</td></tr>
+      <tr><td>9</td><td>의뢰인 후기 선별 관리</td><td>제목만 노출 + admin 선별 (PDF 11p)</td></tr>
+      <tr><td>10</td><td>사이트별 메인 비주얼 교체</td><td>인터랙티브 슬라이드 (PDF 9p)</td></tr>
+      <tr><td>11</td><td>스케줄링 팝업·배너</td><td>슬라이드 자동 전환 + 클릭 링크 (PDF 32p)</td></tr>
+      <tr><td>12</td><td>전국 사무소 정보</td><td>사진 + ALT + 네이버 지도 + admin 추가 (PDF 21p)</td></tr>
+      <tr><td>13</td><td>페이지별 메타·OG</td><td>OG 이미지 사이트별·페이지별</td></tr>
+      <tr><td>14</td><td>전체 이미지 ALT 강제</td><td>업로드 시 alt 필수 (모든 콘텐츠)</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="ft-pdf-features">📄 PDF 추가 요구사항 (별첨1 외)</h2>
+
+  <div class="grid grid-2">
+    <div class="card accent">
+      <h4>🛡 스팸봇 차단 (PDF 8p)</h4>
+      <ul>
+        <li>해외발 스팸·과도한 트래픽 봇 자동 차단</li>
+        <li>구글·네이버 크롤러 + AI 학습 봇은 허용</li>
+        <li>화이트리스트 admin 관리</li>
+      </ul>
+      <p><code>Cloudflare Bot Management + UA 화이트리스트</code></p>
+    </div>
+
+    <div class="card accent">
+      <h4>📧 상담 이메일 시스템 (PDF 8, 24~26p)</h4>
+      <ul>
+        <li>수신인 admin 추가/삭제 (허브 → 일괄 적용)</li>
+        <li>제목: <code>[홈페이지명] 성함 / 전화번호 / 이메일 상담 문의가 들어왔습니다</code></li>
+        <li>본문: 성함 / 전화번호 / IP 주소 / 문의내용</li>
+        <li>전화: 1661-2661 (이혼·부동산 제외) / 1661-5435 (이혼) / 1833-7186 (부동산)</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h4>👨‍⚖️ 구성원 - 직책 마크 (PDF 13p)</h4>
+      <ul>
+        <li>직책별 마크 등록 (변호사 마크 / 검찰 마크 / 검사장 / 부장판사 등)</li>
+        <li>각 변호사에 마크 다중 매핑</li>
+        <li>admin에서 직접 등록·관리</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h4>📷 변호사 누끼 자동 썸네일 (PDF 14p)</h4>
+      <ul>
+        <li>누끼 이미지 1장 업로드 → 자동으로 썸네일 적용</li>
+        <li>리사이징 + 압축 자동</li>
+        <li>WebP·AVIF 자동 변환 (Cloudflare Polish)</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h4>🏷 사이트 명칭 자동 입력 (PDF 14p)</h4>
+      <ul>
+        <li>허브에서 변호사·콘텐츠 등록 시</li>
+        <li>각 사이트 명칭에 맞게 자동으로 내용 입력</li>
+        <li>예: "{사이트명} 전문 변호사" 자동 치환</li>
+        <li>템플릿 변수 시스템 ({siteName}, {fieldName} 등)</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h4>📝 변호사 칼럼 작성 권한 (PDF 34p)</h4>
+      <ul>
+        <li>변호사 권한 계정 1개 별도 생성</li>
+        <li>본인이 직접 칼럼·인사이트 작성</li>
+        <li>작성 변호사 + 해시태그 선택 입력</li>
+        <li>이미지 alt 입력 기능</li>
+        <li>명칭 후보: 「법률 트렌드 / 오현 인사이트 / 법률 포커스 / 이슈 브리핑」</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h4>🔗 사례 본문 링크 삽입 (PDF 46p)</h4>
+      <ul>
+        <li>본문 중간에 관련 링크 삽입 모듈</li>
+        <li>관련기사 / 관련칼럼 / 유튜브</li>
+        <li>WYSIWYG 에디터 커스텀 노드</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h4>📌 사례 본문 자동 삽입 (PDF 47p)</h4>
+      <ul>
+        <li>본문 마지막에 자동 삽입</li>
+        <li>주요 강점 + 예약 안내 (사이트별 템플릿)</li>
+        <li>admin이 사이트별 템플릿 작성</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h4>🔄 자동 동기화 (PDF 전체)</h4>
+      <ul>
+        <li>변호사: 허브 등록 → 노출 사이트 자동 반영</li>
+        <li>후기: 허브 등록 → 분야 기반 자동 분배</li>
+        <li>언론보도: 허브 등록 → 모든 사이트 일괄 반영</li>
+        <li>법률지식인: 허브 등록 → 모든 사이트 일괄 반영</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h4>📍 사이트별 카테고리 상단 고정 (PDF 28, 58p)</h4>
+      <ul>
+        <li>법률지식인: 형사 사이트 → 형사 카테고리 최상단</li>
+        <li>학교폭력 사이트 → 학교폭력 카테고리 최상단</li>
+        <li>허브: 기업법무 등 우선 카테고리 설정</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h4>🖼 동일 카테고리 자동 매핑 (PDF 20, 52p)</h4>
+      <ul>
+        <li>업무사례 카테고리 = 업무분야 카테고리 동일 트리</li>
+        <li>「공무집행방해 > 형사분야 > 형사분야에 해당하는 법률정보가 끌려나옴」</li>
+        <li>우측에 관련 업무사례 + 업무분야 자동 노출</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h4>📅 칼럼 상단 3개 고정 (PDF 43p)</h4>
+      <ul>
+        <li>최신순 자동 정렬</li>
+        <li>상단 3개 admin 선택 고정</li>
+        <li>법률정보도 동일 (최대 3개)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 id="ft-data-sync">🔁 콘텐츠 자동 동기화 매트릭스</h2>
+  <table>
+    <thead><tr><th>콘텐츠</th><th>허브 등록 시 동작</th><th>그룹 등록 시 동작</th></tr></thead>
+    <tbody>
+      <tr><td>변호사 (마스터)</td><td>전체 사이트에 마스터 등록 + 노출 사이트 선택</td><td>해당 사이트만 노출 (마스터는 동일)</td></tr>
+      <tr><td>업무사례</td><td>다중 사이트 선택 송출</td><td>해당 사이트 + 다중 선택 가능</td></tr>
+      <tr><td>의뢰인 후기</td><td>분야 태그 기반 자동 분배 (분야별 사이트 노출)</td><td>해당 사이트만</td></tr>
+      <tr><td>언론보도</td><td>모든 사이트 자동 반영</td><td>해당 사이트만</td></tr>
+      <tr><td>법률지식인</td><td>모든 사이트 일괄 반영</td><td>해당 사이트만</td></tr>
+      <tr><td>법률정보</td><td>다중 사이트 선택 (옵션)</td><td>해당 사이트만</td></tr>
+      <tr><td>칼럼·인사이트</td><td>다중 사이트 선택</td><td>해당 사이트만</td></tr>
+      <tr><td>분사무소</td><td>전 사이트 공통 (글로벌 마스터)</td><td>읽기만 가능</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout danger"><strong>구현 주의:</strong> 자동 동기화는 「허브에서만」 일괄 송출이 가능하고, 그룹 사이트 권한은 자기 사이트만 수정 가능. 변호사 칼럼 권한은 본인 작성 글만.</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 8: API                                                    -->
+<!-- ============================================================ -->
+<div id="tab-api" class="tab-content">
+  <h2 id="api-overview">REST API 설계</h2>
+  <p>NestJS 기반 RESTful API. Base URL: <code>https://api.ohyunlaw.com/v1</code>. 인증: Bearer JWT.</p>
+
+  <h2 id="api-auth">🔐 인증 (Auth)</h2>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/auth/login</span></div>
+    <div class="desc">이메일·비밀번호 로그인 → JWT + Refresh Token 발급</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/auth/refresh</span></div>
+    <div class="desc">Refresh Token으로 Access Token 갱신</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/auth/logout</span></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/auth/2fa/setup</span></div>
+    <div class="desc">TOTP 2단계 인증 설정</div>
+  </div>
+
+  <h2 id="api-sites">🌐 사이트 관리</h2>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/sites</span><span class="perm">SUPER · SITE_ADMIN</span></div>
+    <div class="desc">28개 사이트 목록</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/sites/:id</span></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method PATCH">PATCH</span><span class="path">/sites/:id</span><span class="perm">SUPER · SITE_ADMIN</span></div>
+    <div class="desc">사이트 메타 수정 (template, brandColor, heroCopy, isPublished 등)</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/sites/:id/main-sections</span></div>
+    <div class="desc">메인 페이지 11개 섹션 조회</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method PUT">PUT</span><span class="path">/sites/:id/main-sections</span><span class="perm">SUPER · SITE_ADMIN</span></div>
+    <div class="desc">메인 빌더 일괄 저장 (섹션 순서·payload·ON/OFF)</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method PATCH">PATCH</span><span class="path">/sites/:id/seo</span></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/sites/:id/security/bot-policy</span></div>
+    <div class="desc">스팸봇 차단 정책 조회 (PDF 8p)</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method PATCH">PATCH</span><span class="path">/sites/:id/security/bot-policy</span><span class="perm">SUPER</span></div>
+    <div class="desc">화이트리스트 UA·IP 패턴 수정</div>
+  </div>
+
+  <h2 id="api-lawyers">👨‍💼 변호사</h2>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/lawyers?siteId=&fieldId=&search=</span></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/lawyers</span><span class="perm">SUPER · SITE_ADMIN</span></div>
+    <div class="desc">신규 등록. 누끼 이미지 1장 → 자동 썸네일 + 사이트 명칭 자동 치환 적용</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method PATCH">PATCH</span><span class="path">/lawyers/:id</span></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method PUT">PUT</span><span class="path">/lawyers/:id/sites</span></div>
+    <div class="desc">사이트별 노출·우선순위·티어 일괄 저장 (28개 체크박스 + D&D 순서)</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/lawyer-badges</span></div>
+    <div class="desc">직책 마크 목록 (PDF 13p)</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/lawyer-badges</span><span class="perm">SUPER</span></div>
+    <div class="desc">신규 마크 등록 (예: "검찰 마크")</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method PUT">PUT</span><span class="path">/lawyers/:id/badges</span></div>
+    <div class="desc">변호사 ↔ 마크 N:M 매핑</div>
+  </div>
+
+  <h2 id="api-cases">📋 업무사례</h2>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/cases?siteId=&fieldId=&pinned=&search=</span></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/cases</span></div>
+    <div class="desc">신규 작성 (4섹션 슬롯형 + 다중 사이트 송출 + 분야 태그)</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method PATCH">PATCH</span><span class="path">/cases/:id/pinned</span></div>
+    <div class="desc">사이트별 상단 고정 토글 — body: <code>{ siteId, pinned, order }</code></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method PUT">PUT</span><span class="path">/cases/:id/distribute</span></div>
+    <div class="desc">다중 사이트 송출 — body: <code>{ siteIds: [...], primarySiteId }</code></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/case-categories</span></div>
+    <div class="desc">대분류 카테고리 트리</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/case-categories</span><span class="perm">SUPER · SITE_ADMIN</span></div>
+  </div>
+
+  <h2 id="api-insights">📝 칼럼·인사이트 (변호사 작성)</h2>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/insights?siteId=&authorId=&pinned=</span></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/insights</span><span class="perm">LAWYER · EDITOR · SITE_ADMIN</span></div>
+    <div class="desc">변호사 권한 계정으로 작성 가능. 작성 변호사·해시태그·이미지 alt 입력</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method PATCH">PATCH</span><span class="path">/insights/:id/pinned</span></div>
+    <div class="desc">상단 3개 고정 (PDF 43p)</div>
+  </div>
+
+  <h2 id="api-faq">💡 법률지식인 (FAQ)</h2>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/faqs?siteId=&categoryId=&search=</span></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/faqs</span></div>
+    <div class="desc">허브 등록 시 모든 사이트 자동 반영 옵션 (PDF 57p)</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method PUT">PUT</span><span class="path">/sites/:id/faq-pinned-category</span></div>
+    <div class="desc">사이트별 카테고리 상단 고정 (PDF 28p)</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method PATCH">PATCH</span><span class="path">/faqs/:id/featured</span></div>
+    <div class="desc">메인 노출 선정</div>
+  </div>
+
+  <h2 id="api-legal-info">📚 법률정보</h2>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/legal-info?siteId=&fieldId=</span></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/legal-info</span></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method PATCH">PATCH</span><span class="path">/legal-info/:id/pinned</span></div>
+    <div class="desc">상단 고정 (사이트별 최대 3개 — PDF 76p)</div>
+  </div>
+
+  <h2 id="api-reviews">⭐ 의뢰인 후기</h2>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/reviews?siteId=&featured=</span></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/reviews</span></div>
+    <div class="desc">HTML 본문 + 로톡 이미지 alt 별도 입력</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method PATCH">PATCH</span><span class="path">/reviews/:id/featured</span></div>
+    <div class="desc">메인 선별 노출 토글</div>
+  </div>
+
+  <h2 id="api-news">📰 뉴스·공지·세미나</h2>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/news?siteId=&type=</span></div>
+    <div class="desc">type: notice | press | blog | newsletter | careers</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/news</span></div>
+    <div class="desc">언론보도는 허브 등록 시 모든 사이트 자동 반영 (PDF 65p)</div>
+  </div>
+
+  <h2 id="api-marketing">🎯 마케팅</h2>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/popups?siteId=&active=true</span></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/popups</span></div>
+    <div class="desc">이미지·랜딩 URL·노출 기간·슬라이드 순서 (3초 자동 전환)</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/banners?siteId=</span></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/cta-blocks?siteId=</span></div>
+    <div class="desc">카톡·톡톡·전화 CTA 사이트별 채널 매핑</div>
+  </div>
+
+  <h2 id="api-branches">🏢 분사무소</h2>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/branches</span></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/branches</span><span class="perm">SUPER</span></div>
+    <div class="desc">사진·alt·네이버 placeId 등록 (PDF 21p)</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/branches/:id/gallery</span></div>
+  </div>
+
+  <h2 id="api-fields">🏷 분야·태그</h2>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/fields?parentId=&depth=</span></div>
+    <div class="desc">분야 트리 1·2·3차</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/fields</span></div>
+  </div>
+
+  <h2 id="api-inquiry">💬 상담 문의 (PDF 8, 24~26p)</h2>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/inquiries</span></div>
+    <div class="desc">사용자 사이트 폼 제출. body: <code>{ siteSlug, name, phone, message }</code> + 자동 IP·UA 캡처</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/inquiries?siteId=&status=</span></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method GET">GET</span><span class="path">/inquiry-recipients?siteId=</span></div>
+    <div class="desc">사이트별 이메일 수신인 (글로벌 + 사이트 오버라이드)</div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method PUT">PUT</span><span class="path">/inquiry-recipients</span><span class="perm">SUPER</span></div>
+    <div class="desc">허브에서 일괄 설정 → 모든 사이트 자동 적용. body: <code>{ globalEmails: [...], siteOverrides: {siteId: emails[]} }</code></div>
+  </div>
+
+  <h2 id="api-cache">⚙️ 캐시·발행</h2>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/cache/revalidate</span><span class="perm">SUPER · SITE_ADMIN</span></div>
+    <div class="desc">사이트별·태그별 ISR revalidate. body: <code>{ siteId, tags: [...] }</code></div>
+  </div>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/cache/cloudflare/purge</span><span class="perm">SUPER</span></div>
+  </div>
+
+  <h2 id="api-media">🖼 미디어</h2>
+  <div class="endpoint">
+    <div class="row"><span class="method POST">POST</span><span class="path">/media/upload-url</span></div>
+    <div class="desc">presigned URL 발급 (S3/R2 직접 업로드). alt 텍스트 강제 입력 검증</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 9: 데이터 모델                                            -->
+<!-- ============================================================ -->
+<div id="tab-data" class="tab-content">
+  <h2 id="dm-overview">데이터 모델 개요</h2>
+  <p>Prisma 스키마 기준. PDF 요구사항 반영하여 v2 대비 5개 엔티티 추가.</p>
+  <div class="callout info"><strong>v3 추가 엔티티:</strong> LawyerBadge, LawyerBadgeMapping, InquiryRecipient, FAQCategoryPin, BotPolicyRule</div>
+
+  <h2 id="dm-erd">📐 ERD 다이어그램 (관계 그룹별)</h2>
+
+  <h3>🏠 사이트·구조 (글로벌 마스터)</h3>
+  <div class="erd-grid">
+    <div class="erd-node site">
+      <div class="name">Site</div>
+      <div class="rels">
+        <span class="rel">→ MainPageSection (1:N)</span>
+        <span class="rel">→ Menu (1:N)</span>
+        <span class="rel">→ SiteSeo (1:1)</span>
+        <span class="rel">↔ Field (M:N)</span>
+        <span class="rel">↔ Lawyer (M:N)</span>
+        <span class="rel">↔ Case (M:N)</span>
+      </div>
+    </div>
+    <div class="erd-node site">
+      <div class="name">MainPageSection</div>
+      <div class="rels">
+        <span class="rel">→ Site (N:1)</span>
+        <span class="rel">type, order, payload</span>
+        <span class="rel">11개 type 슬롯</span>
+      </div>
+    </div>
+    <div class="erd-node site">
+      <div class="name">SiteSeo</div>
+      <div class="rels">
+        <span class="rel">→ Site (1:1)</span>
+        <span class="rel">og*, gtm, naverId</span>
+      </div>
+    </div>
+    <div class="erd-node site">
+      <div class="name">Menu</div>
+      <div class="rels">
+        <span class="rel">→ Site (N:1)</span>
+        <span class="rel">self-ref tree</span>
+      </div>
+    </div>
+    <div class="erd-node site">
+      <div class="name">RelatedSiteLink</div>
+      <div class="rels">
+        <span class="rel">↔ Site self M:N</span>
+      </div>
+    </div>
+    <div class="erd-node site">
+      <div class="name">BotPolicyRule (NEW)</div>
+      <div class="rels">
+        <span class="rel">→ Site (N:1, null=글로벌)</span>
+        <span class="rel">type: ALLOW/DENY</span>
+        <span class="rel">pattern: UA/IP/path</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>👨‍💼 변호사 (글로벌 마스터)</h3>
+  <div class="erd-grid">
+    <div class="erd-node lawyer">
+      <div class="name">Lawyer</div>
+      <div class="rels">
+        <span class="rel">↔ Site (M:N)</span>
+        <span class="rel">↔ Field (M:N)</span>
+        <span class="rel">↔ LawyerBadge (M:N)</span>
+        <span class="rel">↔ Case (M:N)</span>
+      </div>
+    </div>
+    <div class="erd-node lawyer">
+      <div class="name">LawyerSiteMapping</div>
+      <div class="rels">
+        <span class="rel">★ 별첨1 No.4, 5</span>
+        <span class="rel">tier (MAIN/RELATED)</span>
+        <span class="rel">displayOrder</span>
+      </div>
+    </div>
+    <div class="erd-node lawyer">
+      <div class="name">LawyerBadge (NEW)</div>
+      <div class="rels">
+        <span class="rel">★ PDF 13p</span>
+        <span class="rel">name, iconUrl, color</span>
+      </div>
+    </div>
+    <div class="erd-node lawyer">
+      <div class="name">LawyerBadgeMapping (NEW)</div>
+      <div class="rels">
+        <span class="rel">M:N 변호사 ↔ 마크</span>
+      </div>
+    </div>
+    <div class="erd-node lawyer">
+      <div class="name">LawyerFieldTag</div>
+      <div class="rels">
+        <span class="rel">M:N 변호사 ↔ 분야</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>📋 사례·콘텐츠</h3>
+  <div class="erd-grid">
+    <div class="erd-node case">
+      <div class="name">Case</div>
+      <div class="rels">
+        <span class="rel">→ primarySite</span>
+        <span class="rel">↔ Site (M:N CaseSiteMapping)</span>
+        <span class="rel">↔ Lawyer (M:N CaseLawyer)</span>
+        <span class="rel">↔ Field (M:N)</span>
+      </div>
+    </div>
+    <div class="erd-node case">
+      <div class="name">CaseSiteMapping</div>
+      <div class="rels">
+        <span class="rel">★ 별첨1 No.1 OSMU</span>
+        <span class="rel">pinnedOrder, displayOrder</span>
+      </div>
+    </div>
+    <div class="erd-node case">
+      <div class="name">CaseCategory</div>
+      <div class="rels">
+        <span class="rel">대분류 (admin 동적)</span>
+        <span class="rel">self-ref tree</span>
+      </div>
+    </div>
+    <div class="erd-node case">
+      <div class="name">Insight (Column)</div>
+      <div class="rels">
+        <span class="rel">→ author Lawyer</span>
+        <span class="rel">↔ Site (M:N)</span>
+        <span class="rel">hashtags, pinnedOrder</span>
+      </div>
+    </div>
+    <div class="erd-node case">
+      <div class="name">LegalInfo</div>
+      <div class="rels">
+        <span class="rel">→ Field</span>
+        <span class="rel">pinnedOrder (max 3)</span>
+      </div>
+    </div>
+    <div class="erd-node case">
+      <div class="name">FAQ</div>
+      <div class="rels">
+        <span class="rel">→ FAQCategory</span>
+        <span class="rel">↔ Site (M:N)</span>
+      </div>
+    </div>
+    <div class="erd-node case">
+      <div class="name">FAQCategoryPin (NEW)</div>
+      <div class="rels">
+        <span class="rel">★ PDF 28p</span>
+        <span class="rel">site별 카테고리 상단 고정</span>
+      </div>
+    </div>
+    <div class="erd-node case">
+      <div class="name">Review</div>
+      <div class="rels">
+        <span class="rel">→ Lawyer (옵션)</span>
+        <span class="rel">→ Case (옵션)</span>
+        <span class="rel">↔ Site (M:N)</span>
+        <span class="rel">featuredOnMain</span>
+      </div>
+    </div>
+    <div class="erd-node case">
+      <div class="name">News</div>
+      <div class="rels">
+        <span class="rel">type: notice/press/blog/newsletter/careers</span>
+        <span class="rel">↔ Site (M:N)</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>🏢 분사무소 (글로벌)</h3>
+  <div class="erd-grid">
+    <div class="erd-node aux">
+      <div class="name">Branch</div>
+      <div class="rels">
+        <span class="rel">naverMapPlaceId</span>
+        <span class="rel">↔ Lawyer (담당 변호사)</span>
+        <span class="rel">galleryImages[]</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>💬 상담·마케팅</h3>
+  <div class="erd-grid">
+    <div class="erd-node aux">
+      <div class="name">Inquiry</div>
+      <div class="rels">
+        <span class="rel">→ Site</span>
+        <span class="rel">name, phone, message, ipAddress</span>
+        <span class="rel">→ assignee User</span>
+      </div>
+    </div>
+    <div class="erd-node aux">
+      <div class="name">InquiryRecipient (NEW)</div>
+      <div class="rels">
+        <span class="rel">★ PDF 25p</span>
+        <span class="rel">→ Site (null=글로벌)</span>
+        <span class="rel">email, isActive</span>
+      </div>
+    </div>
+    <div class="erd-node aux">
+      <div class="name">Popup</div>
+      <div class="rels">
+        <span class="rel">↔ Site (M:N)</span>
+        <span class="rel">slideOrder, intervalMs=3000</span>
+        <span class="rel">linkUrl (클릭 이동)</span>
+      </div>
+    </div>
+    <div class="erd-node aux">
+      <div class="name">CTABlock</div>
+      <div class="rels">
+        <span class="rel">→ Site</span>
+        <span class="rel">type: kakao/talktalk/phone/online</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>👥 사용자·권한</h3>
+  <div class="erd-grid">
+    <div class="erd-node aux">
+      <div class="name">AdminUser</div>
+      <div class="rels">
+        <span class="rel">↔ Site (M:N via UserSiteAccess)</span>
+        <span class="rel">role: SUPER/SITE_ADMIN/EDITOR/LAWYER/VIEWER</span>
+      </div>
+    </div>
+    <div class="erd-node aux">
+      <div class="name">UserSiteAccess</div>
+      <div class="rels">
+        <span class="rel">권한 매트릭스</span>
+        <span class="rel">site별 role 오버라이드</span>
+      </div>
+    </div>
+    <div class="erd-node aux">
+      <div class="name">AuditLog</div>
+      <div class="rels">
+        <span class="rel">→ User</span>
+        <span class="rel">action, entity, before/after JSON</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="dm-entities">📦 엔티티 정의 (37개)</h2>
+
+  <h3>사이트·구조 (8개)</h3>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">Site</span><span class="ec-role">28개 사이트 메타</span></div><div class="ec-body">id, slug, domain, <code>template (HUB|MAJOR|ETC)</code>, nameKo, brandColor, logoUrl, heroCopy, heroImage, defaultPhone, isPublished</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">SiteFieldMapping</span><span class="ec-role">사이트 ↔ 분야 M:N</span></div><div class="ec-body">siteId, fieldId, isPrimary</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">RelatedSiteLink</span><span class="ec-role">관련 사이트 푸터</span></div><div class="ec-body">siteId, relatedSiteId, order</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">SiteSeo</span><span class="ec-role">SEO 메타</span></div><div class="ec-body">siteId, ogImage, ogTitle, gtmId, naverWebmasterId, googleVerification</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">Menu</span><span class="ec-role">GNB·Footer 메뉴</span></div><div class="ec-body">id, siteId, location(gnb/footer), parentId, label, url, order, isVisible</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">MainPageSection</span><span class="ec-role">11개 섹션 빌더</span></div><div class="ec-body">id, siteId, type, order, payload(JSONB), isVisible. type: hero/stats/strength_4grid/review_list/lawyer_carousel/field_grid/field_accordion/case_carousel/map_section/contact_form/faq_list/legal_info_list/youtube_grid</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">BotPolicyRule</span><span class="ec-role">스팸봇 차단 NEW</span></div><div class="ec-body">id, siteId(null=글로벌), type(ALLOW/DENY), patternType(UA/IP/PATH), pattern, priority, isActive</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">Field</span><span class="ec-role">분야 트리</span></div><div class="ec-body">id, parentId, slug, nameKo, depth(1/2/3), displayOrder</div></div>
+
+  <h3>변호사·구성원 (5개)</h3>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">Lawyer</span><span class="ec-role">글로벌 마스터</span></div><div class="ec-body">id, slug, nameKo, nameEn, position, photoUrl, photoCutoutUrl(누끼), bio(html), educations, careers, publications, licenses, contacts</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">LawyerSiteMapping</span><span class="ec-role">사이트별 노출·순서·티어</span></div><div class="ec-body">lawyerId, siteId, tier(MAIN/RELATED), displayOrder, highlightOnMain</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">LawyerFieldTag</span><span class="ec-role">변호사-분야 M:N</span></div><div class="ec-body">lawyerId, fieldId</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">LawyerBadge</span><span class="ec-role">직책 마크 NEW</span></div><div class="ec-body">id, name(변호사/검찰/검사장 등), iconUrl, color, displayOrder</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">LawyerBadgeMapping</span><span class="ec-role">변호사 ↔ 마크 NEW</span></div><div class="ec-body">lawyerId, badgeId, displayOrder</div></div>
+
+  <h3>업무사례·콘텐츠 (10개)</h3>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">Case</span><span class="ec-role">업무사례</span></div><div class="ec-body">id, slug, primarySiteId, title, summary, bodySections(JSON 4섹션), resultLabel, isAnonymized, publishedAt, status</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">CaseSiteMapping</span><span class="ec-role">OSMU 다중 노출</span></div><div class="ec-body">caseId, siteId, displayOrder, pinnedOrder(상단 고정), isVisible</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">CaseLawyer</span><span class="ec-role">담당 변호사</span></div><div class="ec-body">caseId, lawyerId, role(LEAD/CO)</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">CaseFieldTag</span><span class="ec-role">사례 ↔ 분야</span></div><div class="ec-body">caseId, fieldId</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">CaseCategory</span><span class="ec-role">대분류 (admin)</span></div><div class="ec-body">id, parentId, name, displayOrder</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">CaseRelated</span><span class="ec-role">관련 사례</span></div><div class="ec-body">caseId, relatedCaseId, manualOrder</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">Insight</span><span class="ec-role">칼럼·인사이트</span></div><div class="ec-body">id, primarySiteId, authorId(Lawyer), title, body(html), hashtags[], country, publishedAt, pinnedOrder</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">LegalInfo</span><span class="ec-role">법률정보</span></div><div class="ec-body">id, fieldId, title, body(html), pinnedOrder(max 3 per site)</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">FAQ</span><span class="ec-role">법률지식인</span></div><div class="ec-body">id, categoryId, q, a(html), fieldTags[], featuredOnMain</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">FAQCategory</span><span class="ec-role">사건분류 (admin)</span></div><div class="ec-body">id, name, displayOrder</div></div>
+
+  <h3>커뮤니티·뉴스 (5개)</h3>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">FAQCategoryPin</span><span class="ec-role">사이트별 카테고리 상단 NEW</span></div><div class="ec-body">siteId, categoryId, displayOrder</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">Review</span><span class="ec-role">의뢰인 후기</span></div><div class="ec-body">id, body(html), title, lawyerId(opt), caseId(opt), featuredOnMain, displaySites[]</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">News</span><span class="ec-role">언론·공지·블로그·뉴스레터·인재채용</span></div><div class="ec-body">id, type, primarySiteId, title, body(html), sourceUrl, publishedAt, syncToAllSites</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">Seminar</span><span class="ec-role">세미나</span></div><div class="ec-body">id, date, location, body, registerUrl</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">Archive</span><span class="ec-role">법률서식</span></div><div class="ec-body">id, fieldId, title, fileUrl, fileSizeMB</div></div>
+
+  <h3>커뮤니케이션·운영 (9개)</h3>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">Inquiry</span><span class="ec-role">상담 접수</span></div><div class="ec-body">id, siteId, sourceForm, name, phone, email(opt), fieldTag, message, ipAddress, userAgent, status, assigneeId, createdAt</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">InquiryRecipient</span><span class="ec-role">이메일 수신인 NEW</span></div><div class="ec-body">id, siteId(null=글로벌), email, isActive, displayOrder</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">Branch</span><span class="ec-role">분사무소</span></div><div class="ec-body">id, slug, nameKo, region, address, phone, businessHours, naverMapPlaceId, lat, lng, isOpen, displayOrder, galleryImages, parkingInfo, transitInfo</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">Banner</span><span class="ec-role">띠배너</span></div><div class="ec-body">id, siteId, imageUrl, imageAlt, linkUrl, startAt, endAt, position, order</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">Popup</span><span class="ec-role">팝업 (슬라이드)</span></div><div class="ec-body">id, siteIds[], title, imageUrl, imageAlt, linkUrl, startAt, endAt, slideOrder, intervalMs(=3000), frequency</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">CTABlock</span><span class="ec-role">우측바·하단 CTA</span></div><div class="ec-body">id, siteId, type(KAKAO/TALKTALK/PHONE/ONLINE/RECOMMEND), label, url, displayOrder</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">MediaAsset</span><span class="ec-role">미디어</span></div><div class="ec-body">id, type, fileName, mimeType, sizeBytes, url, thumbnailUrl, altText(필수), uploadedBy, tags[]</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">AdminUser</span><span class="ec-role">어드민 계정</span></div><div class="ec-body">id, email, name, passwordHash, mfaEnabled, role(SUPER/SITE_ADMIN/EDITOR/LAWYER/VIEWER), linkedLawyerId(opt)</div></div>
+  <div class="entity-card"><div class="ec-head"><span class="ec-name">UserSiteAccess</span><span class="ec-role">사이트별 권한</span></div><div class="ec-body">userId, siteId, role</div></div>
+
+  <h2 id="dm-prisma">🧬 핵심 Prisma 스키마 (발췌)</h2>
+<pre>model Site {
+  id          String       @id @default(cuid())
+  slug        String       @unique
+  domain      String       @unique
+  template    SiteTemplate                       <span style="color:#FCD34D">// HUB | MAJOR | ETC</span>
+  nameKo      String
+  brandColor  String?
+  logoUrl     String?
+  heroCopy    Json?
+  heroImage   String?
+  defaultPhone String?                           <span style="color:#FCD34D">// 1661-2661 등</span>
+  isPublished Boolean      @default(false)
+  fields      SiteFieldMapping[]
+  lawyers     LawyerSiteMapping[]
+  cases       CaseSiteMapping[]
+  sections    MainPageSection[]
+  inquiryRecipients InquiryRecipient[]
+}
+
+enum SiteTemplate { HUB MAJOR ETC }
+
+model Lawyer {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  nameKo          String
+  position        String
+  photoUrl        String
+  photoCutoutUrl  String?                        <span style="color:#FCD34D">// 누끼 → 자동 썸네일 원본</span>
+  bio             String   @db.Text
+  educations      Json
+  careers         Json
+  publications    Json
+  licenses        Json
+  contacts        Json
+  status          LawyerStatus @default(ACTIVE)
+  siteMappings    LawyerSiteMapping[]
+  fieldTags       LawyerFieldTag[]
+  badgeMappings   LawyerBadgeMapping[]
+}
+
+model LawyerBadge {
+  id              String   @id @default(cuid())
+  name            String                         <span style="color:#FCD34D">// "검찰 마크" 등</span>
+  iconUrl         String?
+  color           String?
+  displayOrder    Int
+  mappings        LawyerBadgeMapping[]
+}
+
+model LawyerBadgeMapping {
+  lawyerId        String
+  badgeId         String
+  displayOrder    Int
+  @@id([lawyerId, badgeId])
+}
+
+model Case {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  primarySiteId   String
+  title           String
+  bodySections    Json                           <span style="color:#FCD34D">// 4섹션: 배경/전략/결과/지원체계</span>
+  resultLabel     String?                        <span style="color:#FCD34D">// 무죄/감형 등 칩</span>
+  isAnonymized    Boolean  @default(false)
+  publishedAt     DateTime?
+  status          CaseStatus @default(DRAFT)
+  siteMappings    CaseSiteMapping[]
+  lawyers         CaseLawyer[]
+  fieldTags       CaseFieldTag[]
+  categoryId      String?
+}
+
+model CaseSiteMapping {
+  caseId          String
+  siteId          String
+  displayOrder    Int
+  pinnedOrder     Int?                            <span style="color:#FCD34D">// 상단 고정 순위 (사이트별)</span>
+  isVisible       Boolean  @default(true)
+  @@id([caseId, siteId])
+}
+
+model InquiryRecipient {
+  id          String   @id @default(cuid())
+  siteId      String?                            <span style="color:#FCD34D">// null = 글로벌 기본</span>
+  email       String
+  isActive    Boolean  @default(true)
+  displayOrder Int
+}
+
+model FAQCategoryPin {
+  siteId       String
+  categoryId   String
+  displayOrder Int                                <span style="color:#FCD34D">// 사이트별 상단 고정 카테고리</span>
+  @@id([siteId, categoryId])
+}
+
+model BotPolicyRule {
+  id           String   @id @default(cuid())
+  siteId       String?                            <span style="color:#FCD34D">// null = 글로벌</span>
+  type         BotPolicyType                      <span style="color:#FCD34D">// ALLOW | DENY</span>
+  patternType  PatternType                        <span style="color:#FCD34D">// UA | IP | PATH</span>
+  pattern      String                             <span style="color:#FCD34D">// 정규식 또는 와일드카드</span>
+  priority     Int
+  isActive     Boolean  @default(true)
+}</pre>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 10: 권한                                                  -->
+<!-- ============================================================ -->
+<div id="tab-permissions" class="tab-content">
+  <h2 id="pm-roles">역할 정의 (5개)</h2>
+  <div class="grid grid-2">
+    <div class="card accent">
+      <h4>👑 SUPER_ADMIN</h4>
+      <ul>
+        <li>전 사이트·전 콘텐츠 모든 권한</li>
+        <li>사용자·역할 관리 + 시스템 설정</li>
+        <li>스팸봇 정책 + 캐시 관리</li>
+        <li>예: 시크릿에이 운영 담당, 오현 IT 책임자</li>
+      </ul>
+    </div>
+    <div class="card accent">
+      <h4>🌐 SITE_ADMIN</h4>
+      <ul>
+        <li>담당 사이트(들)의 모든 권한</li>
+        <li>해당 사이트 콘텐츠 발행·수정</li>
+        <li>분야 그룹 운영자에 적합</li>
+      </ul>
+    </div>
+    <div class="card accent">
+      <h4>✏️ EDITOR</h4>
+      <ul>
+        <li>콘텐츠 작성·수정</li>
+        <li>발행은 SITE_ADMIN 승인 필요</li>
+        <li>마케팅·콘텐츠 작성자</li>
+      </ul>
+    </div>
+    <div class="card accent">
+      <h4>👨‍⚖️ LAWYER (NEW · PDF 34p)</h4>
+      <ul>
+        <li>본인 칼럼·인사이트 작성·수정</li>
+        <li>본인 프로필 일부 편집 (사진·약력 추가)</li>
+        <li>다른 변호사 콘텐츠 X</li>
+      </ul>
+    </div>
+    <div class="card accent">
+      <h4>👁 VIEWER</h4>
+      <ul>
+        <li>조회만 가능 (감사·외부 자문)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 id="pm-matrix">권한별 메뉴 노출 매트릭스</h2>
+  <table>
+    <thead><tr><th width="180">메뉴</th><th>SUPER</th><th>SITE_ADMIN</th><th>EDITOR</th><th>LAWYER</th><th>VIEWER</th></tr></thead>
+    <tbody>
+      <tr><td>대시보드</td><td>✓</td><td>✓ (담당)</td><td>✓ (담당)</td><td>✓ (본인)</td><td>✓</td></tr>
+      <tr><td>사이트 관리</td><td>✓</td><td>✓ (담당)</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>변호사 관리</td><td>✓</td><td>✓ (조회만)</td><td>—</td><td>본인만</td><td>조회</td></tr>
+      <tr><td>업무사례</td><td>✓</td><td>✓ (담당)</td><td>✓ (작성)</td><td>—</td><td>조회</td></tr>
+      <tr><td>칼럼·인사이트</td><td>✓</td><td>✓</td><td>✓</td><td>✓ (본인 작성)</td><td>조회</td></tr>
+      <tr><td>법률정보·FAQ</td><td>✓</td><td>✓</td><td>✓</td><td>—</td><td>조회</td></tr>
+      <tr><td>후기·뉴스</td><td>✓</td><td>✓ (담당)</td><td>✓</td><td>—</td><td>조회</td></tr>
+      <tr><td>분야·태그</td><td>✓</td><td>—</td><td>—</td><td>—</td><td>조회</td></tr>
+      <tr><td>마케팅 (팝업·배너)</td><td>✓</td><td>✓ (담당)</td><td>—</td><td>—</td><td>조회</td></tr>
+      <tr><td>분사무소</td><td>✓</td><td>—</td><td>—</td><td>—</td><td>조회</td></tr>
+      <tr><td>미디어</td><td>✓</td><td>✓</td><td>✓</td><td>본인 사진</td><td>조회</td></tr>
+      <tr><td>상담·이메일 수신인</td><td>✓</td><td>✓ (담당)</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>사용자·권한</td><td>✓</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>시스템·스팸봇</td><td>✓</td><td>캐시만</td><td>—</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="pm-special">특수 권한 시나리오 (PDF 기반)</h2>
+  <div class="grid grid-2">
+    <div class="card">
+      <h4>👨‍⚖️ 변호사 칼럼 작성 권한</h4>
+      <ul>
+        <li>변호사별 별도 계정 발급 (PDF 34p)</li>
+        <li>「법률 트렌드 / 오현 인사이트」 등에 작성</li>
+        <li>본인 작성 글만 수정 가능</li>
+        <li>발행은 SITE_ADMIN 승인</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>📧 허브 → 일괄 적용 권한</h4>
+      <ul>
+        <li>이메일 수신인: SUPER만 일괄 변경 가능</li>
+        <li>법률지식인 일괄 반영: SUPER + 허브 SITE_ADMIN</li>
+        <li>언론보도 일괄 반영: SUPER + 허브 SITE_ADMIN</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>🛡 스팸봇 정책 권한</h4>
+      <ul>
+        <li>SUPER만 정책 수정</li>
+        <li>SITE_ADMIN은 자기 사이트 화이트리스트만</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>📋 사례 다중 송출 권한</h4>
+      <ul>
+        <li>송출 가능 사이트는 SITE_ADMIN의 담당 사이트만</li>
+        <li>다른 사이트 송출 시 해당 SITE_ADMIN 승인 필요 (옵션)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 11: 개발 일정                                             -->
+<!-- ============================================================ -->
+<div id="tab-schedule" class="tab-content">
+  <h2 id="sc-overview">4개월 개발 일정 (120일)</h2>
+  <p>1차 계약금 입금일 D-Day. 개발 3개월 + QA 1개월. 분업: 어드민 1명 + 웹 1명.</p>
+
+  <h2 id="sc-week1">Week 1: Foundation Sprint</h2>
+  <table>
+    <thead><tr><th>Day</th><th>작업</th><th>담당</th></tr></thead>
+    <tbody>
+      <tr><td>D1</td><td>Monorepo 셋업 (Turborepo)</td><td>둘이 함께</td></tr>
+      <tr><td>D1</td><td>GitHub Org + CI 기본</td><td>어드민</td></tr>
+      <tr><td>D2</td><td>DB 스키마 (Prisma + ERD)</td><td>어드민 주도</td></tr>
+      <tr><td>D2</td><td>공유 타입 패키지</td><td>둘이 함께</td></tr>
+      <tr><td>D3</td><td>NestJS Swagger 셋업</td><td>어드민</td></tr>
+      <tr><td>D3</td><td>디자인 토큰 + Storybook</td><td>웹</td></tr>
+      <tr><td>D4</td><td>허브 멀티사이트 미들웨어</td><td>웹</td></tr>
+      <tr><td>D4</td><td>Auth + Prisma 연결</td><td>어드민</td></tr>
+      <tr><td>D5</td><td>Cloudflare Pages preview + AWS dev</td><td>둘이 함께</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="sc-phases">단계별 작업</h2>
+  <table>
+    <thead><tr><th width="80">단계</th><th width="120">기간</th><th>어드민 작업</th><th>웹 작업</th></tr></thead>
+    <tbody>
+      <tr><td><span class="phase m1">Week 1</span></td><td>D1~5</td><td>Foundation: 스키마·Auth·Swagger</td><td>Foundation: 디자인 토큰·미들웨어</td></tr>
+      <tr><td><span class="phase m2">Week 2~3</span></td><td>14일</td><td>Site/Lawyer/Case CRUD + LawyerBadge + 4섹션 슬롯</td><td>허브 + 1개 그룹 (mock 데이터)</td></tr>
+      <tr><td><span class="phase m2">Week 4</span></td><td>7일</td><td>API 연결 + ISR revalidate</td><td>실제 API 연결</td></tr>
+      <tr><td><span class="phase m2">Week 5~7</span></td><td>21일</td><td>OSMU + 카테고리 + 메인 빌더 11종 + 팝업 슬라이드</td><td>허브 + 그룹 3개 풀 구현 (M2 도달)</td></tr>
+      <tr><td><span class="phase m3">Week 8~10</span></td><td>21일</td><td>InquiryRecipient + 이메일 시스템 + 봇 정책 + FAQ Pin</td><td>그룹 누적 13개 (M3 도달)</td></tr>
+      <tr><td><span class="phase m4">Week 11~13</span></td><td>21일</td><td>마케팅·미디어·세미나·서식 + Audit·Backup</td><td>그룹 누적 23개 + 별첨1 전 기능 (M4)</td></tr>
+      <tr><td><span class="phase m5">Week 14~16</span></td><td>28일</td><td>QA·성능·보안 검토</td><td>27개 사이트 + 도메인 연결 + Lighthouse + 최종 (M5)</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="sc-risks">리스크 관리</h2>
+  <div class="grid grid-2">
+    <div class="card accent">
+      <h4>⚠️ 리스크 #1: 자료 미제공</h4>
+      <p>변호사 사진·약력·사례 콘텐츠 지연 시 일정 자동 연장 (계약 제4조 ③). 자료요청서 v3로 사전 차단.</p>
+    </div>
+    <div class="card accent">
+      <h4>⚠️ 리스크 #2: 디자인 시안 승인</h4>
+      <p>대륜 레퍼런스 + 「피하고 싶은 스타일」로 시안 라운드 단축. 라운드 횟수 사전 합의.</p>
+    </div>
+    <div class="card accent">
+      <h4>⚠️ 리스크 #3: 26개 도메인 구매</h4>
+      <p>가비아/Cloudflare에서 클라이언트 명의로 일괄 구매. 미리 ohyunlaw-* 가용성 점검.</p>
+    </div>
+    <div class="card accent">
+      <h4>⚠️ 리스크 #4: 명세 추가 요구</h4>
+      <p>PDF 외 추가 기능은 별도 견적 (계약 제11조). PM 단일 채널로 변경 요청 흡수.</p>
+    </div>
+  </div>
+</div>
+
+</main>
+</div>
+
+<script>
+// === Tabs ===
+const tabs = document.querySelectorAll('.tab');
+const contents = document.querySelectorAll('.tab-content');
+tabs.forEach(t => {
+  t.addEventListener('click', () => {
+    const target = t.dataset.tab;
+    tabs.forEach(x => x.classList.remove('active'));
+    contents.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('tab-' + target).classList.add('active');
+    renderSidebar(target);
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+});
+
+// === Cross-tab jump links ===
+document.querySelectorAll('.toc-jump').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = a.dataset.go;
+    if (target) {
+      const tab = document.querySelector(`.tab[data-tab="${target}"]`);
+      if (tab) tab.click();
+    }
+  });
+});
+
+// === Dynamic sidebar based on tab ===
+const sidebarConfig = {
+  overview: [
+    {h:'개요', items:[
+      ['ov-summary','프로젝트 요약'],
+      ['ov-milestone','마일스톤'],
+      ['ov-pdf-summary','PDF 핵심 요구사항'],
+    ]}
+  ],
+  sites: [
+    {h:'사이트 구조', items:[
+      ['st-overview','구조 개요'],
+      ['st-domain','도메인 매핑 28개'],
+      ['st-phone-mapping','전화번호 분기'],
+      ['st-page-tree','페이지 트리'],
+    ]}
+  ],
+  'site-types': [
+    {h:'사이트 유형', items:[
+      ['tp-overview','3종 차이점'],
+      ['tp-comparison','메인 섹션 비교'],
+      ['tp-page-comparison','페이지 비교'],
+    ]}
+  ],
+  'main-sections': [
+    {h:'메인 섹션', items:[
+      ['ms-overview','11개 슬롯 개요'],
+      ['ms-extra','기타 공통 UI'],
+    ]}
+  ],
+  'public-menu': [
+    {h:'사용자 메뉴', items:[
+      ['pm-overview','개요'],
+      ['pm-hub-gnb','허브 GNB'],
+      ['pm-major-gnb','민형경 GNB'],
+      ['pm-etc-gnb','기타 GNB'],
+      ['pm-quickmenu','우측 Quick CTA'],
+      ['pm-popup','팝업창'],
+      ['pm-footer','Footer'],
+    ]}
+  ],
+  'admin-menu': [
+    {h:'어드민 메뉴', items:[
+      ['am-overview','개요'],
+      ['am-tree','사이드바 트리'],
+    ]}
+  ],
+  features: [
+    {h:'기능 명세', items:[
+      ['ft-overview','개요'],
+      ['ft-spec-mapping','별첨1 14개 매핑'],
+      ['ft-pdf-features','PDF 추가 기능'],
+      ['ft-data-sync','자동 동기화'],
+    ]}
+  ],
+  api: [
+    {h:'API', items:[
+      ['api-overview','개요'],
+      ['api-auth','인증'],
+      ['api-sites','사이트'],
+      ['api-lawyers','변호사 + 마크'],
+      ['api-cases','업무사례'],
+      ['api-insights','칼럼·인사이트'],
+      ['api-faq','법률지식인'],
+      ['api-legal-info','법률정보'],
+      ['api-reviews','후기'],
+      ['api-news','뉴스'],
+      ['api-marketing','마케팅·팝업'],
+      ['api-branches','분사무소'],
+      ['api-fields','분야'],
+      ['api-inquiry','상담·이메일 수신인'],
+      ['api-cache','캐시'],
+      ['api-media','미디어'],
+    ]}
+  ],
+  data: [
+    {h:'데이터 모델', items:[
+      ['dm-overview','개요'],
+      ['dm-erd','ERD 그룹'],
+      ['dm-entities','엔티티 37개'],
+      ['dm-prisma','Prisma 스키마'],
+    ]}
+  ],
+  permissions: [
+    {h:'권한', items:[
+      ['pm-roles','역할 5개'],
+      ['pm-matrix','매트릭스'],
+      ['pm-special','특수 시나리오'],
+    ]}
+  ],
+  schedule: [
+    {h:'개발 일정', items:[
+      ['sc-overview','개요'],
+      ['sc-week1','Week 1'],
+      ['sc-phases','단계별 작업'],
+      ['sc-risks','리스크'],
+    ]}
+  ],
+};
+
+function renderSidebar(tab) {
+  const sb = document.getElementById('sidebar');
+  const cfg = sidebarConfig[tab];
+  if (!cfg) { sb.innerHTML = ''; return; }
+  let html = '';
+  cfg.forEach(group => {
+    html += `<h3>${group.h}</h3>`;
+    group.items.forEach(([id, label]) => {
+      html += `<a href="#${id}">${label}</a>`;
+    });
+  });
+  sb.innerHTML = html;
+}
+renderSidebar('overview');
+</script>
+</body>
+</html>
