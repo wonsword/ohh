@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>법률정보</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> 법률정보</div>
+  <div class="page-title">
+    <h1>📚 법률정보</h1>
+    <span class="sub">최신순 자동 정렬 · 사이트별 상단 고정 최대 3개 (PDF 76p)</span>
+    <div class="actions"><button class="btn primary">+ 신규 작성</button></div>
+  </div>
+</div>
+<div class="page-body">
+  <div class="filter-bar">
+    <input class="input search" placeholder="제목 검색"/>
+    <select class="select"><option>전체 사이트</option></select>
+    <select class="select"><option>전체 분야</option></select>
+  </div>
+
+  <div class="callout warn mb-16">
+    📌 사이트별 상단 고정 최대 <strong>3개</strong> · 형사그룹: 2/3 고정 중
+  </div>
+
+  <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th class="check-col"><input type="checkbox"></th><th>고정</th><th>제목</th><th>분야</th><th>노출 사이트</th><th>발행일</th><th>👁</th></tr></thead>
+      <tbody>
+        <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>📌 #1</td><td><strong>2026 형법 개정안 주요 내용</strong></td><td>형사</td><td><span class="badge major">형사</span> <span class="badge hub">허브</span></td><td>2026-05-01</td><td>1,432</td></tr>
+        <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>📌 #2</td><td><strong>형사 사건 변호인 선임 시기</strong></td><td>형사</td><td><span class="badge major">형사</span></td><td>2026-04-25</td><td>986</td></tr>
+        <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>—</td><td>음주운전 처벌 기준 정리</td><td>형사·교통</td><td><span class="badge etc">교통</span></td><td>2026-04-20</td><td>724</td></tr>
+        <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>—</td><td>이혼 위자료 산정 기준</td><td>가사</td><td><span class="badge etc">이혼</span></td><td>2026-04-18</td><td>612</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script src="../assets/page.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>사이트 목록</title>
+<link rel="stylesheet" href="../../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> 사이트 관리</div>
+  <div class="page-title">
+    <h1>🌐 사이트 관리</h1>
+    <span class="sub">전체 28개 사이트</span>
+    <div class="actions">
+      <button class="btn primary" data-go="sites/new">+ 신규 사이트</button>
+    </div>
+  </div>
+</div>
+<div class="page-body">
+
+  <div class="filter-bar">
+    <input class="input search" placeholder="사이트명·도메인 검색"/>
+    <select class="select"><option>전체 유형</option><option>허브</option><option>민형경</option><option>기타</option></select>
+    <select class="select"><option>전체 상태</option><option>발행</option><option>준비중</option></select>
+    <select class="select"><option>전체 분야</option><option>형사</option><option>민사</option></select>
+    <div class="right">
+      <button class="btn sm">📥 CSV</button>
+    </div>
+  </div>
+
+  <div class="callout">
+    💡 행을 클릭하면 해당 사이트 상세 편집 페이지로 이동합니다.
+  </div>
+
+  <div class="tbl-wrap">
+    <table class="data">
+      <thead>
+        <tr>
+          <th class="check-col"><input type="checkbox"></th>
+          <th>사이트명</th><th>유형</th><th>도메인</th><th>대표 분야</th><th>대표번호</th><th>변호사</th><th>사례</th><th>방문자(월)</th><th>상태</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-row-go="sites/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><strong>허브 홈페이지</strong></td><td><span class="badge hub">허브</span></td><td><code>www.ohyunlaw.com</code></td><td>전 분야 통합</td><td>1661-2661</td><td>74</td><td>—</td><td>248,123</td><td><span class="dot live"></span>발행</td></tr>
+        <tr data-row-go="sites/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><strong>형사그룹</strong></td><td><span class="badge major">민형경</span></td><td><code>ohyunlaw-criminal.com</code></td><td>형사·경제범죄</td><td>1661-2661</td><td>32</td><td>1,247</td><td>42,318</td><td><span class="dot live"></span>발행</td></tr>
+        <tr data-row-go="sites/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>경제범죄그룹</td><td><span class="badge major">민형경</span></td><td><code>ohyunlaw-economic.com</code></td><td>경제범죄</td><td>1661-2661</td><td>18</td><td>684</td><td>21,492</td><td><span class="dot live"></span>발행</td></tr>
+        <tr data-row-go="sites/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>민사소송·조정그룹</td><td><span class="badge major">민형경</span></td><td><code>ohyunlaw-civil.com</code></td><td>민사</td><td>1661-2661</td><td>21</td><td>876</td><td>18,234</td><td><span class="dot live"></span>발행</td></tr>
+        <tr data-row-go="sites/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>이혼·가사그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-divorce.com</code></td><td>가사·이혼</td><td>1661-5435</td><td>14</td><td>563</td><td>32,128</td><td><span class="dot live"></span>발행</td></tr>
+        <tr data-row-go="sites/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>부동산·건설그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-estate.com</code></td><td>부동산</td><td>1833-7186</td><td>11</td><td>421</td><td>15,872</td><td><span class="dot live"></span>발행</td></tr>
+        <tr data-row-go="sites/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>노동·산재그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-labor.com</code></td><td>노동</td><td>1661-2661</td><td>9</td><td>318</td><td>12,418</td><td><span class="dot live"></span>발행</td></tr>
+        <tr data-row-go="sites/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>의료·헬스케어그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-medical.com</code></td><td>의료</td><td>1661-2661</td><td>7</td><td>192</td><td>8,432</td><td><span class="dot draft"></span>준비중</td></tr>
+        <tr data-row-go="sites/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>마약그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-drug.com</code></td><td>형사·마약</td><td>1661-2661</td><td>8</td><td>285</td><td>9,872</td><td><span class="dot live"></span>발행</td></tr>
+        <tr data-row-go="sites/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>음주·교통사고그룹</td><td><span class="badge etc">기타</span></td><td><code>ohyunlaw-traffic.com</code></td><td>형사·교통</td><td>1661-2661</td><td>10</td><td>342</td><td>11,234</td><td><span class="dot live"></span>발행</td></tr>
+        <tr><td colspan="10" class="text-muted text-right" style="padding:8px 14px">⋯ 외 18개 사이트</td></tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <span>전체 28건 중 1-10건</span>
+      <div class="pages"><button>‹</button><button class="on">1</button><button>2</button><button>3</button><button>›</button></div>
+    </div>
+  </div>
+</div>
+<script src="../../assets/page.js"></script>
+</body>
+</html>

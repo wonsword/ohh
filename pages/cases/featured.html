@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>사례 상단 고정</title>
+<link rel="stylesheet" href="../../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> <a data-go="cases">업무사례</a> <span class="sep">›</span> 상단 고정</div>
+  <div class="page-title">
+    <h1>📌 사이트별 상단 고정 사례</h1>
+    <span class="sub">PDF 18·51p · 사이트별 토글</span>
+  </div>
+</div>
+<div class="page-body">
+  <div class="filter-bar">
+    <select class="select" style="min-width:200px"><option>형사그룹</option><option>허브</option><option>민사</option></select>
+    <span class="text-muted">현재 사이트의 고정된 사례를 드래그로 순서 변경</span>
+  </div>
+
+  <div class="card">
+    <div class="card-body tight">
+      <table class="data">
+        <thead><tr><th style="width:60px">순서</th><th style="width:50px"></th><th>제목</th><th>분야</th><th>담당 변호사</th><th>발행일</th><th>고정</th></tr></thead>
+        <tbody>
+          <tr><td>≡ 1</td><td>📌</td><td><strong>○○ 사기죄 무혐의 처분 사례</strong></td><td>형사·사기</td><td>김변호 +2</td><td>2026-05-08</td><td><div class="toggle on"></div></td></tr>
+          <tr><td>≡ 2</td><td>📌</td><td><strong>마약 단순 소지 선처 받은 사례</strong></td><td>형사·마약</td><td>김변호</td><td>2026-05-04</td><td><div class="toggle on"></div></td></tr>
+          <tr><td>≡ 3</td><td>📌</td><td><strong>학폭 가해자 처분 감경 사례</strong></td><td>형사·학폭</td><td>박변호사</td><td>2026-05-01</td><td><div class="toggle on"></div></td></tr>
+          <tr><td colspan="7" style="text-align:center;color:var(--muted);padding:14px"><button class="btn primary sm">+ 일반 사례에서 고정 추가</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script src="../../assets/page.js"></script>
+</body>
+</html>

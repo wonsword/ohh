@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>분야 트리</title>
+<link rel="stylesheet" href="../../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> 분야·태그</div>
+  <div class="page-title">
+    <h1>🏷 분야·태그 트리</h1>
+    <span class="sub">1차 (6개 그룹) → 2차 (26개 사이트 분야) → 3차 (세부)</span>
+    <div class="actions">
+      <button class="btn">📥 CSV 내보내기</button>
+      <button class="btn primary">+ 분야 추가</button>
+    </div>
+  </div>
+</div>
+<div class="page-body">
+
+  <div class="callout">
+    💡 <strong>분야 ↔ 사이트 매핑</strong> — 2차 분야는 각 그룹 사이트와 1:1 또는 N:1로 연결됩니다.
+    변호사가 분야를 선택하면 매핑된 사이트에 자동 노출되며, 사례·칼럼도 분야 매칭으로 자동 동기화됩니다.
+  </div>
+
+  <div class="grid-2-1">
+    <div class="card">
+      <div class="card-head"><h3>분야 트리 (전체)</h3>
+        <span class="sub">1차 6개 · 2차 26개 · 3차 다수</span>
+        <div class="actions">
+          <button class="btn sm">전체 펼치기</button>
+          <button class="btn sm">전체 접기</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="tree">
+
+          <!-- 1차: 형사 -->
+          <div class="tree-node l1"><div class="row" onclick="go('fields/detail')">
+            <span class="toggle-ico">▼</span>
+            <span class="label">⚖️ 형사 그룹</span>
+            <span class="meta">사이트 8 · 사례 2,564 · 변호사 21</span>
+          </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▼</span><span class="label">형사일반</span>
+              <span class="badge major" style="margin-left:6px">형사그룹</span>
+              <span class="meta">사례 1,247 · 변호사 18</span>
+            </div></div>
+              <div class="tree-node l3"><div class="row"><span class="toggle-ico">·</span><span class="label">사기</span><span class="meta">사례 348</span></div></div>
+              <div class="tree-node l3"><div class="row"><span class="toggle-ico">·</span><span class="label">횡령·배임</span><span class="meta">사례 197</span></div></div>
+              <div class="tree-node l3"><div class="row"><span class="toggle-ico">·</span><span class="label">폭행·상해</span><span class="meta">사례 184</span></div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">경제범죄</span>
+              <span class="badge major" style="margin-left:6px">경제범죄그룹</span>
+              <span class="meta">사례 684 · 변호사 14</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">명예훼손</span>
+              <span class="badge etc" style="margin-left:6px">명예훼손그룹</span>
+              <span class="meta">사례 156 · 변호사 6</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">성범죄</span>
+              <span class="badge etc" style="margin-left:6px">성범죄그룹</span>
+              <span class="meta">사례 218 · 변호사 7</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">마약</span>
+              <span class="badge etc" style="margin-left:6px">마약그룹</span>
+              <span class="meta">사례 285 · 변호사 8</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">음주·교통사고</span>
+              <span class="badge etc" style="margin-left:6px">음주·교통사고그룹</span>
+              <span class="meta">사례 342 · 변호사 10</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">학교폭력</span>
+              <span class="badge etc" style="margin-left:6px">학교폭력그룹</span>
+              <span class="meta">사례 124 · 변호사 5</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">군인·국방</span>
+              <span class="badge etc" style="margin-left:6px">군인·국방그룹</span>
+              <span class="meta">사례 89 · 변호사 4</span>
+            </div></div>
+
+          <!-- 1차: 민사 -->
+          <div class="tree-node l1"><div class="row" onclick="go('fields/detail')">
+            <span class="toggle-ico">▼</span>
+            <span class="label">⚖️ 민사 그룹</span>
+            <span class="meta">사이트 3 · 사례 1,294 · 변호사 13</span>
+          </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">민사소송·조정</span>
+              <span class="badge major" style="margin-left:6px">민사소송·조정그룹</span>
+              <span class="meta">사례 876 · 변호사 11</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">채권추심</span>
+              <span class="badge etc" style="margin-left:6px">채권추심그룹</span>
+              <span class="meta">사례 287 · 변호사 6</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">채권추심센터</span>
+              <span class="badge etc" style="margin-left:6px">채권추심센터</span>
+              <span class="meta">사례 131 · 변호사 4</span>
+            </div></div>
+
+          <!-- 1차: 가사 -->
+          <div class="tree-node l1"><div class="row" onclick="go('fields/detail')">
+            <span class="toggle-ico">▼</span>
+            <span class="label">⚖️ 가사 그룹</span>
+            <span class="meta">사이트 2 · 사례 766 · 변호사 9</span>
+          </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">이혼·가사</span>
+              <span class="badge etc" style="margin-left:6px">이혼·가사그룹</span>
+              <span class="meta">사례 563 · 변호사 8</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">상속·신탁</span>
+              <span class="badge etc" style="margin-left:6px">상속·신탁그룹</span>
+              <span class="meta">사례 203 · 변호사 5</span>
+            </div></div>
+
+          <!-- 1차: 기업·재무 -->
+          <div class="tree-node l1"><div class="row" onclick="go('fields/detail')">
+            <span class="toggle-ico">▼</span>
+            <span class="label">⚖️ 기업·재무 그룹</span>
+            <span class="meta">사이트 6 · 사례 1,142 · 변호사 16</span>
+          </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">기업법무·M&A</span>
+              <span class="badge etc" style="margin-left:6px">기업법무·M&A그룹</span>
+              <span class="meta">사례 384 · 변호사 7</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">금융·조세</span>
+              <span class="badge etc" style="margin-left:6px">금융·조세그룹</span>
+              <span class="meta">사례 287 · 변호사 6</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">공정거래·프랜차이즈</span>
+              <span class="badge etc" style="margin-left:6px">공정거래·프랜차이즈그룹</span>
+              <span class="meta">사례 156 · 변호사 4</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">법인회생·파산</span>
+              <span class="badge etc" style="margin-left:6px">법인회생·파산그룹</span>
+              <span class="meta">사례 142 · 변호사 5</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">국제거래·관세</span>
+              <span class="badge etc" style="margin-left:6px">국제거래·관세그룹</span>
+              <span class="meta">사례 87 · 변호사 3</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">디지털자산·핀테크</span>
+              <span class="badge etc" style="margin-left:6px">디지털자산·핀테크그룹</span>
+              <span class="meta">사례 86 · 변호사 4</span>
+            </div></div>
+
+          <!-- 1차: 부동산·노동 -->
+          <div class="tree-node l1"><div class="row" onclick="go('fields/detail')">
+            <span class="toggle-ico">▼</span>
+            <span class="label">⚖️ 부동산·노동 그룹</span>
+            <span class="meta">사이트 3 · 사례 838 · 변호사 12</span>
+          </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">부동산·건설</span>
+              <span class="badge etc" style="margin-left:6px">부동산·건설그룹</span>
+              <span class="meta">사례 421 · 변호사 6</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">노동·산재</span>
+              <span class="badge etc" style="margin-left:6px">노동·산재그룹</span>
+              <span class="meta">사례 318 · 변호사 5</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">중대재해·산업안전</span>
+              <span class="badge etc" style="margin-left:6px">중대재해·산업안전그룹</span>
+              <span class="meta">사례 99 · 변호사 3</span>
+            </div></div>
+
+          <!-- 1차: 의료·전문 -->
+          <div class="tree-node l1"><div class="row" onclick="go('fields/detail')">
+            <span class="toggle-ico">▼</span>
+            <span class="label">⚖️ 의료·전문 그룹</span>
+            <span class="meta">사이트 4 · 사례 649 · 변호사 11</span>
+          </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">의료·헬스케어</span>
+              <span class="badge etc" style="margin-left:6px">의료·헬스케어그룹</span>
+              <span class="meta">사례 192 · 변호사 4</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">지식재산권</span>
+              <span class="badge etc" style="margin-left:6px">지식재산권그룹</span>
+              <span class="meta">사례 134 · 변호사 3</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">행정·헌법</span>
+              <span class="badge etc" style="margin-left:6px">행정·헌법그룹</span>
+              <span class="meta">사례 218 · 변호사 4</span>
+            </div></div>
+            <div class="tree-node l2"><div class="row" onclick="go('fields/detail')">
+              <span class="toggle-ico">▶</span><span class="label">이민·해외투자</span>
+              <span class="badge etc" style="margin-left:6px">이민·해외투자그룹</span>
+              <span class="meta">사례 105 · 변호사 3</span>
+            </div></div>
+
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <!-- 분야 ↔ 사이트 매핑 요약 -->
+      <div class="card mb-16">
+        <div class="card-head"><h3>📊 분야 ↔ 사이트 매핑</h3></div>
+        <div class="card-body">
+          <ul class="kpi-list">
+            <li><span class="name">1차 (그룹)</span><span class="val">6개</span></li>
+            <li><span class="name">2차 (사이트 분야)</span><span class="val">26개</span></li>
+            <li><span class="name">3차 (세부)</span><span class="val">87개</span></li>
+            <li><span class="name">매핑된 사이트</span><span class="val">26 / 28</span></li>
+            <li><span class="name">매핑 변호사</span><span class="val">74명</span></li>
+            <li><span class="name">총 사례</span><span class="val">8,253</span></li>
+          </ul>
+          <p class="help mt-12">⚠️ 허브 사이트와 어드민은 분야 매핑 대상이 아닙니다.</p>
+        </div>
+      </div>
+
+      <!-- 자동 매핑 규칙 -->
+      <div class="card mb-16">
+        <div class="card-head"><h3>🔁 자동 매핑 규칙</h3></div>
+        <div class="card-body">
+          <div style="font-size:12.3px;line-height:1.7">
+            <p><strong>변호사 → 사이트</strong></p>
+            <p class="text-muted" style="margin-bottom:10px">변호사가 「사기」 분야 선택<br/>→ 형사그룹 + 경제범죄그룹에 자동 추가</p>
+
+            <p><strong>사례 → 사이트</strong></p>
+            <p class="text-muted" style="margin-bottom:10px">사례에 「보이스피싱」 태그<br/>→ 경제범죄그룹 메인에 자동 노출</p>
+
+            <p><strong>분야 → 사례 캐러셀</strong></p>
+            <p class="text-muted">사이트 메인의 사례 캐러셀은<br/>해당 분야가 태그된 사례 자동 집계</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 최신사기유형 -->
+      <div class="card">
+        <div class="card-head"><h3>🆕 최신사기유형 <span class="badge etc" style="margin-left:6px">경제범죄 전용</span></h3>
+          <div class="actions"><button class="btn sm">+ 유형</button></div>
+        </div>
+        <div class="card-body tight">
+          <table class="data">
+            <thead><tr><th>유형</th><th>등록</th></tr></thead>
+            <tbody>
+              <tr><td>OO 코인 투자 리딩방 사기</td><td class="text-muted">2026-05</td></tr>
+              <tr><td>중고거래 사칭 결제 사기</td><td class="text-muted">2026-04</td></tr>
+              <tr><td>스미싱 가족 사칭</td><td class="text-muted">2026-03</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../assets/page.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>사례 카테고리</title>
+<link rel="stylesheet" href="../../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> <a data-go="cases">업무사례</a> <span class="sep">›</span> 카테고리</div>
+  <div class="page-title">
+    <h1>🗂 사례 대분류 카테고리</h1>
+    <span class="sub">메인 페이지 사례 캐러셀 탭</span>
+    <div class="actions"><button class="btn primary">+ 카테고리 추가</button></div>
+  </div>
+</div>
+<div class="page-body">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head"><h3>카테고리 (드래그 정렬)</h3></div>
+      <div class="card-body tight">
+        <table class="data">
+          <thead><tr><th style="width:30px"></th><th>이름</th><th>슬러그</th><th>사례 수</th><th>적용 사이트</th><th class="actions-col"></th></tr></thead>
+          <tbody>
+            <tr><td>≡</td><td>형사</td><td><code>criminal</code></td><td>1,247</td><td>5개</td><td><div class="row-actions"><button class="btn icon sm">✎</button></div></td></tr>
+            <tr><td>≡</td><td>민사</td><td><code>civil</code></td><td>876</td><td>4개</td><td><div class="row-actions"><button class="btn icon sm">✎</button></div></td></tr>
+            <tr><td>≡</td><td>가사</td><td><code>family</code></td><td>563</td><td>2개</td><td><div class="row-actions"><button class="btn icon sm">✎</button></div></td></tr>
+            <tr><td>≡</td><td>행정</td><td><code>admin</code></td><td>318</td><td>3개</td><td><div class="row-actions"><button class="btn icon sm">✎</button></div></td></tr>
+            <tr><td>≡</td><td>경제범죄</td><td><code>economic</code></td><td>684</td><td>2개</td><td><div class="row-actions"><button class="btn icon sm">✎</button></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h3>편집: 형사</h3></div>
+      <div class="card-body">
+        <div class="form-grid">
+          <label>이름</label><input class="input" value="형사"/>
+          <label>슬러그</label><input class="input" value="criminal"/>
+          <label>아이콘</label><input class="input" value="⚖️"/>
+          <label>색상</label><input class="input" value="#1F4E79" type="color" style="height:36px;padding:4px"/>
+          <label>적용 사이트</label>
+          <div>
+            <label class="checkbox" style="display:block"><input type="checkbox" checked> 허브</label>
+            <label class="checkbox" style="display:block"><input type="checkbox" checked> 형사</label>
+            <label class="checkbox" style="display:block"><input type="checkbox" checked> 경제범죄</label>
+            <label class="checkbox" style="display:block"><input type="checkbox"> 마약</label>
+          </div>
+          <div class="form-divider"></div>
+          <label></label>
+          <div class="row-flex gap-8"><button class="btn primary">저장</button><button class="btn danger">삭제</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../assets/page.js"></script>
+</body>
+</html>

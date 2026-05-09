@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>칼럼 상단 고정</title>
+<link rel="stylesheet" href="../../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> <a data-go="insights">칼럼·인사이트</a> <span class="sep">›</span> 상단 고정</div>
+  <div class="page-title">
+    <h1>📌 칼럼 상단 3개 고정</h1>
+    <span class="sub">PDF 43p · 사이트별 최대 3개</span>
+  </div>
+</div>
+<div class="page-body">
+  <div class="filter-bar">
+    <select class="select" style="min-width:200px"><option>형사그룹</option><option>허브</option></select>
+    <span class="text-muted">현재 사이트의 고정된 칼럼 — 드래그로 순서 변경</span>
+  </div>
+
+  <div class="grid-3">
+    <div class="card" style="border:2px solid var(--navy)">
+      <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#1F4E79,#3B6EA8);display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px">📝</div>
+      <div class="card-body">
+        <div class="row-flex"><span class="badge purple">📌 #1</span><button class="btn icon sm" style="margin-left:auto">≡</button></div>
+        <h3 style="font-size:14px;margin:8px 0">2026 개정 노동법 핵심 정리</h3>
+        <div class="row-flex mt-12 gap-4"><button class="btn sm">↑</button><button class="btn sm">↓</button><button class="btn sm danger" style="margin-left:auto">고정 해제</button></div>
+      </div>
+    </div>
+    <div class="card" style="border:2px solid var(--navy)">
+      <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#10B981,#059669);display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px">📝</div>
+      <div class="card-body">
+        <div class="row-flex"><span class="badge purple">📌 #2</span><button class="btn icon sm" style="margin-left:auto">≡</button></div>
+        <h3 style="font-size:14px;margin:8px 0">최근 보이스피싱 수법 분석</h3>
+        <div class="row-flex mt-12 gap-4"><button class="btn sm">↑</button><button class="btn sm">↓</button><button class="btn sm danger" style="margin-left:auto">고정 해제</button></div>
+      </div>
+    </div>
+    <div class="card" style="border:2px dashed var(--border-strong);background:#FAFBFC">
+      <div style="aspect-ratio:16/9;background:#F1F5F9;display:flex;align-items:center;justify-content:center;color:var(--muted-light);font-size:32px">+</div>
+      <div class="card-body" style="text-align:center">
+        <h3 style="font-size:13px;margin:8px 0;color:var(--muted)">📌 #3 슬롯 비어있음</h3>
+        <button class="btn primary sm">+ 칼럼 선택</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../assets/page.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>분사무소</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> 분사무소</div>
+  <div class="page-title">
+    <h1>🏢 분사무소</h1>
+    <span class="sub">전국 16개 지점 · 사진 + ALT + 네이버 placeId (PDF 21p)</span>
+    <div class="actions"><button class="btn primary">+ 신규 등록</button></div>
+  </div>
+</div>
+<div class="page-body">
+  <div class="grid-2-1">
+    <div class="card">
+      <div class="card-head"><h3>분사무소 목록</h3></div>
+      <div class="card-body tight">
+        <table class="data">
+          <thead><tr><th>이름</th><th>주소</th><th>전화</th><th>사진</th><th>placeId</th><th class="actions-col"></th></tr></thead>
+          <tbody>
+            <tr><td><strong>본사 (서초)</strong></td><td>서울 서초구</td><td>1661-2661</td><td>📷 12</td><td><code>123456789</code></td><td><div class="row-actions"><button class="btn icon sm">✎</button></div></td></tr>
+            <tr><td>강남지점</td><td>서울 강남구</td><td>1661-2661</td><td>📷 8</td><td><code>234567890</code></td><td><div class="row-actions"><button class="btn icon sm">✎</button></div></td></tr>
+            <tr><td>부산지점</td><td>부산 해운대구</td><td>1661-2661</td><td>📷 6</td><td><code>345678901</code></td><td><div class="row-actions"><button class="btn icon sm">✎</button></div></td></tr>
+            <tr><td>대구지점</td><td>대구 수성구</td><td>1661-2661</td><td>📷 5</td><td><code>456789012</code></td><td><div class="row-actions"><button class="btn icon sm">✎</button></div></td></tr>
+            <tr><td>대전지점</td><td>대전 서구</td><td>1661-2661</td><td>📷 4</td><td><code>567890123</code></td><td><div class="row-actions"><button class="btn icon sm">✎</button></div></td></tr>
+            <tr><td>광주지점</td><td>광주 서구</td><td>1661-2661</td><td>📷 5</td><td><code>678901234</code></td><td><div class="row-actions"><button class="btn icon sm">✎</button></div></td></tr>
+            <tr><td colspan="6" class="text-muted text-right" style="padding:8px 14px">⋯ 외 10개 지점</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>편집: 본사 (서초)</h3></div>
+      <div class="card-body">
+        <div class="form-grid" style="grid-template-columns:90px 1fr">
+          <label>이름</label><input class="input" value="본사 (서초)"/>
+          <label>주소</label><input class="input" value="서울특별시 서초구"/>
+          <label>전화</label><input class="input" value="1661-2661"/>
+          <label>업무시간</label><input class="input" value="평일 09:00-18:00"/>
+          <label>placeId</label><input class="input" value="123456789"/>
+          <label>위도/경도</label>
+          <div class="form-row-2">
+            <input class="input" placeholder="37.4979"/>
+            <input class="input" placeholder="127.0276"/>
+          </div>
+          <label>대표사진</label>
+          <div class="upload-box" style="padding:16px"><span class="ico">📷</span>대표 사진</div>
+          <label>이미지 alt</label><input class="input" placeholder="법무법인 오현 본사 외관"/>
+        </div>
+
+        <h4 style="margin-top:18px;margin-bottom:10px;font-size:12.5px">갤러리 (12장)</h4>
+        <div class="media-grid">
+          <div class="media-tile"><div class="thumb">📷</div><div class="meta"><div class="nm">외관-01.jpg</div></div></div>
+          <div class="media-tile"><div class="thumb">📷</div><div class="meta"><div class="nm">로비-01.jpg</div></div></div>
+          <div class="media-tile"><div class="thumb">📷</div><div class="meta"><div class="nm">상담실.jpg</div></div></div>
+          <div class="media-tile"><div class="thumb" style="border:2px dashed var(--border-strong);background:#fff;color:var(--muted)">+</div><div class="meta"><div class="nm text-muted">추가</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../assets/page.js"></script>
+</body>
+</html>

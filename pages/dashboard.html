@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>대시보드</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb">홈 <span class="sep">›</span> 대시보드</div>
+  <div class="page-title">
+    <h1>📊 대시보드</h1>
+    <span class="sub">전 사이트 통합 운영 현황</span>
+    <div class="actions">
+      <button class="btn">📅 최근 30일</button>
+      <button class="btn primary">⚡ 전체 캐시 재발행</button>
+    </div>
+  </div>
+</div>
+<div class="page-body">
+
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="ico">🌐</div>
+      <div class="label">활성 사이트</div>
+      <div class="value">28<span class="text-muted" style="font-size:14px;font-weight:500"> / 28</span></div>
+      <div class="delta">전체 발행 중</div>
+    </div>
+    <div class="stat alt">
+      <div class="ico">💬</div>
+      <div class="label">신규 상담문의 (24h)</div>
+      <div class="value">137</div>
+      <div class="delta">▲ 12.4% (전일 대비)</div>
+    </div>
+    <div class="stat alt2">
+      <div class="ico">👁</div>
+      <div class="label">방문자 (오늘)</div>
+      <div class="value">8,253</div>
+      <div class="delta">▲ 5.1%</div>
+    </div>
+    <div class="stat alt3">
+      <div class="ico">📝</div>
+      <div class="label">미발행 콘텐츠</div>
+      <div class="value">42</div>
+      <div class="delta down">검토 대기 중</div>
+    </div>
+  </div>
+
+  <div class="grid-2-1">
+    <div class="card">
+      <div class="card-head">
+        <h3>사이트별 트래픽 추이</h3>
+        <span class="sub">최근 7일</span>
+        <div class="actions">
+          <select class="select" style="width:140px"><option>전체 사이트</option><option>허브</option><option>민형경</option></select>
+        </div>
+      </div>
+      <div class="card-body">
+        <div style="height:240px;background:linear-gradient(180deg,#EFF6FF 0%,#fff 100%);border:1px dashed var(--border-strong);border-radius:6px;display:flex;align-items:flex-end;justify-content:space-around;padding:14px;gap:6px">
+          <div style="width:8%;height:55%;background:var(--navy);border-radius:3px 3px 0 0"></div>
+          <div style="width:8%;height:62%;background:var(--navy);border-radius:3px 3px 0 0"></div>
+          <div style="width:8%;height:48%;background:var(--navy);border-radius:3px 3px 0 0"></div>
+          <div style="width:8%;height:74%;background:var(--navy);border-radius:3px 3px 0 0"></div>
+          <div style="width:8%;height:81%;background:var(--navy);border-radius:3px 3px 0 0"></div>
+          <div style="width:8%;height:67%;background:var(--navy);border-radius:3px 3px 0 0"></div>
+          <div style="width:8%;height:90%;background:var(--navy-light);border-radius:3px 3px 0 0"></div>
+        </div>
+        <div class="row-flex" style="justify-content:space-around;margin-top:8px;font-size:11px;color:var(--muted)">
+          <span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span><span>일</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>사이트별 상담 (Top 8)</h3></div>
+      <div class="card-body">
+        <ul class="kpi-list">
+          <li><span class="badge hub">허브</span><span class="name">www.ohyunlaw.com</span><span class="val">42</span></li>
+          <li><span class="badge major">형사</span><span class="name">criminal</span><span class="val">28</span></li>
+          <li><span class="badge etc">이혼</span><span class="name">divorce</span><span class="val">19</span></li>
+          <li><span class="badge etc">부동산</span><span class="name">estate</span><span class="val">14</span></li>
+          <li><span class="badge etc">노동</span><span class="name">labor</span><span class="val">10</span></li>
+          <li><span class="badge major">민사</span><span class="name">civil</span><span class="val">9</span></li>
+          <li><span class="badge etc">의료</span><span class="name">medical</span><span class="val">8</span></li>
+          <li><span class="badge etc">기업</span><span class="name">corp</span><span class="val">7</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2 mt-20">
+    <div class="card">
+      <div class="card-head"><h3>최근 상담문의</h3>
+        <div class="actions"><button class="btn ghost sm" data-go="inquiries">전체 보기 →</button></div>
+      </div>
+      <div class="card-body tight">
+        <table class="data">
+          <thead><tr><th>사이트</th><th>성함</th><th>연락처</th><th>접수시각</th><th>상태</th></tr></thead>
+          <tbody>
+            <tr data-row-go="inquiries"><td><span class="badge etc">이혼</span></td><td>김○○</td><td>010-****-1234</td><td class="text-muted">14:32</td><td><span class="dot pending"></span>미확인</td></tr>
+            <tr data-row-go="inquiries"><td><span class="badge major">형사</span></td><td>박○○</td><td>010-****-5678</td><td class="text-muted">13:18</td><td><span class="dot pending"></span>미확인</td></tr>
+            <tr data-row-go="inquiries"><td><span class="badge hub">허브</span></td><td>이○○</td><td>010-****-9012</td><td class="text-muted">11:45</td><td><span class="dot live"></span>처리완료</td></tr>
+            <tr data-row-go="inquiries"><td><span class="badge etc">노동</span></td><td>최○○</td><td>010-****-3456</td><td class="text-muted">09:22</td><td><span class="dot live"></span>처리완료</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>최근 발행 콘텐츠</h3>
+        <div class="actions"><button class="btn ghost sm" data-go="cases">전체 보기 →</button></div>
+      </div>
+      <div class="card-body tight">
+        <table class="data">
+          <thead><tr><th>유형</th><th>제목</th><th>사이트</th><th>발행</th></tr></thead>
+          <tbody>
+            <tr data-row-go="cases"><td><span class="badge info">사례</span></td><td>○○ 사기죄 무혐의 처분 사례</td><td><span class="badge major">형사</span></td><td class="text-muted">방금</td></tr>
+            <tr data-row-go="insights"><td><span class="badge purple">칼럼</span></td><td>2026 개정 노동법 핵심 정리</td><td><span class="badge etc">노동</span></td><td class="text-muted">2시간 전</td></tr>
+            <tr data-row-go="cases"><td><span class="badge info">사례</span></td><td>이혼 재산분할 60% 인정 판결</td><td><span class="badge etc">이혼</span></td><td class="text-muted">5시간 전</td></tr>
+            <tr data-row-go="faq"><td><span class="badge">FAQ</span></td><td>음주운전 면허정지 기준은?</td><td><span class="badge etc">교통</span></td><td class="text-muted">어제</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout mt-20">
+    💡 <strong>운영 팁</strong> — 좌측 사이드바에서 영역을 선택하거나, 위 카드의 항목을 클릭하면 해당 관리 페이지로 바로 이동합니다.
+  </div>
+
+</div>
+<script src="../assets/page.js"></script>
+</body>
+</html>

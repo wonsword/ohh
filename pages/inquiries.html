@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>상담·문의</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> 상담·문의</div>
+  <div class="page-title">
+    <h1>💬 상담·문의 접수</h1>
+    <span class="sub">PDF 8·24~26p · IP 자동 캡처 + 이메일 일괄 관리</span>
+    <div class="actions">
+      <button class="btn">📥 CSV 내보내기</button>
+    </div>
+  </div>
+</div>
+<div class="page-body">
+  <div class="tabs">
+    <div class="tab on">접수 목록 (137건)</div>
+    <div class="tab">이메일 수신인</div>
+    <div class="tab">자동 응답 템플릿</div>
+  </div>
+
+  <div class="tab-panel on">
+    <div class="filter-bar">
+      <input class="input search" placeholder="성함·전화 검색"/>
+      <select class="select"><option>전체 사이트</option></select>
+      <select class="select"><option>전체 상태</option><option>미확인</option><option>처리중</option><option>처리완료</option></select>
+      <input type="date" class="input"/>
+      <input type="date" class="input"/>
+    </div>
+
+    <div class="tbl-wrap">
+      <table class="data">
+        <thead><tr><th class="check-col"><input type="checkbox"></th><th>접수시각</th><th>사이트</th><th>성함</th><th>연락처</th><th>문의 요약</th><th>IP</th><th>상태</th></tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>2026-05-08 14:32</td><td><span class="badge etc">이혼</span></td><td>김○○</td><td>010-****-1234</td><td class="text-muted">이혼 시 재산분할 관련하여…</td><td>211.***.**.**</td><td><span class="dot pending"></span>미확인</td></tr>
+          <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>2026-05-08 13:18</td><td><span class="badge major">형사</span></td><td>박○○</td><td>010-****-5678</td><td class="text-muted">사기 혐의로 조사를 받게…</td><td>175.***.**.**</td><td><span class="dot pending"></span>미확인</td></tr>
+          <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>2026-05-08 11:45</td><td><span class="badge hub">허브</span></td><td>이○○</td><td>010-****-9012</td><td class="text-muted">기업 인수합병 자문…</td><td>222.***.**.**</td><td><span class="dot live"></span>처리완료</td></tr>
+          <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>2026-05-08 09:22</td><td><span class="badge etc">노동</span></td><td>최○○</td><td>010-****-3456</td><td class="text-muted">부당해고 구제신청…</td><td>118.***.**.**</td><td><span class="dot live"></span>처리완료</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card mt-20">
+      <div class="card-head"><h3>이메일 수신인 일괄 관리 (PDF 24~26p)</h3>
+        <span class="sub">SUPER만 수정 가능 · 허브 일괄 적용</span>
+      </div>
+      <div class="card-body">
+        <div class="form-grid">
+          <label>글로벌 수신인<span class="hint">모든 사이트 기본값</span></label>
+          <textarea class="textarea">contact@ohyunlaw.com
+admin@ohyunlaw.com</textarea>
+          <label>이메일 제목 형식</label><input class="input" value="[홈페이지명] 성함 / 전화번호" style="font-family:monospace"/>
+          <label>본문 템플릿</label><textarea class="textarea" style="font-family:monospace;font-size:11.5px">성함: {{name}}
+연락처: {{phone}}
+IP: {{ip}}
+사이트: {{siteName}}
+
+문의내용:
+{{message}}</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../assets/page.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>메인스킨 슬라이드</title>
+<link rel="stylesheet" href="../../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> <a data-go="sites">사이트 관리</a> <span class="sep">›</span> <a data-go="sites/edit">형사그룹</a> <span class="sep">›</span> 메인스킨</div>
+  <div class="page-title">
+    <h1>🎬 메인스킨 슬라이드 (Hero)</h1>
+    <span class="sub">이미지 + 홍보문구 세트로 변경 · 인터랙티브</span>
+    <div class="actions">
+      <button class="btn">👁 미리보기</button>
+      <button class="btn primary">+ 슬라이드 추가</button>
+    </div>
+  </div>
+</div>
+<div class="page-body">
+  <div class="grid-2-1">
+    <div class="card">
+      <div class="card-head"><h3>슬라이드 목록 (4개)</h3>
+        <span class="sub">드래그로 순서 변경</span>
+      </div>
+      <div class="card-body">
+        <div class="slide-list">
+          <div class="slide-item">
+            <div class="order">≡<br/>1</div>
+            <div class="img-ph">📷 1920×800</div>
+            <div class="meta">
+              <div class="h">검찰 출신 30년 경력의 변호인단</div>
+              <div class="s">의뢰인의 권리를 끝까지 지킵니다</div>
+              <div class="l">→ /lawyers</div>
+            </div>
+            <div class="acts"><button class="btn sm">✎</button><button class="btn sm">⎘</button><button class="btn sm danger">🗑</button></div>
+          </div>
+          <div class="slide-item">
+            <div class="order">≡<br/>2</div>
+            <div class="img-ph">📷 1920×800</div>
+            <div class="meta">
+              <div class="h">사기·횡령 무혐의 처분 다수</div>
+              <div class="s">실력으로 입증된 형사 전문 변호인</div>
+              <div class="l">→ /cases?field=fraud</div>
+            </div>
+            <div class="acts"><button class="btn sm">✎</button><button class="btn sm">⎘</button><button class="btn sm danger">🗑</button></div>
+          </div>
+          <div class="slide-item">
+            <div class="order">≡<br/>3</div>
+            <div class="img-ph">📷 1920×800</div>
+            <div class="meta">
+              <div class="h">전국 16개 분사무소</div>
+              <div class="s">가까운 곳에서 빠르게 만나뵐 수 있습니다</div>
+              <div class="l">→ /branches</div>
+            </div>
+            <div class="acts"><button class="btn sm">✎</button><button class="btn sm">⎘</button><button class="btn sm danger">🗑</button></div>
+          </div>
+          <div class="slide-item">
+            <div class="order">≡<br/>4</div>
+            <div class="img-ph">📷 1920×800</div>
+            <div class="meta">
+              <div class="h">24시간 긴급 형사 상담</div>
+              <div class="s">체포·구속 즉시 대응</div>
+              <div class="l">→ /contact</div>
+            </div>
+            <div class="acts"><button class="btn sm">✎</button><button class="btn sm">⎘</button><button class="btn sm danger">🗑</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card mb-16">
+        <div class="card-head"><h3>슬라이드 #1 편집</h3></div>
+        <div class="card-body">
+          <div class="form-grid" style="grid-template-columns:90px 1fr">
+            <label>이미지<span class="req">*</span></label>
+            <div>
+              <div class="upload-box" style="padding:16px"><span class="ico">📤</span>1920×800 권장<div class="hint">JPG/PNG/WebP · 최대 2MB</div></div>
+            </div>
+            <label>이미지 alt<span class="req">*</span></label><input class="input" value="검찰 출신 변호인단 단체 사진"/>
+            <label>헤드라인<span class="req">*</span></label><input class="input" value="검찰 출신 30년 경력의 변호인단"/>
+            <label>서브라인</label><input class="input" value="의뢰인의 권리를 끝까지 지킵니다"/>
+            <label>버튼 텍스트</label><input class="input" value="구성원 보기"/>
+            <label>링크 URL</label><input class="input" value="/lawyers"/>
+            <label>텍스트 정렬</label><select class="select"><option>왼쪽</option><option selected>가운데</option><option>오른쪽</option></select>
+            <label>텍스트 색상</label><input class="input" type="color" value="#ffffff" style="height:36px;padding:4px"/>
+            <label>오버레이 어둡기</label><input type="range" min="0" max="100" value="40"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>전역 설정</h3></div>
+        <div class="card-body">
+          <div class="form-grid" style="grid-template-columns:110px 1fr">
+            <label>자동 재생</label><div><div class="toggle on"></div></div>
+            <label>전환 시간</label><div class="input-with-suffix"><input value="5000"/><span class="suffix">ms</span></div>
+            <label>전환 효과</label><select class="select"><option>페이드</option><option selected>슬라이드</option><option>줌</option></select>
+            <label>화살표 표시</label><div><div class="toggle on"></div></div>
+            <label>인디케이터</label><div><div class="toggle on"></div></div>
+            <label>모바일 노출</label><div><div class="toggle on"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../assets/page.js"></script>
+</body>
+</html>

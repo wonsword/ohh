@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>뉴스·공지·세미나</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> 뉴스·공지·세미나</div>
+  <div class="page-title">
+    <h1>📰 뉴스·공지·세미나·서식</h1>
+    <span class="sub">언론보도는 허브 등록 시 모든 사이트 자동 반영 (PDF 65p)</span>
+    <div class="actions"><button class="btn primary">+ 신규 작성</button></div>
+  </div>
+</div>
+<div class="page-body">
+  <div class="tabs">
+    <div class="tab on">📰 언론보도</div>
+    <div class="tab">📢 공지사항</div>
+    <div class="tab">👔 인재채용 (허브)</div>
+    <div class="tab">🎓 세미나</div>
+    <div class="tab">📄 법률서식</div>
+  </div>
+  <div class="tab-panel on">
+    <div class="filter-bar">
+      <input class="input search" placeholder="제목 검색"/>
+      <label class="checkbox"><input type="checkbox" checked> 일괄 반영 (모든 사이트)</label>
+    </div>
+    <div class="tbl-wrap">
+      <table class="data">
+        <thead><tr><th class="check-col"><input type="checkbox"></th><th>제목</th><th>매체</th><th>일괄 반영</th><th>발행일</th></tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><strong>법무법인 오현, 형사사건 무죄 판결 받아내</strong></td><td>법률신문</td><td><span class="badge live">28개 사이트</span></td><td>2026-05-05</td></tr>
+          <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>오현 김변호 변호사, 검찰 출신 30년 경력</td><td>한국경제</td><td><span class="badge live">28개 사이트</span></td><td>2026-04-28</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script src="../assets/page.js"></script>
+</body>
+</html>

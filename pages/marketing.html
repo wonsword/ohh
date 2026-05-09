@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>마케팅</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> 마케팅</div>
+  <div class="page-title">
+    <h1>🎯 마케팅</h1>
+    <span class="sub">팝업 · 띠배너 · CTA 블록 (PDF 32p)</span>
+    <div class="actions"><button class="btn primary">+ 신규</button></div>
+  </div>
+</div>
+<div class="page-body">
+  <div class="tabs">
+    <div class="tab on">🪟 팝업창</div>
+    <div class="tab">📢 띠배너</div>
+    <div class="tab">📞 CTA 블록 (카톡·톡톡)</div>
+  </div>
+  <div class="tab-panel on">
+    <div class="filter-bar">
+      <select class="select"><option>전체 사이트</option></select>
+      <select class="select"><option>전체 상태</option><option>활성</option><option>예약</option><option>종료</option></select>
+    </div>
+    <div class="tbl-wrap">
+      <table class="data">
+        <thead><tr><th class="check-col"><input type="checkbox"></th><th>썸네일</th><th>제목</th><th>사이트</th><th>슬라이드 순서</th><th>전환 시간</th><th>노출 기간</th><th>상태</th></tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><div style="width:40px;height:40px;background:#E2E8F0;border-radius:4px"></div></td><td><strong>5월 가정의 달 무료 상담</strong></td><td><span class="badge etc">이혼</span></td><td>1</td><td>3000ms</td><td>05.01 ~ 05.31</td><td><span class="dot live"></span>활성</td></tr>
+          <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><div style="width:40px;height:40px;background:#E2E8F0;border-radius:4px"></div></td><td><strong>형사사건 24시 긴급 상담</strong></td><td><span class="badge major">형사</span></td><td>2</td><td>3000ms</td><td>상시</td><td><span class="dot live"></span>활성</td></tr>
+          <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><div style="width:40px;height:40px;background:#E2E8F0;border-radius:4px"></div></td><td>4월 신년 캠페인</td><td><span class="badge hub">허브</span></td><td>—</td><td>—</td><td>04.01 ~ 04.30</td><td><span class="dot draft"></span>종료</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card mt-20">
+      <div class="card-head"><h3>편집: 5월 가정의 달 무료 상담</h3></div>
+      <div class="card-body">
+        <div class="grid-2">
+          <div>
+            <div class="form-grid">
+              <label>제목</label><input class="input" value="5월 가정의 달 무료 상담"/>
+              <label>이미지<span class="hint">800×600 권장</span></label>
+              <div class="upload-box" style="padding:16px"><span class="ico">📤</span>이미지 업로드</div>
+              <label>이미지 alt</label><input class="input" placeholder="필수"/>
+              <label>랜딩 URL</label><input class="input" value="/contact"/>
+              <label>적용 사이트</label>
+              <div>
+                <label class="checkbox"><input type="checkbox" checked> 이혼·가사</label>
+                <label class="checkbox"><input type="checkbox"> 허브</label>
+              </div>
+              <label>노출 기간</label>
+              <div class="form-row-2">
+                <input class="input" type="date" value="2026-05-01"/>
+                <input class="input" type="date" value="2026-05-31"/>
+              </div>
+              <label>슬라이드 순서</label><input class="input" type="number" value="1"/>
+              <label>전환 시간</label><div class="input-with-suffix"><input value="3000"/><span class="suffix">ms</span></div>
+            </div>
+          </div>
+          <div>
+            <h4 style="font-size:12px;color:var(--muted);text-transform:uppercase;font-weight:700;margin-bottom:8px">미리보기</h4>
+            <div style="background:#F8FAFC;border:1px solid var(--border);border-radius:8px;padding:30px;text-align:center">
+              <div style="background:#fff;width:280px;margin:0 auto;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.12);overflow:hidden">
+                <div style="height:160px;background:#E2E8F0;display:flex;align-items:center;justify-content:center;color:var(--muted-light)">800×600 이미지</div>
+                <div style="padding:14px"><strong>5월 가정의 달 무료 상담</strong><br/><span style="font-size:11px;color:var(--muted)">자세히 보기 →</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../assets/page.js"></script>
+</body>
+</html>

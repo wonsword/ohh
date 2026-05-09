@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>변호사 신규 등록</title>
+<link rel="stylesheet" href="../../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> <a data-go="lawyers">변호사 관리</a> <span class="sep">›</span> 신규 등록</div>
+  <div class="page-title">
+    <h1>👤 변호사 신규 등록</h1>
+    <span class="sub">기본 정보만 등록 · 분야·사이트 매핑은 등록 후 상세에서</span>
+    <div class="actions">
+      <button class="btn" data-go="lawyers">취소</button>
+      <button class="btn primary">+ 등록 후 상세 편집</button>
+    </div>
+  </div>
+</div>
+<div class="page-body">
+  <div class="grid-2-1">
+    <div class="card">
+      <div class="card-head"><h3>기본 정보</h3>
+        <span class="sub">필수 항목만 입력하면 즉시 등록됩니다</span>
+      </div>
+      <div class="card-body">
+        <div class="form-grid">
+          <label>이름 (한글)<span class="req">*</span></label><input class="input" placeholder="홍길동"/>
+          <label>이름 (영문)</label><input class="input" placeholder="Hong, Gildong"/>
+          <label>이름 (한자)</label><input class="input" placeholder="洪吉童"/>
+          <label>슬러그<span class="req">*</span><span class="hint">URL 경로</span></label>
+          <div class="input-with-suffix"><span class="suffix">/lawyers/</span><input placeholder="hong-gildong"/></div>
+          <label>이메일<span class="req">*</span></label><input class="input" type="email"/>
+          <label>전화번호</label><input class="input"/>
+          <label>한 줄 소개</label><textarea class="textarea" style="min-height:60px" placeholder="검찰 출신 30년 경력의 형사 전문 변호인"></textarea>
+
+          <div class="form-divider"></div>
+
+          <label>프로필 이미지<span class="req">*</span></label>
+          <div>
+            <div class="upload-box" style="padding:18px"><span class="ico">📷</span>누끼 이미지 1장 업로드<div class="hint">PNG 권장 · 자동으로 120/240/480 생성</div></div>
+            <input class="input mt-12" placeholder="이미지 alt (필수) — 예: 홍길동 변호사 프로필"/>
+          </div>
+
+          <div class="form-divider"></div>
+
+          <label>담당 분야<span class="req">*</span><span class="hint">선택한 분야의 사이트에 자동 노출됩니다</span></label>
+          <div>
+            <button class="btn" onclick="openModal('search-fields')">🏷 분야 선택</button>
+            <p class="help mt-12">예시) <strong>「사기」</strong> 선택 → 형사그룹 + 경제범죄그룹에 자동 노출 / <strong>「의료과실」</strong> 선택 → 의료·헬스케어그룹에 자동 노출</p>
+          </div>
+
+          <label>예상 노출 사이트<br/><span class="hint">분야 선택 시 자동 계산</span></label>
+          <div style="background:#F8FAFC;border:1px solid var(--border);border-radius:6px;padding:12px;min-height:60px">
+            <span class="text-muted" style="font-size:11.5px;display:block;margin-bottom:6px">분야 선택 후 표시됩니다</span>
+            <span class="badge major">형사그룹</span>
+            <span class="badge major">경제범죄그룹</span>
+            <span class="badge etc">마약그룹</span>
+            <p class="help mt-12">사이트별 우선순위·티어는 등록 후 상세 편집에서 미세 조정</p>
+          </div>
+
+          <label>LAWYER 계정 발급</label>
+          <div>
+            <label class="checkbox"><input type="checkbox" checked/> 본인 칼럼 작성 권한 부여 (PDF 34p)</label>
+            <p class="help mt-12">발급 시 임시 비밀번호가 이메일로 자동 전송됩니다. 본인 작성 글만 수정 가능, 발행은 SITE_ADMIN 승인.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card mb-16">
+        <div class="card-head"><h3>👁 카드 미리보기</h3></div>
+        <div class="card-body" style="background:#F8FAFC">
+          <div style="background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.06)">
+            <div style="height:160px;background:linear-gradient(180deg,#1F4E79 0%,#3B6EA8 100%);display:flex;align-items:flex-end;justify-content:center;color:#fff;font-size:42px;padding-top:30px">👤</div>
+            <div style="padding:14px">
+              <h3 style="font-size:14px;font-weight:700">[변호사명]</h3>
+              <div style="font-size:11px;color:var(--muted);margin-top:2px">한 줄 소개가 여기에 표시됩니다</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>등록 후 자동 처리</h3></div>
+        <div class="card-body">
+          <ul style="list-style:none;font-size:12.3px">
+            <li style="padding:6px 0;border-bottom:1px dashed var(--border)">✓ 누끼 이미지 → 4가지 크기 자동 생성</li>
+            <li style="padding:6px 0;border-bottom:1px dashed var(--border)">✓ 사이트별 표시 이름 자동 변환</li>
+            <li style="padding:6px 0;border-bottom:1px dashed var(--border)">✓ 분야 매칭 사이트에 우선순위 #default로 추가</li>
+            <li style="padding:6px 0">✓ LAWYER 권한 계정 활성화 + 메일 발송</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 분야 선택 모달 (26개 전체) -->
+<div class="modal-backdrop" data-modal="search-fields">
+  <div class="modal lg">
+    <div class="modal-head">
+      <h3>🏷 담당 분야 선택</h3>
+      <span class="sub">선택한 분야는 매핑된 사이트에 자동 노출됩니다</span>
+      <span class="close" onclick="closeModal()">×</span>
+    </div>
+    <div class="modal-body">
+      <div style="display:grid;grid-template-columns:1fr 280px;gap:14px">
+        <div>
+          <div class="filter-bar" style="margin-bottom:10px">
+            <div class="input-icon" style="flex:1"><span class="ico">🔍</span><input class="input" placeholder="분야명 검색 (예: 사기, 음주)"/></div>
+            <button class="btn sm">전체 펼치기</button>
+          </div>
+          <div class="tree" style="border:1px solid var(--border);border-radius:6px;padding:8px;max-height:420px;overflow-y:auto">
+
+            <!-- 형사 그룹 (8개) -->
+            <div class="tree-node l1"><div class="row"><span class="toggle-ico">▼</span><label class="checkbox"><input type="checkbox"/></label><span class="label">⚖️ 형사 그룹</span><span class="meta">8개</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox" checked/></label><span class="label">형사일반</span><span class="badge major" style="font-size:9.5px;margin-left:6px">형사그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox" checked/></label><span class="label">경제범죄</span><span class="badge major" style="font-size:9.5px;margin-left:6px">경제범죄그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">명예훼손</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">명예훼손그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">성범죄</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">성범죄그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox" checked/></label><span class="label">마약</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">마약그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">음주·교통사고</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">음주·교통사고그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">학교폭력</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">학교폭력그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">군인·국방</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">군인·국방그룹</span></div></div>
+
+            <!-- 민사 그룹 (3개) -->
+            <div class="tree-node l1"><div class="row"><span class="toggle-ico">▼</span><label class="checkbox"><input type="checkbox"/></label><span class="label">⚖️ 민사 그룹</span><span class="meta">3개</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">민사소송·조정</span><span class="badge major" style="font-size:9.5px;margin-left:6px">민사소송·조정그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">채권추심</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">채권추심그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">채권추심센터</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">채권추심센터</span></div></div>
+
+            <!-- 가사 그룹 (2개) -->
+            <div class="tree-node l1"><div class="row"><span class="toggle-ico">▼</span><label class="checkbox"><input type="checkbox"/></label><span class="label">⚖️ 가사 그룹</span><span class="meta">2개</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">이혼·가사</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">이혼·가사그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">상속·신탁</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">상속·신탁그룹</span></div></div>
+
+            <!-- 기업·재무 그룹 (6개) -->
+            <div class="tree-node l1"><div class="row"><span class="toggle-ico">▼</span><label class="checkbox"><input type="checkbox"/></label><span class="label">⚖️ 기업·재무 그룹</span><span class="meta">6개</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">기업법무·M&A</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">기업법무·M&A그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">금융·조세</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">금융·조세그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">공정거래·프랜차이즈</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">공정거래·프랜차이즈그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">법인회생·파산</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">법인회생·파산그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">국제거래·관세</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">국제거래·관세그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">디지털자산·핀테크</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">디지털자산·핀테크그룹</span></div></div>
+
+            <!-- 부동산·노동 그룹 (3개) -->
+            <div class="tree-node l1"><div class="row"><span class="toggle-ico">▼</span><label class="checkbox"><input type="checkbox"/></label><span class="label">⚖️ 부동산·노동 그룹</span><span class="meta">3개</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">부동산·건설</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">부동산·건설그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">노동·산재</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">노동·산재그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">중대재해·산업안전</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">중대재해·산업안전그룹</span></div></div>
+
+            <!-- 의료·전문 그룹 (4개) -->
+            <div class="tree-node l1"><div class="row"><span class="toggle-ico">▼</span><label class="checkbox"><input type="checkbox"/></label><span class="label">⚖️ 의료·전문 그룹</span><span class="meta">4개</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">의료·헬스케어</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">의료·헬스케어그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">지식재산권</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">지식재산권그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">행정·헌법</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">행정·헌법그룹</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">이민·해외투자</span><span class="badge etc" style="font-size:9.5px;margin-left:6px">이민·해외투자그룹</span></div></div>
+
+          </div>
+        </div>
+
+        <!-- 우측 선택 패널 -->
+        <div style="background:#F8FAFC;border:1px solid var(--border);border-radius:6px;padding:12px;display:flex;flex-direction:column;max-height:480px">
+          <h4 style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">선택된 분야 (3)</h4>
+          <div style="display:flex;flex-direction:column;gap:6px;flex:1;overflow-y:auto">
+            <div style="background:#fff;border:1px solid var(--border);border-radius:5px;padding:8px;position:relative">
+              <div style="font-size:12px;font-weight:600">형사 › 형사일반</div>
+              <div style="font-size:10.5px;color:var(--muted)">→ 형사그룹에 자동 노출</div>
+              <button class="btn icon sm" style="position:absolute;top:6px;right:6px">×</button>
+            </div>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:5px;padding:8px;position:relative">
+              <div style="font-size:12px;font-weight:600">형사 › 경제범죄</div>
+              <div style="font-size:10.5px;color:var(--muted)">→ 경제범죄그룹에 자동 노출</div>
+              <button class="btn icon sm" style="position:absolute;top:6px;right:6px">×</button>
+            </div>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:5px;padding:8px;position:relative">
+              <div style="font-size:12px;font-weight:600">형사 › 마약</div>
+              <div style="font-size:10.5px;color:var(--muted)">→ 마약그룹에 자동 노출</div>
+              <button class="btn icon sm" style="position:absolute;top:6px;right:6px">×</button>
+            </div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding-top:10px;margin-top:10px;font-size:11px">
+            <div style="color:var(--navy);font-weight:600;margin-bottom:4px">예상 노출 사이트: 3개</div>
+            <div style="display:flex;gap:3px;flex-wrap:wrap">
+              <span class="badge major" style="font-size:9.5px">형사그룹</span>
+              <span class="badge major" style="font-size:9.5px">경제범죄그룹</span>
+              <span class="badge etc" style="font-size:9.5px">마약그룹</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <span class="left">선택됨: <strong>3개 분야</strong> · 자동 노출 사이트 <strong>3개</strong></span>
+      <button class="btn" onclick="closeModal()">취소</button>
+      <button class="btn primary" onclick="closeModal()">선택 적용</button>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/page.js"></script>
+</body>
+</html>

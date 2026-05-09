@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>신규 사이트 등록</title>
+<link rel="stylesheet" href="../../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> <a data-go="sites">사이트 관리</a> <span class="sep">›</span> 신규 등록</div>
+  <div class="page-title">
+    <h1>+ 신규 사이트 등록</h1>
+    <span class="sub">기본 정보만 등록 · 나머지는 생성 후 상세 편집에서</span>
+    <div class="actions">
+      <button class="btn" data-go="sites">취소</button>
+      <button class="btn primary">+ 사이트 생성</button>
+    </div>
+  </div>
+</div>
+<div class="page-body">
+
+  <div class="grid-2-1">
+    <div class="card">
+      <div class="card-head"><h3>기본 정보</h3>
+        <span class="sub">필수 정보만 입력하면 즉시 생성됩니다</span>
+      </div>
+      <div class="card-body">
+        <div class="form-grid">
+
+          <label>사이트명 (한글)<span class="req">*</span><span class="hint">예: 의료·헬스케어그룹</span></label>
+          <input class="input" placeholder="OO그룹"/>
+
+          <label>사이트명 (영문)</label>
+          <input class="input" placeholder="OHYUN LAW Medical (선택)"/>
+
+          <label>도메인<span class="req">*</span><span class="hint">권장: ohyunlaw-{영문분야}.com</span></label>
+          <div>
+            <input class="input" placeholder="ohyunlaw-medical.com"/>
+            <div class="availability ok">✓ 도메인 입력 후 자동 검증</div>
+          </div>
+
+          <label>슬러그<span class="req">*</span><span class="hint">내부 식별자</span></label>
+          <div class="input-with-suffix"><span class="suffix">site:</span><input placeholder="medical"/></div>
+
+          <label>대표 분야<span class="req">*</span><span class="hint">분야 트리에서 선택 (1차+2차)</span></label>
+          <div>
+            <button class="btn" onclick="openModal('search-fields')">🏷 분야 선택</button>
+            <p class="help mt-12">선택 후 보조 분야는 사이트 상세 편집에서 추가할 수 있습니다.</p>
+          </div>
+
+          <label>대표 전화<span class="req">*</span></label>
+          <select class="select">
+            <option>1661-2661 (공용 대표번호)</option>
+            <option>1661-5435 (이혼 전용)</option>
+            <option>1833-7186 (부동산 전용)</option>
+            <option>+ 신규 번호 추가</option>
+          </select>
+
+          <label>대표 이메일</label>
+          <input class="input" placeholder="medical@ohyunlaw.com"/>
+
+          <label>발행 상태</label>
+          <select class="select">
+            <option>준비중 (비공개로 생성)</option>
+            <option>발행 (즉시 공개)</option>
+          </select>
+
+          <div class="form-divider"></div>
+
+          <label></label>
+          <div class="callout">
+            ✅ 생성 후 자동으로 <strong>사이트 상세 편집 페이지</strong>로 이동합니다.<br/>
+            거기서 <strong>로고·파비콘·메인 페이지 빌더·메뉴(GNB/Footer)·SEO·스팸봇 차단</strong>을 설정할 수 있습니다.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card mb-16">
+        <div class="card-head"><h3>👁 미리보기</h3></div>
+        <div class="card-body">
+          <div style="background:#F8FAFC;border:1px solid var(--border);border-radius:6px;overflow:hidden">
+            <div style="background:var(--navy);color:#fff;padding:8px 12px;font-size:11px;display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;background:#10B981;border-radius:50%"></span>ohyunlaw-(분야).com</div>
+            <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#1F4E79 0%,#3B6EA8 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700">사이트명이 표시됩니다</div>
+            <div style="padding:10px 12px;background:#fff">
+              <div style="display:flex;gap:6px;font-size:10px;color:var(--muted)"><span>오현소개</span><span>업무사례</span><span>법률정보</span><span>FAQ</span><span>분야</span></div>
+            </div>
+          </div>
+          <p class="help mt-12">기본 템플릿이 자동으로 적용됩니다. 디자인·메인 섹션은 생성 후 상세 편집에서 변경할 수 있습니다.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>자동 적용 항목</h3></div>
+        <div class="card-body">
+          <ul style="list-style:none;font-size:12.3px;color:var(--text)">
+            <li style="padding:6px 0;border-bottom:1px dashed var(--border)">✓ 메인 섹션 11개 슬롯 기본 배치</li>
+            <li style="padding:6px 0;border-bottom:1px dashed var(--border)">✓ 분야 매칭 변호사 자동 노출</li>
+            <li style="padding:6px 0;border-bottom:1px dashed var(--border)">✓ 동일 분야 사례 자동 동기화</li>
+            <li style="padding:6px 0;border-bottom:1px dashed var(--border)">✓ 글로벌 이메일 수신인 적용</li>
+            <li style="padding:6px 0;border-bottom:1px dashed var(--border)">✓ SSL/HTTPS 자동 발급 (Let's Encrypt)</li>
+            <li style="padding:6px 0">✓ SEO 기본값 자동 생성</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 분야 선택 모달 ===== -->
+<div class="modal-backdrop" data-modal="search-fields">
+  <div class="modal lg">
+    <div class="modal-head">
+      <h3>🏷 대표 분야 선택</h3>
+      <span class="sub">1차 + 2차까지 선택 권장</span>
+      <span class="close" onclick="closeModal()">×</span>
+    </div>
+    <div class="modal-body">
+      <div class="filter-bar" style="margin-bottom:12px">
+        <div class="input-icon" style="flex:1"><span class="ico">🔍</span><input class="input" placeholder="분야 검색"/></div>
+        <button class="btn sm">전체 펼치기</button>
+      </div>
+      <div class="tree" style="border:1px solid var(--border);border-radius:6px;padding:8px;max-height:380px;overflow-y:auto">
+        <div class="tree-node l1"><div class="row"><span class="toggle-ico">▼</span><label class="checkbox"><input type="checkbox"/></label><span class="label">⚖️ 형사</span><span class="meta">사례 1,247</span></div></div>
+        <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">사기</span><span class="meta">사례 348</span></div></div>
+        <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">마약</span><span class="meta">사례 112</span></div></div>
+        <div class="tree-node l2"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox"/></label><span class="label">음주운전</span><span class="meta">사례 89</span></div></div>
+        <div class="tree-node l1"><div class="row"><span class="toggle-ico">▶</span><label class="checkbox"><input type="checkbox"/></label><span class="label">⚖️ 민사</span><span class="meta">사례 876</span></div></div>
+        <div class="tree-node l1"><div class="row"><span class="toggle-ico">▶</span><label class="checkbox"><input type="checkbox"/></label><span class="label">⚖️ 가사</span><span class="meta">사례 563</span></div></div>
+        <div class="tree-node l1"><div class="row"><span class="toggle-ico">▶</span><label class="checkbox"><input type="checkbox"/></label><span class="label">⚖️ 행정</span><span class="meta">사례 318</span></div></div>
+        <div class="tree-node l1"><div class="row"><span class="toggle-ico">▶</span><label class="checkbox"><input type="checkbox"/></label><span class="label">⚖️ 의료</span><span class="meta">사례 192</span></div></div>
+        <div class="tree-node l1"><div class="row"><span class="toggle-ico">▶</span><label class="checkbox"><input type="checkbox"/></label><span class="label">⚖️ 노동</span><span class="meta">사례 318</span></div></div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal()">취소</button>
+      <button class="btn primary" onclick="closeModal()">선택 적용</button>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/page.js"></script>
+</body>
+</html>

@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>사례 작성 (WYSIWYG)</title>
+<link rel="stylesheet" href="../../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> <a data-go="cases">업무사례</a> <span class="sep">›</span> 신규 작성</div>
+  <div class="page-title">
+    <h1>📝 사례 작성 (4섹션 슬롯형)</h1>
+    <span class="sub">의뢰내용 → 사건경위 → 법률쟁점 → 처리결과</span>
+    <div class="actions">
+      <button class="btn" data-go="cases">취소</button>
+      <button class="btn">💾 임시저장</button>
+      <button class="btn">👁 미리보기</button>
+      <button class="btn primary">+ 발행</button>
+    </div>
+  </div>
+</div>
+<div class="page-body">
+  <div class="grid-2-1">
+    <div>
+      <!-- 기본 정보 -->
+      <div class="card mb-16">
+        <div class="card-head"><h3>기본 정보</h3></div>
+        <div class="card-body">
+          <div class="form-grid">
+            <label>제목<span class="req">*</span></label><input class="input" placeholder="사례 제목 입력"/>
+            <label>슬러그</label>
+            <div class="input-with-suffix"><span class="suffix">/cases/</span><input placeholder="case-slug"/></div>
+            <label>대분류<span class="req">*</span></label>
+            <select class="select"><option>형사</option><option>민사</option><option>가사</option><option>행정</option></select>
+            <label>썸네일 이미지<span class="hint">alt 필수</span></label>
+            <div>
+              <div class="upload-box" style="padding:16px"><span class="ico">📤</span>썸네일 업로드</div>
+              <input class="input mt-12" placeholder="이미지 alt 텍스트 (필수)"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WYSIWYG 4섹션 -->
+      <div class="card mb-16">
+        <div class="card-head"><h3>4섹션 본문 (WYSIWYG)</h3>
+          <div class="actions">
+            <button class="btn sm">↶</button>
+            <button class="btn sm">↷</button>
+            <button class="btn sm"><⁄> 소스</button>
+          </div>
+        </div>
+        <div class="card-body" style="padding:0">
+
+          <!-- 섹션 1 -->
+          <div style="padding:14px 18px;background:#F8FAFC;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px">
+            <span style="background:var(--navy);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">1</span>
+            <strong style="font-size:13px">의뢰 내용</strong>
+            <span class="text-muted" style="font-size:11.5px">의뢰인이 처한 상황 / 요청사항</span>
+          </div>
+          <div class="editor" style="border-radius:0;border:none">
+            <div class="editor-toolbar">
+              <div class="grp"><select class="ed-select"><option>본문</option><option>제목 H2</option><option>제목 H3</option><option>인용</option></select></div>
+              <div class="grp">
+                <button class="ed-btn on"><strong>B</strong></button>
+                <button class="ed-btn"><em>I</em></button>
+                <button class="ed-btn" style="text-decoration:underline">U</button>
+                <button class="ed-btn" style="text-decoration:line-through">S</button>
+              </div>
+              <div class="grp">
+                <button class="ed-btn">⬅</button>
+                <button class="ed-btn on">⬌</button>
+                <button class="ed-btn">➡</button>
+              </div>
+              <div class="grp">
+                <button class="ed-btn">≣</button>
+                <button class="ed-btn">1.</button>
+                <button class="ed-btn">❝</button>
+              </div>
+              <div class="grp">
+                <button class="ed-btn wide" onclick="openModal('insert-link')">🔗 링크</button>
+                <button class="ed-btn wide" onclick="openModal('media-picker')">🖼 이미지</button>
+                <button class="ed-btn wide" onclick="openModal('insert-youtube')">▶ 유튜브</button>
+                <button class="ed-btn wide" onclick="openModal('search-cases')">📋 사례</button>
+                <button class="ed-btn wide" onclick="openModal('search-insights')">📝 칼럼</button>
+              </div>
+            </div>
+            <div class="editor-content" contenteditable="true">
+              <p>의뢰인 A씨는 <strong>○○ 사기 사건</strong>으로 고소를 당하여 검찰 조사를 앞두고 있었습니다.</p>
+              <ul>
+                <li>피의자 신분으로 검찰 출석 요구를 받음</li>
+                <li>고소인측이 허위 증거 제출 의혹</li>
+              </ul>
+            </div>
+            <div class="editor-footer"><span>📐 글자 215 · 단락 4</span><div class="right"><span>마지막 저장 1분 전</span></div></div>
+          </div>
+
+          <!-- 섹션 2 -->
+          <div style="padding:14px 18px;background:#F8FAFC;border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px">
+            <span style="background:var(--navy);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">2</span>
+            <strong style="font-size:13px">사건 경위</strong>
+            <span class="text-muted" style="font-size:11.5px">시간순 정리 권장</span>
+          </div>
+          <div class="editor" style="border-radius:0;border:none">
+            <div class="editor-toolbar">
+              <div class="grp"><select class="ed-select"><option>본문</option></select></div>
+              <div class="grp"><button class="ed-btn"><strong>B</strong></button><button class="ed-btn"><em>I</em></button></div>
+              <div class="grp">
+                <button class="ed-btn wide" onclick="openModal('insert-link')">🔗 링크</button>
+                <button class="ed-btn wide" onclick="openModal('media-picker')">🖼 이미지</button>
+                <button class="ed-btn wide" onclick="openModal('insert-youtube')">▶ 유튜브</button>
+                <button class="ed-btn wide" onclick="openModal('search-cases')">📋 사례</button>
+              </div>
+            </div>
+            <div class="editor-content" contenteditable="true">
+              <h3>1. 사건 발생 (2025년 11월)</h3>
+              <p>고소인 B씨가 의뢰인을 사기 혐의로 경찰서에 고소장 제출.</p>
+
+              <div class="img-block">
+                <div class="img-ph">🖼 증빙자료-출입국기록.jpg</div>
+                <div class="alt">alt: 의뢰인 출입국 기록 (2025.11.01-11.20)</div>
+              </div>
+
+              <h3>2. 변호인 선임 (2025년 12월)</h3>
+              <p>당사 김변호 변호사 선임. 즉시 알리바이 자료 수집 착수.</p>
+
+              <div class="embed-block">
+                <span class="ico">📋</span>
+                <div>
+                  <div class="title">관련 사례: 무고 혐의 입증으로 무혐의 처분 받은 사례</div>
+                  <div class="url">→ /cases/false-accusation-2024</div>
+                </div>
+                <div class="actions"><button class="btn sm">✎</button><button class="btn sm">×</button></div>
+              </div>
+
+              <h3>3. 검찰 조사 (2026년 1월)</h3>
+              <div class="yt-embed">유튜브 영상: 검찰 조사 대응 가이드</div>
+            </div>
+          </div>
+
+          <!-- 섹션 3 -->
+          <div style="padding:14px 18px;background:#F8FAFC;border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px">
+            <span style="background:var(--navy);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">3</span>
+            <strong style="font-size:13px">법률 쟁점</strong>
+          </div>
+          <div class="editor" style="border-radius:0;border:none">
+            <div class="editor-toolbar">
+              <div class="grp"><select class="ed-select"><option>본문</option></select></div>
+              <div class="grp"><button class="ed-btn"><strong>B</strong></button><button class="ed-btn"><em>I</em></button></div>
+              <div class="grp">
+                <button class="ed-btn wide" onclick="openModal('search-legal')">📚 법률정보</button>
+                <button class="ed-btn wide" onclick="openModal('search-insights')">📝 칼럼</button>
+              </div>
+            </div>
+            <div class="editor-content" contenteditable="true">
+              <p><strong>핵심 쟁점:</strong> 형법 제347조 사기죄 「기망행위」 부재 입증.</p>
+              <blockquote>대법원 2023도1234 — 단순 채무불이행은 기망행위로 평가될 수 없음</blockquote>
+            </div>
+          </div>
+
+          <!-- 섹션 4 -->
+          <div style="padding:14px 18px;background:#F8FAFC;border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px">
+            <span style="background:var(--navy);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">4</span>
+            <strong style="font-size:13px">처리 결과</strong>
+          </div>
+          <div class="editor" style="border-radius:0;border:none">
+            <div class="editor-toolbar">
+              <div class="grp"><select class="ed-select"><option>본문</option></select></div>
+              <div class="grp"><button class="ed-btn"><strong>B</strong></button><button class="ed-btn"><em>I</em></button></div>
+              <div class="grp"><button class="ed-btn wide" onclick="openModal('media-picker')">🖼 이미지</button></div>
+            </div>
+            <div class="editor-content" contenteditable="true">
+              <h3>📌 무혐의 처분</h3>
+              <p>2026년 3월, 검찰 무혐의 처분 결정.</p>
+              <ul><li>출입국 기록상 알리바이 명백</li><li>기망의 고의 부재 입증</li></ul>
+            </div>
+          </div>
+
+          <!-- 자동 삽입 안내 -->
+          <div style="padding:18px 20px;background:#FFFBEB;border-top:1px solid var(--border)">
+            <div class="auto-block" style="margin:0">
+              ⚙️ <strong>발행 시 자동 삽입됨</strong> — 「오현 강점 4분할」 + 「상담예약 폼」
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 다중 사이트 송출 -->
+      <div class="card">
+        <div class="card-head"><h3>📤 다중 사이트 송출</h3>
+          <span class="sub">체크박스 다중 선택</span>
+        </div>
+        <div class="card-body">
+          <div class="form-grid">
+            <label>주 사이트<span class="req">*</span></label>
+            <select class="select"><option>형사그룹</option><option>경제범죄그룹</option></select>
+            <label>송출 사이트</label>
+            <div>
+              <label class="checkbox" style="margin:0 12px 6px 0"><input type="checkbox" checked> 허브</label>
+              <label class="checkbox" style="margin:0 12px 6px 0"><input type="checkbox" checked> 형사</label>
+              <label class="checkbox" style="margin:0 12px 6px 0"><input type="checkbox"> 경제범죄</label>
+              <label class="checkbox" style="margin:0 12px 6px 0"><input type="checkbox"> 마약</label>
+              <label class="checkbox" style="margin:0 12px 6px 0"><input type="checkbox"> 음주·교통</label>
+              <button class="btn sm">전체 선택</button>
+            </div>
+            <label>분야 자동 매핑</label>
+            <div><div class="toggle on"></div><span class="help">동일 분야 사이트에 자동 노출 (PDF 20·52p)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 우측 사이드바 -->
+    <div>
+      <!-- 담당 변호사 (대륜 패턴) -->
+      <div class="card mb-16">
+        <div class="card-head"><h3>👨‍💼 담당 변호사</h3>
+          <span class="sub">사례 상세에 카드 노출</span>
+          <div class="actions"><button class="btn sm primary" onclick="openModal('search-lawyer')">+ 추가</button></div>
+        </div>
+        <div class="card-body" style="padding:10px 12px">
+          <div style="display:grid;grid-template-columns:auto 44px 1fr auto;gap:10px;align-items:center;padding:10px;border:1px solid var(--navy);border-radius:6px;background:#EFF6FF;margin-bottom:6px">
+            <div style="cursor:grab;color:var(--muted);font-size:14px">≡</div>
+            <div style="width:44px;height:52px;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px;border:1px solid var(--border)">👤</div>
+            <div>
+              <div style="font-size:12.5px;font-weight:700">김변호 변호사</div>
+              <div style="display:flex;gap:3px;margin-top:2px"><span class="badge info" style="font-size:9.5px">검찰</span><span class="badge purple" style="font-size:9.5px">검사장</span></div>
+              <select class="ed-select" style="margin-top:4px;height:22px;font-size:10.5px"><option>👑 주담당</option><option>공동담당</option><option>자문</option></select>
+            </div>
+            <button class="btn icon sm">×</button>
+          </div>
+          <div style="display:grid;grid-template-columns:auto 44px 1fr auto;gap:10px;align-items:center;padding:10px;border:1px solid var(--border);border-radius:6px;margin-bottom:6px">
+            <div style="cursor:grab;color:var(--muted);font-size:14px">≡</div>
+            <div style="width:44px;height:52px;background:#E2E8F0;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px">👤</div>
+            <div>
+              <div style="font-size:12.5px;font-weight:700">박변호사 변호사</div>
+              <select class="ed-select" style="margin-top:4px;height:22px;font-size:10.5px"><option>주담당</option><option selected>공동담당</option><option>자문</option></select>
+            </div>
+            <button class="btn icon sm">×</button>
+          </div>
+
+          <div class="callout" style="margin-top:10px;padding:8px 10px;font-size:11.5px">
+            💡 분야 매칭 추천: <strong>형사·사기 분야</strong> 1~3위 → 김변호 / 박변호사 / 정변호 <button class="btn ghost sm" style="float:right" onclick="openModal('search-lawyer')">자동 추천</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 관련 업무분야 -->
+      <div class="card mb-16">
+        <div class="card-head"><h3>🏷 관련 업무분야</h3>
+          <span class="sub">분야 페이지 링크</span>
+        </div>
+        <div class="card-body">
+          <div class="form-grid" style="grid-template-columns:80px 1fr;gap:10px">
+            <label>대표 분야<span class="req">*</span></label>
+            <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;border:2px solid var(--navy);border-radius:6px;background:#EFF6FF">
+              <span>⚖️</span>
+              <div style="flex:1">
+                <div style="font-size:12.5px;font-weight:700;color:var(--navy)">형사 › 사기</div>
+                <div style="font-size:10.5px;color:var(--muted)">/fields/criminal/fraud</div>
+              </div>
+              <button class="btn sm" onclick="openModal('search-fields')">변경</button>
+            </div>
+
+            <label>보조 분야</label>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:5px">
+                <span style="color:var(--muted);font-size:11px">2차</span>
+                <span style="font-size:12px;flex:1">투자사기</span>
+                <button class="btn icon sm">×</button>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:5px">
+                <span style="color:var(--muted);font-size:11px">3차</span>
+                <span style="font-size:12px;flex:1">중고거래사기</span>
+                <button class="btn icon sm">×</button>
+              </div>
+              <button class="btn sm mt-12" onclick="openModal('search-fields')">+ 분야 추가</button>
+            </div>
+
+            <label>해시태그</label>
+            <div>
+              <span class="chip">#사기 <span class="x">×</span></span>
+              <span class="chip">#무혐의 <span class="x">×</span></span>
+              <input class="input mt-12" placeholder="태그 입력 (엔터)"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 발행 옵션 -->
+      <div class="card mb-16">
+        <div class="card-head"><h3>발행 옵션</h3></div>
+        <div class="card-body">
+          <div class="form-grid" style="grid-template-columns:90px 1fr">
+            <label>상태</label><select class="select"><option>발행</option><option>임시저장</option><option>예약 발행</option></select>
+            <label>예약시각</label><input type="datetime-local" class="input"/>
+            <label>📌 사이트별 상단 고정</label>
+            <div>
+              <label class="checkbox"><input type="checkbox" checked> 형사그룹 메인 상단 고정</label><br/>
+              <label class="checkbox"><input type="checkbox"> 허브 메인 상단 고정</label>
+            </div>
+            <label>SEO Index</label><div><div class="toggle on"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 관련 콘텐츠 (수동 선택) -->
+      <div class="card">
+        <div class="card-head"><h3>관련 콘텐츠</h3>
+          <span class="sub">본문 마지막 자동 영역</span>
+        </div>
+        <div class="card-body">
+          <label class="checkbox"><input type="checkbox" checked> 동일 분야 사례 3건 자동</label><br/>
+          <label class="checkbox"><input type="checkbox" checked> 관련 칼럼 자동</label><br/>
+          <label class="checkbox"><input type="checkbox" checked> 수동 선택 추가</label>
+
+          <div class="form-divider mt-12 mb-12"></div>
+
+          <h4 style="font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:700;margin-bottom:8px">📌 수동 선택됨 (3건)</h4>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;gap:8px;padding:8px 10px;border:1px solid var(--border);border-radius:6px;align-items:center">
+              <span style="font-size:14px">📋</span>
+              <div style="flex:1;min-width:0;font-size:11.5px"><strong>무고 무혐의 처분</strong></div>
+              <button class="btn icon sm">×</button>
+            </div>
+            <div style="display:flex;gap:8px;padding:8px 10px;border:1px solid var(--border);border-radius:6px;align-items:center">
+              <span style="font-size:14px">📝</span>
+              <div style="flex:1;min-width:0;font-size:11.5px"><strong>검찰 조사 대응</strong></div>
+              <button class="btn icon sm">×</button>
+            </div>
+          </div>
+
+          <div class="row-flex gap-4 mt-12" style="flex-wrap:wrap">
+            <button class="btn sm" onclick="openModal('search-cases')">+ 사례</button>
+            <button class="btn sm" onclick="openModal('search-insights')">+ 칼럼</button>
+            <button class="btn sm" onclick="openModal('search-legal')">+ 법률정보</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ================ 모달들 ================ -->
+
+<!-- 변호사 검색 모달 (대륜 패턴 강화) -->
+<div class="modal-backdrop" data-modal="search-lawyer">
+  <div class="modal lg" style="max-width:1000px">
+    <div class="modal-head">
+      <h3>👨‍💼 담당 변호사 검색·선택</h3>
+      <span class="sub">현재 사례 분야·사이트 매칭 자동 정렬</span>
+      <span class="close" onclick="closeModal()">×</span>
+    </div>
+    <div class="modal-body">
+      <div class="modal-tabs">
+        <div class="modal-tab on">⭐ 추천 (분야 매칭)</div>
+        <div class="modal-tab">전체 (74)</div>
+        <div class="modal-tab">📌 사이트 노출</div>
+        <div class="modal-tab">최근 매핑</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+        <div>
+          <div class="input-icon mb-12"><span class="ico">🔍</span><input class="input" placeholder="이름·이메일·해시태그" autofocus/></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px">
+            <span class="text-muted" style="font-size:11px">활성 필터:</span>
+            <span class="chip">분야: 형사·사기 <span class="x">×</span></span>
+            <span class="chip">사이트: 형사그룹 <span class="x">×</span></span>
+            <button class="btn ghost sm" style="font-size:10.5px">전체 해제</button>
+          </div>
+        </div>
+        <div style="background:#F8FAFC;border:1px solid var(--border);border-radius:6px;padding:10px 12px">
+          <h4 style="font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:6px;letter-spacing:.5px">상세 필터</h4>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;font-size:11.5px">
+            <label class="checkbox"><input type="checkbox" checked/> 사이트 매핑됨</label>
+            <label class="checkbox"><input type="checkbox"/> 분야 매칭만</label>
+            <label class="checkbox"><input type="checkbox"/> 검찰 출신</label>
+            <label class="checkbox"><input type="checkbox"/> 판사 출신</label>
+            <label class="checkbox"><input type="checkbox"/> 이미 추가됨 숨김</label>
+            <label class="checkbox"><input type="checkbox"/> 활성 계정만</label>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;font-size:11.5px;color:var(--muted)">
+        정렬:
+        <button class="btn sm primary">분야 매칭도</button>
+        <button class="btn sm">사이트 우선순위</button>
+        <button class="btn sm">최근 작성</button>
+        <button class="btn sm">이름순</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-height:380px;overflow-y:auto">
+        <div class="search-result selected" style="position:relative;padding:12px">
+          <div class="check"></div>
+          <div style="width:60px;height:72px;background:#fff;border-radius:6px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">👤</div>
+          <div class="info">
+            <div style="display:flex;align-items:center;gap:6px"><strong style="font-size:13px">김변호</strong><span class="badge live" style="font-size:9.5px">⭐ 1위</span></div>
+            <div style="font-size:10.5px;color:var(--muted);margin:3px 0">Kim, Byunho</div>
+            <div style="display:flex;gap:3px;flex-wrap:wrap;margin-bottom:4px"><span class="badge info" style="font-size:9.5px">검찰</span><span class="badge purple" style="font-size:9.5px">검사장</span></div>
+            <div style="font-size:11px;color:var(--text)">📋 형사 312 · 📝 28</div>
+            <div style="font-size:10.5px;color:var(--muted);margin-top:2px">🌐 8개 사이트</div>
+          </div>
+          <span style="position:absolute;top:8px;right:8px;font-size:9.5px;background:var(--accent);color:#fff;padding:1px 6px;border-radius:3px;font-weight:700">이미 추가됨</span>
+        </div>
+
+        <div class="search-result" style="padding:12px">
+          <div class="check"></div>
+          <div style="width:60px;height:72px;background:#E2E8F0;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">👤</div>
+          <div class="info">
+            <div style="display:flex;align-items:center;gap:6px"><strong style="font-size:13px">박변호사</strong><span class="badge pending" style="font-size:9.5px">2위</span></div>
+            <div style="font-size:10.5px;color:var(--muted);margin:3px 0">Park, Byunhosa</div>
+            <div style="display:flex;gap:3px"><span class="badge info" style="font-size:9.5px">변호사</span></div>
+            <div style="font-size:11px;color:var(--text);margin-top:4px">📋 경제범죄 187 · 📝 12</div>
+          </div>
+        </div>
+
+        <div class="search-result" style="padding:12px">
+          <div class="check"></div>
+          <div style="width:60px;height:72px;background:#E2E8F0;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">👤</div>
+          <div class="info">
+            <div style="display:flex;align-items:center;gap:6px"><strong style="font-size:13px">정변호</strong><span class="badge pending" style="font-size:9.5px">3위</span></div>
+            <div style="font-size:10.5px;color:var(--muted);margin:3px 0">Jung, Byunho</div>
+            <div style="display:flex;gap:3px"><span class="badge info" style="font-size:9.5px">검찰</span></div>
+            <div style="font-size:11px;color:var(--text);margin-top:4px">📋 형사 142</div>
+          </div>
+        </div>
+
+        <div class="search-result" style="padding:12px">
+          <div class="check"></div>
+          <div style="width:60px;height:72px;background:#E2E8F0;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">👤</div>
+          <div class="info">
+            <div style="display:flex;align-items:center;gap:6px"><strong style="font-size:13px">강변호</strong></div>
+            <div style="display:flex;gap:3px;margin-top:3px"><span class="badge info" style="font-size:9.5px">검찰</span></div>
+            <div style="font-size:11px;color:var(--text);margin-top:4px">📋 형사 89</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <span class="left">선택됨: <strong>1명 추가</strong></span>
+      <button class="btn" onclick="closeModal()">취소</button>
+      <button class="btn primary" onclick="closeModal()">+ 담당 변호사로 추가</button>
+    </div>
+  </div>
+</div>
+
+<!-- 분야 트리 모달 (대표 + 보조) -->
+<div class="modal-backdrop" data-modal="search-fields">
+  <div class="modal lg">
+    <div class="modal-head">
+      <h3>🏷 업무분야 선택 (1·2·3차)</h3>
+      <span class="close" onclick="closeModal()">×</span>
+    </div>
+    <div class="modal-body">
+      <div style="display:grid;grid-template-columns:1fr 280px;gap:14px">
+        <div>
+          <div class="filter-bar" style="margin-bottom:10px">
+            <div class="input-icon" style="flex:1"><span class="ico">🔍</span><input class="input" placeholder="분야 검색"/></div>
+            <button class="btn sm">전체 펼치기</button>
+          </div>
+          <div class="tree" style="border:1px solid var(--border);border-radius:6px;padding:8px;max-height:380px;overflow-y:auto">
+            <div class="tree-node l1"><div class="row"><span class="toggle-ico">▼</span><label class="checkbox"><input type="checkbox"/></label><span class="label">⚖️ 형사</span><span class="meta">사례 1,247</span><button class="btn ghost sm" style="padding:2px 6px;font-size:10px">★ 대표</button></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">▼</span><label class="checkbox"><input type="checkbox" checked/></label><span class="label">사기</span><span class="meta">사례 348</span><button class="btn ghost sm" style="padding:2px 6px;font-size:10px;background:var(--navy);color:#fff;border-color:var(--navy)">★ 대표</button></div></div>
+            <div class="tree-node l3"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox" checked/></label><span class="label">투자사기</span><span class="meta">사례 64</span></div></div>
+            <div class="tree-node l3"><div class="row"><span class="toggle-ico">·</span><label class="checkbox"><input type="checkbox" checked/></label><span class="label">중고거래 사기</span><span class="meta">사례 41</span></div></div>
+            <div class="tree-node l2"><div class="row"><span class="toggle-ico">▶</span><label class="checkbox"><input type="checkbox"/></label><span class="label">횡령·배임</span><span class="meta">사례 197</span></div></div>
+            <div class="tree-node l1"><div class="row"><span class="toggle-ico">▶</span><label class="checkbox"><input type="checkbox"/></label><span class="label">⚖️ 민사</span></div></div>
+            <div class="tree-node l1"><div class="row"><span class="toggle-ico">▶</span><label class="checkbox"><input type="checkbox"/></label><span class="label">⚖️ 가사</span></div></div>
+          </div>
+        </div>
+        <div style="background:#F8FAFC;border:1px solid var(--border);border-radius:6px;padding:12px">
+          <h4 style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:10px">선택됨 (3)</h4>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="background:#fff;border:2px solid var(--navy);border-radius:5px;padding:8px">
+              <div style="font-size:9.5px;color:var(--navy);font-weight:700">★ 대표</div>
+              <div style="font-size:12px;font-weight:700">형사 › 사기</div>
+            </div>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:5px;padding:8px"><div style="font-size:12px">사기 › 투자사기</div></div>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:5px;padding:8px"><div style="font-size:12px">사기 › 중고거래사기</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal()">취소</button>
+      <button class="btn primary" onclick="closeModal()">선택 적용</button>
+    </div>
+  </div>
+</div>
+
+<!-- 사례 검색 모달 -->
+<div class="modal-backdrop" data-modal="search-cases">
+  <div class="modal lg">
+    <div class="modal-head"><h3>📋 관련 사례 선택</h3><span class="close" onclick="closeModal()">×</span></div>
+    <div class="modal-body">
+      <div class="filter-bar" style="margin-bottom:12px">
+        <div class="input-icon" style="flex:1"><span class="ico">🔍</span><input class="input" placeholder="사례 검색" autofocus/></div>
+        <select class="select"><option>전체 사이트</option></select>
+        <select class="select"><option>전체 분야</option></select>
+      </div>
+      <div class="search-results">
+        <div class="search-result selected"><div class="check"></div><div class="thumb">📋</div><div class="info"><div class="ttl">무고 혐의 입증으로 무혐의 처분 받은 사례</div><div class="meta"><span class="badge major">형사</span><span>김변호</span><span>2025-12-08</span></div></div></div>
+        <div class="search-result"><div class="check"></div><div class="thumb">📋</div><div class="info"><div class="ttl">○○ 보이스피싱 피해자 변호 성공 사례</div><div class="meta"><span class="badge major">경제범죄</span><span>박변호사</span><span>2025-11-22</span></div></div></div>
+        <div class="search-result"><div class="check"></div><div class="thumb">📋</div><div class="info"><div class="ttl">투자사기 손해배상 인용 판결</div><div class="meta"><span class="badge major">민사</span><span>최변호</span><span>2025-11-15</span></div></div></div>
+      </div>
+    </div>
+    <div class="modal-foot"><button class="btn" onclick="closeModal()">취소</button><button class="btn primary" onclick="closeModal()">+ 1개 삽입</button></div>
+  </div>
+</div>
+
+<!-- 칼럼 검색 -->
+<div class="modal-backdrop" data-modal="search-insights">
+  <div class="modal lg">
+    <div class="modal-head"><h3>📝 관련 칼럼 선택</h3><span class="close" onclick="closeModal()">×</span></div>
+    <div class="modal-body">
+      <div class="filter-bar" style="margin-bottom:12px">
+        <div class="input-icon" style="flex:1"><span class="ico">🔍</span><input class="input" placeholder="칼럼 검색"/></div>
+      </div>
+      <div class="search-results">
+        <div class="search-result"><div class="check"></div><div class="thumb">📝</div><div class="info"><div class="ttl">사기죄 성립 요건과 최근 판례 흐름</div><div class="meta"><span>김변호</span></div></div></div>
+        <div class="search-result selected"><div class="check"></div><div class="thumb">📝</div><div class="info"><div class="ttl">검찰 조사 대응 가이드</div><div class="meta"><span>김변호</span></div></div></div>
+      </div>
+    </div>
+    <div class="modal-foot"><button class="btn" onclick="closeModal()">취소</button><button class="btn primary" onclick="closeModal()">+ 삽입</button></div>
+  </div>
+</div>
+
+<!-- 법률정보 검색 -->
+<div class="modal-backdrop" data-modal="search-legal">
+  <div class="modal lg">
+    <div class="modal-head"><h3>📚 법률정보 선택</h3><span class="close" onclick="closeModal()">×</span></div>
+    <div class="modal-body">
+      <div class="filter-bar" style="margin-bottom:12px"><div class="input-icon" style="flex:1"><span class="ico">🔍</span><input class="input" placeholder="검색"/></div></div>
+      <div class="search-results">
+        <div class="search-result selected"><div class="check"></div><div class="thumb">📚</div><div class="info"><div class="ttl">사기죄 성립 요건과 판례 흐름</div></div></div>
+        <div class="search-result"><div class="check"></div><div class="thumb">📚</div><div class="info"><div class="ttl">2026 형법 개정안 주요 내용</div></div></div>
+      </div>
+    </div>
+    <div class="modal-foot"><button class="btn" onclick="closeModal()">취소</button><button class="btn primary" onclick="closeModal()">+ 삽입</button></div>
+  </div>
+</div>
+
+<!-- 미디어 피커 -->
+<div class="modal-backdrop" data-modal="media-picker">
+  <div class="modal lg">
+    <div class="modal-head"><h3>🖼 미디어 라이브러리</h3><span class="close" onclick="closeModal()">×</span></div>
+    <div class="modal-body">
+      <div class="modal-tabs">
+        <div class="modal-tab on">전체 미디어</div>
+        <div class="modal-tab">+ 새로 업로드</div>
+      </div>
+      <div class="filter-bar" style="margin-bottom:12px"><div class="input-icon" style="flex:1"><span class="ico">🔍</span><input class="input" placeholder="파일명 검색"/></div></div>
+      <div class="img-mgr-grid" style="max-height:300px;overflow-y:auto">
+        <div class="img-mgr-tile selected">🖼</div>
+        <div class="img-mgr-tile">🖼</div><div class="img-mgr-tile">🖼</div><div class="img-mgr-tile">🖼</div>
+        <div class="img-mgr-tile">🖼</div><div class="img-mgr-tile">🖼</div><div class="img-mgr-tile">🖼</div>
+      </div>
+      <div style="margin-top:14px;padding:14px;background:#F8FAFC;border-radius:6px">
+        <div class="form-grid" style="grid-template-columns:90px 1fr;gap:8px 14px">
+          <label>파일명</label><span style="font-family:monospace;font-size:12px">case-fraud-01.jpg</span>
+          <label>이미지 alt<span class="req">*</span></label><input class="input" placeholder="필수"/>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot"><button class="btn" onclick="closeModal()">취소</button><button class="btn primary" onclick="closeModal()">+ 삽입</button></div>
+  </div>
+</div>
+
+<!-- 링크 삽입 -->
+<div class="modal-backdrop" data-modal="insert-link">
+  <div class="modal" style="max-width:520px">
+    <div class="modal-head"><h3>🔗 링크 삽입</h3><span class="close" onclick="closeModal()">×</span></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <label>표시 텍스트</label><input class="input"/>
+        <label>URL<span class="req">*</span></label><input class="input" placeholder="https://"/>
+        <label>새 창</label><div><div class="toggle on"></div></div>
+      </div>
+    </div>
+    <div class="modal-foot"><button class="btn" onclick="closeModal()">취소</button><button class="btn primary" onclick="closeModal()">+ 삽입</button></div>
+  </div>
+</div>
+
+<!-- 유튜브 삽입 -->
+<div class="modal-backdrop" data-modal="insert-youtube">
+  <div class="modal" style="max-width:560px">
+    <div class="modal-head"><h3>▶ 유튜브 임베드</h3><span class="close" onclick="closeModal()">×</span></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <label>유튜브 URL<span class="req">*</span></label><input class="input" placeholder="https://youtu.be/..."/>
+        <label>제목</label><input class="input"/>
+      </div>
+      <div class="yt-embed mt-12">미리보기</div>
+    </div>
+    <div class="modal-foot"><button class="btn" onclick="closeModal()">취소</button><button class="btn primary" onclick="closeModal()">+ 삽입</button></div>
+  </div>
+</div>
+
+<script src="../../assets/page.js"></script>
+</body>
+</html>

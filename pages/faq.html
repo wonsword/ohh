@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>법률지식인 (FAQ)</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> 법률지식인 (FAQ)</div>
+  <div class="page-title">
+    <h1>💡 법률지식인 (FAQ)</h1>
+    <span class="sub">사건분류 카테고리 + 사이트별 카테고리 상단 고정 (PDF 28p)</span>
+    <div class="actions">
+      <button class="btn">📂 카테고리 관리</button>
+      <button class="btn primary">+ FAQ 작성</button>
+    </div>
+  </div>
+</div>
+<div class="page-body">
+  <div class="tabs">
+    <div class="tab on">FAQ 목록</div>
+    <div class="tab">메인 노출 선정</div>
+    <div class="tab">사이트별 카테고리 상단 고정</div>
+  </div>
+  <div class="tab-panel on">
+    <div class="filter-bar">
+      <input class="input search" placeholder="질문 검색"/>
+      <select class="select"><option>전체 카테고리</option><option>형사</option><option>민사</option></select>
+      <select class="select"><option>전체 사이트</option></select>
+    </div>
+
+    <div class="tbl-wrap">
+      <table class="data">
+        <thead><tr><th class="check-col"><input type="checkbox"></th><th>질문</th><th>카테고리</th><th>메인 노출</th><th>일괄 반영</th><th class="actions-col"></th></tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><strong>음주운전 면허정지 기준은?</strong></td><td>형사·교통</td><td><div class="toggle on"></div></td><td><span class="badge live">5개 사이트</span></td><td><div class="row-actions"><button class="btn icon sm">✎</button></div></td></tr>
+          <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><strong>이혼 시 친권은 어떻게 결정되나요?</strong></td><td>가사</td><td><div class="toggle on"></div></td><td><span class="badge live">3개 사이트</span></td><td><div class="row-actions"><button class="btn icon sm">✎</button></div></td></tr>
+          <tr><td><input type="checkbox" onclick="event.stopPropagation()"></td><td>채권 추심 절차는 어떻게 진행되나요?</td><td>민사</td><td><div class="toggle"></div></td><td><span class="badge">2개 사이트</span></td><td><div class="row-actions"><button class="btn icon sm">✎</button></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout success mt-16">
+      🔄 허브에서 등록한 FAQ는 「일괄 반영」 토글로 모든 사이트에 자동 반영 가능 (PDF 57p)
+    </div>
+  </div>
+</div>
+<script src="../assets/page.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>법무법인 오현 어드민</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ===== TOP BAR ===== -->
+  <header class="topbar">
+    <div class="brand" data-route="dashboard"><div class="logo">오</div>법무법인 오현 어드민</div>
+    <div class="site-switcher">
+      🌐
+      <select>
+        <option>전체 (28개 사이트)</option>
+        <optgroup label="허브">
+          <option>www.ohyunlaw.com (허브)</option>
+        </optgroup>
+        <optgroup label="민형경 3개">
+          <option>형사그룹</option>
+          <option>경제범죄그룹</option>
+          <option>민사소송·조정그룹</option>
+        </optgroup>
+        <optgroup label="기타 23개">
+          <option>이혼·가사그룹</option>
+          <option>부동산·건설그룹</option>
+          <option>노동·산재그룹</option>
+          <option>의료·헬스케어그룹</option>
+          <option>⋯</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="search">
+      🔍<input type="text" placeholder="사이트·변호사·사례·문의 통합검색…">
+    </div>
+    <div class="actions">
+      <button class="icon-btn" title="캐시 발행">⚡</button>
+      <button class="icon-btn" title="알림">🔔<span class="dot"></span></button>
+      <button class="icon-btn" title="도움말">?</button>
+      <div class="user">
+        <div class="avatar">관</div>
+        관리자<span class="role">SUPER</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="nav-section-label">메인</div>
+    <div class="nav-link" data-route="dashboard" data-menu="dashboard"><span class="ico">📊</span>대시보드</div>
+
+    <div class="nav-section-label">콘텐츠 운영</div>
+    <div class="nav-link" data-route="sites" data-menu="sites" data-collapse><span class="ico">🌐</span>사이트 관리<span class="arrow">▶</span></div>
+    <div class="nav-children">
+      <div class="nav-child" data-route="sites">사이트 목록 (28)</div>
+      <div class="nav-child" data-route="sites/new">+ 신규 사이트 등록</div>
+    </div>
+
+    <div class="nav-link" data-route="lawyers" data-menu="lawyers" data-collapse><span class="ico">👨‍💼</span>변호사 관리<span class="arrow">▶</span></div>
+    <div class="nav-children">
+      <div class="nav-child" data-route="lawyers">변호사 목록</div>
+      <div class="nav-child" data-route="lawyers/new">+ 신규 등록</div>
+      <div class="nav-child" data-route="lawyers/badges">직책 마크</div>
+    </div>
+
+    <div class="nav-link" data-route="cases" data-menu="cases" data-collapse><span class="ico">📋</span>업무사례<span class="arrow">▶</span></div>
+    <div class="nav-children">
+      <div class="nav-child" data-route="cases">사례 목록</div>
+      <div class="nav-child" data-route="cases/new">+ 신규 작성 (4섹션)</div>
+      <div class="nav-child" data-route="cases/featured">상단 고정</div>
+      <div class="nav-child" data-route="cases/categories">대분류 카테고리</div>
+    </div>
+
+    <div class="nav-link" data-route="insights" data-menu="insights" data-collapse><span class="ico">📝</span>칼럼·인사이트<span class="arrow">▶</span></div>
+    <div class="nav-children">
+      <div class="nav-child" data-route="insights">칼럼 목록</div>
+      <div class="nav-child" data-route="insights/new">+ 신규 작성</div>
+      <div class="nav-child" data-route="insights/featured">📌 상단 3개 고정</div>
+    </div>
+
+    <div class="nav-link" data-route="legal-info" data-menu="legal-info"><span class="ico">📚</span>법률정보</div>
+    <div class="nav-link" data-route="faq" data-menu="faq"><span class="ico">💡</span>법률지식인 (FAQ)</div>
+    <div class="nav-link" data-route="reviews" data-menu="reviews"><span class="ico">⭐</span>의뢰인 후기</div>
+    <div class="nav-link" data-route="news" data-menu="news"><span class="ico">📰</span>뉴스·공지·세미나</div>
+
+    <div class="nav-section-label">분류·마케팅</div>
+    <div class="nav-link" data-route="fields" data-menu="fields"><span class="ico">🏷</span>분야·태그</div>
+    <div class="nav-link" data-route="marketing" data-menu="marketing"><span class="ico">🎯</span>마케팅</div>
+    <div class="nav-link" data-route="branches" data-menu="branches"><span class="ico">🏢</span>분사무소</div>
+    <div class="nav-link" data-route="media" data-menu="media"><span class="ico">🖼</span>미디어 라이브러리</div>
+
+    <div class="nav-section-label">운영</div>
+    <div class="nav-link" data-route="inquiries" data-menu="inquiries"><span class="ico">💬</span>상담·문의</div>
+    <div class="nav-link" data-route="users" data-menu="users"><span class="ico">👥</span>사용자·권한</div>
+    <div class="nav-link" data-route="system" data-menu="system"><span class="ico">⚙️</span>시스템</div>
+  </aside>
+
+  <!-- ===== MAIN (iframe) ===== -->
+  <iframe id="main-frame" class="main-frame" src="pages/dashboard.html" name="main"></iframe>
+
+</div>
+
+<script src="assets/shell.js"></script>
+</body>
+</html>

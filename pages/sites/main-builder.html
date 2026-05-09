@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>메인 페이지 빌더</title>
+<link rel="stylesheet" href="../../assets/styles.css">
+</head>
+<body class="page-wrap">
+<div class="page-header">
+  <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> <a data-go="sites">사이트 관리</a> <span class="sep">›</span> <a data-go="sites/edit">형사그룹</a> <span class="sep">›</span> 메인 빌더</div>
+  <div class="page-title">
+    <h1>🏠 메인 페이지 빌더</h1>
+    <span class="sub">형사그룹 · 11개 섹션 슬롯</span>
+    <div class="actions">
+      <button class="btn">👁 미리보기</button>
+      <button class="btn">💾 임시저장</button>
+      <button class="btn primary">⚡ 발행 + 캐시 재발행</button>
+    </div>
+  </div>
+</div>
+<div class="page-body">
+
+  <div class="callout warn">
+    ⚠️ 변경사항이 있습니다. <strong>발행 + 캐시 재발행</strong>을 눌러야 사용자 사이트에 반영됩니다.
+  </div>
+
+  <div class="builder">
+    <aside class="builder-toolbox">
+      <div class="card">
+        <div class="card-head"><h3>섹션 도구상자</h3></div>
+        <div class="card-body">
+          <h4>레이아웃 슬롯</h4>
+          <div class="toolbox-item"><span class="ico">🎬</span>메인스킨 (Hero)</div>
+          <div class="toolbox-item"><span class="ico">🏆</span>오현 강점 (4분할)</div>
+          <div class="toolbox-item"><span class="ico">⭐</span>의뢰인 후기</div>
+          <div class="toolbox-item"><span class="ico">👨‍⚖️</span>구성원 (4분할 슬라이더)</div>
+          <div class="toolbox-item"><span class="ico">🏷</span>업무분야 그리드</div>
+          <div class="toolbox-item"><span class="ico">📂</span>업무분야 아코디언</div>
+          <div class="toolbox-item"><span class="ico">📋</span>업무사례 캐러셀</div>
+          <div class="toolbox-item"><span class="ico">🗺</span>전국지도 (분사무소)</div>
+          <div class="toolbox-item"><span class="ico">📞</span>상담예약 (3필드)</div>
+          <div class="toolbox-item"><span class="ico">💡</span>법률지식인</div>
+          <div class="toolbox-item"><span class="ico">📚</span>법률정보</div>
+          <div class="toolbox-item"><span class="ico">🎥</span>유튜브 그리드</div>
+          <h4>마케팅</h4>
+          <div class="toolbox-item"><span class="ico">📢</span>띠배너</div>
+          <div class="toolbox-item"><span class="ico">🪟</span>팝업창</div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="canvas">
+      <div class="slot">
+        <div class="slot-head">
+          <span class="drag">≡</span>
+          <span class="num">1</span>
+          <span class="name">메인스킨 (Hero)</span>
+          <span class="type">type=hero</span>
+          <div class="right">
+            <span class="badge live">ON</span>
+            <div class="toggle on"></div>
+            <button class="btn sm" onclick="go('sites/hero')">편집</button>
+          </div>
+        </div>
+        <div class="slot-body">슬라이드 4개 · 자동전환 5000ms · 이미지+홍보문구 세트로 변경</div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-head">
+          <span class="drag">≡</span>
+          <span class="num">2</span>
+          <span class="name">오현 강점 (4분할)</span>
+          <span class="type">type=strength_4grid</span>
+          <span class="badge major">민형경 전용</span>
+          <div class="right"><div class="toggle on"></div><button class="btn sm">편집</button></div>
+        </div>
+        <div class="slot-body">고정 콘텐츠 · 변호사협회 광고규정 변경 시만 수정</div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-head">
+          <span class="drag">≡</span>
+          <span class="num">3</span>
+          <span class="name">의뢰인 후기 (선별 노출)</span>
+          <span class="type">type=review_list</span>
+          <div class="right"><div class="toggle on"></div><button class="btn sm">편집</button></div>
+        </div>
+        <div class="slot-body">제목만 표시 · 메인 노출 체크된 후기 5개 · sort=latest</div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-head">
+          <span class="drag">≡</span>
+          <span class="num">4</span>
+          <span class="name">구성원 (4분할 슬라이더)</span>
+          <span class="type">type=lawyer_carousel</span>
+          <div class="right"><div class="toggle on"></div><button class="btn sm">편집</button></div>
+        </div>
+        <div class="slot-body">layout=slider4 · 4명 단위 이동 · 형사 사이트 → 검찰 경력 우선 · 직책 마크 표시</div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-head">
+          <span class="drag">≡</span>
+          <span class="num">5</span>
+          <span class="name">업무분야 세부 (아코디언)</span>
+          <span class="type">type=field_accordion</span>
+          <div class="right"><div class="toggle on"></div><button class="btn sm">편집</button></div>
+        </div>
+        <div class="slot-body">1·2·3차 태그 트리 · 펼치기/접기 · 키워드 → 분야 상세 페이지</div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-head">
+          <span class="drag">≡</span>
+          <span class="num">6</span>
+          <span class="name">업무사례 (검색·필터·고정)</span>
+          <span class="type">type=case_carousel</span>
+          <div class="right"><div class="toggle on"></div><button class="btn sm">편집</button></div>
+        </div>
+        <div class="slot-body">대분류 카테고리 탭 · 키워드 검색 · 상단 고정 사례 3건</div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-head">
+          <span class="drag">≡</span>
+          <span class="num">7</span>
+          <span class="name">전국지도 (분사무소)</span>
+          <span class="type">type=map_section</span>
+          <div class="right"><div class="toggle on"></div><button class="btn sm">편집</button></div>
+        </div>
+        <div class="slot-body">네이버 지도 임베드 · 16개 분사무소 · 강조: 본사·강남·부산</div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-head">
+          <span class="drag">≡</span>
+          <span class="num">8</span>
+          <span class="name">상담예약 (3필드 폼)</span>
+          <span class="type">type=contact_form</span>
+          <div class="right"><div class="toggle on"></div><button class="btn sm">편집</button></div>
+        </div>
+        <div class="slot-body">필드: 성함 · 연락처 · 상담내용 · 이메일 수신인 (허브 일괄설정 적용)</div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-head">
+          <span class="drag">≡</span>
+          <span class="num">9</span>
+          <span class="name">법률지식인</span>
+          <span class="type">type=faq_list</span>
+          <div class="right"><div class="toggle on"></div><button class="btn sm">편집</button></div>
+        </div>
+        <div class="slot-body">상단 고정 카테고리: <code>형사</code> · 메인 노출 8건</div>
+      </div>
+
+      <div class="slot">
+        <div class="slot-head">
+          <span class="drag">≡</span>
+          <span class="num">10</span>
+          <span class="name">법률정보</span>
+          <span class="type">type=legal_info_list</span>
+          <div class="right"><div class="toggle on"></div><button class="btn sm">편집</button></div>
+        </div>
+        <div class="slot-body">최신순 · 상단 고정 3건 · 사이트별 노출 다중 선택 적용</div>
+      </div>
+
+      <div class="slot" style="opacity:.6">
+        <div class="slot-head">
+          <span class="drag">≡</span>
+          <span class="num">—</span>
+          <span class="name">유튜브 링크</span>
+          <span class="type">type=youtube_grid</span>
+          <span class="badge hub">허브 전용</span>
+          <div class="right"><div class="toggle"></div><button class="btn sm" disabled>편집</button></div>
+        </div>
+        <div class="slot-body">민형경 사이트에서는 사용 불가</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="../../assets/page.js"></script>
+</body>
+</html>
