@@ -179,6 +179,51 @@
   .img-preview{display:inline-flex;flex-direction:column;gap:6px;align-items:flex-start}
   .img-preview .ph{width:120px;height:120px;background:#F1F5F9;border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:11px;border:1px solid var(--border)}
 
+  /* === 변호사 카드 그리드 === */
+  .lawyer-card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+  @media(max-width:1300px){.lawyer-card-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:900px){.lawyer-card-grid{grid-template-columns:repeat(2,1fr)}}
+  .lawyer-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;transition:box-shadow .15s,transform .1s}
+  .lawyer-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.10);transform:translateY(-2px)}
+  .lawyer-card .lc-photo{height:200px;background:linear-gradient(160deg,#E2E8F0 0%,#CBD5E1 100%);display:flex;align-items:center;justify-content:center;font-size:56px;position:relative;overflow:hidden}
+  .lawyer-card .lc-photo .lc-badges{position:absolute;top:8px;left:8px;display:flex;gap:3px;flex-wrap:wrap}
+  .lawyer-card .lc-photo .lc-status{position:absolute;top:8px;right:8px}
+  .lawyer-card .lc-photo .lc-order{position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,.5);color:#fff;font-size:10px;padding:2px 7px;border-radius:10px}
+  .lawyer-card .lc-body{padding:12px 14px}
+  .lawyer-card .lc-name{font-size:15px;font-weight:700;letter-spacing:-.2px;margin-bottom:2px}
+  .lawyer-card .lc-title{font-size:11.5px;color:var(--muted);margin-bottom:6px}
+  .lawyer-card .lc-fields{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:8px}
+  .lawyer-card .lc-career{font-size:11.5px;color:var(--text);line-height:1.5;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .lawyer-card .lc-footer{display:flex;align-items:center;justify-content:space-between;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+  .lawyer-card .lc-actions{display:flex;gap:4px;opacity:0;transition:opacity .12s}
+  .lawyer-card:hover .lc-actions{opacity:1}
+
+  /* === 타임라인 에디터 === */
+  .timeline-editor{display:flex;flex-direction:column;gap:6px}
+  .timeline-entry{display:grid;grid-template-columns:90px 1fr auto;gap:8px;align-items:start;padding:10px 12px;border:1px solid var(--border);border-radius:7px;background:#FAFBFC}
+  .timeline-entry:hover{border-color:var(--border-strong)}
+  .timeline-entry .te-year{font-size:12px;font-weight:700;color:var(--navy)}
+  .timeline-entry .te-content{font-size:12.5px}
+  .timeline-add{display:flex;align-items:center;gap:8px;padding:9px 12px;border:1px dashed var(--border-strong);border-radius:7px;color:var(--muted);font-size:12px;cursor:pointer;background:#FAFBFC}
+  .timeline-add:hover{background:#F1F5F9;color:var(--text)}
+
+  /* === 사진 업로드 존 === */
+  .photo-zone{border:2px dashed var(--border-strong);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:all .15s;background:#FAFBFC}
+  .photo-zone:hover{border-color:var(--navy);background:#EFF6FF}
+  .photo-zone .pz-icon{font-size:28px;opacity:.6}
+  .photo-zone .pz-hint{font-size:11.5px;color:var(--muted);text-align:center}
+
+  /* === 필터 탭 (분야별/국가별) === */
+  .filter-tabs{display:flex;gap:0;background:var(--panel);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:14px}
+  .filter-tab{padding:9px 20px;font-size:12.5px;font-weight:600;color:var(--muted);cursor:pointer;border-right:1px solid var(--border);flex:1;text-align:center}
+  .filter-tab:last-child{border-right:none}
+  .filter-tab.on{background:var(--navy);color:#fff}
+  .filter-tab:not(.on):hover{background:var(--hover)}
+  .field-grid-filter{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;padding:12px;background:var(--panel);border:1px solid var(--border);border-radius:8px}
+  .field-chip{padding:5px 12px;border:1px solid var(--border-strong);border-radius:20px;font-size:12px;cursor:pointer;background:#fff}
+  .field-chip:hover{border-color:var(--navy);color:var(--navy)}
+  .field-chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+
   /* === 페이지네이션 === */
   .pagination{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-top:none;border-radius:0 0 8px 8px;font-size:12px;color:var(--muted)}
   .pagination .pages{display:flex;gap:4px}
@@ -1546,10 +1591,10 @@
   <!-- ============================================================ -->
   <section class="page" data-page="lawyers">
     <div class="page-header">
-      <div class="breadcrumb">홈 <span class="sep">›</span> 변호사 관리 <span class="sep">›</span> 목록</div>
+      <div class="breadcrumb">홈 <span class="sep">›</span> 변호사 관리</div>
       <div class="page-title">
         <h1>👨‍💼 변호사 관리</h1>
-        <span class="sub">전체 74명 · 글로벌 마스터</span>
+        <span class="sub">전체 74명 · 글로벌 마스터 데이터</span>
         <div class="actions">
           <button class="btn">📥 일괄 가져오기</button>
           <button class="btn primary" data-page-link="lawyer-new">+ 신규 등록</button>
@@ -1557,66 +1602,384 @@
       </div>
     </div>
     <div class="page-body">
-      <div class="filter-bar">
-        <input class="input search" placeholder="이름·이메일 검색"/>
-        <select class="select"><option>전체 사이트</option><option>허브</option><option>형사</option></select>
-        <select class="select"><option>전체 분야</option><option>형사</option><option>민사</option></select>
-        <select class="select"><option>전체 직책 마크</option><option>검찰</option><option>판사</option><option>검사장</option></select>
-        <div class="right"><button class="btn sm">⊞ 카드 뷰</button><button class="btn sm primary">≡ 리스트</button></div>
-      </div>
 
-      <div class="tbl-wrap">
-        <table class="data">
-          <thead>
-            <tr>
-              <th class="check-col"><input type="checkbox"></th>
-              <th>썸네일</th><th>이름 / 영문</th><th>직책 마크</th><th>주요 분야</th><th>노출 사이트</th><th>우선순위</th><th>상태</th><th class="actions-col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><input type="checkbox"></td>
-              <td><div style="width:36px;height:36px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div></td>
-              <td><strong>김변호</strong><br/><span class="text-muted" style="font-size:11px">Kim, Byunho</span></td>
-              <td><span class="badge info">검찰</span> <span class="badge purple">검사장</span></td>
-              <td>형사 · 경제범죄</td>
-              <td><span class="badge hub">허브</span> <span class="badge major">형사</span> <span class="badge etc">+3</span></td>
-              <td>1</td>
-              <td><span class="dot live"></span>활성</td>
-              <td><div class="row-actions"><button class="btn icon sm">✎</button><button class="btn icon sm">🌐</button></div></td>
-            </tr>
-            <tr>
-              <td><input type="checkbox"></td>
-              <td><div style="width:36px;height:36px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div></td>
-              <td><strong>이판사</strong><br/><span class="text-muted" style="font-size:11px">Lee, Pansa</span></td>
-              <td><span class="badge purple">판사</span></td>
-              <td>민사 · 가사</td>
-              <td><span class="badge hub">허브</span> <span class="badge major">민사</span> <span class="badge etc">+2</span></td>
-              <td>2</td>
-              <td><span class="dot live"></span>활성</td>
-              <td><div class="row-actions"><button class="btn icon sm">✎</button><button class="btn icon sm">🌐</button></div></td>
-            </tr>
-            <tr>
-              <td><input type="checkbox"></td>
-              <td><div style="width:36px;height:36px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div></td>
-              <td><strong>박변호사</strong><br/><span class="text-muted" style="font-size:11px">Park, Byunhosa</span></td>
-              <td><span class="badge info">변호사</span></td>
-              <td>이혼·가사</td>
-              <td><span class="badge hub">허브</span> <span class="badge etc">이혼</span></td>
-              <td>3</td>
-              <td><span class="dot live"></span>활성</td>
-              <td><div class="row-actions"><button class="btn icon sm">✎</button><button class="btn icon sm">🌐</button></div></td>
-            </tr>
-            <tr>
-              <td colspan="9" class="text-muted text-right" style="padding:8px 14px">⋯ 외 71명</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="pagination">
-          <span>전체 74명 중 1-3명</span>
-          <div class="pages"><button>‹</button><button class="on">1</button><button>2</button><button>3</button><button>›</button></div>
+      <!-- 검색 + 뷰 전환 -->
+      <div class="filter-bar" style="margin-bottom:14px">
+        <input class="input search" placeholder="이름·영문·이메일 검색…" style="flex:1;min-width:200px"/>
+        <select class="select"><option>전체 사이트</option><option>허브</option><option>형사그룹</option><option>민사그룹</option><option>경제범죄그룹</option></select>
+        <select class="select"><option>전체 직책 마크</option><option>검찰 출신</option><option>판사 출신</option><option>검사장 출신</option><option>퇴직공직자</option></select>
+        <select class="select"><option>전체 상태</option><option>활성</option><option>비활성</option></select>
+        <div style="margin-left:auto;display:flex;gap:4px">
+          <button class="btn sm" id="btn-cardview" style="background:var(--navy);color:#fff;border-color:var(--navy)">⊞ 카드</button>
+          <button class="btn sm" id="btn-listview">≡ 리스트</button>
         </div>
       </div>
+
+      <!-- 분야별 필터 탭 -->
+      <div class="filter-tabs">
+        <div class="filter-tab on">전체 (74)</div>
+        <div class="filter-tab">분야별</div>
+        <div class="filter-tab">국가별</div>
+        <div class="filter-tab">이름별 (가나다)</div>
+      </div>
+
+      <!-- 분야별 칩 필터 (분야별 탭 클릭 시 보임 — 기본 hidden, 와이어프레임이므로 항상 표시) -->
+      <div class="field-grid-filter" style="margin-bottom:16px">
+        <span style="font-size:11px;color:var(--muted);font-weight:700;align-self:center;margin-right:4px">분야</span>
+        <span class="field-chip on">전체</span>
+        <span class="field-chip">형사</span>
+        <span class="field-chip">민사</span>
+        <span class="field-chip">가사·이혼</span>
+        <span class="field-chip">경제범죄</span>
+        <span class="field-chip">마약</span>
+        <span class="field-chip">성범죄</span>
+        <span class="field-chip">음주운전</span>
+        <span class="field-chip">부동산</span>
+        <span class="field-chip">노동·산재</span>
+        <span class="field-chip">기업·법인</span>
+        <span class="field-chip">지식재산</span>
+        <span class="field-chip">행정·공법</span>
+        <span class="field-chip">조세·세무</span>
+        <span class="field-chip">의료분쟁</span>
+        <span class="field-chip">상속·유언</span>
+        <span class="field-chip">외국인·출입국</span>
+      </div>
+
+      <!-- === 카드 뷰 === -->
+      <div id="view-card">
+        <div class="lawyer-card-grid">
+
+          <!-- 카드 1 -->
+          <div class="lawyer-card" data-page-link="lawyer-detail">
+            <div class="lc-photo" style="background:linear-gradient(160deg,#1F4E79 0%,#3B6EA8 70%,#93C5FD 100%)">
+              <span>👤</span>
+              <div class="lc-badges">
+                <span class="badge" style="background:#fff;color:#6B21A8;font-size:10px">⭐ 검사장</span>
+                <span class="badge" style="background:#fff;color:var(--navy);font-size:10px">🏛 검찰</span>
+              </div>
+              <div class="lc-status"><span class="dot live"></span></div>
+              <div class="lc-order"># 1</div>
+            </div>
+            <div class="lc-body">
+              <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:2px">
+                <span class="lc-name">김변호</span>
+                <span style="font-size:11px;color:var(--muted)">Kim, Byunho</span>
+              </div>
+              <div class="lc-title">경영총괄 대표변호사</div>
+              <div class="lc-fields">
+                <span class="badge major" style="font-size:10px">형사</span>
+                <span class="badge major" style="font-size:10px">경제범죄</span>
+                <span class="badge etc" style="font-size:10px">마약</span>
+              </div>
+              <div class="lc-career">서울중앙지방검찰청 검사 / 대검찰청 중앙수사부 / 서울고등검찰청 부장검사 역임</div>
+              <div class="lc-footer">
+                <span>📋 1,247사례 · 📝 28칼럼</span>
+                <div class="lc-actions">
+                  <button class="btn icon sm">✎</button>
+                  <button class="btn icon sm">🌐</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 카드 2 -->
+          <div class="lawyer-card">
+            <div class="lc-photo" style="background:linear-gradient(160deg,#1E3A5F 0%,#2D5F8A 70%,#7DD3FC 100%)">
+              <span>👤</span>
+              <div class="lc-badges">
+                <span class="badge" style="background:#fff;color:#6B21A8;font-size:10px">⚖️ 판사</span>
+              </div>
+              <div class="lc-status"><span class="dot live"></span></div>
+              <div class="lc-order"># 2</div>
+            </div>
+            <div class="lc-body">
+              <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:2px">
+                <span class="lc-name">이판사</span>
+                <span style="font-size:11px;color:var(--muted)">Lee, Pansa</span>
+              </div>
+              <div class="lc-title">수석변호사</div>
+              <div class="lc-fields">
+                <span class="badge major" style="font-size:10px">민사</span>
+                <span class="badge etc" style="font-size:10px">가사</span>
+              </div>
+              <div class="lc-career">서울고등법원 부장판사 / 대법원 재판연구관 역임. 가사·이혼 전문</div>
+              <div class="lc-footer">
+                <span>📋 634사례 · 📝 12칼럼</span>
+                <div class="lc-actions">
+                  <button class="btn icon sm">✎</button>
+                  <button class="btn icon sm">🌐</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 카드 3 -->
+          <div class="lawyer-card">
+            <div class="lc-photo" style="background:linear-gradient(160deg,#374151 0%,#6B7280 70%,#D1D5DB 100%)">
+              <span>👤</span>
+              <div class="lc-badges">
+                <span class="badge" style="background:#fff;color:#1E40AF;font-size:10px">⚖️ 변호사</span>
+              </div>
+              <div class="lc-status"><span class="dot live"></span></div>
+              <div class="lc-order"># 3</div>
+            </div>
+            <div class="lc-body">
+              <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:2px">
+                <span class="lc-name">박변호사</span>
+                <span style="font-size:11px;color:var(--muted)">Park, Byunhosa</span>
+              </div>
+              <div class="lc-title">가사그룹 변호사</div>
+              <div class="lc-fields">
+                <span class="badge etc" style="font-size:10px">이혼</span>
+                <span class="badge etc" style="font-size:10px">가사</span>
+                <span class="badge etc" style="font-size:10px">상속</span>
+              </div>
+              <div class="lc-career">이혼·양육권·재산분할 전문. 가사소송 10년 집중 경력</div>
+              <div class="lc-footer">
+                <span>📋 298사례 · 📝 7칼럼</span>
+                <div class="lc-actions">
+                  <button class="btn icon sm">✎</button>
+                  <button class="btn icon sm">🌐</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 카드 4 -->
+          <div class="lawyer-card">
+            <div class="lc-photo" style="background:linear-gradient(160deg,#1F3B2E 0%,#166534 70%,#86EFAC 100%)">
+              <span>👤</span>
+              <div class="lc-badges">
+                <span class="badge" style="background:#fff;color:var(--navy);font-size:10px">🏛 검찰</span>
+                <span class="badge" style="background:#fff;color:#64748B;font-size:10px">📜 퇴직공직자</span>
+              </div>
+              <div class="lc-status"><span class="dot live"></span></div>
+              <div class="lc-order"># 4</div>
+            </div>
+            <div class="lc-body">
+              <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:2px">
+                <span class="lc-name">최검사</span>
+                <span style="font-size:11px;color:var(--muted)">Choi, Geomsa</span>
+              </div>
+              <div class="lc-title">형사그룹 파트너</div>
+              <div class="lc-fields">
+                <span class="badge major" style="font-size:10px">형사</span>
+                <span class="badge etc" style="font-size:10px">마약</span>
+              </div>
+              <div class="lc-career">부산지방검찰청 부장검사 / 마약수사 전담팀 역임</div>
+              <div class="lc-footer">
+                <span>📋 412사례 · 📝 9칼럼</span>
+                <div class="lc-actions">
+                  <button class="btn icon sm">✎</button>
+                  <button class="btn icon sm">🌐</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 카드 5 -->
+          <div class="lawyer-card">
+            <div class="lc-photo" style="background:linear-gradient(160deg,#4C1D95 0%,#6D28D9 70%,#C4B5FD 100%)">
+              <span>👤</span>
+              <div class="lc-badges">
+                <span class="badge" style="background:#fff;color:#1E40AF;font-size:10px">⚖️ 변호사</span>
+              </div>
+              <div class="lc-status"><span class="dot live"></span></div>
+              <div class="lc-order"># 5</div>
+            </div>
+            <div class="lc-body">
+              <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:2px">
+                <span class="lc-name">정변호</span>
+                <span style="font-size:11px;color:var(--muted)">Jung, Byunho</span>
+              </div>
+              <div class="lc-title">경제범죄 전문변호사</div>
+              <div class="lc-fields">
+                <span class="badge major" style="font-size:10px">경제범죄</span>
+                <span class="badge major" style="font-size:10px">민사</span>
+              </div>
+              <div class="lc-career">횡령·배임·보이스피싱 전문. 금융범죄 다수 무혐의 처분 실적</div>
+              <div class="lc-footer">
+                <span>📋 521사례 · 📝 15칼럼</span>
+                <div class="lc-actions">
+                  <button class="btn icon sm">✎</button>
+                  <button class="btn icon sm">🌐</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 카드 6 -->
+          <div class="lawyer-card">
+            <div class="lc-photo" style="background:linear-gradient(160deg,#7C2D12 0%,#C2410C 70%,#FED7AA 100%)">
+              <span>👤</span>
+              <div class="lc-badges">
+                <span class="badge" style="background:#fff;color:#1E40AF;font-size:10px">⚖️ 변호사</span>
+              </div>
+              <div class="lc-status"><span class="dot live"></span></div>
+              <div class="lc-order"># 6</div>
+            </div>
+            <div class="lc-body">
+              <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:2px">
+                <span class="lc-name">한민사</span>
+                <span style="font-size:11px;color:var(--muted)">Han, Minsa</span>
+              </div>
+              <div class="lc-title">민사그룹 변호사</div>
+              <div class="lc-fields">
+                <span class="badge major" style="font-size:10px">민사</span>
+                <span class="badge etc" style="font-size:10px">부동산</span>
+                <span class="badge etc" style="font-size:10px">채권추심</span>
+              </div>
+              <div class="lc-career">부동산 계약분쟁·임대차·손해배상 전문 소송 변호사</div>
+              <div class="lc-footer">
+                <span>📋 187사례 · 📝 5칼럼</span>
+                <div class="lc-actions">
+                  <button class="btn icon sm">✎</button>
+                  <button class="btn icon sm">🌐</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 카드 7 -->
+          <div class="lawyer-card">
+            <div class="lc-photo" style="background:linear-gradient(160deg,#1E3A5F 0%,#1E40AF 70%,#93C5FD 100%)">
+              <span>👤</span>
+              <div class="lc-badges">
+                <span class="badge" style="background:#fff;color:#1E40AF;font-size:10px">🎓 교수 출신</span>
+              </div>
+              <div class="lc-status"><span class="dot live"></span></div>
+              <div class="lc-order"># 7</div>
+            </div>
+            <div class="lc-body">
+              <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:2px">
+                <span class="lc-name">윤교수</span>
+                <span style="font-size:11px;color:var(--muted)">Yoon, Gyosu</span>
+              </div>
+              <div class="lc-title">기업·IP 전문변호사</div>
+              <div class="lc-fields">
+                <span class="badge etc" style="font-size:10px">지식재산</span>
+                <span class="badge etc" style="font-size:10px">기업·법인</span>
+              </div>
+              <div class="lc-career">법학 교수 출신. 저작권·특허·상표 분쟁 전문. M&A 자문 다수</div>
+              <div class="lc-footer">
+                <span>📋 143사례 · 📝 22칼럼</span>
+                <div class="lc-actions">
+                  <button class="btn icon sm">✎</button>
+                  <button class="btn icon sm">🌐</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 카드 8 — 비활성 예시 -->
+          <div class="lawyer-card" style="opacity:.6">
+            <div class="lc-photo" style="background:linear-gradient(160deg,#374151 0%,#6B7280 100%)">
+              <span>👤</span>
+              <div class="lc-status"><span class="dot pending"></span></div>
+              <div class="lc-order" style="background:rgba(239,68,68,.7)">비활성</div>
+            </div>
+            <div class="lc-body">
+              <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:2px">
+                <span class="lc-name">임변호</span>
+                <span style="font-size:11px;color:var(--muted)">Lim, Byunho</span>
+              </div>
+              <div class="lc-title">산재·노동 변호사</div>
+              <div class="lc-fields">
+                <span class="badge etc" style="font-size:10px">노동·산재</span>
+              </div>
+              <div class="lc-career">산업재해·부당해고·임금체불 전문</div>
+              <div class="lc-footer">
+                <span style="color:#EF4444">⛔ 비활성 계정</span>
+                <div class="lc-actions">
+                  <button class="btn icon sm">✎</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /lawyer-card-grid -->
+
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--muted)">
+          <span>전체 74명 중 1-8명 표시</span>
+          <div style="display:flex;gap:4px">
+            <button style="width:28px;height:28px;border:1px solid var(--border-strong);background:#fff;border-radius:5px;font-size:12px;cursor:pointer">‹</button>
+            <button style="width:28px;height:28px;border:1px solid var(--navy);background:var(--navy);color:#fff;border-radius:5px;font-size:12px;cursor:pointer">1</button>
+            <button style="width:28px;height:28px;border:1px solid var(--border-strong);background:#fff;border-radius:5px;font-size:12px;cursor:pointer">2</button>
+            <button style="width:28px;height:28px;border:1px solid var(--border-strong);background:#fff;border-radius:5px;font-size:12px;cursor:pointer">3</button>
+            <button style="width:28px;height:28px;border:1px solid var(--border-strong);background:#fff;border-radius:5px;font-size:12px;cursor:pointer">›</button>
+          </div>
+        </div>
+      </div><!-- /view-card -->
+
+      <!-- === 리스트 뷰 === -->
+      <div id="view-list" style="display:none">
+        <div class="tbl-wrap">
+          <table class="data">
+            <thead>
+              <tr>
+                <th class="check-col"><input type="checkbox"/></th>
+                <th style="width:46px">사진</th>
+                <th>이름 / 영문</th>
+                <th>직함</th>
+                <th>직책 마크</th>
+                <th>주요 분야</th>
+                <th>노출 사이트</th>
+                <th style="width:50px">우선순위</th>
+                <th style="width:50px">사례</th>
+                <th style="width:60px">상태</th>
+                <th class="actions-col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td><div style="width:36px;height:36px;background:linear-gradient(160deg,#1F4E79,#3B6EA8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px">👤</div></td>
+                <td><strong>김변호</strong> <span style="font-size:10.5px;color:var(--muted)">Kim, Byunho · 金邊湖</span></td>
+                <td>경영총괄 대표변호사</td>
+                <td><span class="badge" style="background:#6B21A8;color:#fff;font-size:10px">⭐ 검사장</span> <span class="badge info" style="font-size:10px">🏛 검찰</span></td>
+                <td>형사 · 경제범죄</td>
+                <td><span class="badge hub">허브</span> <span class="badge major">형사</span> <span class="badge etc">+6</span></td>
+                <td><input class="input" style="width:42px;height:26px;font-size:11px" value="1"/></td>
+                <td>1,247</td>
+                <td><span class="dot live"></span>활성</td>
+                <td><div class="row-actions"><button class="btn icon sm" data-page-link="lawyer-detail">✎</button><button class="btn icon sm">🌐</button></div></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td><div style="width:36px;height:36px;background:linear-gradient(160deg,#1E3A5F,#2D5F8A);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px">👤</div></td>
+                <td><strong>이판사</strong> <span style="font-size:10.5px;color:var(--muted)">Lee, Pansa</span></td>
+                <td>수석변호사</td>
+                <td><span class="badge purple" style="font-size:10px">⚖️ 판사</span></td>
+                <td>민사 · 가사</td>
+                <td><span class="badge hub">허브</span> <span class="badge major">민사</span> <span class="badge etc">+2</span></td>
+                <td><input class="input" style="width:42px;height:26px;font-size:11px" value="2"/></td>
+                <td>634</td>
+                <td><span class="dot live"></span>활성</td>
+                <td><div class="row-actions"><button class="btn icon sm">✎</button><button class="btn icon sm">🌐</button></div></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td><div style="width:36px;height:36px;background:linear-gradient(160deg,#374151,#6B7280);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px">👤</div></td>
+                <td><strong>박변호사</strong> <span style="font-size:10.5px;color:var(--muted)">Park, Byunhosa</span></td>
+                <td>가사그룹 변호사</td>
+                <td><span class="badge info" style="font-size:10px">⚖️ 변호사</span></td>
+                <td>이혼 · 가사</td>
+                <td><span class="badge hub">허브</span> <span class="badge etc">이혼</span></td>
+                <td><input class="input" style="width:42px;height:26px;font-size:11px" value="3"/></td>
+                <td>298</td>
+                <td><span class="dot live"></span>활성</td>
+                <td><div class="row-actions"><button class="btn icon sm">✎</button><button class="btn icon sm">🌐</button></div></td>
+              </tr>
+              <tr><td colspan="11" class="text-muted text-right" style="padding:8px 14px">⋯ 외 71명</td></tr>
+            </tbody>
+          </table>
+          <div class="pagination">
+            <span>전체 74명 중 1-3명</span>
+            <div class="pages"><button>‹</button><button class="on">1</button><button>2</button><button>3</button><button>›</button></div>
+          </div>
+        </div>
+      </div><!-- /view-list -->
+
     </div>
   </section>
 
@@ -1870,287 +2233,489 @@
       <!-- ① 기본 정보 -->
       <div class="tab-panel on">
         <div class="grid-2-1">
+
+          <!-- ===== 왼쪽 메인 컬럼 ===== -->
           <div>
+
+            <!-- A. 히어로 이미지 -->
             <div class="card mb-16">
-              <div class="card-head"><h3>기본 정보</h3></div>
+              <div class="card-head">
+                <h3>🖼 히어로 이미지</h3>
+                <span class="sub">배경 + 인물 사진 조합 · 대륜 스타일 상단 배너</span>
+              </div>
+              <div class="card-body">
+                <div style="display:grid;grid-template-columns:1fr 160px;gap:12px">
+                  <!-- 배경 이미지 -->
+                  <div>
+                    <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">배경 이미지 (와이드)</div>
+                    <div class="photo-zone" style="height:110px;border-radius:8px">
+                      <span class="pz-icon">🌆</span>
+                      <span class="pz-hint">도시 야경·법원·사무실 등<br>1920×640px 권장</span>
+                      <button class="btn sm" style="margin-top:4px">업로드</button>
+                    </div>
+                    <div style="margin-top:6px;display:flex;gap:4px;flex-wrap:wrap">
+                      <span style="font-size:11px;color:var(--muted)">샘플:</span>
+                      <div style="width:36px;height:24px;background:linear-gradient(90deg,#1F4E79,#3B6EA8);border-radius:4px;cursor:pointer;border:2px solid var(--navy)"></div>
+                      <div style="width:36px;height:24px;background:linear-gradient(90deg,#374151,#6B7280);border-radius:4px;cursor:pointer"></div>
+                      <div style="width:36px;height:24px;background:linear-gradient(90deg,#1E3A5F,#0EA5E9);border-radius:4px;cursor:pointer"></div>
+                      <div style="width:36px;height:24px;background:linear-gradient(90deg,#1F3B2E,#166534);border-radius:4px;cursor:pointer"></div>
+                    </div>
+                  </div>
+                  <!-- 인물 사진 -->
+                  <div>
+                    <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">인물 사진 (세로형)</div>
+                    <div class="photo-zone" style="height:110px;border-radius:8px">
+                      <span class="pz-icon">👤</span>
+                      <span class="pz-hint">누끼 컷 권장<br>480×640px</span>
+                      <button class="btn sm" style="margin-top:4px">업로드</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- 히어로 미리보기 -->
+                <div style="margin-top:12px;border-radius:8px;overflow:hidden;height:100px;background:linear-gradient(135deg,#1F4E79 0%,#3B6EA8 60%,#93C5FD 100%);display:flex;align-items:flex-end;justify-content:flex-end;position:relative">
+                  <div style="position:absolute;bottom:0;right:0;font-size:56px;opacity:.7">👤</div>
+                  <div style="position:absolute;top:8px;left:12px">
+                    <div style="display:flex;gap:4px;margin-bottom:4px">
+                      <span class="badge" style="background:rgba(255,255,255,.9);color:#6B21A8;font-size:10px">⭐ 검사장</span>
+                      <span class="badge" style="background:rgba(255,255,255,.9);color:var(--navy);font-size:10px">🏛 검찰</span>
+                    </div>
+                    <div style="color:#fff;font-size:20px;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,.4)">조영곤</div>
+                    <div style="color:rgba(255,255,255,.85);font-size:12px">경영총괄변호사</div>
+                  </div>
+                </div>
+                <p style="font-size:11px;color:var(--muted);margin-top:6px">※ 위 미리보기는 실제 사이트 노출 형태입니다.</p>
+              </div>
+            </div>
+
+            <!-- B. 기본 식별 정보 -->
+            <div class="card mb-16">
+              <div class="card-head"><h3>📝 기본 정보</h3></div>
               <div class="card-body">
                 <div class="form-grid">
-                  <label>이름 (한글)</label><input class="input" value="김변호"/>
-                  <label>이름 (영문)</label><input class="input" value="Kim, Byunho"/>
-                  <label>이름 (한자)</label><input class="input" value="金邊湖"/>
-                  <label>슬러그</label>
+                  <label>이름 (한글)<span class="req">*</span></label>
+                  <input class="input" value="김변호"/>
+                  <label>이름 (영문)</label>
+                  <input class="input" value="Kim, Byunho"/>
+                  <label>이름 (한자)</label>
+                  <input class="input" value="金邊湖"/>
+                  <label>직함<span class="hint">카드에 표시</span></label>
+                  <input class="input" value="경영총괄 대표변호사"/>
+                  <label>슬러그<span class="hint">URL 경로</span></label>
                   <div class="input-with-suffix"><span class="suffix">/lawyers/</span><input value="kim-byunho"/></div>
-                  <label>이메일</label><input class="input" value="kim.bh@ohyunlaw.com"/>
-                  <label>전화번호</label><input class="input" value="02-1234-5678"/>
-                  <label>한 줄 소개</label><input class="input" value="검찰 출신 30년 경력의 형사 전문 변호인"/>
-                  <label>약력 / 학력<span class="hint">WYSIWYG</span></label>
-                  <div class="editor">
-                    <div class="editor-toolbar">
-                      <div class="grp"><select class="ed-select"><option>본문</option><option>제목 H3</option></select></div>
-                      <div class="grp"><button class="ed-btn"><strong>B</strong></button><button class="ed-btn"><em>I</em></button></div>
-                      <div class="grp"><button class="ed-btn">≣</button><button class="ed-btn">1.</button></div>
-                      <div class="grp"><button class="ed-btn wide" onclick="openModal('insert-link')">🔗 링크</button></div>
-                    </div>
-                    <div class="editor-content" contenteditable="true" style="min-height:200px">
-                      <h3>학력</h3>
-                      <ul><li>서울대학교 법학과 졸업 (1988)</li><li>제30회 사법시험 합격 / 사법연수원 20기</li></ul>
-                      <h3>주요 경력</h3>
-                      <ul>
-                        <li>서울중앙지방검찰청 검사 / 대검찰청 중앙수사부</li>
-                        <li>서울고등검찰청 부장검사</li>
-                        <li><strong>법무법인 오현 형사그룹 대표변호사</strong> (현)</li>
-                      </ul>
-                    </div>
-                  </div>
+                  <label>이메일</label>
+                  <input class="input" value="kim.bh@ohyunlaw.com"/>
+                  <label>전화 (직통)</label>
+                  <input class="input" value="070-1234-5678"/>
                 </div>
               </div>
             </div>
 
-            <!-- 분야 매핑 -->
+            <!-- C. 슬로건 / 인용구 -->
             <div class="card mb-16">
-              <div class="card-head"><h3>🏷 분야 매핑 (1·2·3차)</h3>
-                <span class="sub">사례 작성 시 자동 추천 정렬에 사용됨</span>
-                <div class="actions"><button class="btn sm" onclick="openModal('search-fields')">+ 분야 추가</button></div>
+              <div class="card-head">
+                <h3>💬 슬로건 · 인용구</h3>
+                <span class="sub">상세 페이지 상단 큰따옴표 인용 영역</span>
               </div>
               <div class="card-body">
-                <div class="form-grid" style="grid-template-columns:80px 1fr">
-                  <label>대표 분야<span class="req">*</span></label>
-                  <div>
-                    <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:2px solid var(--navy);border-radius:6px;background:#EFF6FF">
-                      <span>⚖️</span>
-                      <strong>형사</strong>
-                      <span style="font-size:10.5px;color:var(--muted)">/fields/criminal</span>
-                    </div>
-                  </div>
+                <textarea class="input" style="width:100%;min-height:72px;resize:vertical;font-size:13px;line-height:1.6">"고소가 된다고 해서 막혀서는 안 된다. 법원에서 자신을 지켜라"</textarea>
+                <div style="font-size:11px;color:var(--muted);margin-top:6px">※ 120자 이내 · 인용부호 자동 처리</div>
+              </div>
+            </div>
 
-                  <label>보조 분야<span class="hint">매칭도 가중치</span></label>
-                  <div style="display:flex;flex-direction:column;gap:5px">
-                    <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:5px">
-                      <span style="font-size:11px;color:var(--muted)">2차</span>
-                      <span style="flex:1">사기</span>
-                      <span class="text-muted" style="font-size:11px">사례 348</span>
-                      <span style="font-size:10.5px">가중치</span>
-                      <input class="input" type="number" value="100" style="width:60px;height:24px;font-size:11px"/>
-                      <button class="btn icon sm">×</button>
-                    </div>
-                    <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:5px">
-                      <span style="font-size:11px;color:var(--muted)">2차</span>
-                      <span style="flex:1">횡령·배임</span>
-                      <span class="text-muted" style="font-size:11px">사례 197</span>
-                      <span style="font-size:10.5px">가중치</span>
-                      <input class="input" type="number" value="80" style="width:60px;height:24px;font-size:11px"/>
-                      <button class="btn icon sm">×</button>
-                    </div>
-                    <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:5px">
-                      <span style="font-size:11px;color:var(--muted)">3차</span>
-                      <span style="flex:1">투자사기</span>
-                      <span class="text-muted" style="font-size:11px">사례 64</span>
-                      <span style="font-size:10.5px">가중치</span>
-                      <input class="input" type="number" value="90" style="width:60px;height:24px;font-size:11px"/>
-                      <button class="btn icon sm">×</button>
-                    </div>
+            <!-- D. 소개글 -->
+            <div class="card mb-16">
+              <div class="card-head">
+                <h3>📄 소개글</h3>
+                <span class="sub">슬로건 아래 본문 단락 · 2–4줄 권장</span>
+              </div>
+              <div class="card-body">
+                <div class="editor">
+                  <div class="editor-toolbar">
+                    <div class="grp"><select class="ed-select"><option>본문</option><option>제목 H3</option><option>인용</option></select></div>
+                    <div class="grp"><button class="ed-btn"><strong>B</strong></button><button class="ed-btn"><em>I</em></button><button class="ed-btn" style="text-decoration:underline">U</button></div>
+                    <div class="grp"><button class="ed-btn">≣</button><button class="ed-btn">1.</button></div>
+                  </div>
+                  <div class="editor-content" contenteditable="true" style="min-height:100px">
+                    <p>법률 분야 최정예 전문가 팀과 함께 의뢰인의 최선을 위해 끝까지 싸웁니다. 검찰 출신 30년 경력을 바탕으로 형사·경제범죄 사건의 무혐의 처분과 선처를 이끌어왔습니다.</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- 사이트별 노출 매트릭스 -->
+            <!-- E. 경력 (타임라인) -->
             <div class="card mb-16">
-              <div class="card-head"><h3>🌐 사이트별 노출 · 우선순위</h3>
-                <span class="sub">28개 사이트 체크박스 + 드래그 순서</span>
-                <div class="actions"><button class="btn sm">전체 노출</button></div>
+              <div class="card-head">
+                <h3>📅 경력</h3>
+                <span class="sub">최신순 정렬 · 연도·기관·역할 입력</span>
+                <div class="actions"><button class="btn sm">+ 항목 추가</button></div>
+              </div>
+              <div class="card-body">
+                <div class="timeline-editor">
+                  <!-- 현직 -->
+                  <div class="timeline-entry" style="border-left:3px solid var(--navy)">
+                    <div>
+                      <input class="input" value="2018" style="height:26px;font-size:12px;width:100%;margin-bottom:4px" placeholder="시작연도"/>
+                      <span style="font-size:10px;color:var(--muted);display:flex;align-items:center;gap:3px">
+                        <input type="checkbox" checked/> 현재 재직
+                      </span>
+                    </div>
+                    <div>
+                      <input class="input" value="법무법인 오현" style="height:26px;font-size:12px;margin-bottom:4px;width:100%" placeholder="기관명"/>
+                      <input class="input" value="형사그룹 대표변호사" style="height:26px;font-size:12px;width:100%" placeholder="직함/역할"/>
+                    </div>
+                    <button class="btn icon sm ghost">×</button>
+                  </div>
+                  <div class="timeline-entry">
+                    <div>
+                      <input class="input" value="2010" style="height:26px;font-size:12px;width:100%;margin-bottom:4px"/>
+                      <input class="input" value="2018" style="height:26px;font-size:12px;width:100%" placeholder="종료연도"/>
+                    </div>
+                    <div>
+                      <input class="input" value="서울고등검찰청" style="height:26px;font-size:12px;margin-bottom:4px;width:100%"/>
+                      <input class="input" value="부장검사" style="height:26px;font-size:12px;width:100%"/>
+                    </div>
+                    <button class="btn icon sm ghost">×</button>
+                  </div>
+                  <div class="timeline-entry">
+                    <div>
+                      <input class="input" value="2004" style="height:26px;font-size:12px;width:100%;margin-bottom:4px"/>
+                      <input class="input" value="2010" style="height:26px;font-size:12px;width:100%"/>
+                    </div>
+                    <div>
+                      <input class="input" value="대검찰청 중앙수사부" style="height:26px;font-size:12px;margin-bottom:4px;width:100%"/>
+                      <input class="input" value="검사" style="height:26px;font-size:12px;width:100%"/>
+                    </div>
+                    <button class="btn icon sm ghost">×</button>
+                  </div>
+                  <div class="timeline-entry">
+                    <div>
+                      <input class="input" value="1994" style="height:26px;font-size:12px;width:100%;margin-bottom:4px"/>
+                      <input class="input" value="2004" style="height:26px;font-size:12px;width:100%"/>
+                    </div>
+                    <div>
+                      <input class="input" value="서울중앙지방검찰청" style="height:26px;font-size:12px;margin-bottom:4px;width:100%"/>
+                      <input class="input" value="검사" style="height:26px;font-size:12px;width:100%"/>
+                    </div>
+                    <button class="btn icon sm ghost">×</button>
+                  </div>
+                  <div class="timeline-add" onclick>
+                    <span style="font-size:16px">+</span> 경력 항목 추가
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- F. 학력 -->
+            <div class="card mb-16">
+              <div class="card-head">
+                <h3>🎓 학력</h3>
+                <div class="actions"><button class="btn sm">+ 항목 추가</button></div>
+              </div>
+              <div class="card-body">
+                <div class="timeline-editor">
+                  <div class="timeline-entry">
+                    <input class="input" value="1994" style="height:26px;font-size:12px;width:80px"/>
+                    <div>
+                      <input class="input" value="제30회 사법시험 합격 / 사법연수원 20기" style="height:26px;font-size:12px;width:100%;margin-bottom:4px"/>
+                    </div>
+                    <button class="btn icon sm ghost">×</button>
+                  </div>
+                  <div class="timeline-entry">
+                    <input class="input" value="1992" style="height:26px;font-size:12px;width:80px"/>
+                    <div>
+                      <input class="input" value="서울대학교 법학과 졸업" style="height:26px;font-size:12px;width:100%;margin-bottom:4px"/>
+                    </div>
+                    <button class="btn icon sm ghost">×</button>
+                  </div>
+                  <div class="timeline-entry">
+                    <input class="input" value="1988" style="height:26px;font-size:12px;width:80px"/>
+                    <div>
+                      <input class="input" value="서울대학교 법학과 입학" style="height:26px;font-size:12px;width:100%;margin-bottom:4px"/>
+                    </div>
+                    <button class="btn icon sm ghost">×</button>
+                  </div>
+                  <div class="timeline-add">
+                    <span style="font-size:16px">+</span> 학력 항목 추가
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- G. 수상경력 -->
+            <div class="card mb-16">
+              <div class="card-head">
+                <h3>🏆 수상경력</h3>
+                <div class="actions"><button class="btn sm">+ 항목 추가</button></div>
+              </div>
+              <div class="card-body">
+                <div class="timeline-editor">
+                  <div class="timeline-entry">
+                    <input class="input" value="2023" style="height:26px;font-size:12px;width:80px"/>
+                    <div style="flex:1">
+                      <input class="input" value="대한변협 선정 우수변호사상" style="height:26px;font-size:12px;width:100%;margin-bottom:4px"/>
+                      <input class="input" value="대한변호사협회" style="height:26px;font-size:12px;width:100%" placeholder="수여 기관"/>
+                    </div>
+                    <button class="btn icon sm ghost">×</button>
+                  </div>
+                  <div class="timeline-entry">
+                    <input class="input" value="2020" style="height:26px;font-size:12px;width:80px"/>
+                    <div style="flex:1">
+                      <input class="input" value="검찰청장 표창" style="height:26px;font-size:12px;width:100%;margin-bottom:4px"/>
+                      <input class="input" value="검찰청" style="height:26px;font-size:12px;width:100%" placeholder="수여 기관"/>
+                    </div>
+                    <button class="btn icon sm ghost">×</button>
+                  </div>
+                  <div class="timeline-add">
+                    <span style="font-size:16px">+</span> 수상 항목 추가
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- H. 언론 보도 -->
+            <div class="card mb-16">
+              <div class="card-head">
+                <h3>📰 언론 보도</h3>
+                <span class="sub">인터뷰·기사 링크 관리 · 상세 페이지 언론 탭</span>
+                <div class="actions"><button class="btn sm">+ 보도 추가</button></div>
               </div>
               <div class="card-body tight">
-                <table class="data">
-                  <thead>
-                    <tr>
-                      <th class="check-col"><input type="checkbox" checked/></th>
-                      <th>사이트</th>
-                      <th>유형</th>
-                      <th>노출</th>
-                      <th>우선순위</th>
-                      <th>티어</th>
-                      <th>표시 이름 (자동)</th>
-                      <th>사례</th>
-                    </tr>
-                  </thead>
+                <table class="data" style="font-size:12px">
+                  <thead><tr><th style="width:30px">≡</th><th>매체</th><th>제목</th><th style="width:90px">날짜</th><th style="width:70px">링크</th><th class="actions-col"></th></tr></thead>
                   <tbody>
-                    <tr style="background:#EFF6FF">
-                      <td><input type="checkbox" checked/></td>
-                      <td><strong>형사그룹</strong></td>
-                      <td><span class="badge major">민형경</span></td>
-                      <td><div class="toggle on"></div></td>
-                      <td><div class="row-flex gap-4">≡ <input class="input" style="width:50px" value="1"/></div></td>
-                      <td><select class="select" style="width:90px"><option selected>대표</option><option>일반</option></select></td>
-                      <td class="text-muted" style="font-size:11px">오현 형사 김변호 변호사</td>
-                      <td>312</td>
-                    </tr>
-                    <tr style="background:#EFF6FF">
-                      <td><input type="checkbox" checked/></td>
-                      <td><strong>경제범죄그룹</strong></td>
-                      <td><span class="badge major">민형경</span></td>
-                      <td><div class="toggle on"></div></td>
-                      <td><div class="row-flex gap-4">≡ <input class="input" style="width:50px" value="2"/></div></td>
-                      <td><select class="select" style="width:90px"><option selected>대표</option><option>일반</option></select></td>
-                      <td class="text-muted" style="font-size:11px">오현 경제범죄 김변호 변호사</td>
-                      <td>187</td>
+                    <tr>
+                      <td style="color:var(--muted)">⋮⋮</td>
+                      <td><input class="input" value="조선일보" style="height:26px;font-size:11.5px;width:80px"/></td>
+                      <td><input class="input" value="형사사건 무죄, 변호인의 역할 커져" style="height:26px;font-size:11.5px;width:100%"/></td>
+                      <td><input class="input" value="2026-03-12" type="date" style="height:26px;font-size:11px"/></td>
+                      <td><input class="input" value="https://…" style="height:26px;font-size:11px"/></td>
+                      <td><div class="row-actions"><button class="btn icon sm ghost">×</button></div></td>
                     </tr>
                     <tr>
-                      <td><input type="checkbox" checked/></td>
-                      <td>허브 (ohyunlaw.com)</td>
-                      <td><span class="badge hub">허브</span></td>
-                      <td><div class="toggle on"></div></td>
-                      <td><div class="row-flex gap-4">≡ <input class="input" style="width:50px" value="3"/></div></td>
-                      <td><select class="select" style="width:90px"><option>대표</option><option selected>일반</option></select></td>
-                      <td class="text-muted" style="font-size:11px">오현 김변호 변호사</td>
-                      <td>—</td>
+                      <td style="color:var(--muted)">⋮⋮</td>
+                      <td><input class="input" value="법률신문" style="height:26px;font-size:11.5px;width:80px"/></td>
+                      <td><input class="input" value="검사장 출신 변호사가 본 경제범죄 트렌드" style="height:26px;font-size:11.5px;width:100%"/></td>
+                      <td><input class="input" value="2025-11-08" type="date" style="height:26px;font-size:11px"/></td>
+                      <td><input class="input" value="https://…" style="height:26px;font-size:11px"/></td>
+                      <td><div class="row-actions"><button class="btn icon sm ghost">×</button></div></td>
                     </tr>
                     <tr>
-                      <td><input type="checkbox" checked/></td>
-                      <td>마약그룹</td>
-                      <td><span class="badge etc">기타</span></td>
-                      <td><div class="toggle on"></div></td>
-                      <td><div class="row-flex gap-4">≡ <input class="input" style="width:50px" value="2"/></div></td>
-                      <td><select class="select" style="width:90px"><option>대표</option><option selected>일반</option></select></td>
-                      <td class="text-muted" style="font-size:11px">오현 마약 김변호 변호사</td>
-                      <td>78</td>
+                      <td colspan="6" style="padding:8px 12px">
+                        <div class="timeline-add" style="margin:0">
+                          <span style="font-size:16px">+</span> 보도 항목 추가
+                        </div>
+                      </td>
                     </tr>
-                    <tr>
-                      <td><input type="checkbox"/></td>
-                      <td class="text-muted">학교폭력그룹</td>
-                      <td><span class="badge etc">기타</span></td>
-                      <td><div class="toggle"></div></td>
-                      <td>—</td>
-                      <td>—</td>
-                      <td>—</td>
-                      <td>—</td>
-                    </tr>
-                    <tr>
-                      <td><input type="checkbox"/></td>
-                      <td class="text-muted">이혼·가사그룹</td>
-                      <td><span class="badge etc">기타</span></td>
-                      <td><div class="toggle"></div></td>
-                      <td>—</td>
-                      <td>—</td>
-                      <td>—</td>
-                      <td>—</td>
-                    </tr>
-                    <tr><td colspan="8" class="text-muted text-right" style="padding:8px">⋯ 외 22개 사이트 (체크하여 노출)</td></tr>
                   </tbody>
                 </table>
               </div>
             </div>
 
-            <!-- 담당 사례 (자동 집계) -->
+            <!-- I. 주요사건 (대륜 스타일) -->
             <div class="card mb-16">
-              <div class="card-head"><h3>📋 담당 사례 (자동 집계)</h3>
-                <span class="sub">이 변호사가 작성/담당으로 태그된 모든 사례</span>
+              <div class="card-head">
+                <h3>⚖️ 주요사건</h3>
+                <span class="sub">상세 페이지 하단 대표 사례 하이라이트 (3–6건)</span>
                 <div class="actions">
-                  <select class="select" style="width:140px"><option>전체 (1,247)</option><option>주담당</option><option>공동담당</option></select>
-                  <button class="btn sm">📋 새 사례</button>
+                  <button class="btn sm" onclick="openModal('search-cases')">+ 사례 연결</button>
                 </div>
               </div>
               <div class="card-body tight">
-                <table class="data">
-                  <thead><tr><th>제목</th><th>역할</th><th>분야</th><th>노출 사이트</th><th>발행일</th><th>👁</th></tr></thead>
+                <table class="data" style="font-size:12px">
+                  <thead><tr><th style="width:30px">≡</th><th>사례 제목</th><th style="width:80px">분야</th><th style="width:80px">결과</th><th style="width:60px">노출</th><th class="actions-col"></th></tr></thead>
                   <tbody>
-                    <tr><td><strong>○○ 사기죄 무혐의 처분 사례</strong></td><td><span class="badge danger">👑 주담당</span></td><td>형사·사기</td><td><span class="badge major">형사</span> <span class="badge hub">허브</span></td><td>2026-05-08</td><td>1,247</td></tr>
-                    <tr><td>마약 단순 소지 선처 받은 사례</td><td><span class="badge danger">👑 주담당</span></td><td>형사·마약</td><td><span class="badge etc">마약</span></td><td>2026-05-04</td><td>892</td></tr>
-                    <tr><td>○○ 보이스피싱 대응 사례</td><td><span class="badge info">공동담당</span></td><td>경제범죄·보이스피싱</td><td><span class="badge major">경제범죄</span></td><td>2026-05-01</td><td>643</td></tr>
-                    <tr><td>중고거래 사칭결제 무혐의 처분</td><td><span class="badge danger">👑 주담당</span></td><td>형사·사기</td><td><span class="badge major">형사</span></td><td>2026-04-22</td><td>412</td></tr>
-                    <tr><td>투자사기 손해배상 인용 판결</td><td><span class="badge purple">자문</span></td><td>민사·투자사기</td><td><span class="badge major">민사</span></td><td>2026-04-15</td><td>328</td></tr>
-                    <tr><td colspan="6" class="text-muted text-right" style="padding:8px">⋯ 외 1,242건 보기 →</td></tr>
+                    <tr>
+                      <td style="color:var(--muted)">⋮⋮</td>
+                      <td><strong>○○ 사기죄 무혐의 처분 사례</strong><br/><span style="font-size:10.5px;color:var(--muted)">2026-05-08</span></td>
+                      <td>형사·사기</td>
+                      <td><span class="badge live" style="font-size:10px">무혐의</span></td>
+                      <td><div class="toggle on"></div></td>
+                      <td><div class="row-actions"><button class="btn icon sm ghost">×</button></div></td>
+                    </tr>
+                    <tr>
+                      <td style="color:var(--muted)">⋮⋮</td>
+                      <td><strong>마약 단순 소지 선처 받은 사례</strong><br/><span style="font-size:10.5px;color:var(--muted)">2026-05-04</span></td>
+                      <td>형사·마약</td>
+                      <td><span class="badge info" style="font-size:10px">집행유예</span></td>
+                      <td><div class="toggle on"></div></td>
+                      <td><div class="row-actions"><button class="btn icon sm ghost">×</button></div></td>
+                    </tr>
+                    <tr>
+                      <td style="color:var(--muted)">⋮⋮</td>
+                      <td><strong>투자사기 손해배상 인용 판결</strong><br/><span style="font-size:10.5px;color:var(--muted)">2026-04-15</span></td>
+                      <td>민사·투자</td>
+                      <td><span class="badge live" style="font-size:10px">인용</span></td>
+                      <td><div class="toggle on"></div></td>
+                      <td><div class="row-actions"><button class="btn icon sm ghost">×</button></div></td>
+                    </tr>
+                    <tr>
+                      <td colspan="6" style="padding:6px 12px;color:var(--muted);font-size:11.5px;text-align:center">+ 사례 연결 버튼으로 추가 (최대 6건)</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
             </div>
 
-            <!-- 작성 칼럼 -->
+            <!-- J. 상담 설정 -->
             <div class="card">
-              <div class="card-head"><h3>📝 작성 칼럼 · 인사이트</h3>
-                <span class="sub">본인 작성 글만 수정 가능 (PDF 34p)</span>
-                <div class="actions"><button class="btn sm">📝 새 칼럼</button></div>
+              <div class="card-head">
+                <h3>📞 상담 설정</h3>
+                <span class="sub">사이드 상담 패널 · "상담하기" 버튼 연결 정보</span>
               </div>
-              <div class="card-body tight">
-                <table class="data">
-                  <thead><tr><th>제목</th><th>해시태그</th><th>상태</th><th>발행일</th><th>👁</th></tr></thead>
-                  <tbody>
-                    <tr><td><strong>2026 형법 개정안 핵심 정리</strong> <span class="badge purple">📌 #1</span></td><td>#형법개정 #2026</td><td><span class="badge live">발행</span></td><td>2026-04-12</td><td>2,184</td></tr>
-                    <tr><td>검찰 조사 대응 가이드</td><td>#검찰 #변호인선임</td><td><span class="badge live">발행</span></td><td>2026-03-28</td><td>1,876</td></tr>
-                    <tr><td>사기죄 성립 요건 (실무사례)</td><td>#사기죄 #판례</td><td><span class="badge pending">승인 대기</span></td><td class="text-muted">3일 전 작성</td><td>—</td></tr>
-                    <tr><td colspan="5" class="text-muted text-right" style="padding:8px">⋯ 외 25건</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <!-- 사용자 페이지 미리보기 (대륜 카드) -->
-            <div class="card mb-16">
-              <div class="card-head"><h3>👁 사용자 페이지 카드 미리보기</h3></div>
-              <div class="card-body" style="background:#F8FAFC">
-                <div style="background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.06)">
-                  <div style="height:200px;background:linear-gradient(180deg,#1F4E79 0%,#3B6EA8 100%);display:flex;align-items:flex-end;justify-content:center;color:#fff;font-size:48px;position:relative;padding-top:30px">
-                    👤
-                    <div style="position:absolute;top:8px;left:8px;display:flex;gap:3px"><span class="badge info" style="background:#fff;color:var(--navy)">검찰</span><span class="badge purple" style="background:#fff;color:#6B21A8">검사장</span></div>
+              <div class="card-body">
+                <div class="form-grid" style="grid-template-columns:110px 1fr">
+                  <label>전화 상담</label>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div class="toggle on"></div>
+                    <input class="input" value="070-1234-5678" style="flex:1"/>
                   </div>
-                  <div style="padding:14px">
-                    <h3 style="font-size:15px;font-weight:700">김변호 변호사</h3>
-                    <div style="font-size:11px;color:var(--muted);margin:2px 0 8px">오현 형사 · 검찰 출신 30년</div>
-                    <div style="font-size:11.5px;color:var(--text);line-height:1.5">검찰 출신 30년 경력의 형사 전문 변호인. 사기·횡령 등 경제범죄 사건 다수 무혐의 처분.</div>
-                    <div style="margin-top:10px;font-size:11px;color:var(--muted);display:flex;justify-content:space-between"><span>📋 사례 312</span><span>📝 칼럼 28</span></div>
+                  <label>이메일 상담</label>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div class="toggle on"></div>
+                    <input class="input" value="kim.bh@ohyunlaw.com" style="flex:1"/>
                   </div>
+                  <label>카카오채널</label>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div class="toggle"></div>
+                    <input class="input" placeholder="카카오 채널 ID" style="flex:1"/>
+                  </div>
+                  <label>상담비용 안내</label>
+                  <textarea class="input" style="min-height:60px;resize:vertical">초기 전화상담 무료 / 방문 상담 시 30분 5만원 (VAT별도)</textarea>
+                  <label>상담 가능 시간</label>
+                  <input class="input" value="평일 09:00-18:00 · 토요일 10:00-14:00"/>
+                  <label>상담 폼 연결</label>
+                  <select class="select">
+                    <option selected>기본 상담 폼 (법무법인 오현)</option>
+                    <option>형사그룹 전용 폼</option>
+                    <option>경제범죄 전용 폼</option>
+                    <option>직접 URL 입력</option>
+                  </select>
                 </div>
-                <p class="help mt-12">위 카드는 <code>형사그룹</code> 사이트 기준입니다. 사이트별 표시 이름·이미지가 자동 변환됩니다.</p>
               </div>
             </div>
 
-            <!-- 직책 마크 -->
-            <div class="card mb-16">
-              <div class="card-head"><h3>🏅 직책 마크</h3>
-                <div class="actions"><button class="btn sm" data-page-link="lawyer-badges">마크 마스터 →</button></div>
-              </div>
-              <div class="card-body">
-                <label class="checkbox" style="display:block;margin-bottom:6px"><input type="checkbox" checked> <span class="badge info">변호사</span></label>
-                <label class="checkbox" style="display:block;margin-bottom:6px"><input type="checkbox" checked> <span class="badge purple">검찰</span></label>
-                <label class="checkbox" style="display:block;margin-bottom:6px"><input type="checkbox"> <span class="badge purple">판사</span></label>
-                <label class="checkbox" style="display:block;margin-bottom:6px"><input type="checkbox" checked> <span class="badge purple">검사장</span></label>
-                <label class="checkbox" style="display:block;margin-bottom:6px"><input type="checkbox" checked> <span class="badge">퇴직공직자</span></label>
-                <label class="checkbox" style="display:block;margin-bottom:6px"><input type="checkbox"> <span class="badge">법무부</span></label>
-              </div>
-            </div>
+          </div><!-- /왼쪽 -->
 
-            <!-- 계정 권한 -->
+          <!-- ===== 오른쪽 사이드 컬럼 ===== -->
+          <div>
+
+            <!-- 발행 상태 -->
             <div class="card mb-16">
-              <div class="card-head"><h3>🔐 계정 · 권한</h3></div>
+              <div class="card-head"><h3>📤 발행 상태</h3></div>
               <div class="card-body">
-                <div class="form-grid" style="grid-template-columns:90px 1fr">
-                  <label>역할</label><select class="select"><option selected>LAWYER</option><option>EDITOR</option></select>
-                  <label>2FA</label><div><div class="toggle on"></div></div>
-                  <label>마지막 로그인</label><span class="text-muted" style="font-size:11.5px">2시간 전 · 211.*.*.*</span>
-                  <label>계정 상태</label><span class="badge live">활성</span>
+                <div style="display:flex;flex-direction:column;gap:8px">
+                  <label style="display:flex;align-items:center;gap:10px;padding:10px;border:2px solid var(--navy);border-radius:7px;background:#EFF6FF;cursor:pointer">
+                    <input type="radio" name="pub-status" checked/>
+                    <div>
+                      <div style="font-weight:700;font-size:12.5px">발행됨</div>
+                      <div style="font-size:11px;color:var(--muted)">모든 노출 사이트에 공개</div>
+                    </div>
+                    <span class="badge live" style="margin-left:auto">LIVE</span>
+                  </label>
+                  <label style="display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--border);border-radius:7px;cursor:pointer">
+                    <input type="radio" name="pub-status"/>
+                    <div>
+                      <div style="font-weight:700;font-size:12.5px">비공개</div>
+                      <div style="font-size:11px;color:var(--muted)">어드민만 조회 가능</div>
+                    </div>
+                  </label>
+                  <label style="display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--border);border-radius:7px;cursor:pointer">
+                    <input type="radio" name="pub-status"/>
+                    <div>
+                      <div style="font-weight:700;font-size:12.5px">예약 발행</div>
+                      <div style="font-size:11px;color:var(--muted)">지정 일시에 자동 공개</div>
+                    </div>
+                  </label>
                 </div>
                 <div class="row-flex gap-8 mt-12">
-                  <button class="btn sm">🔑 비밀번호 재설정</button>
-                  <button class="btn sm">📧 초대 메일 재발송</button>
+                  <button class="btn sm">👁 미리보기</button>
+                  <button class="btn primary" style="flex:1">💾 저장</button>
                 </div>
               </div>
             </div>
 
-            <!-- 활동 히트맵 -->
-            <div class="card">
-              <div class="card-head"><h3>📈 최근 활동</h3></div>
-              <div class="card-body">
-                <ul class="kpi-list">
-                  <li><span class="name">최근 사례 작성</span><span class="text-muted">방금 · 무혐의 처분</span></li>
-                  <li><span class="name">최근 칼럼 작성</span><span class="text-muted">3일 전 · 사기죄 성립</span></li>
-                  <li><span class="name">최근 프로필 수정</span><span class="text-muted">2주 전</span></li>
-                  <li><span class="name">최근 매핑된 사례</span><span class="text-muted">1시간 전 · 자문 역할</span></li>
-                </ul>
+            <!-- 카드 미리보기 -->
+            <div class="card mb-16">
+              <div class="card-head">
+                <h3>👁 카드 미리보기</h3>
+                <span class="sub">형사그룹 기준</span>
+              </div>
+              <div class="card-body" style="background:#F8FAFC;padding:12px">
+                <div style="background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+                  <!-- 카드 상단 히어로 -->
+                  <div style="height:140px;background:linear-gradient(135deg,#1F4E79 0%,#3B6EA8 60%,#93C5FD 100%);display:flex;align-items:flex-end;justify-content:flex-end;position:relative">
+                    <div style="font-size:52px;opacity:.7;padding:0 8px 4px">👤</div>
+                    <div style="position:absolute;top:8px;left:10px">
+                      <div style="display:flex;gap:3px;margin-bottom:3px">
+                        <span class="badge" style="background:rgba(255,255,255,.9);color:#6B21A8;font-size:9px">⭐검사장</span>
+                        <span class="badge" style="background:rgba(255,255,255,.9);color:var(--navy);font-size:9px">🏛검찰</span>
+                      </div>
+                      <div style="color:#fff;font-size:16px;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.5)">김변호</div>
+                      <div style="color:rgba(255,255,255,.85);font-size:10px">경영총괄 대표변호사</div>
+                    </div>
+                  </div>
+                  <!-- 카드 바디 -->
+                  <div style="padding:12px">
+                    <div style="display:flex;gap:3px;flex-wrap:wrap;margin-bottom:6px">
+                      <span class="badge major" style="font-size:10px">형사</span>
+                      <span class="badge major" style="font-size:10px">경제범죄</span>
+                      <span class="badge etc" style="font-size:10px">마약</span>
+                    </div>
+                    <div style="font-size:11.5px;color:var(--text);line-height:1.5">검찰 출신 30년 경력의 형사 전문 변호인. 사기·횡령 등 경제범죄 다수 무혐의.</div>
+                    <div style="margin-top:8px;font-size:10.5px;color:var(--muted);display:flex;justify-content:space-between;border-top:1px solid var(--border);padding-top:6px">
+                      <span>📋 1,247건</span><span>📝 28건</span><span>T. 070-1234-5678</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+
+            <!-- SEO -->
+            <div class="card mb-16">
+              <div class="card-head"><h3>🔍 SEO</h3></div>
+              <div class="card-body">
+                <div class="form-grid" style="grid-template-columns:80px 1fr">
+                  <label>페이지 제목</label>
+                  <input class="input" value="김변호 변호사 | 법무법인 오현"/>
+                  <label>메타설명</label>
+                  <textarea class="input" style="min-height:54px;resize:vertical;font-size:12px">검찰 출신 30년 경력의 형사 전문 변호인. 사기·횡령·경제범죄 무혐의 처분 다수.</textarea>
+                  <label>해시태그</label>
+                  <div style="display:flex;gap:4px;flex-wrap:wrap;align-items:center">
+                    <span class="chip">#형사 <span class="x">×</span></span>
+                    <span class="chip">#경제범죄 <span class="x">×</span></span>
+                    <span class="chip">#검찰출신 <span class="x">×</span></span>
+                    <button class="btn sm ghost" style="font-size:11px">+ 추가</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 노출 사이트 요약 -->
+            <div class="card">
+              <div class="card-head">
+                <h3>🌐 노출 사이트</h3>
+                <span class="sub">8 / 28개 활성</span>
+                <div class="actions"><button class="btn sm" style="font-size:10px">탭②에서 편집</button></div>
+              </div>
+              <div class="card-body tight">
+                <table class="data" style="font-size:11.5px">
+                  <thead><tr><th>사이트</th><th style="width:50px">노출</th><th style="width:50px">순위</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>형사그룹</strong> <span class="badge major" style="font-size:9px">민형경</span></td><td><span class="dot live"></span>ON</td><td>1</td></tr>
+                    <tr><td><strong>경제범죄</strong> <span class="badge major" style="font-size:9px">민형경</span></td><td><span class="dot live"></span>ON</td><td>2</td></tr>
+                    <tr><td>허브 <span class="badge hub" style="font-size:9px">허브</span></td><td><span class="dot live"></span>ON</td><td>3</td></tr>
+                    <tr><td>마약그룹 <span class="badge etc" style="font-size:9px">기타</span></td><td><span class="dot live"></span>ON</td><td>2</td></tr>
+                    <tr><td class="text-muted" colspan="3" style="text-align:right;font-size:10.5px">+ 4개 더 · 미노출 20개 →</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div><!-- /오른쪽 -->
+        </div>
+        <div class="row-flex gap-8 mt-16" style="justify-content:flex-end">
+          <button class="btn">취소</button>
+          <button class="btn primary" style="padding:8px 24px">💾 기본 정보 저장</button>
         </div>
       </div><!-- /① 기본 정보 tab-panel -->
 
@@ -5756,6 +6321,44 @@ IP: {{ip}}
   // 토글 스위치
   document.querySelectorAll('.toggle').forEach(t => {
     t.addEventListener('click', () => t.classList.toggle('on'));
+  });
+
+  // === 카드뷰 / 리스트뷰 전환 ===
+  const btnCard = document.getElementById('btn-cardview');
+  const btnList = document.getElementById('btn-listview');
+  const viewCard = document.getElementById('view-card');
+  const viewList = document.getElementById('view-list');
+  if (btnCard && btnList) {
+    btnCard.addEventListener('click', () => {
+      viewCard.style.display = ''; viewList.style.display = 'none';
+      btnCard.style.cssText = 'background:var(--navy);color:#fff;border-color:var(--navy)';
+      btnList.style.cssText = '';
+    });
+    btnList.addEventListener('click', () => {
+      viewCard.style.display = 'none'; viewList.style.display = '';
+      btnList.style.cssText = 'background:var(--navy);color:#fff;border-color:var(--navy)';
+      btnCard.style.cssText = '';
+    });
+  }
+
+  // === 분야 칩 필터 단일 선택 ===
+  document.querySelectorAll('.field-grid-filter').forEach(g => {
+    g.querySelectorAll('.field-chip').forEach(c => {
+      c.addEventListener('click', () => {
+        g.querySelectorAll('.field-chip').forEach(x => x.classList.remove('on'));
+        c.classList.add('on');
+      });
+    });
+  });
+
+  // === 필터 탭 전환 ===
+  document.querySelectorAll('.filter-tabs').forEach(g => {
+    g.querySelectorAll('.filter-tab').forEach(t => {
+      t.addEventListener('click', () => {
+        g.querySelectorAll('.filter-tab').forEach(x => x.classList.remove('on'));
+        t.classList.add('on');
+      });
+    });
   });
 
   // 탭 전환 — 형제 tab-panel과 연동
