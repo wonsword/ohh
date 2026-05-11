@@ -13,7 +13,6 @@
     <h1>👨‍💼 변호사 관리</h1>
     <span class="sub">전체 74명 · 글로벌 마스터</span>
     <div class="actions">
-      <button class="btn" data-go="lawyers/badges">🏅 직책 마크</button>
       <button class="btn primary" data-go="lawyers/new">+ 신규 등록</button>
     </div>
   </div>
@@ -23,7 +22,6 @@
     <input class="input search" placeholder="이름·이메일·해시태그 검색"/>
     <select class="select"><option>전체 사이트</option><option>허브</option><option>형사</option></select>
     <select class="select"><option>전체 분야</option><option>형사</option><option>민사</option></select>
-    <select class="select"><option>전체 직책 마크</option><option>검찰</option><option>판사</option><option>검사장</option></select>
     <select class="select"><option>활성 + 비활성</option><option>활성만</option><option>비활성만</option></select>
     <div class="right">
       <button class="btn sm">⊞ 카드 뷰</button>
@@ -38,17 +36,17 @@
       <thead>
         <tr>
           <th class="check-col"><input type="checkbox"></th>
-          <th>썸네일</th><th>이름 / 영문</th><th>직책 마크</th><th>주요 분야</th><th>노출 사이트</th><th>사례</th><th>칼럼</th><th>상태</th>
+          <th>썸네일</th><th>이름 / 영문</th><th>주요 분야</th><th>노출 사이트</th><th>사례</th><th>칼럼</th><th>상태</th>
         </tr>
       </thead>
       <tbody>
-        <tr data-row-go="lawyers/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><div style="width:36px;height:36px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div></td><td><strong>김변호</strong><br/><span class="text-muted" style="font-size:11px">Kim, Byunho</span></td><td><span class="badge info">검찰</span> <span class="badge purple">검사장</span></td><td>형사·경제범죄·사기</td><td><span class="badge hub">허브</span> <span class="badge major">형사</span> <span class="badge">+6</span></td><td>312</td><td>28</td><td><span class="dot live"></span>활성</td></tr>
-        <tr data-row-go="lawyers/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><div style="width:36px;height:36px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div></td><td><strong>이판사</strong><br/><span class="text-muted" style="font-size:11px">Lee, Pansa</span></td><td><span class="badge purple">판사</span></td><td>민사·가사</td><td><span class="badge hub">허브</span> <span class="badge major">민사</span> <span class="badge">+2</span></td><td>423</td><td>12</td><td><span class="dot live"></span>활성</td></tr>
-        <tr data-row-go="lawyers/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><div style="width:36px;height:36px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div></td><td><strong>박변호사</strong><br/><span class="text-muted" style="font-size:11px">Park, Byunhosa</span></td><td><span class="badge info">변호사</span></td><td>이혼·가사</td><td><span class="badge hub">허브</span> <span class="badge etc">이혼</span></td><td>187</td><td>8</td><td><span class="dot live"></span>활성</td></tr>
-        <tr data-row-go="lawyers/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><div style="width:36px;height:36px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div></td><td><strong>정변호</strong><br/><span class="text-muted" style="font-size:11px">Jung, Byunho</span></td><td><span class="badge info">검찰</span> <span class="badge">법무부</span></td><td>형사·사기</td><td><span class="badge major">형사</span> <span class="badge">+2</span></td><td>312</td><td>5</td><td><span class="dot live"></span>활성</td></tr>
-        <tr data-row-go="lawyers/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><div style="width:36px;height:36px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div></td><td><strong>최변호</strong><br/><span class="text-muted" style="font-size:11px">Choi, Byunho</span></td><td><span class="badge info">변호사</span></td><td>형사·음주·교통</td><td><span class="badge etc">교통</span></td><td>156</td><td>3</td><td><span class="dot live"></span>활성</td></tr>
-        <tr data-row-go="lawyers/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><div style="width:36px;height:36px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div></td><td><strong>강변호</strong><br/><span class="text-muted" style="font-size:11px">Kang, Byunho</span></td><td><span class="badge info">검찰</span></td><td>형사·횡령</td><td><span class="badge major">형사</span></td><td>89</td><td>2</td><td><span class="dot live"></span>활성</td></tr>
-        <tr><td colspan="9" class="text-muted text-right" style="padding:8px 14px">⋯ 외 68명</td></tr>
+        <tr data-row-go="lawyers/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><div style="width:36px;height:36px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div></td><td><strong>김변호</strong><br/><span class="text-muted" style="font-size:11px">Kim, Byunho</span></td><td>형사·경제범죄·사기</td><td><span class="badge hub">허브</span> <span class="badge major">형사</span> <span class="badge">+6</span></td><td>312</td><td>28</td><td><span class="dot live"></span>활성</td></tr>
+        <tr data-row-go="lawyers/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><div style="width:36px;height:36px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div></td><td><strong>이판사</strong><br/><span class="text-muted" style="font-size:11px">Lee, Pansa</span></td><td>민사·가사</td><td><span class="badge hub">허브</span> <span class="badge major">민사</span> <span class="badge">+2</span></td><td>423</td><td>12</td><td><span class="dot live"></span>활성</td></tr>
+        <tr data-row-go="lawyers/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><div style="width:36px;height:36px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div></td><td><strong>박변호사</strong><br/><span class="text-muted" style="font-size:11px">Park, Byunhosa</span></td><td>이혼·가사</td><td><span class="badge hub">허브</span> <span class="badge etc">이혼</span></td><td>187</td><td>8</td><td><span class="dot live"></span>활성</td></tr>
+        <tr data-row-go="lawyers/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><div style="width:36px;height:36px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div></td><td><strong>정변호</strong><br/><span class="text-muted" style="font-size:11px">Jung, Byunho</span></td><td>형사·사기</td><td><span class="badge major">형사</span> <span class="badge">+2</span></td><td>312</td><td>5</td><td><span class="dot live"></span>활성</td></tr>
+        <tr data-row-go="lawyers/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><div style="width:36px;height:36px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div></td><td><strong>최변호</strong><br/><span class="text-muted" style="font-size:11px">Choi, Byunho</span></td><td>형사·음주·교통</td><td><span class="badge major">형사</span></td><td>156</td><td>3</td><td><span class="dot live"></span>활성</td></tr>
+        <tr data-row-go="lawyers/edit"><td><input type="checkbox" onclick="event.stopPropagation()"></td><td><div style="width:36px;height:36px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div></td><td><strong>강변호</strong><br/><span class="text-muted" style="font-size:11px">Kang, Byunho</span></td><td>형사·횡령</td><td><span class="badge major">형사</span></td><td>89</td><td>2</td><td><span class="dot live"></span>활성</td></tr>
+        <tr><td colspan="8" class="text-muted text-right" style="padding:8px 14px">⋯ 외 68명</td></tr>
       </tbody>
     </table>
     <div class="pagination">

@@ -7,15 +7,10 @@ const ROUTES = {
   'sites':             { path: 'pages/sites/list.html',        menu: 'sites' },
   'sites/new':         { path: 'pages/sites/new.html',         menu: 'sites' },
   'sites/edit':        { path: 'pages/sites/edit.html',        menu: 'sites' },
-  'sites/main':        { path: 'pages/sites/main-builder.html',menu: 'sites' },
-  'sites/hero':        { path: 'pages/sites/hero.html',        menu: 'sites' },
-  'sites/menu':        { path: 'pages/sites/menu.html',        menu: 'sites' },
   'sites/seo':         { path: 'pages/sites/seo.html',         menu: 'sites' },
-  'sites/security':    { path: 'pages/sites/security.html',    menu: 'sites' },
   'lawyers':           { path: 'pages/lawyers/list.html',      menu: 'lawyers' },
   'lawyers/new':       { path: 'pages/lawyers/new.html',       menu: 'lawyers' },
   'lawyers/edit':      { path: 'pages/lawyers/edit.html',      menu: 'lawyers' },
-  'lawyers/badges':    { path: 'pages/lawyers/badges.html',    menu: 'lawyers' },
   'cases':             { path: 'pages/cases/list.html',        menu: 'cases' },
   'cases/new':         { path: 'pages/cases/new.html',         menu: 'cases' },
   'cases/featured':    { path: 'pages/cases/featured.html',    menu: 'cases' },
@@ -29,12 +24,9 @@ const ROUTES = {
   'news':              { path: 'pages/news.html',              menu: 'news' },
   'fields':            { path: 'pages/fields/tree.html',       menu: 'fields' },
   'fields/detail':     { path: 'pages/fields/detail.html',     menu: 'fields' },
-  'marketing':         { path: 'pages/marketing.html',         menu: 'marketing' },
   'branches':          { path: 'pages/branches.html',          menu: 'branches' },
-  'media':             { path: 'pages/media.html',             menu: 'media' },
   'inquiries':         { path: 'pages/inquiries.html',         menu: 'inquiries' },
   'users':             { path: 'pages/users.html',             menu: 'users' },
-  'system':            { path: 'pages/system.html',            menu: 'system' },
 };
 
 function getCurrentRoute(){

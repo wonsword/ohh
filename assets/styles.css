@@ -183,23 +183,6 @@ table.data tbody tr:hover .row-actions{visibility:visible}
 .pagination .pages button{width:28px;height:28px;border:1px solid var(--border-strong);background:#fff;border-radius:5px;font-size:12px;color:var(--text);cursor:pointer}
 .pagination .pages button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
 
-/* ===== 빌더 슬롯 ===== */
-.builder{display:grid;grid-template-columns:280px 1fr;gap:14px;align-items:start}
-@media(max-width:1100px){.builder{grid-template-columns:1fr}}
-.builder-toolbox h4{font-size:11.5px;text-transform:uppercase;color:var(--muted);font-weight:700;letter-spacing:.5px;margin:10px 0 8px}
-.toolbox-item{padding:8px 10px;border:1px dashed var(--border-strong);border-radius:6px;margin-bottom:6px;font-size:12.5px;background:#fff;display:flex;align-items:center;gap:8px;cursor:grab;color:var(--text)}
-.toolbox-item .ico{width:18px;color:var(--navy)}
-.toolbox-item:hover{border-color:var(--navy);background:#EFF6FF}
-.canvas{min-height:500px;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px}
-.slot{border:1px solid var(--border);border-radius:8px;margin-bottom:10px;background:#fff;overflow:hidden}
-.slot-head{padding:10px 14px;background:#F8FAFC;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border);font-size:12.8px;font-weight:600}
-.slot-head .drag{color:var(--muted);cursor:grab;font-size:14px}
-.slot-head .num{background:var(--navy);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
-.slot-head .name{color:var(--text)}
-.slot-head .type{font-family:'JetBrains Mono','Consolas',monospace;font-size:10.5px;color:var(--muted);background:#F1F5F9;padding:1px 7px;border-radius:3px}
-.slot-head .right{margin-left:auto;display:flex;align-items:center;gap:8px}
-.slot-body{padding:12px 14px;font-size:12.5px;color:var(--muted);background:#FAFBFC;border-top:1px dashed var(--border)}
-
 /* ===== 권한 매트릭스 ===== */
 .matrix{width:100%;border-collapse:collapse;font-size:12px;background:var(--panel)}
 .matrix th,.matrix td{padding:8px 10px;border:1px solid var(--border);text-align:center}
@@ -342,15 +325,6 @@ code{font-family:'JetBrains Mono','Consolas',monospace;background:#F1F5F9;paddin
 .step.done .num{background:#10B981;color:#fff}
 .step-line{flex:1;height:2px;background:var(--border);min-width:30px;max-width:60px}
 .step-line.done{background:#10B981}
-
-.slide-list{display:flex;flex-direction:column;gap:10px}
-.slide-item{display:grid;grid-template-columns:30px 120px 1fr auto;gap:12px;align-items:center;padding:10px;background:#fff;border:1px solid var(--border);border-radius:8px}
-.slide-item .order{color:var(--muted);font-weight:700;text-align:center;cursor:grab}
-.slide-item .img-ph{width:120px;height:68px;background:#E2E8F0;border-radius:5px;display:flex;align-items:center;justify-content:center;color:var(--muted-light);font-size:12px}
-.slide-item .meta .h{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px}
-.slide-item .meta .s{font-size:11.5px;color:var(--muted)}
-.slide-item .meta .l{font-size:11px;color:var(--navy);font-family:monospace;margin-top:3px}
-.slide-item .acts{display:flex;gap:4px}
 
 .input-icon{position:relative}
 .input-icon input{padding-left:32px}

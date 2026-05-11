@@ -14,7 +14,6 @@
     <span class="sub">ohyunlaw-criminal.com</span>
     <div class="actions">
       <button class="btn">👁 사용자 페이지 보기</button>
-      <button class="btn">⚡ 캐시 재발행</button>
       <button class="btn primary">💾 저장</button>
     </div>
   </div>
@@ -30,7 +29,7 @@
         <h2 style="font-size:20px;font-weight:700;margin-top:2px">형사그룹</h2>
         <div style="font-size:12.5px;color:var(--muted);margin-top:4px;font-family:monospace">ohyunlaw-criminal.com · slug: criminal</div>
         <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
-          <span class="badge major">민형경</span>
+          <span class="badge major">형사</span>
           <span class="badge live"><span class="dot live"></span>발행중</span>
           <span class="chip">분야: 형사 <span class="x">×</span></span>
           <span class="chip">분야: 경제범죄 <span class="x">×</span></span>
@@ -55,11 +54,7 @@
 
   <div class="tabs">
     <div class="tab on">기본 정보</div>
-    <div class="tab" onclick="go('sites/main')">메인 페이지 빌더</div>
-    <div class="tab" onclick="go('sites/hero')">메인스킨 슬라이드</div>
-    <div class="tab" onclick="go('sites/menu')">메뉴 (GNB · Footer)</div>
     <div class="tab" onclick="go('sites/seo')">SEO · 파비콘</div>
-    <div class="tab" onclick="go('sites/security')">스팸봇 차단</div>
     <div class="tab">분야 매핑</div>
     <div class="tab">권한자</div>
   </div>
@@ -82,7 +77,7 @@
             <label>도메인</label>
             <div>
               <input class="input" value="ohyunlaw-criminal.com" disabled style="background:#F8FAFC;color:var(--muted)"/>
-              <p class="help">도메인은 시스템 → 도메인 관리에서 변경 가능</p>
+              <p class="help">도메인 연결 상태와 DNS는 Cloudflare에서 관리합니다</p>
             </div>
             <label>발행 상태</label>
             <select class="select">
@@ -167,39 +162,11 @@
     <!-- 빠른 이동 카드 -->
     <h3 style="font-size:13px;font-weight:700;color:var(--muted);margin:24px 0 12px;text-transform:uppercase;letter-spacing:.5px">하위 설정으로 이동</h3>
     <div class="grid-3">
-      <div class="card" style="cursor:pointer" onclick="go('sites/main')">
-        <div class="card-body">
-          <div style="font-size:24px;margin-bottom:6px">🏠</div>
-          <h3 style="font-size:13.5px;margin-bottom:4px">메인 페이지 빌더</h3>
-          <p class="help">11개 섹션 슬롯 ON/OFF · 순서 변경</p>
-        </div>
-      </div>
-      <div class="card" style="cursor:pointer" onclick="go('sites/hero')">
-        <div class="card-body">
-          <div style="font-size:24px;margin-bottom:6px">🎬</div>
-          <h3 style="font-size:13.5px;margin-bottom:4px">메인스킨 슬라이드</h3>
-          <p class="help">Hero 슬라이드 4개 · 헤드라인·이미지</p>
-        </div>
-      </div>
-      <div class="card" style="cursor:pointer" onclick="go('sites/menu')">
-        <div class="card-body">
-          <div style="font-size:24px;margin-bottom:6px">🧭</div>
-          <h3 style="font-size:13.5px;margin-bottom:4px">메뉴 (GNB · Footer)</h3>
-          <p class="help">11개 GNB · Footer 4섹션</p>
-        </div>
-      </div>
       <div class="card" style="cursor:pointer" onclick="go('sites/seo')">
         <div class="card-body">
           <div style="font-size:24px;margin-bottom:6px">🔍</div>
           <h3 style="font-size:13.5px;margin-bottom:4px">SEO · 파비콘</h3>
           <p class="help">메타·OG·JSON-LD·파비콘·robots.txt</p>
-        </div>
-      </div>
-      <div class="card" style="cursor:pointer" onclick="go('sites/security')">
-        <div class="card-body">
-          <div style="font-size:24px;margin-bottom:6px">🛡</div>
-          <h3 style="font-size:13.5px;margin-bottom:4px">스팸봇 차단</h3>
-          <p class="help">UA·IP 화이트리스트 + 빈도 제한</p>
         </div>
       </div>
       <div class="card" style="cursor:pointer" onclick="go('lawyers')">

@@ -10,8 +10,8 @@
 <div class="page-header">
   <div class="breadcrumb"><a data-go="dashboard">홈</a> <span class="sep">›</span> <a data-go="cases">업무사례</a> <span class="sep">›</span> 신규 작성</div>
   <div class="page-title">
-    <h1>📝 사례 작성 (4섹션 슬롯형)</h1>
-    <span class="sub">의뢰내용 → 사건경위 → 법률쟁점 → 처리결과</span>
+    <h1>📝 사례 작성</h1>
+    <span class="sub">단일 본문 에디터</span>
     <div class="actions">
       <button class="btn" data-go="cases">취소</button>
       <button class="btn">💾 임시저장</button>
@@ -42,9 +42,9 @@
         </div>
       </div>
 
-      <!-- WYSIWYG 4섹션 -->
+      <!-- WYSIWYG 본문 -->
       <div class="card mb-16">
-        <div class="card-head"><h3>4섹션 본문 (WYSIWYG)</h3>
+        <div class="card-head"><h3>본문 편집</h3>
           <div class="actions">
             <button class="btn sm">↶</button>
             <button class="btn sm">↷</button>
@@ -52,13 +52,6 @@
           </div>
         </div>
         <div class="card-body" style="padding:0">
-
-          <!-- 섹션 1 -->
-          <div style="padding:14px 18px;background:#F8FAFC;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px">
-            <span style="background:var(--navy);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">1</span>
-            <strong style="font-size:13px">의뢰 내용</strong>
-            <span class="text-muted" style="font-size:11.5px">의뢰인이 처한 상황 / 요청사항</span>
-          </div>
           <div class="editor" style="border-radius:0;border:none">
             <div class="editor-toolbar">
               <div class="grp"><select class="ed-select"><option>본문</option><option>제목 H2</option><option>제목 H3</option><option>인용</option></select></div>
@@ -83,100 +76,22 @@
                 <button class="ed-btn wide" onclick="openModal('media-picker')">🖼 이미지</button>
                 <button class="ed-btn wide" onclick="openModal('insert-youtube')">▶ 유튜브</button>
                 <button class="ed-btn wide" onclick="openModal('search-cases')">📋 사례</button>
-                <button class="ed-btn wide" onclick="openModal('search-insights')">📝 칼럼</button>
-              </div>
-            </div>
-            <div class="editor-content" contenteditable="true">
-              <p>의뢰인 A씨는 <strong>○○ 사기 사건</strong>으로 고소를 당하여 검찰 조사를 앞두고 있었습니다.</p>
-              <ul>
-                <li>피의자 신분으로 검찰 출석 요구를 받음</li>
-                <li>고소인측이 허위 증거 제출 의혹</li>
-              </ul>
-            </div>
-            <div class="editor-footer"><span>📐 글자 215 · 단락 4</span><div class="right"><span>마지막 저장 1분 전</span></div></div>
-          </div>
-
-          <!-- 섹션 2 -->
-          <div style="padding:14px 18px;background:#F8FAFC;border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px">
-            <span style="background:var(--navy);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">2</span>
-            <strong style="font-size:13px">사건 경위</strong>
-            <span class="text-muted" style="font-size:11.5px">시간순 정리 권장</span>
-          </div>
-          <div class="editor" style="border-radius:0;border:none">
-            <div class="editor-toolbar">
-              <div class="grp"><select class="ed-select"><option>본문</option></select></div>
-              <div class="grp"><button class="ed-btn"><strong>B</strong></button><button class="ed-btn"><em>I</em></button></div>
-              <div class="grp">
-                <button class="ed-btn wide" onclick="openModal('insert-link')">🔗 링크</button>
-                <button class="ed-btn wide" onclick="openModal('media-picker')">🖼 이미지</button>
-                <button class="ed-btn wide" onclick="openModal('insert-youtube')">▶ 유튜브</button>
-                <button class="ed-btn wide" onclick="openModal('search-cases')">📋 사례</button>
-              </div>
-            </div>
-            <div class="editor-content" contenteditable="true">
-              <h3>1. 사건 발생 (2025년 11월)</h3>
-              <p>고소인 B씨가 의뢰인을 사기 혐의로 경찰서에 고소장 제출.</p>
-
-              <div class="img-block">
-                <div class="img-ph">🖼 증빙자료-출입국기록.jpg</div>
-                <div class="alt">alt: 의뢰인 출입국 기록 (2025.11.01-11.20)</div>
-              </div>
-
-              <h3>2. 변호인 선임 (2025년 12월)</h3>
-              <p>당사 김변호 변호사 선임. 즉시 알리바이 자료 수집 착수.</p>
-
-              <div class="embed-block">
-                <span class="ico">📋</span>
-                <div>
-                  <div class="title">관련 사례: 무고 혐의 입증으로 무혐의 처분 받은 사례</div>
-                  <div class="url">→ /cases/false-accusation-2024</div>
-                </div>
-                <div class="actions"><button class="btn sm">✎</button><button class="btn sm">×</button></div>
-              </div>
-
-              <h3>3. 검찰 조사 (2026년 1월)</h3>
-              <div class="yt-embed">유튜브 영상: 검찰 조사 대응 가이드</div>
-            </div>
-          </div>
-
-          <!-- 섹션 3 -->
-          <div style="padding:14px 18px;background:#F8FAFC;border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px">
-            <span style="background:var(--navy);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">3</span>
-            <strong style="font-size:13px">법률 쟁점</strong>
-          </div>
-          <div class="editor" style="border-radius:0;border:none">
-            <div class="editor-toolbar">
-              <div class="grp"><select class="ed-select"><option>본문</option></select></div>
-              <div class="grp"><button class="ed-btn"><strong>B</strong></button><button class="ed-btn"><em>I</em></button></div>
-              <div class="grp">
                 <button class="ed-btn wide" onclick="openModal('search-legal')">📚 법률정보</button>
-                <button class="ed-btn wide" onclick="openModal('search-insights')">📝 칼럼</button>
               </div>
             </div>
-            <div class="editor-content" contenteditable="true">
-              <p><strong>핵심 쟁점:</strong> 형법 제347조 사기죄 「기망행위」 부재 입증.</p>
-              <blockquote>대법원 2023도1234 — 단순 채무불이행은 기망행위로 평가될 수 없음</blockquote>
+            <div class="editor-content" contenteditable="true" style="min-height:520px">
+              <h2>의뢰 내용</h2>
+              <p>의뢰인 A씨는 <strong>○○ 사기 사건</strong>으로 고소를 당하여 검찰 조사를 앞두고 있었습니다.</p>
+              <h2>사건 경위</h2>
+              <p>고소인 B씨가 의뢰인을 사기 혐의로 경찰서에 고소장을 제출했고, 당사는 즉시 관련 자료를 수집했습니다.</p>
+              <h2>법률 쟁점</h2>
+              <p><strong>핵심 쟁점:</strong> 형법 제347조 사기죄의 기망행위와 고의가 인정되는지 여부였습니다.</p>
+              <blockquote>단순 채무불이행은 사안에 따라 기망행위로 평가되지 않을 수 있습니다.</blockquote>
+              <h2>처리 결과</h2>
+              <p>검찰은 제출 자료와 변호인 의견서를 검토한 뒤 무혐의 처분을 결정했습니다.</p>
             </div>
+            <div class="editor-footer"><span>📐 글자 620 · 단락 8</span><div class="right"><span>마지막 저장 1분 전</span></div></div>
           </div>
-
-          <!-- 섹션 4 -->
-          <div style="padding:14px 18px;background:#F8FAFC;border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px">
-            <span style="background:var(--navy);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">4</span>
-            <strong style="font-size:13px">처리 결과</strong>
-          </div>
-          <div class="editor" style="border-radius:0;border:none">
-            <div class="editor-toolbar">
-              <div class="grp"><select class="ed-select"><option>본문</option></select></div>
-              <div class="grp"><button class="ed-btn"><strong>B</strong></button><button class="ed-btn"><em>I</em></button></div>
-              <div class="grp"><button class="ed-btn wide" onclick="openModal('media-picker')">🖼 이미지</button></div>
-            </div>
-            <div class="editor-content" contenteditable="true">
-              <h3>📌 무혐의 처분</h3>
-              <p>2026년 3월, 검찰 무혐의 처분 결정.</p>
-              <ul><li>출입국 기록상 알리바이 명백</li><li>기망의 고의 부재 입증</li></ul>
-            </div>
-          </div>
-
           <!-- 자동 삽입 안내 -->
           <div style="padding:18px 20px;background:#FFFBEB;border-top:1px solid var(--border)">
             <div class="auto-block" style="margin:0">
@@ -546,7 +461,7 @@
 <!-- 미디어 피커 -->
 <div class="modal-backdrop" data-modal="media-picker">
   <div class="modal lg">
-    <div class="modal-head"><h3>🖼 미디어 라이브러리</h3><span class="close" onclick="closeModal()">×</span></div>
+    <div class="modal-head"><h3>🖼 이미지 선택</h3><span class="close" onclick="closeModal()">×</span></div>
     <div class="modal-body">
       <div class="modal-tabs">
         <div class="modal-tab on">전체 미디어</div>

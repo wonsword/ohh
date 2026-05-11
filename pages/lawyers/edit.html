@@ -71,7 +71,6 @@
     <div class="tab">분야 매핑</div>
     <div class="tab">담당 사례 (312)</div>
     <div class="tab">작성 칼럼 (28)</div>
-    <div class="tab">직책 마크</div>
     <div class="tab">계정 · 권한</div>
   </div>
 
@@ -128,8 +127,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr style="background:#EFF6FF"><td><input type="checkbox" checked onclick="event.stopPropagation()"/></td><td><strong>형사그룹</strong></td><td><span class="badge major">민형경</span></td><td><div class="toggle on"></div></td><td><div class="row-flex gap-4">≡ <input class="input" style="width:50px" value="1"/></div></td><td><select class="select" style="width:90px"><option selected>대표</option><option>일반</option></select></td><td class="text-muted" style="font-size:11px">오현 형사 김변호 변호사</td><td>312</td></tr>
-                <tr style="background:#EFF6FF"><td><input type="checkbox" checked onclick="event.stopPropagation()"/></td><td><strong>경제범죄그룹</strong></td><td><span class="badge major">민형경</span></td><td><div class="toggle on"></div></td><td><div class="row-flex gap-4">≡ <input class="input" style="width:50px" value="2"/></div></td><td><select class="select" style="width:90px"><option selected>대표</option><option>일반</option></select></td><td class="text-muted" style="font-size:11px">오현 경제범죄 김변호 변호사</td><td>187</td></tr>
+                <tr style="background:#EFF6FF"><td><input type="checkbox" checked onclick="event.stopPropagation()"/></td><td><strong>형사그룹</strong></td><td><span class="badge major">형사</span></td><td><div class="toggle on"></div></td><td><div class="row-flex gap-4">≡ <input class="input" style="width:50px" value="1"/></div></td><td><select class="select" style="width:90px"><option selected>대표</option><option>일반</option></select></td><td class="text-muted" style="font-size:11px">오현 형사 김변호 변호사</td><td>312</td></tr>
+                <tr style="background:#EFF6FF"><td><input type="checkbox" checked onclick="event.stopPropagation()"/></td><td><strong>경제범죄그룹</strong></td><td><span class="badge major">경제범죄</span></td><td><div class="toggle on"></div></td><td><div class="row-flex gap-4">≡ <input class="input" style="width:50px" value="2"/></div></td><td><select class="select" style="width:90px"><option selected>대표</option><option>일반</option></select></td><td class="text-muted" style="font-size:11px">오현 경제범죄 김변호 변호사</td><td>187</td></tr>
                 <tr><td><input type="checkbox" checked onclick="event.stopPropagation()"/></td><td>허브</td><td><span class="badge hub">허브</span></td><td><div class="toggle on"></div></td><td><div class="row-flex gap-4">≡ <input class="input" style="width:50px" value="3"/></div></td><td><select class="select" style="width:90px"><option>대표</option><option selected>일반</option></select></td><td class="text-muted" style="font-size:11px">오현 김변호 변호사</td><td>—</td></tr>
                 <tr><td><input type="checkbox" checked onclick="event.stopPropagation()"/></td><td>마약그룹</td><td><span class="badge etc">기타</span></td><td><div class="toggle on"></div></td><td><div class="row-flex gap-4">≡ <input class="input" style="width:50px" value="2"/></div></td><td><select class="select" style="width:90px"><option>대표</option><option selected>일반</option></select></td><td class="text-muted" style="font-size:11px">오현 마약 김변호 변호사</td><td>78</td></tr>
                 <tr><td colspan="8" class="text-muted text-right" style="padding:8px">⋯ 외 24개 사이트 (체크하여 노출)</td></tr>
@@ -241,21 +240,7 @@
             <p class="help mt-12">사이트별 표시 이름이 자동 변환됩니다.</p>
           </div>
         </div>
-
-        <div class="card mb-16">
-          <div class="card-head"><h3>🏅 직책 마크</h3>
-            <div class="actions"><button class="btn sm" data-go="lawyers/badges">마스터</button></div>
-          </div>
-          <div class="card-body">
-            <label class="checkbox" style="display:block;margin-bottom:6px"><input type="checkbox" checked> <span class="badge info">변호사</span></label>
-            <label class="checkbox" style="display:block;margin-bottom:6px"><input type="checkbox" checked> <span class="badge purple">검찰</span></label>
-            <label class="checkbox" style="display:block;margin-bottom:6px"><input type="checkbox"> <span class="badge purple">판사</span></label>
-            <label class="checkbox" style="display:block;margin-bottom:6px"><input type="checkbox" checked> <span class="badge purple">검사장</span></label>
-            <label class="checkbox" style="display:block;margin-bottom:6px"><input type="checkbox" checked> <span class="badge">퇴직공직자</span></label>
-          </div>
-        </div>
-
-        <div class="card mb-16">
+<div class="card mb-16">
           <div class="card-head"><h3>🔐 계정 · 권한</h3></div>
           <div class="card-body">
             <div class="form-grid" style="grid-template-columns:90px 1fr">
