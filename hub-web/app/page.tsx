@@ -161,19 +161,19 @@ export default function Home() {
           </div>
           <a href="/fields">업무분야 전체보기</a>
         </div>
-        <div className="field-groups">
+        <div className="field-bands">
           {groupedFields.map(([group, items]) => (
-            <article key={group}>
-              <h3>{group}</h3>
-              <div>
+            <div className="field-band" key={group}>
+              <span className="field-band-label">{group}</span>
+              <div className="field-band-chips">
                 {items.map((field) => (
-                  <a href={field.href} key={field.id}>
+                  <a href={field.href} key={field.id} className="field-chip">
                     <strong>{field.name}</strong>
                     <span>{field.caseCount.toLocaleString()}건</span>
                   </a>
                 ))}
               </div>
-            </article>
+            </div>
           ))}
         </div>
       </section>
