@@ -2327,11 +2327,13 @@ h2 {
   align-items: end;
   padding: 96px var(--gx) 0;
   color: var(--ink);
-  background: var(--white);
+  background: linear-gradient(135deg, #f0f3f8 0%, var(--paper-2) 100%);
+  overflow: hidden;
 }
 
 .lawyer-hero-copy {
-  padding-bottom: 86px;
+  align-self: center;
+  padding-bottom: 40px;
 }
 
 .lawyer-hero-copy nav {
@@ -2409,13 +2411,15 @@ h2 {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  overflow: hidden;
 }
 
 .lawyer-hero-photo img {
   width: min(100%, 520px);
-  max-height: calc(100vh - 150px);
+  height: calc(100% + 60px);
   object-fit: contain;
-  object-position: bottom;
+  object-position: top center;
+  margin-bottom: -60px;
 }
 
 
