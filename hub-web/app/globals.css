@@ -2379,10 +2379,11 @@ h2 {
 }
 
 .lawyer-hero-tags span {
-  padding: 9px 12px;
-  color: var(--ink);
-  background: var(--gold-light);
-  font-weight: 900;
+  padding: 9px 16px;
+  color: var(--white);
+  background: var(--navy);
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .lawyer-hero-actions a {
