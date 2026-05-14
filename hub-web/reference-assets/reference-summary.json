@@ -1,0 +1,871 @@
+{
+  "collectedAt": "2026-05-13T03:50:26.098Z",
+  "sources": {
+    "ohyun": "https://xn--v92b7yba209gttbpx5b.com/",
+    "daeryun": "https://www.daeryunlaw.com/"
+  },
+  "ohyun": {
+    "menu": [
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLocation",
+        "text": "오시는길"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohIntro",
+        "text": "오현소개"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerList",
+        "text": "구성원소개"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohCenter",
+        "text": "업무분야(센터)"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=consult",
+        "text": "고객상담"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=intellectual",
+        "text": "법률지식인"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=info",
+        "text": "법률정보"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohIncruit",
+        "text": "인재채용"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=press",
+        "text": "오현소식"
+      },
+      {
+        "url": "https://www.xn--v92b7yba209gttbpx5b.com/sub.php?code=info",
+        "text": "법률정보센터 +"
+      }
+    ],
+    "fieldLinks": [
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/#",
+        "text": "실시간 전화상담"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/#msection4",
+        "text": "온라인 상담신청"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLocation",
+        "text": "오시는길"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohIntro",
+        "text": "오현소개"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerList",
+        "text": "구성원소개"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohCenter",
+        "text": "업무분야(센터)"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohSpecial",
+        "text": "오현만의 특별함"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=digitalForensic",
+        "text": "디지털포렌식"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=consult",
+        "text": "고객상담"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=intellectual",
+        "text": "법률지식인"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=info",
+        "text": "법률정보"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohIncruit",
+        "text": "인재채용"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=press",
+        "text": "오현소식"
+      },
+      {
+        "url": "http://ohcrime.com/",
+        "text": "형사센터 +"
+      },
+      {
+        "url": "https://xn--9d0bt7xv7a0xhrplktodoh.com/",
+        "text": "도로교통 +"
+      },
+      {
+        "url": "http://xn--289aq8y23acf26qh8m0eu7cy75e.com/",
+        "text": "경제범죄 +"
+      },
+      {
+        "url": "http://xn--v42bwm31b0xhr6ad2owudf72bjpb.com/",
+        "text": "명예회복 +"
+      },
+      {
+        "url": "http://xn--z92b21ac0glcu4c81v42af54f4a.com/",
+        "text": "이혼,상속 +"
+      },
+      {
+        "url": "http://xn--2q1bv3lv7a4vd0jva642kfv1a.com/",
+        "text": "부동산 +"
+      },
+      {
+        "url": "http://ohdcrime.com/",
+        "text": "마약 +"
+      },
+      {
+        "url": "http://www.ohchusim.com/",
+        "text": "추심 +"
+      },
+      {
+        "url": "http://ohscrime.com/",
+        "text": "성범죄 +"
+      },
+      {
+        "url": "http://xn--h49ap70b6yefqr.org/",
+        "text": "회생,파산 +"
+      },
+      {
+        "url": "http://xn--9d0bl9rqnc2zbpxih8m03uftcstc.com/",
+        "text": "학교폭력 +"
+      },
+      {
+        "url": "http://ohlabor.com/",
+        "text": "노사 +"
+      },
+      {
+        "url": "http://xn--6e0bj5xv7ayxhca193ifyyeia.com/",
+        "text": "군형사, 징계 +"
+      },
+      {
+        "url": "https://www.xn--v92b7yba209gttbpx5b.com/sub.php?code=info",
+        "text": "법률정보센터 +"
+      }
+    ],
+    "lawyerLinks": [
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=2",
+        "text": "부장판사 역임 고영석 변호사"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=75",
+        "text": "서울동부지검 검사장 역임 황윤성 변호사"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=3",
+        "text": "검찰지청장 역임 이용 변호사"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=83",
+        "text": "차장검사·지청장 역임 김창 변호사"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=77",
+        "text": "법원장 역임 이태수 변호사"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=89",
+        "text": "군사법원장·고등검찰부장 역임 배순도 변호사"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=4",
+        "text": "검사 역임 황규련 변호사"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=109",
+        "text": "부장판사역임 이철규 변호사"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=15",
+        "text": "IT법전문, 형사법전문 양제민 변호사"
+      },
+      {
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=16",
+        "text": "형사법, 가사법전문 김한솔 변호사"
+      }
+    ],
+    "lawyerSamples": [
+      {
+        "name": "부장판사 역임 고영석 변호사",
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=2",
+        "sampleText": "변호사|대전 부산 수원 의정부 인천 광주 대구 창원 성남- 법무법인오현 --> ; 대한변호사 협회등록 법무법인 오현 실시간 전화상담 1661-2661 카카오톡 상담하기 온라인 상담신청 오시는길 맨위로 실시간 전화상담 휴대폰 번호를 입력하시면, 담당 변호사가 직접 전화드립니다 작성자 분류 분류 이혼,가사,상속 관련 문의 민사, 손해배상 관련 문의 형사 관련 문의 성범죄 관련 문의 마약 관련 문의 교통사고, 음주운전 관련 문의 학교폭력 관련 문의 군형사, 징계 관련 문의 경제범죄 관련 문의 의료소송 관련 문의 명예훼손 관련 문의 행정 소송 관련 문의 부동산 관련 문의 식품위생 관련 문의 노동 관련 문의 조세 관련 문의 추심 관련문의 회생파산 관련 문의 휴대폰 개인정보수집 및 이용 동의 [전문보기] 신청 1661-2661 긴급상담시 : 010-9631-0039 오현소개 구성원소개 업무분야(센터) 오현만의 특별함 디지털포렌식 고객상담 고객상담 법률지식인 법률정보 인재채용 오현소식 오시는길 24시간, 지역별 상담 가능 대표전화번호: 1661-2661 구성원 소개 부장판사 역임 고영석 총괄센터장 Ko Young Seok “부장판사를 역임하며 갖추게 된 관록과 통찰력을 바탕으로 의뢰인께 가장 나은 선택을 제시해드리겠습니다.\" 약력 서울 한성고등학교 서울대학교 법학과 서울대학교 대학원 상법학 수료 제26회 사법시험 합격 제16기 사법연수원 수료 서울남부지방법원 부장판사(형사) 인천지방법원 부장판사(민·형사) 대법원 재판연구관(민·형사·행정) 서울고등법원 판사 서울서부지방법원 판사 (민·형사) 전주지방법원 군산지원 익산시법원 판사 전주지방법원 군산지원 판사 서울중앙지방법원 형사부 판사 의정부지방법원 판사 육군법무관 법무법인 충정 정부법무공단 변호사실장 법무법인 오현 형사사건센터장​ 주요활동 군산시 을구, 익산시 을구, 인천 강화, 서구 선거관리위원장 대법원 행정심판위원 소청심사위원회 비상임위원 한국수력원자력 특수계약심의위원 한국전력공사 공정계약심의외부위원 한국남동발전 계약심의위원​ 주요업무사례 법무부의 법무법인에 대한 정직처분 취소사건(1,2,3심) 법무부, 인천공항출입국외국인청의 정보공개거부처분취소 및 손해배상 청구사건(1심) 문화체육관광부의 매립공사완료공고처분취소사건(2, 3심) 대학의 도로무단사용에 대한 문체부의 변상금부과처분취소사건(2심에서 1심 취소, 대법원 상고기각) 여주시의 토지소유자 87명 집단환지예정지 지정 취소사건(1심) 국가공무원인재개발원에 대한 손해배상 청구(1심), 인사혁신처 호봉정정거부처분취소 청구(1심) 국방부의 사인 소유의 임야에 대한 무단 훈련장 등 개설을 이유로 한 6억 손해배상(부당이득금) 청구 사건(2심에서 1심 취소, 대법원 상고기각) 세월호사고 관련 손해배상, 구상금 청구사건 부대의 저유소로 인한 토지오염, 야간 점등으로 인한 농사 피해,"
+      },
+      {
+        "name": "서울동부지검 검사장 역임 황윤성 변호사",
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=75",
+        "sampleText": "변호사|대전 부산 수원 의정부 인천 광주 대구 창원 성남- 법무법인오현 --> ; 대한변호사 협회등록 법무법인 오현 실시간 전화상담 1661-2661 카카오톡 상담하기 온라인 상담신청 오시는길 맨위로 실시간 전화상담 휴대폰 번호를 입력하시면, 담당 변호사가 직접 전화드립니다 작성자 분류 분류 이혼,가사,상속 관련 문의 민사, 손해배상 관련 문의 형사 관련 문의 성범죄 관련 문의 마약 관련 문의 교통사고, 음주운전 관련 문의 학교폭력 관련 문의 군형사, 징계 관련 문의 경제범죄 관련 문의 의료소송 관련 문의 명예훼손 관련 문의 행정 소송 관련 문의 부동산 관련 문의 식품위생 관련 문의 노동 관련 문의 조세 관련 문의 추심 관련문의 회생파산 관련 문의 휴대폰 개인정보수집 및 이용 동의 [전문보기] 신청 1661-2661 긴급상담시 : 010-9631-0039 오현소개 구성원소개 업무분야(센터) 오현만의 특별함 디지털포렌식 고객상담 고객상담 법률지식인 법률정보 인재채용 오현소식 오시는길 24시간, 지역별 상담 가능 대표전화번호: 1661-2661 구성원 소개 서울동부지검 검사장 역임 황윤성 총괄센터장 HWANG YUN SUNG “기업비리, 부패범죄, 조세 및 마약사범 등을 망라한 폭 넓은 수사 경험과 법무부 및 대검찰청에서의 다양한 행정경험, 그리고 WTO 국제통상분쟁 수행 경험을 활용하여 의뢰인이 만족할 수 있는 뛰어난 법률서비스를 제공하겠습니다.\" 학력 서울대학교 법과대학 영국 옥스퍼드대학교 (Visiting Scholar) 약력 제26회 사법시험 합격 제16기 사법연수원 수료 육군법무관&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 서울지검 북부지청 검사&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 전주지검 군산지청 검사&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 법무부 국제법무심의관실 검사&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 서울지검 검사&nbsp; 주제네바 대한민국대표부 법무협력관&nbsp; 서울지검 북부지청 부부장검사&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 대검찰청 검찰연구관&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 수원지검 강력부장검사&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 법무부 국제법무과장&nb"
+      },
+      {
+        "name": "검찰지청장 역임 이용 변호사",
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=3",
+        "sampleText": "변호사|대전 부산 수원 의정부 인천 광주 대구 창원 성남- 법무법인오현 --> ; 대한변호사 협회등록 법무법인 오현 실시간 전화상담 1661-2661 카카오톡 상담하기 온라인 상담신청 오시는길 맨위로 실시간 전화상담 휴대폰 번호를 입력하시면, 담당 변호사가 직접 전화드립니다 작성자 분류 분류 이혼,가사,상속 관련 문의 민사, 손해배상 관련 문의 형사 관련 문의 성범죄 관련 문의 마약 관련 문의 교통사고, 음주운전 관련 문의 학교폭력 관련 문의 군형사, 징계 관련 문의 경제범죄 관련 문의 의료소송 관련 문의 명예훼손 관련 문의 행정 소송 관련 문의 부동산 관련 문의 식품위생 관련 문의 노동 관련 문의 조세 관련 문의 추심 관련문의 회생파산 관련 문의 휴대폰 개인정보수집 및 이용 동의 [전문보기] 신청 1661-2661 긴급상담시 : 010-9631-0039 오현소개 구성원소개 업무분야(센터) 오현만의 특별함 디지털포렌식 고객상담 고객상담 법률지식인 법률정보 인재채용 오현소식 오시는길 24시간, 지역별 상담 가능 대표전화번호: 1661-2661 구성원 소개 검찰지청장 역임 이용 총괄센터장 LEE YONG \"부장검사, 판사 및 지청장의 경력과 노하우를 기반으로 법률적 조력이 필요한 분들을 위한 든든한 방패막이 되겠습니다.\" 약력 경기고등학교 서울대학교 법과대학 서울대학교 법률전문대학원 형사법전공 박사졸업 사법시험 30회 수석합격(사법연수원 20기) 서울민사지방법원 판사 서울지방검찰청 검사 대검찰청 연구관 KEDO 뉴욕파견(법률부 과장) 부산지방검찰청 외사부장 서울남부지방검찰청 형사1부장 서울고등검찰청 부장검사 수원지방검찰청 부장검사 서울남부검찰청 부장검사 부산지방검찰청 부장검사 대검찰청 과학수사기획관 전주지방검찰청 군산지청장 대검찰청 연구관 대법원 양형위원회 전문위원 대전지방검찰청 홍성지청장 서울중앙지방검찰청 중요경제범죄조사 2단 단장 (2021. 8. 퇴임) 중앙대학교 법학전문대학원 겸임교수 법무법인오현 형사사건센터장​ 수상내역 검찰총장 표창 (법조비리 유공) 양형분야 공인전문검사 (블루벨트) 홍조근정훈장​ 분야별 성공사례 &nbsp; &nbsp;형사│집행유예│업무방해,폭행,협박│반복적 폭력 및 협박 혐의에서 집행유예 가져온 사건 형사│혐의없음│무고│무고로 고소를 당해 내방하신 사건 형사│혐의없음│주거침입, 재물손괴│별거 중인 아내가 집을 비웠을 때 도어락을 해체하고 집에 들어가 입건된 사건 군형사│집행유예│병역법위반│25세 이상 병역의무자 해외 여행 허가 받지 않아 형사 처벌 위기, 방어 성공 민사│전부승소│대여금반환청구│위조 주장 방어, 5억 대여금 전액 승소 민사, 부동산│일부승소│손실보상금│토지수용재결 및 이의재결을 하였으나 재결금액에 만족하지 못하여 본 법무법인을 찾아와 주신 사건 이혼│이혼재산분할, 양육비감액│혼인 파탄의 귀책사유가 의뢰인에게 있음이 명백"
+      },
+      {
+        "name": "차장검사·지청장 역임 김창 변호사",
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=83",
+        "sampleText": "변호사|대전 부산 수원 의정부 인천 광주 대구 창원 성남- 법무법인오현 --> ; 대한변호사 협회등록 법무법인 오현 실시간 전화상담 1661-2661 카카오톡 상담하기 온라인 상담신청 오시는길 맨위로 실시간 전화상담 휴대폰 번호를 입력하시면, 담당 변호사가 직접 전화드립니다 작성자 분류 분류 이혼,가사,상속 관련 문의 민사, 손해배상 관련 문의 형사 관련 문의 성범죄 관련 문의 마약 관련 문의 교통사고, 음주운전 관련 문의 학교폭력 관련 문의 군형사, 징계 관련 문의 경제범죄 관련 문의 의료소송 관련 문의 명예훼손 관련 문의 행정 소송 관련 문의 부동산 관련 문의 식품위생 관련 문의 노동 관련 문의 조세 관련 문의 추심 관련문의 회생파산 관련 문의 휴대폰 개인정보수집 및 이용 동의 [전문보기] 신청 1661-2661 긴급상담시 : 010-9631-0039 오현소개 구성원소개 업무분야(센터) 오현만의 특별함 디지털포렌식 고객상담 고객상담 법률지식인 법률정보 인재채용 오현소식 오시는길 24시간, 지역별 상담 가능 대표전화번호: 1661-2661 구성원 소개 차장검사·지청장 역임 김창 총괄센터장 KIM CHANG “차장검사, 지청장 등을 역임하는 등 35년간 검사와 변호사로서 쌓아온 법률 지식과 다양한 실무 경험을 활용하여 고객이 만족할 만한 법률서비스를 제공해 드리겠습니다.” 학력 경기고등학교 서울대학교 법과대학 사법학과 미국 페퍼다인(Pepperdine)대학교 (Visiting Scholar) &nbsp; 약력 제31회 사법시험 합격 제21기 사법연수원 수료 서울지방검찰청 서부지청 검사[특수, 강력] 대구지방검찰청 경주지청 검사 인천지방검찰청 검사[특수] 서울지방검찰청 동부지청 검사[지식재산권, 강력] 광주지방검찰청 목포지청 검사 서울중앙지방검찰청 검사 인천지방검찰청 부천지청 부부장검사[선거, 공안] 수원지방검찰청 평택지청 부장검사 광주지방검찰청 해남지청장 부산지방검찰청 공안부장검사 서울남부지방검찰청 형사6부장검사[특수, 공안] 대검찰청 감찰2과장 대검찰청 감찰1과장 서울중앙지방검찰청 형사2부장검사[의료] 춘천지방검찰청 원주지청장 울산지방검찰청 차장검사 광주지방검찰청 순천지청장 부산지방검찰청 제1차장검사 (前)법무법인 화목 대표변호사 (前)법무법인 김장리 구성원변호사 (現)법무법인 오현 구성원변호사 &nbsp; 수상내역 검찰총장 표창(2004) 홍조근정훈장(2013) &nbsp; 주요업무분야 형사[사기·횡령·배임 등 각종 재산범죄/성범죄/학교폭력] 일반민사소송 일반기업법무 의료[의료사고/리베이트/마약] 지식재산권 노동/산업재해 조세 행정심판/행정소송 자본시장 및 금융 건설/부동산 가사[이혼·재산분할]/상속 &nbsp; 분야별 성공사례 &nbsp; &nbsp;음주교통│집행유예│도로교통법위반(음주운전)│다수 전과자의 음주운전, 본 법인에 조력 요청하신 사건 음주교통│"
+      },
+      {
+        "name": "법원장 역임 이태수 변호사",
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=77",
+        "sampleText": "변호사|대전 부산 수원 의정부 인천 광주 대구 창원 성남- 법무법인오현 --> ; 대한변호사 협회등록 법무법인 오현 실시간 전화상담 1661-2661 카카오톡 상담하기 온라인 상담신청 오시는길 맨위로 실시간 전화상담 휴대폰 번호를 입력하시면, 담당 변호사가 직접 전화드립니다 작성자 분류 분류 이혼,가사,상속 관련 문의 민사, 손해배상 관련 문의 형사 관련 문의 성범죄 관련 문의 마약 관련 문의 교통사고, 음주운전 관련 문의 학교폭력 관련 문의 군형사, 징계 관련 문의 경제범죄 관련 문의 의료소송 관련 문의 명예훼손 관련 문의 행정 소송 관련 문의 부동산 관련 문의 식품위생 관련 문의 노동 관련 문의 조세 관련 문의 추심 관련문의 회생파산 관련 문의 휴대폰 개인정보수집 및 이용 동의 [전문보기] 신청 1661-2661 긴급상담시 : 010-9631-0039 오현소개 구성원소개 업무분야(센터) 오현만의 특별함 디지털포렌식 고객상담 고객상담 법률지식인 법률정보 인재채용 오현소식 오시는길 24시간, 지역별 상담 가능 대표전화번호: 1661-2661 구성원 소개 법원장 역임 이태수 최고총괄센터장 LEE TAE SOO “재판의 본질은 법과 증거 그리고 여기에 마음까지 담은 소통의 과정이라고 생각합니다. 30년 간 법원에서 민사, 가사, 형사, 행정, 등 사건을 통해 고민하고 배운 저의 지식과 경험이 재판이라는 소통의 장에서 의뢰인의 답답함과 억울함을 호소하고 풀어가는 데 실질적인 도움을 줄 수 있도록 모든 노력을 다하겠습니다.” 학력 서울대학교 법과 대학 졸업 미국 Duke 대학 Law School(Visiting Scholar) &nbsp; 약력 제32회 사법시험 합격, 연수원 22기 수료 광주가정법원장 역임 서울가정법원 수석부장 역임&nbsp; 서울중앙지방법원 부장판사(지식재산권 전담부) 서울가정법원 부장판사(전문법관) 수원지방법원(안산) 부장판사 대전지방법원 부장판사&nbsp; 서울고등법원 판사&nbsp; 헌법재판소 헌법연구관(파견근무) 인천지방법원(부천) 판사 춘천지방법원(본원 및 강릉) 판사 대구지방법원 판사 2020년 우수법관(서울지방변호사회 선정) 언론중재위원회 중재부장 홍천 및 부여 선거관리위원장 대전 공직자윤리위원회 위원장 &nbsp; &nbsp; 주요 업무사례 &nbsp;가. 민사·행정 분야 렌터카 직원이 위치추적으로 차량에서 금품 절취한 사건 찜질방 바닥 음료수로 인한 이용자 미끄러짐 사고 방송사 프로그램 임베디드 링크 관련 저작권 침해 사건 하태경 의원 ‘북변’ 발언 관련 명예훼손 소송 미성년 자녀 대신 사망보험 계약 체결한 사건 지적장애 아동 놀이기구 이용 제한 관련 장애인 차별 소송 비독창적 아동복 디자인 모방 사건 프리랜서 안무가 발레 작품 저작권 귀속 다툼 골프장 설계도 무단 도용 손해배상 청구 사건 ‘봄봄봄’ 표절 여부에 대한 저작권 침해 소"
+      },
+      {
+        "name": "군사법원장·고등검찰부장 역임 배순도 변호사",
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=89",
+        "sampleText": "변호사|대전 부산 수원 의정부 인천 광주 대구 창원 성남- 법무법인오현 --> ; 대한변호사 협회등록 법무법인 오현 실시간 전화상담 1661-2661 카카오톡 상담하기 온라인 상담신청 오시는길 맨위로 실시간 전화상담 휴대폰 번호를 입력하시면, 담당 변호사가 직접 전화드립니다 작성자 분류 분류 이혼,가사,상속 관련 문의 민사, 손해배상 관련 문의 형사 관련 문의 성범죄 관련 문의 마약 관련 문의 교통사고, 음주운전 관련 문의 학교폭력 관련 문의 군형사, 징계 관련 문의 경제범죄 관련 문의 의료소송 관련 문의 명예훼손 관련 문의 행정 소송 관련 문의 부동산 관련 문의 식품위생 관련 문의 노동 관련 문의 조세 관련 문의 추심 관련문의 회생파산 관련 문의 휴대폰 개인정보수집 및 이용 동의 [전문보기] 신청 1661-2661 긴급상담시 : 010-9631-0039 오현소개 구성원소개 업무분야(센터) 오현만의 특별함 디지털포렌식 고객상담 고객상담 법률지식인 법률정보 인재채용 오현소식 오시는길 24시간, 지역별 상담 가능 대표전화번호: 1661-2661 구성원 소개 군사법원장·고등검찰부장 역임 배순도 총괄센터장 Bae Soon Do “군사법원장, 고등검찰부장 등으로 24년간 재직한 군법무관 경험을 바탕으로 군전문변호사로서 군형사, 징계 등 제반 군 관련 법률 분야에서 의뢰인을 위해 최선을 다하는 자세로 법률서비스를 제공하겠습니다.” 학력 &nbsp; 경북대학교 법학과 경북대학교 대학원 법학과 &nbsp; &nbsp; 약력 제8회 군법무관임용시험합격 군법무관8기 사법연수원수료 제1군단 군사법원 군판사 제5사단 법무참모 육군종합행정학교 법무학교관 제39사단 법무참모 육군본부 군사법원 수석군판사 국방부 고등군사법원 고등군판사 제5군단 법무참모 육군종합행정학교 법무학처장 육군본부 법무실 법제과장 제2작전사령부 법무참모 육군고등검찰부 고등검찰부장 육군본부 법무실 법무계획과장 합동참모본부 법무실장 국방부 고등군사법원 고등1부장 육군군사법원 군사법원장 징계위원회 및 징계항고심사위원회 위원장 인사소청심사위원회 위원장 지구배상심의회 위원장 전역심사위원회 및 명예전역심사위원회 위원 전공사상심사위원회 위원&nbsp; 합동참모회의ㆍ군사시설보호구역심의ㆍ진급심사 법무자문위원 미국 법무관학교 작전법과정 수료 고려대 의료법학연구과정 수료 서울대 금융거래법연구과정 수료 국방부 국방정책연구심의소위원회 위원 정부업무평가 국방부 국정과제평가 전문위원 법무법인 열린사람들 대표변호사​​ 주요 업무사례 가. 군형사, 형사 병역(병무)비리 사건 진급비리 사건 정보사업 군사기밀보호법위반 사건 작전계획 군사기밀보호법위반 사건 비인가자의 군사기밀점유 군사기밀보호법위반 사건 인터넷게재 군사기밀보호법위반 및 군기누설 사건 군사교범 군기누설 사건 제28사단 총기난사 사건 군기록물 DB구축사업 뇌물수수 사건 제28사단 폭행가혹행"
+      },
+      {
+        "name": "검사 역임 황규련 변호사",
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=4",
+        "sampleText": "변호사|대전 부산 수원 의정부 인천 광주 대구 창원 성남- 법무법인오현 --> ; 대한변호사 협회등록 법무법인 오현 실시간 전화상담 1661-2661 카카오톡 상담하기 온라인 상담신청 오시는길 맨위로 실시간 전화상담 휴대폰 번호를 입력하시면, 담당 변호사가 직접 전화드립니다 작성자 분류 분류 이혼,가사,상속 관련 문의 민사, 손해배상 관련 문의 형사 관련 문의 성범죄 관련 문의 마약 관련 문의 교통사고, 음주운전 관련 문의 학교폭력 관련 문의 군형사, 징계 관련 문의 경제범죄 관련 문의 의료소송 관련 문의 명예훼손 관련 문의 행정 소송 관련 문의 부동산 관련 문의 식품위생 관련 문의 노동 관련 문의 조세 관련 문의 추심 관련문의 회생파산 관련 문의 휴대폰 개인정보수집 및 이용 동의 [전문보기] 신청 1661-2661 긴급상담시 : 010-9631-0039 오현소개 구성원소개 업무분야(센터) 오현만의 특별함 디지털포렌식 고객상담 고객상담 법률지식인 법률정보 인재채용 오현소식 오시는길 24시간, 지역별 상담 가능 대표전화번호: 1661-2661 구성원 소개 검사 역임 황규련 총괄센터장 HWANG GYU RYEON \"검사생활을 통해 얻은 깊은 통찰력으로 의뢰인의 권리를 지켜드리겠습니다.\" 약력 서울대 법대 서울지검 의정부지방검찰청 검사 대구지방검찰청 김천지청 검사 창원지방검찰청 검사 법무법인 예일 대표변호사 법무법인오현 형사사건센터장​ 분야별 성공사례 &nbsp; 부동산│조정성립│건물명도 │전략적 조정으로 원만한 인도 확정받은 사건 이혼│화해권고결정│이혼 등│화해권고결정으로 정서적 부담 최소화한 이혼 소송 종결 사건 이혼│조정성립│재산분할│조정 통해 절반 감액 및 빠른 분할 수령 성공한 사건 이혼│조정성립│이혼 등│장기 해외 별거 후 이혼청구 대응으로 재산분할 및 양육비 전면 방어한 사건 경제범죄│무혐의│보이스피싱│보이스피싱 조직 연루 위기에서 무혐의 받아낸 사건 경제범죄│집행유예│관세법위반│집행유예 및 사회봉사 명령으로 실형 면한 사건 경제범죄, 형사│원심파기, 집행유예│배임수증재│인력공급업체 사장으로부터 부정한 청탁을 받고 재물을 교부받아 회사에서 내부감사 및 형사 고소를 당한 사건 경제범죄│기소유예│점유이탈물횡령│지하철 역사 내에서 카드지갑을 습득 후 주인을 찾지 못하여 보관하던 중 수사관의 연락을 받고 조사를 받게 된 사건 성범죄│고지명령면제│준강제추행│신상정보 공개 및 고지명령 면제 이끌어낸 전략적 방어 사건 성범죄│무죄│강제추행│불확실한 진술에 대한 치밀한 반박으로 완전한 무죄 이끌어낸 사건 성범죄│무죄│성폭력범죄의처벌등에관한특례법위반│항거불능 상태 준강간 혐의, 심신상실 해석 다툼 통해 무죄 이끌어낸 사건 성범죄│집행유예│아청법(성매수)│채팅앱으로 알게 된 미성년자 여성과 성관계, 고소당한 사건 마약│무죄│마약류관리에관한법률위반│필로폰 매수 공모 혐의에서"
+      },
+      {
+        "name": "부장판사역임 이철규 변호사",
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=109",
+        "sampleText": "변호사|대전 부산 수원 의정부 인천 광주 대구 창원 성남- 법무법인오현 --> ; 대한변호사 협회등록 법무법인 오현 실시간 전화상담 1661-2661 카카오톡 상담하기 온라인 상담신청 오시는길 맨위로 실시간 전화상담 휴대폰 번호를 입력하시면, 담당 변호사가 직접 전화드립니다 작성자 분류 분류 이혼,가사,상속 관련 문의 민사, 손해배상 관련 문의 형사 관련 문의 성범죄 관련 문의 마약 관련 문의 교통사고, 음주운전 관련 문의 학교폭력 관련 문의 군형사, 징계 관련 문의 경제범죄 관련 문의 의료소송 관련 문의 명예훼손 관련 문의 행정 소송 관련 문의 부동산 관련 문의 식품위생 관련 문의 노동 관련 문의 조세 관련 문의 추심 관련문의 회생파산 관련 문의 휴대폰 개인정보수집 및 이용 동의 [전문보기] 신청 1661-2661 긴급상담시 : 010-9631-0039 오현소개 구성원소개 업무분야(센터) 오현만의 특별함 디지털포렌식 고객상담 고객상담 법률지식인 법률정보 인재채용 오현소식 오시는길 24시간, 지역별 상담 가능 대표전화번호: 1661-2661 구성원 소개 부장판사역임 이철규 총괄센터장 LEE CHUL GYU “의뢰인의 고민과 아픔을 공감하면서 함께 해결해 나가는 동반자가 되겠습니다.” 학력 &nbsp; - 서울 경동고등학교 졸업 - 서울대학교 법학과 졸업 약력 - 제34회 사법시험합격 - 제24기 사법연수원 수료 - 대구지방법원 배석 판사(민사, 형사) - 대구지방법원 김천지원 배석 판사(민사, 형사) - 인천지방법원 부천지원 배석 판사(민사, 형사) - 일본 동경 와세다 대학 지적재산권 연수 - 서울서부지방법원 단독판사(형사) - 서울중앙지방법원 단독 판사(조정) - 서울고등법원 배석 판사(환경전담부, 행정 및 공정거래부) - 서울남부지방법원 단독 판사(민사) - 대전지방법원 부장판사(민사) - 인천지방법원 부장판사(조정 및 소년, 민사) - 서울남부지방법원 부장판사(조정, 민사)&nbsp; - 前) 법무법인 바른 파트너 변호사 &nbsp; 주요 활동 - 법원 재직 시 조정전문가로 전국 법관 및 조정위원 상대로 다수의 강의 - 금융감독원 금융분쟁조정위원회 전문위원(2017. 11. ~ 2023. 12.)&nbsp; - 상사중재원 중재위원(2018. ~ 2023.경) &nbsp; 주요 업무사례 - 버닝썬 사건) 호텔 측 변호하여 검찰에서 무혐의결정 받아낸 사건 - 음주운전 사건) 핸드폰에 촬영하여 보관하고 있는 운전면허증 사진을 제시한 경우에는 공문서 부정행사죄에 해당하지 않는다는 대법원 파기환송 판결을 받아낸 사건 - 항소심에서 뇌물죄가 인정된 군수의 대법원 상고사건) 무죄 취지의 파기환송 판결을 받은 후 파기환송심에서 무죄판결을 받아낸 사건&nbsp; - 안심보장약정 관련 소송) 지역주택조합을 대리하여 다수의 사건을 수행 &nbsp; 언론보도 법원 재직 시 조"
+      },
+      {
+        "name": "IT법전문, 형사법전문 양제민 변호사",
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=15",
+        "sampleText": "변호사|대전 부산 수원 의정부 인천 광주 대구 창원 성남- 법무법인오현 --> ; 대한변호사 협회등록 법무법인 오현 실시간 전화상담 1661-2661 카카오톡 상담하기 온라인 상담신청 오시는길 맨위로 실시간 전화상담 휴대폰 번호를 입력하시면, 담당 변호사가 직접 전화드립니다 작성자 분류 분류 이혼,가사,상속 관련 문의 민사, 손해배상 관련 문의 형사 관련 문의 성범죄 관련 문의 마약 관련 문의 교통사고, 음주운전 관련 문의 학교폭력 관련 문의 군형사, 징계 관련 문의 경제범죄 관련 문의 의료소송 관련 문의 명예훼손 관련 문의 행정 소송 관련 문의 부동산 관련 문의 식품위생 관련 문의 노동 관련 문의 조세 관련 문의 추심 관련문의 회생파산 관련 문의 휴대폰 개인정보수집 및 이용 동의 [전문보기] 신청 1661-2661 긴급상담시 : 010-9631-0039 오현소개 구성원소개 업무분야(센터) 오현만의 특별함 디지털포렌식 고객상담 고객상담 법률지식인 법률정보 인재채용 오현소식 오시는길 24시간, 지역별 상담 가능 대표전화번호: 1661-2661 구성원 소개 IT법전문, 형사법전문 양제민 최고총괄변호사 YANG JE MIN \"증거는 사건의 결과를 바꿀 수 있는 중요한 열쇠입니다. 증거복원업체의 도움을 받고 있는 타사와 달리, 오현은 자체 포렌식센터를 운영하여 공학박사 출신의 변호사가 사건에 알맞은 증거를 복원 및 분석합니다. 사건을 잘 아는 사람은 증거를 잘 다룰 수 있습니다. 더 확실하고 전문적인 과정을 통해 만족할만한 결과를 이끌어 낼 것을 약속합니다.\" 약력 인하대학교 겸임교수 Marquis Who's Who 인명사전 등재 방송통신위원회 위원장상 수상 지식경제부 장관상 수상 인하대학교 정보통신대학원 정보통신공학과 박사 법무법인 오현 형사사건센터장 디지털 증거분석 센터장​ 주요활동 한국마약범죄학회 자문 한국중독범죄학회 정회원 국가인권위원회 자문 국가미래연구원 ICT분과위원​ 저서 마약류 범죄 바로알기, 마약류 범죄의 수사와 처벌 등 주요성공사례 &nbsp; &nbsp;경제범죄│집행유예│배임수재죄│실형 회피, 집행유예 및 추징금 축소 성공 가져온 사건 경제범죄│집행유예│사기│지인들에게 거짓말로 돈을 받고 돌려주지 않아 사기 혐의로 수사기관의 소환 -&gt; 불응하여 체포영장이 나온 사건 경제범죄│집행유예│사기│보이스피싱 배송책으로 범행하여 사기 및 사문서위조 등으로 구속될 위기에 처한 사건 경제범죄│혐의없음│사기방조│여행사 아르바이트에 지원하여 보이스피싱 수거책으로 연루된 사건 경제범죄│징역 1년 6개월│사기│피해자변호│투자 제의를 받고 총 2억 3천여만원을 사기 당한 사건 마약│원심확정│마약류관리에관한법률위반│마약류 관리법 위반 항소심 및 상고심 대응 사건 마약│집행유예│마약류관리법위반│동종 전과에 집행유예 중 재범한 사건, 실형 면한 사례 마약│집행유예│마약류관"
+      },
+      {
+        "name": "형사법, 가사법전문 김한솔 변호사",
+        "url": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=16",
+        "sampleText": "변호사|대전 부산 수원 의정부 인천 광주 대구 창원 성남- 법무법인오현 --> ; 대한변호사 협회등록 법무법인 오현 실시간 전화상담 1661-2661 카카오톡 상담하기 온라인 상담신청 오시는길 맨위로 실시간 전화상담 휴대폰 번호를 입력하시면, 담당 변호사가 직접 전화드립니다 작성자 분류 분류 이혼,가사,상속 관련 문의 민사, 손해배상 관련 문의 형사 관련 문의 성범죄 관련 문의 마약 관련 문의 교통사고, 음주운전 관련 문의 학교폭력 관련 문의 군형사, 징계 관련 문의 경제범죄 관련 문의 의료소송 관련 문의 명예훼손 관련 문의 행정 소송 관련 문의 부동산 관련 문의 식품위생 관련 문의 노동 관련 문의 조세 관련 문의 추심 관련문의 회생파산 관련 문의 휴대폰 개인정보수집 및 이용 동의 [전문보기] 신청 1661-2661 긴급상담시 : 010-9631-0039 오현소개 구성원소개 업무분야(센터) 오현만의 특별함 디지털포렌식 고객상담 고객상담 법률지식인 법률정보 인재채용 오현소식 오시는길 24시간, 지역별 상담 가능 대표전화번호: 1661-2661 구성원 소개 형사법, 가사법전문 김한솔 최고총괄변호사 KIM HAN SOL \"오현만의 실무노하우를 보여드리겠습니다. 형사사건은 변호사의 실무경험과 치밀한 대처방법이 매우 중요합니다. 의뢰인이 괴로운 시간에서 벗어나도록 법무법인 오현은 밤낮없이 최선을 다할 것입니다. 수사 초기 단계부터 사건이 종결되기까지 항상 의뢰인을 먼저 생각하고, 각 사건에 알맞는 해결방안을 제시하여 만족할 수 있는 결과를 도출하겠습니다.\" 약력 (前)형사전문 YK법률사무소 소속변호사 (現)법무법인 오현 총괄책임변호사​ 주요활동 (前)서울지방변호사회 이사 (前)서울지방변호사회 상임관리이사 (前)서울소방재난본부 자문변호사 (前)서울지방교정청 자문변호사 (前)서울지방변호사회 기획위원 (現)서울언북초등학교 학교폭력전담기구 위원 강남서초교육지원청(구 교육청) 학교폭력심의위원회 전문심의위원 대한변호사협회 형사전문분야 등록 대한변호사협회 가사법전문분야 등록​ 특별연수 대한변협 “친권과 양육권 그리고 면접 교섭권” 특별연수 대한변협 “상속재산분할소송 실무” 특별연수 대한변협 “가정보호재판의 실무” 특별연수 대한변협 “위자료와 재산분할의 소송 실무” 특별연수 대한변협 “개정 민법상 성년후견제도” 특별연수​ 주요 변호 실적 이혼 원고대리 ] 친권양육권확보&nbsp; 및 재산분할 기여도 55% 인정 이혼 원고대리 ] 재산분할 100억원 이상 확보 성공 이혼 원고대리 ] 양육비 월 1천만원 결정 성공 마약 피의자 변호 ] 마약류관리법위반(대마) 기소유예 마약 피의자 변호 ] 마약류관리법위반(향정) 구속영장기각 마약 피고인 변호 ] 마약류관리법위반(향정) 무죄 성범죄 피해자 대리 ] 친족관계 강제추행 가해자 징역선고 성공 성범죄 피의자 변호 ] 제자 강제추행 혐의없음 성범죄 "
+      }
+    ]
+  },
+  "daeryun": {
+    "sampleLinks": [
+      {
+        "url": "https://www.daeryunlaw.com/login?redirect=/",
+        "text": "로그인"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/mycase",
+        "text": "나의사건현황"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/inquire",
+        "text": "고객의 소리"
+      },
+      {
+        "url": "tel:1800-7905",
+        "text": "변호사상담 접수 1800-7905"
+      },
+      {
+        "url": "https://daeryunlaw.com/corporate_law",
+        "text": "기업법무 컨설팅"
+      },
+      {
+        "url": "https://career.daeryunlaw.com/",
+        "text": "인재채용"
+      },
+      {
+        "url": "https://ai.daeryunlaw.com/ai",
+        "text": "AI대륜"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/us",
+        "text": "us"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/zh",
+        "text": "zh"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/ja",
+        "text": "ja"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/ru",
+        "text": "ru"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/es",
+        "text": "es"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/fr",
+        "text": "fr"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/ar",
+        "text": "ar"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/greeting",
+        "text": "대륜소개"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/strength",
+        "text": "대륜의 강점"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/corporate_law",
+        "text": "기업법무 컨설팅"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/partners",
+        "text": "업무협력·법률자문 기업"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/maps",
+        "text": "오시는 길"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/mou_lawfirm",
+        "text": "글로벌 파트너 로펌"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/success",
+        "text": "업무사례"
+      },
+      {
+        "url": "https://www.daeryunlaw-comp.com/insights",
+        "text": "기업 인사이트"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/trend",
+        "text": "사례분석/최신동향"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/corporation",
+        "text": "법률정보(법인)"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/individual",
+        "text": "법률정보(개인)"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/faq/comp",
+        "text": "법률지식인"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/reply",
+        "text": "고객후기"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/field/area",
+        "text": "업무분야"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer",
+        "text": "구성원 소개"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/broadcast",
+        "text": "소식/자료"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/notice",
+        "text": "공지사항"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/blog",
+        "text": "법률 블로그"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/archive",
+        "text": "법률서식"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/news",
+        "text": "뉴스레터/브로슈어"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/seminar",
+        "text": "세미나"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/",
+        "text": "변호사 | 법률상담은 법무법인(유한) 대륜"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/choice",
+        "text": "대륜법률상담예약"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/suit",
+        "text": "집단소송 신청"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/relief",
+        "text": "법률 서비스 피해 공익 구제"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/media",
+        "text": "취재문의"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/webtoon",
+        "text": "만화로 보는 사례"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20241108033514",
+        "text": "손계준 변호사 공정거래위원회 서기관 광장 파트너변호사 경력"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20240702035043",
+        "text": "신종수 변호사 하도급·조세·인수 전문 김앤장 파트너변호사 경력"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20251104093323",
+        "text": "윤경원 변호사 주중 한국대사관 공사참사관 대검찰청 인권정책관 경력"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20230821041243",
+        "text": "김원상 변호사 법인 회생·파산 다수 수행 기업 회생·파산 사건 전문"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20241008053306",
+        "text": "조민우 변호사 법원 지재권재판부 기술심리관 특허청 차세대수송심사과 심사관"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20240516030117",
+        "text": "곽내원 변호사 서울행정법원 판사 서울중앙지방법원 판사 경력"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20220520103639",
+        "text": "김인원 변호사 서울중앙지검 부장검사 대전홍성지청 부장검사 경력"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20240206100903",
+        "text": "김영수 변호사 해군 법무병과장·군사법원장 고등군사법원 부장군판사 경력"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20240621035019",
+        "text": "박정규 변호사 수원지법 안산지원 부장판사 대법원 재판연구관 판사 경력"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20250509111303",
+        "text": "조영삼 변호사 춘천지법 판사 창원지법 밀양지원 판사 경력"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20240513032251",
+        "text": "이준희 변호사 의정부지법 고양지원 부장판사 서울고등법원 판사 경력"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20250826022716",
+        "text": "장세창 변호사 의사 자격 보유 변호사 제약사 재직 경력 보유 변호사"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20250306112110",
+        "text": "이상권 변호사 대한변협 채권추심전문변호사 채권추심변호사회 고문"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20250207093842",
+        "text": "오상욱 변호사 부산·서울·중부지방국세청 세무법인 경력"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20250115055813",
+        "text": "조영곤 변호사 서울중앙지검장 대구지검장 경력"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/lawyer/tmp_20241202013436",
+        "text": "김미아 외국변호사(미국) 미국 Washington D.C 변호사 자격· 일반행정사 자격 보유"
+      },
+      {
+        "url": "https://www.daeryunlaw-comp.com/",
+        "text": "기업법무 그룹"
+      },
+      {
+        "url": "https://www.daeryunlaw-iprs.com/",
+        "text": "지식재산권 그룹"
+      },
+      {
+        "url": "https://www.daeryunlaw-trade.com/",
+        "text": "공정거래 그룹"
+      },
+      {
+        "url": "https://www.daeryunlaw-international.com/",
+        "text": "관세·국제통상 그룹"
+      },
+      {
+        "url": "https://www.daeryunlaw-immigrant.com/",
+        "text": "이민·해외투자 그룹"
+      },
+      {
+        "url": "https://www.daeryunlaw-estate.com/",
+        "text": "건설·부동산 그룹"
+      },
+      {
+        "url": "https://www.daeryunlaw-divorce.com/",
+        "text": "이혼 그룹"
+      },
+      {
+        "url": "https://www.daeryunlaw-inherit.com/",
+        "text": "상속·가사 그룹"
+      },
+      {
+        "url": "https://www.daeryunlaw-tax.com/",
+        "text": "조세 그룹"
+      },
+      {
+        "url": "https://www.daeryunlaw-esg.com/",
+        "text": "환경·ESG 그룹"
+      },
+      {
+        "url": "https://www.daeryunlaw-digital.com/",
+        "text": "디지털금융 그룹"
+      },
+      {
+        "url": "https://www.daeryunlaw-audit.com/",
+        "text": "회계감리 그룹"
+      },
+      {
+        "url": "https://www.daeryunlaw-comp.com/success_new/9427",
+        "text": "부당노동행위 시정신청 기각 공정대표의무 위반 혐의로 지방노동위원회 조사, 시정신청 기각 소수 노조가 제기한 공정대표의무 위반 및 부당노동행위 시정신청 사건에서 노조 간부 해고의 통상해고 주장 등을 통해 지방노동위원회 기각을 이끌어냈습니다."
+      },
+      {
+        "url": "https://www.daeryunlaw-comp.com/success_new/9582",
+        "text": "중대재해처벌법 내사종결 토목공사 현장 근로자 사망, 중대재해처벌법 무혐의 내사 종결 공사 현장 근로자 사망 사고와 관련하여 중대재해처벌법 위반 혐의로 수사받던 기업 대표이사를 대리하여 대표이사, 법인 모두 혐의없음 내사종결 처분을 받아냈습니다."
+      },
+      {
+        "url": "https://www.daeryunlaw-comp.com/success_new/9977",
+        "text": "용역비 청구 기각 공동주택 신축사업 용역비 분쟁, 7억 원대 용역비 청구 전부 기각 공동주택 신축사업을 둘러싼 용역비 분쟁에서 부동산개발 법인을 대리해, 자금집행순서 약정 및 정지조건 등을 치열하게 다퉈 7억 원의 용역비 청구를 전부 기각했습니다."
+      },
+      {
+        "url": "https://www.daeryunlaw-comp.com/success_new/9041",
+        "text": "불공정하도급 합의 완료 20억 원 이상 공사대금 미지급 발생한 불공정하도급, 공정위 제소 후 합의 완료 대형 조선회사와 공사 프로젝트 수주 후 미지급된 약 22억 원의 공사대금을 해결하기 위해 공정위 제소, 원청과의 합의·협상을 유도해 사건을 신속히 마무리했습니다."
+      },
+      {
+        "url": "https://www.daeryunlaw.com/success_new/11643",
+        "text": "약정금 전액 배상 사모펀드 불완전판매, 금융기관 책임 100% 인정 ‘전액 배상’ 사모펀드에 수억 원을 투자했으나 만기 후에도 반환을 거부당한 의뢰인을 대리하여 금융기관의 책임이 100% 인정될 수 있도록 조력한 결과, 전액 배상 판결을 받아냈습니다."
+      },
+      {
+        "url": "https://www.daeryunlaw-comp.com/success_new/9327",
+        "text": "독점공급계약 계약 검토 의료기기 제조업체의 유럽 시장 진출 위한 독점공급계약 자문·검토 의료기기 제조업체의 주력 상품 수출 등 유럽 시장 진출을 위한 독점공급계약서의 법률 검토를 수행해 지연 손해배상 및 독소 조항 제거 등 자문을 제공했습니다."
+      },
+      {
+        "url": "https://www.daeryunlaw-military.com/success_new/9206",
+        "text": "구속영장실질심사 영장 기각 국회 청문회 위증 혐의 전 대통령 관련 고위 군 인사, 구속영장 기각 국회 청문회 위증 혐의로 구속영장이 청구된 전직 대통령 관련 고위 군 인사 사건을 맡아, 진술 배경과 모해 목적 부재 변론으로 구속영장 기각을 이끌어냈습니다."
+      },
+      {
+        "url": "https://www.daeryunlaw.com/success_new/10687",
+        "text": "보험사기방지특별법위반 무죄 보험사기·사기방조·허위진단서작성 혐의 의사, 무죄 판결 보험사기·사기방조·허위진단서작성 혐의로 기소되어 의사면허 취소까지 우려된 의료인을 조력하여 상기 모든 혐의에 대해 무죄 판결을 이끌어냈습니다."
+      },
+      {
+        "url": "https://www.daeryunlaw-consulting.com/success_new/9399",
+        "text": "대외무역법 항소심 감형 수입 물품 원산지 허위표시로 대외무역법 위반, 항소심으로 집행유예·벌금 감액 대외무역법 위반 혐의로 1심 실형을 선고받은 기업 대표를 대리하여, 시정조치, 내부 규정 정비를 주장해 항소심에서 집행유예 감형 및 벌금 감액을 이끌어냈습니다."
+      },
+      {
+        "url": "https://www.daeryunlaw-tax.com/success_new/9497",
+        "text": "조세범처벌법위반 등 무죄 30억 원 이상 규모 전자세금계산서 허위 발급 혐의, 무죄 판결 제조업체의 30억 원대 허위세금계산서 발급 혐의에 대해 실제 거래 존재와 사업체의 독립성을 입증해 법원으로부터 무죄를 선고받았습니다."
+      },
+      {
+        "url": "https://d1tgonli21s4df.cloudfront.net/main_new/daeryunBrochure_main.pdf",
+        "text": "Brochure download 법무법인(유한) 대륜 브로슈어"
+      },
+      {
+        "url": "https://www.daeryunlaw.com/brochure",
+        "text": "VIEW MORE 브로슈어 더보기"
+      },
+      {
+        "url": "https://pf.kakao.com/_xgxoTlK/chat",
+        "text": "카톡상담"
+      }
+    ]
+  },
+  "downloaded": [
+    {
+      "source": "ohyun-home",
+      "file": "homepage-01.jpg",
+      "bytes": 83422,
+      "contentType": "image/jpeg",
+      "alt": "주말상담안내",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/images/popup/pop_weekend_s.jpg"
+    },
+    {
+      "source": "ohyun-home",
+      "file": "homepage-02.jpg",
+      "bytes": 77732,
+      "contentType": "image/jpeg",
+      "alt": "울산",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/images/popup/20260126.jpg"
+    },
+    {
+      "source": "ohyun-home",
+      "file": "homepage-03.jpg",
+      "bytes": 84488,
+      "contentType": "image/jpeg",
+      "alt": "울산",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/images/popup/20260211.jpg"
+    },
+    {
+      "source": "ohyun-home",
+      "file": "homepage-04.jpg",
+      "bytes": 24799,
+      "contentType": "image/jpeg",
+      "alt": "법률정보",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/images/202601/main/law_info1.jpg"
+    },
+    {
+      "source": "ohyun-home",
+      "file": "homepage-05.jpg",
+      "bytes": 31585,
+      "contentType": "image/jpeg",
+      "alt": "지식인",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/images/202601/main/law_info2.jpg"
+    },
+    {
+      "source": "ohyun-home",
+      "file": "homepage-06.png",
+      "bytes": 113035,
+      "contentType": "image/png",
+      "alt": "한국지도",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/images/202601/main/map_new_hub.png"
+    },
+    {
+      "source": "ohyun-home",
+      "file": "homepage-07.png",
+      "bytes": 444086,
+      "contentType": "image/png",
+      "alt": "",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/office/seoul/202602041626480675.png"
+    },
+    {
+      "source": "ohyun-home",
+      "file": "homepage-08.jpg",
+      "bytes": 12144,
+      "contentType": "image/jpeg",
+      "alt": "",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/images/202601/main/stat1.jpg"
+    },
+    {
+      "source": "ohyun-home",
+      "file": "homepage-09.jpg",
+      "bytes": 11326,
+      "contentType": "image/jpeg",
+      "alt": "",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/images/202601/main/stat2.jpg"
+    },
+    {
+      "source": "ohyun-home",
+      "file": "homepage-10.jpg",
+      "bytes": 13838,
+      "contentType": "image/jpeg",
+      "alt": "",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/images/202601/main/stat3.jpg"
+    },
+    {
+      "source": "ohyun-home",
+      "file": "homepage-11.jpg",
+      "bytes": 10917,
+      "contentType": "image/jpeg",
+      "alt": "",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/images/202601/main/stat4.jpg"
+    },
+    {
+      "source": "ohyun-home",
+      "file": "homepage-12.jpg",
+      "bytes": 37471,
+      "contentType": "image/jpeg",
+      "alt": "",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/images/202601/main/qm_link1.jpg"
+    },
+    {
+      "source": "ohyun-home",
+      "file": "homepage-13.jpg",
+      "bytes": 64803,
+      "contentType": "image/jpeg",
+      "alt": "",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/images/202601/main/qm_link2.jpg"
+    },
+    {
+      "source": "ohyun-home",
+      "file": "homepage-14.jpg",
+      "bytes": 30515,
+      "contentType": "image/jpeg",
+      "alt": "",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/images/202601/main/qm_link3.jpg"
+    },
+    {
+      "source": "ohyun-home-lawyer",
+      "file": "lawyer-home-01.png",
+      "bytes": 237102,
+      "contentType": "text/plain",
+      "alt": "고영석",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202602031306233063"
+    },
+    {
+      "source": "ohyun-home-lawyer",
+      "file": "lawyer-home-02.png",
+      "bytes": 249388,
+      "contentType": "text/plain",
+      "alt": "황윤성",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202602031321401977"
+    },
+    {
+      "source": "ohyun-home-lawyer",
+      "file": "lawyer-home-03.png",
+      "bytes": 257214,
+      "contentType": "text/plain",
+      "alt": "이용",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202602031307063971"
+    },
+    {
+      "source": "ohyun-home-lawyer",
+      "file": "lawyer-home-04.png",
+      "bytes": 242414,
+      "contentType": "text/plain",
+      "alt": "김창",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202602031321141993"
+    },
+    {
+      "source": "ohyun-home-lawyer",
+      "file": "lawyer-home-05.png",
+      "bytes": 210809,
+      "contentType": "text/plain",
+      "alt": "이태수",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202602031321268225"
+    },
+    {
+      "source": "ohyun-home-lawyer",
+      "file": "lawyer-home-06.png",
+      "bytes": 248470,
+      "contentType": "text/plain",
+      "alt": "배순도",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202602031320488757"
+    },
+    {
+      "source": "ohyun-home-lawyer",
+      "file": "lawyer-home-07.png",
+      "bytes": 229393,
+      "contentType": "text/plain",
+      "alt": "황규련",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202602031307195642"
+    },
+    {
+      "source": "ohyun-home-lawyer",
+      "file": "lawyer-home-08.png",
+      "bytes": 242479,
+      "contentType": "text/plain",
+      "alt": "이철규",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202602031320594862"
+    },
+    {
+      "source": "ohyun-home-lawyer",
+      "file": "lawyer-home-09.png",
+      "bytes": 292990,
+      "contentType": "text/plain",
+      "alt": "양제민",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202602031318318357"
+    },
+    {
+      "source": "ohyun-home-lawyer",
+      "file": "lawyer-home-10.png",
+      "bytes": 283185,
+      "contentType": "text/plain",
+      "alt": "김한솔",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202602031318441568"
+    },
+    {
+      "source": "ohyun-lawyer",
+      "file": "lawyer-01.jpg",
+      "bytes": 48938,
+      "contentType": "text/plain",
+      "alt": "고영석",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202412180039320702",
+      "page": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=2"
+    },
+    {
+      "source": "ohyun-lawyer",
+      "file": "lawyer-02.jpg",
+      "bytes": 131858,
+      "contentType": "text/plain",
+      "alt": "황윤성",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202503111142492230",
+      "page": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=75"
+    },
+    {
+      "source": "ohyun-lawyer",
+      "file": "lawyer-03.jpg",
+      "bytes": 56835,
+      "contentType": "text/plain",
+      "alt": "이용",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202412231704043459",
+      "page": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=3"
+    },
+    {
+      "source": "ohyun-lawyer",
+      "file": "lawyer-04.png",
+      "bytes": 68055,
+      "contentType": "text/plain",
+      "alt": "김창",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202505301344245756",
+      "page": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=83"
+    },
+    {
+      "source": "ohyun-lawyer",
+      "file": "lawyer-05.jpg",
+      "bytes": 22536,
+      "contentType": "text/plain",
+      "alt": "이태수",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202503210922247902",
+      "page": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=77"
+    },
+    {
+      "source": "ohyun-lawyer",
+      "file": "lawyer-06.png",
+      "bytes": 213857,
+      "contentType": "text/plain",
+      "alt": "배순도",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202507161748077329",
+      "page": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=89"
+    },
+    {
+      "source": "ohyun-lawyer",
+      "file": "lawyer-07.jpg",
+      "bytes": 45501,
+      "contentType": "text/plain",
+      "alt": "황규련",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202412231705592465",
+      "page": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=4"
+    },
+    {
+      "source": "ohyun-lawyer",
+      "file": "lawyer-08.png",
+      "bytes": 333216,
+      "contentType": "text/plain",
+      "alt": "이철규",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202601191041038632",
+      "page": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=109"
+    },
+    {
+      "source": "ohyun-lawyer",
+      "file": "lawyer-09.jpg",
+      "bytes": 114809,
+      "contentType": "text/plain",
+      "alt": "양제민",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202412241015348536",
+      "page": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=15"
+    },
+    {
+      "source": "ohyun-lawyer",
+      "file": "lawyer-10.jpg",
+      "bytes": 122495,
+      "contentType": "text/plain",
+      "alt": "김한솔",
+      "url": "https://xn--v92b7yba209gttbpx5b.com/upload/lawyer/202412241023181671",
+      "page": "https://xn--v92b7yba209gttbpx5b.com/sub.php?code=ohLawyerView&idx=16"
+    }
+  ]
+}
