@@ -2327,7 +2327,7 @@ h2 {
   align-items: end;
   padding: 96px var(--gx) 0;
   color: var(--ink);
-  background: linear-gradient(135deg, #f0f3f8 0%, var(--paper-2) 100%);
+  background: var(--white);
 }
 
 .lawyer-hero-copy {
@@ -2416,8 +2416,6 @@ h2 {
   max-height: calc(100vh - 150px);
   object-fit: contain;
   object-position: bottom;
-  mix-blend-mode: multiply;
-  filter: drop-shadow(0 4px 40px rgba(17,27,59,.12));
 }
 
 
