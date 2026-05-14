@@ -6,7 +6,8 @@ import { insights } from '../site-content';
 
 export const metadata: Metadata = {
   title: '사례분석 | 법무법인 오현',
-  description: '법무법인 오현 변호사가 작성하는 사례분석과 최신 실무 동향입니다.'
+  description: '법무법인 오현 변호사가 작성하는 사례분석과 최신 실무 동향입니다.',
+  alternates: { canonical: 'https://www.ohyunlaw.com/insights' }
 };
 
 export default function InsightsPage() {

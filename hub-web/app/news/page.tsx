@@ -6,7 +6,8 @@ import { newsItems } from '../site-content';
 
 export const metadata: Metadata = {
   title: '언론보도·오현소식 | 법무법인 오현',
-  description: '법무법인 오현의 언론보도, 공지, 주요 소식을 확인하세요.'
+  description: '법무법인 오현의 언론보도, 공지, 주요 소식을 확인하세요.',
+  alternates: { canonical: 'https://www.ohyunlaw.com/news' }
 };
 
 export default function NewsPage() {

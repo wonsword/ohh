@@ -6,7 +6,8 @@ import { newsItems } from '../site-content';
 
 export const metadata: Metadata = {
   title: '인재채용 | 법무법인 오현',
-  description: '법무법인 오현 인재채용 안내 페이지입니다.'
+  description: '법무법인 오현 인재채용 안내 페이지입니다.',
+  alternates: { canonical: 'https://www.ohyunlaw.com/careers' }
 };
 
 export default function CareersPage() {

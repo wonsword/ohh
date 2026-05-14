@@ -6,7 +6,8 @@ import { reviews } from '../site-content';
 
 export const metadata: Metadata = {
   title: '의뢰인 후기 | 법무법인 오현',
-  description: '법무법인 오현 의뢰인이 남긴 상담 및 사건 진행 후기입니다.'
+  description: '법무법인 오현 의뢰인이 남긴 상담 및 사건 진행 후기입니다.',
+  alternates: { canonical: 'https://www.ohyunlaw.com/reviews' }
 };
 
 export default function ReviewsPage() {

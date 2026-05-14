@@ -17,7 +17,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${field.name} 변호사 | 법무법인 오현`,
     description: `${field.description}. 법무법인 오현 ${field.name} 분야 상담과 업무사례를 확인하세요.`,
-    keywords: ['법무법인 오현', field.name, ...field.keywords]
+    keywords: ['법무법인 오현', field.name, ...field.keywords],
+    alternates: { canonical: `https://www.ohyunlaw.com/fields/${slug}` }
   };
 }
 
@@ -29,9 +30,20 @@ export default async function FieldDetailPage({ params }: { params: Promise<{ sl
   const relatedCases = cases.filter((item) => item.field === field.name || item.siteId === field.siteId).slice(0, 3);
   const relatedLawyers = lawyers.filter((lawyer) => lawyer.fields.some((name) => field.name.includes(name) || name.includes(field.name))).slice(0, 3);
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '홈', item: 'https://www.ohyunlaw.com' },
+      { '@type': 'ListItem', position: 2, name: '업무분야', item: 'https://www.ohyunlaw.com/fields' },
+      { '@type': 'ListItem', position: 3, name: field.name, item: `https://www.ohyunlaw.com/fields/${field.slug}` }
+    ]
+  };
+
   return (
     <main className="listing-page">
       <SiteHeader />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <PageHero eyebrow="PRACTICE DETAIL" title={field.name} description={field.description} image="/reference-assets/ohyun/homepage-13.jpg">
         <div className="hero-links">
           <a href={field.externalUrl}>분야 사이트 이동</a>

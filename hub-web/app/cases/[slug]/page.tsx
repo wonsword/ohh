@@ -99,10 +99,21 @@ export default async function CaseDetailPage({ params }: CaseDetailParams) {
     }
   };
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '홈', item: 'https://www.ohyunlaw.com' },
+      { '@type': 'ListItem', position: 2, name: '업무사례', item: 'https://www.ohyunlaw.com/cases' },
+      { '@type': 'ListItem', position: 3, name: item.title, item: `https://www.ohyunlaw.com/cases/${item.slug}` }
+    ]
+  };
+
   return (
     <main className="case-detail-page">
       <SiteHeader />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       <section className="case-detail-hero">
         <div>

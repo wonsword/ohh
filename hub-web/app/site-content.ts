@@ -211,8 +211,7 @@ export const stats = [
   { label: '누적 업무사례', value: '8,253+', href: '/cases' },
   { label: '오현소속 변호사수', value: '74+', href: '/lawyers' },
   { label: '전국 분사무소', value: '16+', href: '/about/location' },
-  { label: '분야별 센터', value: '26+', href: '/fields' },
-  { label: '4년 연속 선정', value: '우수 로펌', href: '/about/strength' }
+  { label: '분야별 센터', value: '26+', href: '/fields' }
 ];
 
 export const lawyers: Lawyer[] = [

@@ -15,7 +15,7 @@ export default function LawyersPage() {
   return (
     <main className="listing-page">
       <SiteHeader />
-      <PageHero eyebrow="LAWYERS" title="구성원 소개" description="법무법인 오현 변호사의 주요 경력과 담당 분야를 확인하세요." image="/reference-assets/ohyun/lawyers/lawyer-home-01.png" />
+      <PageHero eyebrow="LAWYERS" title="구성원 소개" description="법무법인 오현 변호사의 주요 경력과 담당 분야를 확인하세요." image="/reference-assets/ohyun/homepage-05.jpg" />
       <LawyerList lawyers={lawyers} fields={fields} />
       <SiteFooter />
     </main>

@@ -37,6 +37,8 @@
 
 * {
   box-sizing: border-box;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 html {
@@ -1060,6 +1062,11 @@ h2 {
   gap: 16px;
 }
 
+.youtube-intro h2 {
+  font-size: clamp(22px, 2.2vw, 30px);
+  color: var(--white);
+}
+
 .youtube-intro p:not(.eyebrow) {
   color: rgba(255,255,255,.72);
   line-height: 1.75;
@@ -1446,14 +1453,21 @@ h2 {
 }
 
 .detail-layout h2 + .mini-list,
-.detail-layout .keyword-list + h2 {
-  margin-top: 34px;
+.detail-layout h2 + .keyword-list {
+  margin-top: 12px;
+}
+
+.detail-layout .keyword-list + h2,
+.detail-layout .mini-list + h2 {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
 }
 
 .mini-list {
   display: grid;
-  gap: 10px;
-  margin-top: 14px;
+  gap: 8px;
+  margin-top: 0;
 }
 
 .mini-list a {

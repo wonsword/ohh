@@ -7,7 +7,8 @@ import { branches, quickLinks } from '../site-content';
 
 export const metadata: Metadata = {
   title: '고객상담 | 법무법인 오현',
-  description: '법무법인 오현 온라인 상담 신청. 성함, 연락처, 상담내용만 입력하면 상담 접수가 가능합니다.'
+  description: '법무법인 오현 온라인 상담 신청. 성함, 연락처, 상담내용만 입력하면 상담 접수가 가능합니다.',
+  alternates: { canonical: 'https://www.ohyunlaw.com/contact' }
 };
 
 export default function ContactPage() {

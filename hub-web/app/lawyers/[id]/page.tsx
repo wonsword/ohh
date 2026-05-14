@@ -63,10 +63,21 @@ export default async function LawyerDetailPage({ params }: LawyerDetailParams) {
     knowsAbout: lawyer.fields
   };
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '홈', item: 'https://www.ohyunlaw.com' },
+      { '@type': 'ListItem', position: 2, name: '구성원 소개', item: 'https://www.ohyunlaw.com/lawyers' },
+      { '@type': 'ListItem', position: 3, name: `${lawyer.name} ${lawyer.title}`, item: `https://www.ohyunlaw.com/lawyers/${lawyer.id}` }
+    ]
+  };
+
   return (
     <main className="lawyer-detail-page">
       <SiteHeader />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       <section className="lawyer-detail-hero">
         <div className="lawyer-hero-copy">
