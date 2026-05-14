@@ -70,7 +70,7 @@ select {
   justify-content: flex-end;
   align-items: center;
   gap: 22px;
-  padding: 0 6vw;
+  padding: 0 max(5vw, calc((100% - 1380px) / 2 + 48px));
   color: rgba(255,255,255,.84);
   background: #07090d;
   font-size: 13px;
@@ -89,7 +89,7 @@ select {
   display: flex;
   align-items: center;
   gap: 26px;
-  padding: 0 6vw;
+  padding: 0 max(5vw, calc((100% - 1380px) / 2 + 48px));
   background: rgba(255,255,255,.96);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(14px);
@@ -209,27 +209,56 @@ select {
   gap: 8px;
 }
 
-.header-search,
-.header-cta,
-.mobile-consult {
-  min-width: 84px;
-  height: 42px;
+.header-search {
+  width: 38px;
+  height: 38px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--navy);
-  font-size: 14px;
-  font-weight: 900;
+  border-radius: 50%;
+  color: var(--ink);
+  transition: background .15s ease;
+}
+
+.header-search:hover {
+  background: var(--paper);
 }
 
 .header-cta,
 .mobile-consult {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 18px;
+  border-radius: 4px;
   color: var(--white);
   background: var(--navy);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  transition: background .15s ease;
+}
+
+.header-cta:hover {
+  background: #1e2f5e;
 }
 
 .mobile-menu {
   display: none;
+}
+
+.mobile-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink);
+  padding: 0;
 }
 
 /* ── Hero 캐러셀 ── */
@@ -471,7 +500,7 @@ h2 {
 }
 
 .section {
-  padding: 72px 6vw;
+  padding: 72px max(5vw, calc((100% - 1380px) / 2 + 48px));
 }
 
 .section-head {
@@ -539,8 +568,9 @@ h2 {
 .profile-card,
 .branch-list article {
   background: var(--white);
-  border: 1px solid var(--line);
-  box-shadow: 0 16px 36px rgba(17,27,59,.07);
+  border: 1px solid rgba(0,0,0,.07);
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 6px 20px rgba(17,27,59,.06);
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
@@ -552,9 +582,9 @@ h2 {
 .case-card:hover,
 .profile-card:hover,
 .branch-list article:hover {
-  transform: translateY(-4px);
-  border-color: rgba(196,154,90,.75);
-  box-shadow: 0 22px 46px rgba(17,27,59,.12);
+  transform: translateY(-3px);
+  border-color: rgba(196,154,90,.5);
+  box-shadow: 0 4px 8px rgba(0,0,0,.06), 0 16px 40px rgba(17,27,59,.11);
 }
 
 .review-titles a {
@@ -594,7 +624,7 @@ h2 {
 .lawyer-section,
 .fields-section,
 .content-section {
-  background: #fbfbfa;
+  background: #f6f7f9;
 }
 
 .quick-service {
@@ -766,7 +796,7 @@ h2 {
 .directory-card {
   min-height: 122px;
   padding: 18px;
-  background: #fbfbfa;
+  background: #f6f7f9;
   border: 1px solid var(--line);
   transition: border-color .18s ease, background .18s ease;
 }
@@ -893,7 +923,7 @@ h2 {
   border: 1px solid var(--line);
   padding: 14px;
   color: var(--ink);
-  background: #fbfbfa;
+  background: #f6f7f9;
 }
 
 .consult-form textarea {
@@ -1076,7 +1106,7 @@ h2 {
 
 .listing-page {
   min-height: 100vh;
-  background: #fbfbfa;
+  background: #f6f7f9;
 }
 
 .filter-band,
@@ -1107,7 +1137,7 @@ h2 {
 .filter-band button {
   padding: 11px 14px;
   border: 1px solid var(--line);
-  background: #fbfbfa;
+  background: #f6f7f9;
   font-weight: 900;
   cursor: pointer;
   font-family: inherit;
@@ -1316,7 +1346,7 @@ h2 {
   height: 42px;
   padding: 0 14px;
   border: 1px solid var(--line);
-  background: #fbfbfa;
+  background: #f6f7f9;
   font-family: inherit;
   font-size: 14px;
   font-weight: 700;
@@ -1384,7 +1414,7 @@ h2 {
   grid-template-columns: 120px 1fr;
   gap: 14px;
   padding: 16px;
-  background: #fbfbfa;
+  background: #f6f7f9;
   border: 1px solid var(--line);
 }
 
@@ -1401,7 +1431,7 @@ h2 {
 
 .stats-mini a {
   padding: 16px;
-  background: #fbfbfa;
+  background: #f6f7f9;
   border: 1px solid var(--line);
 }
 
@@ -1673,7 +1703,7 @@ h2 {
 
 .about-statement {
   padding-top: 64px;
-  background: #fbfbfa;
+  background: #f6f7f9;
 }
 
 .about-statement.dark {
@@ -1779,7 +1809,7 @@ h2 {
 }
 
 .case-detail-page {
-  background: #fbfbfa;
+  background: #f6f7f9;
 }
 
 .case-detail-hero {
@@ -2022,7 +2052,7 @@ h2 {
   margin-bottom: 50px;
   padding: 18px 20px;
   color: var(--muted);
-  background: #fbfbfa;
+  background: #f6f7f9;
   border-left: 4px solid var(--gold);
   font-weight: 800;
 }
@@ -2105,7 +2135,7 @@ h2 {
   display: flex;
   flex-direction: column;
   padding: 24px;
-  background: #fbfbfa;
+  background: #f6f7f9;
   border: 1px solid var(--line);
 }
 
@@ -2137,7 +2167,7 @@ h2 {
 
 .case-tag-list a {
   padding: 13px 16px;
-  background: #fbfbfa;
+  background: #f6f7f9;
   border: 1px solid var(--line);
   font-weight: 900;
 }
@@ -2148,7 +2178,7 @@ h2 {
 
 .case-lawyer-grid a {
   padding: 16px;
-  background: #fbfbfa;
+  background: #f6f7f9;
   border: 1px solid var(--line);
 }
 
@@ -2216,7 +2246,7 @@ h2 {
 }
 
 .lawyer-detail-page {
-  background: #fbfbfa;
+  background: #f6f7f9;
 }
 
 .lawyer-detail-hero {
@@ -2355,7 +2385,7 @@ h2 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 390px;
   gap: 34px;
-  padding: 72px 6vw;
+  padding: 72px max(5vw, calc((100% - 1380px) / 2 + 48px));
   align-items: start;
 }
 
@@ -2408,7 +2438,7 @@ h2 {
 
 .lawyer-field-section,
 .lawyer-other-section {
-  background: #fbfbfa;
+  background: #f6f7f9;
 }
 
 .lawyer-field-grid,
@@ -2829,66 +2859,74 @@ h2 {
 
 @media (max-width: 980px) {
   .utility-bar,
-  .desktop-nav,
-  .header-actions {
+  .desktop-nav {
     display: none;
   }
 
   .site-header {
-    height: 70px;
-    padding: 0 22px;
+    height: 60px;
+    padding: 0 18px;
   }
 
-  .mobile-menu {
-    display: block;
+  /* 데스크탑 header-actions 숨기고 모바일용만 보임 */
+  .header-actions {
+    gap: 4px;
     margin-left: auto;
   }
 
-  .mobile-menu summary {
-    cursor: pointer;
-    list-style: none;
-    padding: 11px 14px;
-    color: var(--white);
-    background: var(--navy);
-    font-weight: 900;
+  .header-cta {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: inline-flex;
   }
 
   .mobile-panel {
     position: fixed;
-    top: 70px;
+    top: 60px;
     right: 0;
     left: 0;
-    max-height: calc(100vh - 70px);
-    overflow: auto;
-    padding: 20px 22px 90px;
+    z-index: 49;
+    max-height: calc(100dvh - 60px);
+    overflow-y: auto;
+    padding: 16px 18px 80px;
     background: var(--white);
     border-top: 1px solid var(--line);
-    box-shadow: var(--shadow);
+    box-shadow: 0 8px 32px rgba(0,0,0,.12);
   }
 
   .mobile-group {
-    padding: 16px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--line);
   }
 
   .mobile-group > a {
     color: var(--navy);
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 900;
   }
 
   .mobile-group div {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 12px;
+    gap: 6px;
+    margin-top: 10px;
   }
 
   .mobile-group div a {
-    padding: 8px 10px;
-    background: #fbfbfa;
-    border: 1px solid var(--line);
-    font-weight: 800;
+    padding: 6px 12px;
+    background: #f6f7f9;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+
+  .mobile-consult {
+    display: flex;
+    width: 100%;
+    margin-bottom: 12px;
   }
 
   .hub-hero,
