@@ -15,7 +15,7 @@
   --shadow: 0 24px 70px rgba(12, 19, 38, .16);
   --transition: .18s ease;
   --section-v: 72px;
-  --gx: max(5vw, calc((100% - 1380px) / 2 + 48px));
+  --gx: max(5vw, calc((100vw - 1380px) / 2 + 48px));
   --container-x: 6vw;
 
   /* 분야별 색상 */
