@@ -297,6 +297,9 @@ select {
   min-height: calc(100vh - 118px);
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding-right: var(--gx);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -412,9 +415,9 @@ h2 {
 }
 
 .hero-phone-badge {
-  position: absolute;
-  right: var(--gx);
-  bottom: 80px;
+  flex-shrink: 0;
+  align-self: flex-end;
+  margin-bottom: 80px;
   z-index: 2;
   padding: 24px 28px;
   background: rgba(7,9,18,.80);
@@ -672,6 +675,10 @@ h2 {
   position: relative;
   overflow: hidden;
   transition: color .18s ease;
+}
+
+.quick-service a:first-child {
+  border-left: 1px solid rgba(255,255,255,.1);
 }
 
 .quick-service a::after {

@@ -67,12 +67,14 @@ export default function Home() {
                   </div>
                 )}
               </div>
+              {index === 0 && (
+                <div className="hero-phone-badge" aria-label="24시간 상담 전화">
+                  <span>24시간 지역별 상담</span>
+                  <strong>1661-2661</strong>
+                </div>
+              )}
             </div>
           ))}
-        </div>
-        <div className="hero-phone-badge" aria-label="24시간 상담 전화">
-          <span>24시간 지역별 상담</span>
-          <strong>1661-2661</strong>
         </div>
         <div className="hero-indicators" aria-hidden="true">
           {heroSlides.map((_, i) => (
