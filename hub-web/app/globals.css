@@ -473,6 +473,7 @@ h2 {
 .stats-band {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  padding: 0 var(--gx);
   background: var(--navy);
   border-top: 3px solid var(--gold);
 }
