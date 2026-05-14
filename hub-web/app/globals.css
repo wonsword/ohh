@@ -2418,59 +2418,14 @@ h2 {
   filter: drop-shadow(0 28px 60px rgba(0,0,0,.35));
 }
 
-.lawyer-detail-tabs {
-  position: sticky;
-  top: 80px;
-  z-index: 40;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: var(--white);
-  border-bottom: 1px solid var(--line);
-  box-shadow: 0 10px 28px rgba(17,27,59,.06);
-}
-
-.lawyer-detail-tabs a {
-  min-height: 68px;
-  display: grid;
-  place-items: center;
-  border-right: 1px solid var(--line);
-  font-weight: 900;
-}
-
-.lawyer-detail-tabs a:hover,
-.lawyer-detail-tabs a:focus {
-  color: var(--white);
-  background: var(--navy);
-}
-
-.lawyer-detail-tabs a.tab-active {
-  color: var(--gold);
-  background: var(--navy);
-  position: relative;
-}
-
-.lawyer-detail-tabs a.tab-active::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--gold);
-}
-
-#intro,
-#career,
-#related-cases,
-#related-lawyers,
-#related-fields {
-  scroll-margin-top: 150px;
-}
 
 .lawyer-intro-section,
 .lawyer-field-section,
+.lawyer-education-section,
 .lawyer-career-section,
 .lawyer-case-section,
 .lawyer-other-section {
-  padding: 92px var(--gx);
+  padding: 72px 0;
 }
 
 .lawyer-detail-body {
@@ -2623,6 +2578,32 @@ h2 {
 .lawyer-career-list strong {
   font-size: 17px;
   line-height: 1.5;
+}
+
+.lawyer-education-section {
+  display: grid;
+  grid-template-columns: 330px minmax(0, 1fr);
+  gap: 60px;
+  background: var(--paper);
+  padding: 56px;
+  border: 1px solid var(--line);
+}
+
+.lawyer-education-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+
+.lawyer-education-list li {
+  padding: 14px 0;
+  font-size: 15px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
 }
 
 .lawyer-case-section {
@@ -3038,6 +3019,7 @@ h2 {
   .lawyer-detail-hero,
   .lawyer-detail-body,
   .lawyer-intro-section,
+  .lawyer-education-section,
   .lawyer-career-section,
   .lawyer-consult-cta,
   .detail-layout,
@@ -3070,10 +3052,6 @@ h2 {
 
   .lawyer-side-column {
     position: static;
-  }
-
-  .lawyer-detail-tabs {
-    top: 70px;
   }
 
   .about-office-grid,
@@ -3156,6 +3134,7 @@ h2 {
   .lawyer-detail-body,
   .lawyer-intro-section,
   .lawyer-field-section,
+  .lawyer-education-section,
   .lawyer-career-section,
   .lawyer-case-section,
   .lawyer-other-section {
@@ -3254,10 +3233,6 @@ h2 {
   .lawyer-case-grid,
   .lawyer-other-grid {
     grid-template-columns: 1fr;
-  }
-
-  .lawyer-detail-tabs {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .about-tabs {

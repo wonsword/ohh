@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { SiteFooter } from '../../components/SiteFooter';
 import { SiteHeader } from '../../components/SiteHeader';
 import { cases, fields, lawyers } from '../../site-content';
-import { LawyerDetailTabs } from './LawyerDetailTabs';
 
 type LawyerDetailParams = {
   params: Promise<{ id: string }>;
@@ -103,8 +102,6 @@ export default async function LawyerDetailPage({ params }: LawyerDetailParams) {
         </div>
       </section>
 
-      <LawyerDetailTabs />
-
       <section className="lawyer-detail-body">
         <div className="lawyer-main-column">
           <section className="lawyer-intro-section" id="intro">
@@ -121,9 +118,23 @@ export default async function LawyerDetailPage({ params }: LawyerDetailParams) {
             </article>
           </section>
 
+          {lawyer.education.length > 0 && (
+            <section className="lawyer-education-section" id="education">
+              <div className="lawyer-career-head">
+                <p className="eyebrow">EDUCATION</p>
+                <h2>학력</h2>
+              </div>
+              <ul className="lawyer-education-list">
+                {lawyer.education.map((edu) => (
+                  <li key={edu}>{edu}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+
           <section className="lawyer-career-section" id="career">
             <div className="lawyer-career-head">
-              <p className="eyebrow">PROFILE</p>
+              <p className="eyebrow">CAREER</p>
               <h2>주요 경력</h2>
             </div>
             <div className="lawyer-career-list">
@@ -133,10 +144,6 @@ export default async function LawyerDetailPage({ params }: LawyerDetailParams) {
                   <strong>{career}</strong>
                 </article>
               ))}
-              <article>
-                <span>{String(lawyer.career.length + 1).padStart(2, '0')}</span>
-                <strong>{lawyer.fields.join(' · ')} 사건 담당</strong>
-              </article>
             </div>
           </section>
         </div>
