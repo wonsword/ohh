@@ -107,7 +107,7 @@ export default async function CaseDetailPage({ params }: CaseDetailParams) {
       <section className="case-detail-hero">
         <div>
           <nav aria-label="현재 위치">
-            <a href="/">Home</a>
+            <a href="/">홈</a>
             <a href="/cases">업무사례</a>
             <span>{item.field}</span>
           </nav>

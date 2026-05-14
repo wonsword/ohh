@@ -74,7 +74,7 @@ export default async function GenericPage({ params }: { params: Promise<{ slug: 
         <section className="about-reference-hero">
           <div>
             <nav aria-label="현재 위치">
-              <a href="/">Home</a>
+              <a href="/">홈</a>
               <span>오현소개</span>
             </nav>
             <h1>오현소개</h1>

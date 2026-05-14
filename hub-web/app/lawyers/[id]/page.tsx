@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { SiteFooter } from '../../components/SiteFooter';
 import { SiteHeader } from '../../components/SiteHeader';
 import { cases, fields, lawyers } from '../../site-content';
+import { LawyerDetailTabs } from './LawyerDetailTabs';
 
 type LawyerDetailParams = {
   params: Promise<{ id: string }>;
@@ -70,7 +71,7 @@ export default async function LawyerDetailPage({ params }: LawyerDetailParams) {
       <section className="lawyer-detail-hero">
         <div className="lawyer-hero-copy">
           <nav aria-label="현재 위치">
-            <a href="/">Home</a>
+            <a href="/">홈</a>
             <a href="/lawyers">구성원 소개</a>
             <span>{lawyer.name}</span>
           </nav>
@@ -91,12 +92,7 @@ export default async function LawyerDetailPage({ params }: LawyerDetailParams) {
         </div>
       </section>
 
-      <nav className="lawyer-detail-tabs" aria-label="구성원 상세 섹션">
-        <a href="#intro">소개</a>
-        <a href="#career">경력</a>
-        <a href="#related-cases">업무사례</a>
-        <a href="#related-fields">업무분야</a>
-      </nav>
+      <LawyerDetailTabs />
 
       <section className="lawyer-detail-body">
         <div className="lawyer-main-column">
