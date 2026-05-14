@@ -2435,8 +2435,8 @@ h2 {
 
 .lawyer-detail-body {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 390px;
-  gap: 34px;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 28px;
   padding: 72px var(--gx);
   align-items: start;
 }
@@ -2461,8 +2461,8 @@ h2 {
 
 .lawyer-intro-section {
   display: grid;
-  grid-template-columns: 330px minmax(0, 1fr);
-  gap: 60px;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 48px;
   background: var(--white);
   padding: 56px;
   border: 1px solid var(--line);
@@ -2549,8 +2549,8 @@ h2 {
 
 .lawyer-career-section {
   display: grid;
-  grid-template-columns: 330px minmax(0, 1fr);
-  gap: 60px;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 48px;
   color: var(--white);
   background: var(--navy);
   padding: 56px;
@@ -2587,8 +2587,8 @@ h2 {
 
 .lawyer-education-section {
   display: grid;
-  grid-template-columns: 330px minmax(0, 1fr);
-  gap: 60px;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 48px;
   background: var(--paper);
   padding: 56px;
   border: 1px solid var(--line);
