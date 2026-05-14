@@ -211,7 +211,8 @@ export const stats = [
   { label: '누적 업무사례', value: '8,253+', href: '/cases' },
   { label: '오현소속 변호사수', value: '74+', href: '/lawyers' },
   { label: '전국 분사무소', value: '16+', href: '/about/location' },
-  { label: '분야별 센터', value: '26+', href: '/fields' }
+  { label: '분야별 센터', value: '26+', href: '/fields' },
+  { label: '4년 연속 선정', value: '우수 로펌', href: '/about/strength' }
 ];
 
 export const lawyers: Lawyer[] = [
@@ -295,7 +296,7 @@ export const navigation = [
   { label: '오현소개', href: '/about', children: [{ label: '소개', href: '/about' }, { label: '오현 강점', href: '/about/strength' }, { label: '오시는 길', href: '/about/location' }, { label: '구성원 소개', href: '/lawyers' }] },
   { label: '업무사례', href: '/cases', children: [{ label: '사례분석', href: '/insights' }, { label: '업무사례', href: '/cases' }] },
   { label: '법률정보', href: '/legal-info', children: [{ label: '법률정보', href: '/legal-info' }, { label: '법률지식인', href: '/faq' }] },
-  { label: '업무분야', href: '/fields', children: fields.slice(0, 8).map((field) => ({ label: field.name, href: field.href })) },
+  { label: '업무분야', href: '/fields', children: fields.map((field) => ({ label: field.name, href: field.href })) },
   { label: '소식', href: '/news', children: [{ label: '의뢰인 후기', href: '/reviews' }, { label: '언론보도', href: '/news' }, { label: '인재채용', href: '/careers' }] },
   { label: '고객상담', href: '/contact', children: [{ label: '온라인 상담', href: '/contact' }, { label: '전화 상담', href: 'tel:16612661' }, { label: '변호사 추천', href: '/lawyers' }] }
 ];
@@ -306,6 +307,12 @@ export const quickLinks = [
   { label: '네이버톡톡', href: '/contact' },
   { label: '전화상담', href: 'tel:16612661' },
   { label: '변호사추천', href: '/lawyers' }
+];
+
+export const youtubeVideos = [
+  { id: 'yt-1', title: '형사사건 수사 초기 대응 완벽 가이드', url: 'https://www.youtube.com/', thumbnail: '/reference-assets/ohyun/homepage-07.png' },
+  { id: 'yt-2', title: '경제범죄 고소장 작성법과 수사기관 대응 전략', url: 'https://www.youtube.com/', thumbnail: '/reference-assets/ohyun/lawyers/lawyer-home-01.png' },
+  { id: 'yt-3', title: '이혼·재산분할 소송 전 반드시 확인할 사항', url: 'https://www.youtube.com/', thumbnail: '/reference-assets/ohyun/lawyers/lawyer-home-02.png' }
 ];
 
 export const staticRoutes = [

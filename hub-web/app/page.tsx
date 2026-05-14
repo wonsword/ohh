@@ -3,7 +3,7 @@ import type { CSSProperties } from 'react';
 import { ConsultationForm } from './components/ConsultationForm';
 import { SiteFooter } from './components/SiteFooter';
 import { SiteHeader } from './components/SiteHeader';
-import { branches, cases, faqs, fields, heroSlides, hubSite, insights, lawyers, stats } from './site-content';
+import { branches, cases, faqs, fields, heroSlides, hubSite, insights, lawyers, reviews, stats, youtubeVideos } from './site-content';
 
 type LawyerStyle = CSSProperties & Record<'--lawyer-image', string>;
 
@@ -21,7 +21,9 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const pinnedCases = [...cases].sort((a, b) => (a.pinnedOrder ?? 99) - (b.pinnedOrder ?? 99)).slice(0, 4);
+  const pinnedCases = [...cases].sort((a, b) => (a.pinnedOrder ?? 99) - (b.pinnedOrder ?? 99)).slice(0, 3);
+  const featuredReviews = reviews.filter((r) => r.featuredOnMain);
+  const uniqueBranchCities = [...new Set(branches.map((b) => b.city))];
   const groupedFields = Object.entries(
     fields.reduce<Record<string, typeof fields>>((acc, field) => {
       acc[field.group] = [...(acc[field.group] ?? []), field];
@@ -46,30 +48,40 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className="hub-hero" aria-labelledby="hero-title">
-        <div className="hero-copy">
-          <p className="eyebrow">{heroSlides[0].eyebrow}</p>
-          <strong className="hero-kicker">오직 결과로 증명하는</strong>
-          <h1 id="hero-title">{heroSlides[0].title}</h1>
-          <span className="hero-subtitle">PROFESSIONAL LAW GROUP</span>
-          <p>{heroSlides[0].lead}</p>
-          <form className="hero-search" action="/search">
-            <input name="q" aria-label="통합 검색어" placeholder="업무분야, 변호사, 업무사례, 법률정보 검색" />
-            <button type="submit">통합검색</button>
-          </form>
-          <div className="hero-links">
-            <a href="/cases">업무사례 보기</a>
-            <a href="/lawyers">변호사 찾기</a>
-            <a href="/contact">상담 예약</a>
-          </div>
+        <div className="hero-track" aria-live="polite">
+          {heroSlides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className="hero-slide"
+              style={{ backgroundImage: `url(${slide.image})` }}
+              aria-hidden={index !== 0}
+            >
+              <div className="hero-copy">
+                <p className="eyebrow">{slide.eyebrow}</p>
+                <h1 id={index === 0 ? 'hero-title' : undefined}>{slide.title}</h1>
+                <p className="hero-lead">{slide.lead}</p>
+                {index === 0 && (
+                  <div className="hero-cta">
+                    <a className="btn-primary" href="/cases">업무사례 보기</a>
+                    <a className="btn-outline" href="/contact">무료 상담 예약</a>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="hero-visual" aria-label="오현 상담 안내">
-          <div>
-            <span>24시간, 지역별 상담 가능</span>
-            <strong>1661-2661</strong>
-          </div>
+        <div className="hero-phone-badge" aria-label="24시간 상담 전화">
+          <span>24시간 지역별 상담</span>
+          <strong>1661-2661</strong>
+        </div>
+        <div className="hero-indicators" aria-hidden="true">
+          {heroSlides.map((_, i) => (
+            <span key={i} className="hero-dot" />
+          ))}
         </div>
       </section>
 
+      {/* ── 성과 수치 ── */}
       <section className="stats-band" aria-label="오현 성과데이터">
         {stats.map((item) => (
           <a key={item.label} href={item.href}>
@@ -79,16 +91,37 @@ export default function Home() {
         ))}
       </section>
 
+      {/* ── 의뢰인 후기 ── */}
+      <section className="section review-section" aria-label="의뢰인 후기">
+        <div className="section-head">
+          <div>
+            <p className="eyebrow">CLIENT REVIEWS</p>
+            <h2>의뢰인이 직접 전하는 후기</h2>
+          </div>
+          <a href="/reviews">후기 전체보기</a>
+        </div>
+        <div className="review-titles">
+          {featuredReviews.map((review) => (
+            <a href="/reviews" key={review.id}>
+              <span>{review.field}</span>
+              <strong>{review.title}</strong>
+              <p>{review.body}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* ── 변호사 ── */}
       <section className="section lawyer-section">
         <div className="section-head">
           <div>
             <p className="eyebrow">LAWYERS</p>
-            <h2>법무법인 오현의 변호사</h2>
+            <h2>형사·민사·경제범죄 전문 변호사</h2>
           </div>
           <a href="/lawyers">구성원 전체보기</a>
         </div>
         <div className="lawyer-grid">
-          {lawyers.slice(0, 6).map((lawyer) => (
+          {lawyers.slice(0, 8).map((lawyer) => (
             <a className="lawyer-card" href={`/lawyers/${lawyer.id}`} key={lawyer.id} style={{ '--lawyer-image': `url(${lawyer.image})` } as LawyerStyle}>
               <span>{lawyer.badges.join(' · ')}</span>
               <strong>{lawyer.name}</strong>
@@ -99,30 +132,32 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── 빠른 서비스 ── */}
       <section className="quick-service section" aria-label="오현 바로가기">
         <a href="/cases">
           <span>업무사례</span>
-          <strong>축적된 오현의 노하우를 확인해 보세요</strong>
+          <strong>8,253건 누적 사례로 검증된 오현의 노하우</strong>
         </a>
         <a href="/legal-info">
           <span>법률정보</span>
-          <strong>최근 법률 이슈와 실무 정보를 확인해 보세요</strong>
+          <strong>변호사가 직접 작성한 최신 법률 정보</strong>
         </a>
         <a href="/faq">
-          <span>지식인</span>
-          <strong>실제 의뢰인이 궁금해한 질문을 확인해 보세요</strong>
+          <span>법률지식인</span>
+          <strong>실제 의뢰인이 가장 많이 묻는 질문</strong>
         </a>
         <a href="/contact">
-          <span>고객센터</span>
-          <strong>사소한 문제도 최선을 다해 조력하겠습니다</strong>
+          <span>무료 상담</span>
+          <strong>24시간 언제든지 상담을 접수하세요</strong>
         </a>
       </section>
 
+      {/* ── 업무분야 ── */}
       <section className="section fields-section">
         <div className="section-head">
           <div>
             <p className="eyebrow">PRACTICE AREAS</p>
-            <h2>업무분야</h2>
+            <h2>오현이 다루는 업무분야</h2>
           </div>
           <a href="/fields">업무분야 전체보기</a>
         </div>
@@ -143,6 +178,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── 업무사례 ── */}
       <section className="section case-section">
         <div className="section-head">
           <div>
@@ -163,20 +199,22 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── 전국 사무소 + 상담폼 ── */}
       <section className="section branch-consult">
         <div className="branch-map">
           <p className="eyebrow">NATIONWIDE OFFICES</p>
           <h2>전국 16개 분사무소 상담 네트워크</h2>
           <p>가까운 지점을 선택하거나 대표번호와 온라인 상담으로 사건을 접수할 수 있습니다.</p>
           <div>
-            {branches.map((branch) => (
-              <a href="/about/location" key={branch.id}>{branch.city}</a>
+            {uniqueBranchCities.map((city) => (
+              <a href="/about/location" key={city}>{city}</a>
             ))}
           </div>
         </div>
         <ConsultationForm compact />
       </section>
 
+      {/* ── FAQ · 법률정보 ── */}
       <section className="section content-section">
         <div className="section-head">
           <div>
@@ -188,7 +226,7 @@ export default function Home() {
         <div className="content-grid">
           {faqs.slice(0, 2).map((faq) => (
             <a href="/faq" key={faq.id}>
-              <span>{faq.category}</span>
+              <span>법률지식인</span>
               <strong>{faq.question}</strong>
               <p>{faq.answer}</p>
             </a>
@@ -203,16 +241,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── YouTube ── */}
       <section className="section youtube-section">
-        <div>
+        <div className="youtube-intro">
           <p className="eyebrow">OHYUN LAW CHANNEL</p>
           <h2>영상으로 확인하는 법률 이슈와 사건 해설</h2>
-          <p>복잡한 법률 이슈와 실제 사건 쟁점을 영상으로 쉽게 확인할 수 있습니다.</p>
+          <p>복잡한 법률 쟁점과 실제 사건 경위를 변호사가 직접 설명합니다.</p>
+          <a href="https://www.youtube.com/" className="btn-yt" target="_blank" rel="noreferrer">채널 바로가기</a>
         </div>
-        <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
-          <span>VIEW CHANNEL</span>
-          <strong>최신 법률 이슈 보기</strong>
-        </a>
+        <div className="youtube-grid">
+          {youtubeVideos.map((v) => (
+            <a
+              key={v.id}
+              href={v.url}
+              className="youtube-card"
+              target="_blank"
+              rel="noreferrer"
+              style={{ backgroundImage: `url(${v.thumbnail})` }}
+              aria-label={v.title}
+            >
+              <div className="youtube-play" aria-hidden="true">▶</div>
+              <strong>{v.title}</strong>
+            </a>
+          ))}
+        </div>
       </section>
 
       <SiteFooter />

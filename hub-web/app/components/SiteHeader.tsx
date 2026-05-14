@@ -1,6 +1,11 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
 import { navigation } from '../site-content';
 
 export function SiteHeader() {
+  const pathname = usePathname();
+
   return (
     <>
       <div className="utility-bar">
@@ -17,16 +22,23 @@ export function SiteHeader() {
         </a>
 
         <nav className="desktop-nav" aria-label="주요 메뉴">
-          {navigation.map((item) => (
-            <div className="nav-item" key={item.href}>
-              <a href={item.href}>{item.label}</a>
-              <div className="nav-panel">
-                {item.children.map((child) => (
-                  <a href={child.href} key={child.href}>{child.label}</a>
-                ))}
+          {navigation.map((item) => {
+            const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
+            const isFields = item.href === '/fields';
+            return (
+              <div
+                className={`nav-item${isActive ? ' nav-item--active' : ''}${isFields ? ' nav-item--fields' : ''}`}
+                key={item.href}
+              >
+                <a href={item.href}>{item.label}</a>
+                <div className="nav-panel">
+                  {item.children.map((child) => (
+                    <a href={child.href} key={child.href}>{child.label}</a>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </nav>
 
         <div className="header-actions">

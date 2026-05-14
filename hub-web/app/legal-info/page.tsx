@@ -5,8 +5,9 @@ import { SiteHeader } from '../components/SiteHeader';
 import { insights } from '../site-content';
 
 export const metadata: Metadata = {
-  title: '법률정보 | 법무법인 오현',
-  description: '상담 전 확인하면 좋은 법무법인 오현의 분야별 법률정보와 실무 콘텐츠입니다.'
+  title: '법률정보',
+  description: '상담 전 확인하면 좋은 법무법인 오현의 분야별 법률정보와 실무 콘텐츠입니다.',
+  alternates: { canonical: 'https://www.ohyunlaw.com/legal-info' }
 };
 
 export default function LegalInfoPage() {
