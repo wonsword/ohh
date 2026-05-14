@@ -1287,6 +1287,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 0;
+  padding: 0 var(--gx);
   background: var(--white);
   border-bottom: 1px solid var(--line);
 }
